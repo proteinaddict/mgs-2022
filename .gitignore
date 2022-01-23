@@ -1,0 +1,8 @@
+
+project/metals.sbt
+/bin/
+project/target/
+target/
+.vscode/
+.metals/
+.bloop/
