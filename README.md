@@ -13,4 +13,4 @@ No lecture notes yet available.
 
 # Launch the working environment
 
-Click here to launch <a href="http://gitpod.io/#https://github.com/jimka2001/mgs-2022"><img src="img/gitpod.png"></a>
+Click here to launch <a href="http://gitpod.io/#https://github.com/jimka2001/mgs-2022"><img alt="gitpod" src="img/gitpod.png" style="vertical-align:middle;margin:50px 0px"></a>
