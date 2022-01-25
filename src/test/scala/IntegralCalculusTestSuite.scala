@@ -23,5 +23,6 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class IntegralCalculusTestSuite extends AnyFunSuite {
   test("test1") {
+    
   }
 }
