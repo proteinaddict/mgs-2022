@@ -21,7 +21,7 @@
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class AbstractAlgebratestSuite extends AnyFunSuite {
+class AbstractAlgebraTestSuite extends AnyFunSuite {
   test("test1") {
   }
 }
