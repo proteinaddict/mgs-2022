@@ -19,9 +19,9 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-object Main {
+import org.scalatest.funsuite.AnyFunSuite
 
-  def main(args: Array[String]):Unit = {
-    println("hello world")
+class ConvergenceTestSuite extends AnyFunSuite {
+  test("test1") {
   }
 }

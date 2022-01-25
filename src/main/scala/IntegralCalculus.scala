@@ -1,5 +1,3 @@
-// Copyright (c) 2020,21 EPITA Research and Development Laboratory
-//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation
 // files (the "Software"), to deal in the Software without restriction,
@@ -19,9 +17,6 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-object Main {
+object IntegralCalculus {
 
-  def main(args: Array[String]):Unit = {
-    println("hello world")
-  }
 }
