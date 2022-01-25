@@ -9,4 +9,4 @@ Enjoy!
 
 # Launch the working environment
 
-Click here to launch <a href="gitpod.io/#https://github.com/jimka2001/mgs-2022">gitpod</a>
+Click here to launch <a href="http://gitpod.io/#https://github.com/jimka2001/mgs-2022">gitpod</a>
