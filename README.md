@@ -11,7 +11,9 @@ Enjoy!
 
 No lecture notes yet available.
 
-# Entering the development environment for the first time
+# The development environment
+
+## Entering the development environment for the first time
 
 You'll need to create a github account if you don't already have one.
 
@@ -28,7 +30,7 @@ will refer to you in the future.  Naming is hard.
 
 Once you have a github account you may launch your workspace.
 
-# Launch the gitpod workspace
+## Launch the gitpod workspace
 
 Click here  <a href="http://gitpod.io/#https://github.com/jimka2001/mgs-2022">
     <img alt="gitpod" 
@@ -36,4 +38,6 @@ Click here  <a href="http://gitpod.io/#https://github.com/jimka2001/mgs-2022">
         style="vertical-align:middle;margin:50px 0px">
     </a> to launch a workspace.
 
-# How to make your changes visible to the world.
+## How to make your changes visible to the world.
+
+The Metals plugin allows you to interface with github.
