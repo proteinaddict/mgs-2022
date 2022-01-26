@@ -1,4 +1,4 @@
-
+*~
 project/metals.sbt
 /bin/
 project/target/
@@ -11,3 +11,8 @@ target/
 .idea
 .jvmopts
 project/project/metals.sbt
+doc/*.aux
+doc/*.fls
+doc/*.log
+doc/*.fdb_latexmk
+
