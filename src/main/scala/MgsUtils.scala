@@ -18,8 +18,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 object MgsUtils {
-  def makeCounter(incr:Int= 1):()=>Int = {
-    var c = 0
+  def makeCounter(start:Int= 0, incr:Int= 1):()=>Int = {
+    var c = start
     def count():Int = {
       c = c + incr
       c

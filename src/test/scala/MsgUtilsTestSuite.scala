@@ -25,12 +25,15 @@ import org.scalatest.funsuite.AnyFunSuite
 class MsgUtilsTestSuite extends AnyFunSuite {
   test("test1") {
     val c1 = makeCounter()
-    val c2 = makeCounter(3)
-
-    assert(c1() == 1)
-    assert(c1() == 2)
-    assert(c2() == 3)
-    assert(c1() == 3)
-    assert(c2() == 6)
+    val c2 = makeCounter(incr=3)
+    val c3 = makeCounter(start=10, incr = -1)
+    assert(c1() == 1, "problem with 1st call to c1")
+    assert(c3() == 9, "problem with 1st call to c3")
+    assert(c1() == 2, "problem with 2nd call to c1")
+    assert(c2() == 3, "problem with 1st call to c2")
+    assert(c2() == 6, "problem with 4th call to c2")
+    assert(c1() == 3, "problem with 3rd call to c1")
+    assert(c2() == 9, "problem with 2nd call to c2")
+    assert(c3() == 8, "problem with 2nd call to c3")
   }
 }
