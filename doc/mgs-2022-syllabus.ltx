@@ -7,7 +7,7 @@
 \title{Visualizing Mathematical Models,\\
 2022 Mississippi Governor's School}
 
-\author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr. Jim Newton}
+\author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr.\ Jim\ Newton}
 \begin{document}
 
 
@@ -72,18 +72,62 @@ organized into three stages
 
 
 \subsection{Sets and Functions}
-Sets, functions, sets of functions, and functions
-on sets of functions.  This includes discussions about finite and
-infinite sets.  We will talk about programming languages and
-functional languages in particular, contrasting them with
-imperative languages.
+\begin{itemize}
+\item Mathematical point of view
+\begin{enumerate}
+\item Definition of set.
+
+\item Axioms of sets, empty set, element relation, subset relation, union,
+intersection, complement, power set, comprehension, Cartesian product
+
+\item Definition of function.  Intuition and definition using Cartesian
+product.  Injection, surjection, inverse function, isomorphism.
+
+\includegraphics[height=4cm]{function.png}\quad
+\includegraphics[height=4cm]{bijective.png}
+
+
+\item Equivalence classes
+
+\item Examples of sets, finite sets, infinite sets (natural numbers,
+integers, rational, real numbers, complex numbers)
+
+\item countable (homomorphic to integers), uncountable
+
+\end{enumerate}
+
+\item Computer Science point of view
+\begin{enumerate}
+\item Programming languages, functional, imperative
+
+\item Types, atomic types: (Double, Int, Boolean)
+
+\item Container types: List, Set, Vector, Map
+
+\item String, sort of atomic, sort of container
+
+\item Function types
+
+\item Testing
+  
+\item Version control
+\end{enumerate}
+\end{itemize}
 \subsubsection{Coding}
-Getting acquainted with the coding environment,
-implementing hello-world in a functional way, basic types, Double,
-Int, String, Set, List, Vector.
+
+\begin{enumerate}
+\item write a function to determine whether a sequence of pairs designates a relation
+\item write a function to determine whether a sequence of pairs designates a function
+\item decide whether such a function is injective, surjective, bijective.
+\item compute the union, intersection, and complement
+\item implement a subset function and an equivalence function based on your subset function.
+\item partition a set into equivalence classes
+\item generalize to partition based on equivalence of probe function.
+\item rewrite step 5 in terms of 6.
+\end{enumerate}
 
   
-\subsection{Abstract Algebra -- Sets with mathematical structure}
+\subsection{Abstract Algebra --- Sets with mathematical structure}
 Monoids, fields, operators and algebraic axioms,
     commutativity, associativity, invertability, nullification.
 Test structural axioms (commutativity etc),
@@ -145,4 +189,4 @@ Understanding the Riemann in terms of infinite
 % LocalWords:  issy pastpresentfuture thispublicdiary illinois pdf
 % LocalWords:  NevadaClassClose techservices teamwork MCCRS MDE usna
 % LocalWords:  SEC OAE org mdek xkcd lrde mgs Modularity Scala monoid
-% LocalWords:  invertability
+% LocalWords:  invertability 2x2
