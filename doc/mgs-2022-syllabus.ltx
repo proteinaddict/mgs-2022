@@ -3,7 +3,7 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage{graphicx}
 \usepackage{url}
-
+\usepackage{amsmath}
 \title{Visualizing Mathematical Models,\\
 2022 Mississippi Governor's School}
 
@@ -73,7 +73,7 @@ organized into three stages
 
 \subsection{Sets and Functions}
 \begin{itemize}
-\item Mathematical point of view
+\item Mathematical perspective
 \begin{enumerate}
 \item Definition of set.
 
@@ -101,7 +101,7 @@ integers, rational, real numbers, complex numbers)
 
 \end{enumerate}
 
-\item Computer Science point of view
+\item Programming perspective
 \begin{enumerate}
 \item Programming languages, functional, imperative
 
@@ -119,10 +119,10 @@ integers, rational, real numbers, complex numbers)
 
 \item Testing
   
-\item Version control
+\item Version control, branch, pull request, pull
 \end{enumerate}
-\end{itemize}
-\subsubsection{Coding}
+
+\item Coding
 
 \begin{enumerate}
 \item write a function to determine whether a sequence of pairs designates a relation
@@ -130,59 +130,161 @@ integers, rational, real numbers, complex numbers)
 \item decide whether such a function is injective, surjective, bijective.
 \item compute the union, intersection, and complement
 \item implement a subset function and an equivalence function based on your subset function.
-\item partition a set into equivalence classes
-\item generalize to partition based on equivalence of probe function.
-\item rewrite step 5 in terms of 6.
 \end{enumerate}
-
+\end{itemize}
   
 \subsection{Abstract Algebra --- Sets with mathematical structure}
-Monoids, fields, operators and algebraic axioms,
+\begin{itemize}
+\item Mathematical perspective
+  \begin{enumerate}
+  \item Monoids
+  \item Ring
+  \item fields
+  \item operators and algebraic axioms,
     commutativity, associativity, invertability, nullification.
-Test structural axioms (commutativity etc),
-    implement exponentiation on a monoid, implement matrix
-    multiplication.  Implement the polynomial ring, with addition,
-    scaling, subtraction multiplication, and exponentiation.
+  \end{enumerate}
+  
+\item Programming perspective
+  \begin{enumerate}
+  \item Monoid of string concatenation
+  \item Monoid List concatenation
+  \item Monoid Set union
+  \item Monoid of function application
+  \item Map[] type (polynomial as motivating example)
+  \item Ring of polynomials (polynomial add, subtract , multiply)
+  \item Ring of matrix (matrix add, subtract, multiply)
+  \item Property based testing
+  \end{enumerate}
+
+\item Coding
+\begin{enumerate}
+\item partition a set into equivalence classes
+\item generalize to partition based on equivalence of probe function.
+\item rewrite step 1 in terms of 2
+\item Implement exponentiation of Double
+\item Generalize to implement exponentiation on a monoid 
+\item implement matrix, add, subtract, multiply
+    multiplication.  
+\item Test structural axioms (commutativity etc), Property based testing
+\item Complex numbers as special case of 2x2 matrix.
+
+\item Implement the polynomial ring, with addition,
+  subtraction, multiplication
+\item Implement polynomial exponentiation
+\end{enumerate}
+\end{itemize}
+
   
 \subsection{Convergence}
-The limit is the most fundamental concept in
-    Calculus.  We will discuss limits in terms of sequences and
-    convergence, distinguishing between Cauchy sequences and
-    convergent sequences.  Coding strategies such as tail recursion,
-    iteration, and folding.
-\subsubsection{Coding}
-Implement the limit function as a function which
-    manipulates functions.  Detect convergence of sequences.
-    Contrast implementations of recursion, iteration, and folding.
+  We will discuss distinguishing between Cauchy sequences and
+    convergent sequences.  
+\begin{itemize}
+\item Mathematical perspective
+  \begin{enumerate}
+  \item The limit is the most fundamental concept in
+    Calculus.
+  \item limits in terms of sequences and
+    convergence,
+  \item Cauchy vs convergent
+  \end{enumerate}
+  
+\item Programming perspective
+  \begin{enumerate}
+  \item recursion
+  \item tail recursion,
+  \item folding.
+  \item higher order functions, 
+  \end{enumerate}
+
+\item Coding
+\begin{enumerate}
+\item Implement the limit function as a function which
+    manipulates functions.
+\item Detect convergence of sequences.
+\item Contrast implementations of recursion, iteration, and folding.
+\end{enumerate}
 
 
+
+\end{itemize}
 
 \subsection{Infinite sums}
-Contrast convergence and summability.
-\subsubsection{Coding}
-Implement the sin, cos, and exp functions in terms
-    of the infinite Taylor series, understanding conditions of
-    convergence, avoiding infinite loops.  Improve convergence using
-    shifting and scaling. Compute sin and cos of square matrices.
-    Complex numbers as special case of 2x2 matrix.
+\begin{itemize}
+\item Mathematical perspective
+  \begin{enumerate}
+  \item Contrast convergence and summability.
+  \end{enumerate}
+  
+\item Programming perspective
+  \begin{enumerate}
+  \item review foldLeft
+  \item introduce foldM
+  \end{enumerate}
 
+\item Coding
+\begin{enumerate}
+\item Implement the sin, cos, and exp functions in terms
+  of the infinite Taylor series
+\item understanding conditions of convergence, avoiding infinite loops.
+\item Improve convergence using shifting and scaling.
+\item Compute sin and cos of square matrices.
+
+\end{enumerate}
+\end{itemize}
 
 \subsection{Differential Calculus}
-Definition of derivative in terms of limit,
-    linearity, derivative of polynomial using mathematical induction.
-\subsubsection{Coding}
-compute derivative by successive approximation using
-    the previous implementation of limit.  Compute exact derivative of
-    a polynomial, and compare two approaches numerically.  Compute sin
-    and cos in terms of derivative, and compare to Taylor series
-    computation.
+\begin{itemize}
+\item Mathematical perspective
+  \begin{enumerate}
+  \item Linearity
+  \item definition of derivative
+  \item linearity using definitionb
+  \item derivative of polynomial using induction
+  \end{enumerate}
+  
+\item Programming perspective
+  \begin{enumerate}
+  \item Definition of derivative in terms of limit,
+  \item derivative of polynomial
+  \end{enumerate}
 
+
+
+\item Coding
+\begin{enumerate}
+\item compute derivative by successive approximation using
+the previous implementation of limit.
+\item Compute exact derivative of a polynomial
+\item compare two approaches numerically.
+\item Compute cos in terms of derivative of sin,
+\item compare to Taylor series computation.
+
+\end{enumerate}
+\end{itemize}
 
 \subsection{Integral Calculus}
-Understanding the Riemann in terms of infinite
+\begin{itemize}
+\item Mathematical perspective
+  \begin{enumerate}
+  \item Understanding the Riemann in terms of infinite
     sums of rectangle and trapezoid areas.
-\subsubsection{Coding} Implement integral (function of function) using
-    limit.  Compute explicit integral of polynomial
+  \item integral of polynomial
+  \end{enumerate}
+  
+\item Programming perspective
+  \begin{enumerate}
+  \item experessing limit of sum of rectangles/trapezoids
+  \end{enumerate}
+
+\item Coding
+\begin{enumerate}
+\item  Implement integral (function of function) using
+  limit.
+\item Compute explicit integral of polynomial
+\item compute volume of a sphere (actually of half a sphere)
+\end{enumerate}
+\end{itemize}
+
 
 
 
