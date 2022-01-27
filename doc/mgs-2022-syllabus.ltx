@@ -86,8 +86,26 @@ intersection, complement, power set, comprehension, Cartesian product
 
 \item Definition of function.
 
-\item logical operators, existance $\exists$, for all $\forall$, implies $\implies$
-  
+\item logical operators, existance $\exists$, for all $\forall$, implies $\implies$.
+
+  Which of the following are true?
+  \begin{align}
+    n \in \mathbb{Z}\quad&\implies n + 1 > n\\
+    n \in \mathbb{Z}\quad&\implies n^2 > n\\
+    n \in \mathbb{Z}\quad&\implies n^2 \geq n\\
+    \nonumber\\
+    \forall n \in \mathbb{Z}\quad& n + 1 > n\\
+    \forall n \in \mathbb{Z}\quad& n^2 > n\\
+    \forall n \in \mathbb{Z}\quad& n^2 \geq n\\
+    \nonumber\\
+    \exists n \in \mathbb{Z}\quad& n + 1 > n\\    
+    \exists n \in \mathbb{Z}\quad& n^2 > n\\
+    \exists n \in \mathbb{Z}\quad& n^2 \geq n\\
+    \nonumber\\
+    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n+1 > n)   &\iff& n+1\leq n)\big)\\
+    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n^2 > n)   &\iff& n^2 \leq n)\big)\\
+    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n^2 \geq n)&\iff& n^2 < n)\big)
+  \end{align}
 \item Intuition and definition using Cartesian
 product.  Injection, surjection, inverse function, isomorphism.
 
@@ -143,11 +161,52 @@ integers, rational, real numbers, complex numbers)
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
-  \item Monoids
-  \item Group
-  \item Ring
-  \item Fields
-  \item Vector Space
+  \item Monoid --- A set $S$ closed under a binary operator $\circ$, for which
+    \begin{enumerate}
+    \item $\circ$ is associative:  $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+    \item identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+    \end{enumerate}
+  \item Group --- A monoid with inverses --- A set $S$ closed under a binary operator $\circ$, for which
+    \begin{enumerate}
+    \item $\circ$ is associative:  $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+    \item identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+    \item inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+    \end{enumerate}
+    If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
+  \item Ring --- A set $S$ with two operators $+$ and $\cdot$ for which $S$ is a Abelian group with respect to $+$ and a monoid with respect to $\cdot$, linked by a distributive law.
+    \begin{enumerate}
+    \item $+$ is associative:  $a,b,c \in S \implies (a+ b) + c = a + (b + c)$
+    \item identity: $\exists 0\in S$ such that $a\in S \implies a + 0 = 0 + a = a$
+    \item inverse: $\forall a\in S~\exists -a\in S$ such that $a + -a = -a + a = 0$
+    \item commutative: $\forall a,b\in S$ we have $a + b = b + a$.
+    \item $\cdot$ is associative:  $a,b,c \in S \implies (a\cdot b) \cdot c = a \cdot (b \cdot c)$
+    \item identity: $\exists e\in S$ such that $a\in S \implies a \cdot e = e \cdot a = a$
+    \item distributive: $a,b,c  \in S \implies a\cdot(b+c)=(a\cdot b)+(a\cdot c)$
+    \end{enumerate}    
+    
+  \item Field --- A ring for which the non-0 elements are also an Abelian group.
+    \begin{enumerate}
+    \item $+$ is associative:  $a,b,c \in S \implies (a+ b) + c = a + (b + c)$
+    \item identity: $\exists 0\in S$ such that $a\in S \implies a + 0 = 0 + a = a$
+    \item inverse: $\forall a\in S~\exists -a\in S$ such that $a + -a = -a + a = 0$
+    \item commutative: $\forall a,b\in S$ we have $a + b = b + a$.
+    \item $\cdot$ is associative:  $a,b,c \in S \implies (a\cdot b) \cdot c = a \cdot (b \cdot c)$
+    \item identity: $\exists e\in S$ such that $a\in S \implies a \cdot e = e \cdot a = a$
+    \item inverse: $\forall a\in S~(a\neq 0)~\exists a^{-1}\in S$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$
+    \item commutative: $\forall a,b\in S$ we have $a \cdot b = b \cdot a$.
+    \item distributive: $a,b,c  \in S \implies a\cdot(b+c)=(a\cdot b)+(a\cdot c)$
+    \end{enumerate}    
+
+  \item Vector Space --- An Abelian group $(G,+)$ of vectors and a
+    field $(F,+,\cdot)$ of scalars with an additional operation,
+    $\circ$ between scalars and vectors (called scalar multiplication)
+    which obey distributive laws.
+  
+    \begin{enumerate}
+    \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$
+    \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$
+    \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$
+  \end{enumerate}    
   \item operators and algebraic axioms,
     commutativity, associativity, invertability, nullification.
   \end{enumerate}
@@ -162,29 +221,34 @@ integers, rational, real numbers, complex numbers)
   \item Ring of polynomials (polynomial add, subtract, multiply)
   \item Ring of matrix (matrix add, subtract, multiply)
   \item Property based testing
+  \item Teamwork projects using git and github.
   \end{enumerate}
 
 \item Coding
-\begin{enumerate}
-\item partition a set into equivalence classes
-\item generalize to partition based on equivalence of probe function.
-\item rewrite step 1 in terms of 2
-\item Implement exponentiation of Double
-\item Generalize to implement exponentiation on a monoid 
-\item implement matrix, add, subtract, multiply
+  \begin{enumerate}
+  \item partition a set into equivalence classes
+  \item generalize to partition based on equivalence of probe function.
+  \item rewrite step 1 in terms of 2
+  \item Implement exponentiation of Double
+  \item Generalize to implement exponentiation on a monoid 
+  \item implement matrix, add, subtract, multiply
     multiplication.  
-\item Test structural axioms (commutativity etc), Property based testing
-\item Complex numbers as special case of $2\times 2$ matrix.
-
-\item Implement the polynomial ring, with addition,
-  subtraction, multiplication
-\item Implement polynomial exponentiation
-\end{enumerate}
+  \item Test structural axioms (commutativity etc), Property based testing.
+    
+  \item Team project: implement functions to detect monoid, group,
+    ring, and field given a finite set, and the $+$ and $\cdot$
+    operations.
+  \item Complex numbers as special case of $2\times 2$ matrix.
+    
+  \item Implement the polynomial ring, with addition,
+    subtraction, multiplication
+  \item Implement polynomial exponentiation
+  \end{enumerate}
 \end{itemize}
 
   
 \pagebreak\subsection{Convergence}
-\includegraphics[width=14cm]{Archimedes-pi.png}
+\noindent\includegraphics[width=\textwidth]{Archimedes-pi.png}
 \footnote{By Original: FredrikVector: Leszek Krupinski --- Own work based on: Archimedes pi.png:  by Fredrik, Public Domain, \url{https://commons.wikimedia.org/w/index.php?curid=1250248}.}
 
   We will discuss distinguishing between Cauchy sequences and
@@ -264,23 +328,23 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
 \item understanding conditions of convergence, avoiding infinite loops.
 \item Improve convergence using shifting and scaling.
 \item Compute sin and cos of square matrices.
-\item Compute sin and cos of complex numbers using 2x2 matrix
+\item Compute sin and cos of complex numbers using $2\times 2$ matrix
 \end{enumerate}
 \end{itemize}
 
 \pagebreak\subsection{Differential Calculus}
 \noindent\includegraphics[width=10cm]{Secant-calculus.png}
-\footnote{By derivative work: Pbroks13 (talk) \text{Secant--calculus.png}: Shizhao --- \text{Secant--calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
+\footnote{By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
 \\The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.
 
 
 \noindent\includegraphics[width=10cm]{Lim-secant.png}
-\footnote{By derivative work: Pbroks13 (talk) \text{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \text{Lim-secant.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4370022}}
+\footnote{By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4370022}}
 \\The tangent line as limit of secants.
 
 
 \noindent\includegraphics[width=10cm]{Tangent-calculus.png}
-\footnote{By derivative work: Pbroks13 (talk) \text{Tangent-calculus.png}: Rhythm --- \text{Tangent-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369975}}
+\footnote{By derivative work: Pbroks13 (talk) \texttt{Tangent-calculus.png}: Rhythm --- \texttt{Tangent-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369975}}
 \\The tangent line at $(x, f(x))$.
 
 \begin{itemize}
@@ -362,4 +426,4 @@ $[a,b]$.
 % LocalWords:  issy pastpresentfuture thispublicdiary illinois pdf
 % LocalWords:  NevadaClassClose techservices teamwork MCCRS MDE usna
 % LocalWords:  SEC OAE org mdek xkcd lrde mgs Modularity Scala monoid
-% LocalWords:  invertability 2x2
+% LocalWords:  invertability
