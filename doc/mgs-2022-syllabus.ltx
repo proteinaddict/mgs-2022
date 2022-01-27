@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{svg}
 \title{Visualizing Mathematical Models,\\
 2022 Mississippi Governor's School}
 
@@ -67,11 +69,13 @@ organized into three stages
 
 
 
-
+\pagebreak
 \section{Syllabus}
 
 
 \subsection{Sets and Functions}
+\includegraphics[width=8cm]{Venn-A-intersect-B.png}
+\footnote{By Ethaniel --- \url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg}, CC0, \url{https://commons.wikimedia.org/w/index.php?curid=98106965}.}
 \begin{itemize}
 \item Mathematical perspective
 \begin{enumerate}
@@ -87,9 +91,9 @@ intersection, complement, power set, comprehension, Cartesian product
 \item Intuition and definition using Cartesian
 product.  Injection, surjection, inverse function, isomorphism.
 
-%% borrowed from https://www.mathsisfun.com/sets/injective-surjective-bijective.html
+
 \includegraphics[height=4cm]{function.png}\quad
-\includegraphics[height=4cm]{bijective.png}
+\includegraphics[height=4cm]{bijective.png}\footnote{Borrowed from \url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}.}
 
 
 \item Equivalence classes
@@ -133,7 +137,9 @@ integers, rational, real numbers, complex numbers)
 \end{enumerate}
 \end{itemize}
   
+\pagebreak
 \subsection{Abstract Algebra --- Sets with mathematical structure}
+\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -153,7 +159,7 @@ integers, rational, real numbers, complex numbers)
   \item Monoid Set union
   \item Monoid of function application
   \item Map[] type (polynomial as motivating example)
-  \item Ring of polynomials (polynomial add, subtract , multiply)
+  \item Ring of polynomials (polynomial add, subtract, multiply)
   \item Ring of matrix (matrix add, subtract, multiply)
   \item Property based testing
   \end{enumerate}
@@ -168,7 +174,7 @@ integers, rational, real numbers, complex numbers)
 \item implement matrix, add, subtract, multiply
     multiplication.  
 \item Test structural axioms (commutativity etc), Property based testing
-\item Complex numbers as special case of 2x2 matrix.
+\item Complex numbers as special case of $2\times 2$ matrix.
 
 \item Implement the polynomial ring, with addition,
   subtraction, multiplication
@@ -177,7 +183,10 @@ integers, rational, real numbers, complex numbers)
 \end{itemize}
 
   
-\subsection{Convergence}
+\pagebreak\subsection{Convergence}
+\includegraphics[width=14cm]{Archimedes-pi.png}
+\footnote{By Original: FredrikVector: Leszek Krupinski --- Own work based on: Archimedes pi.png:  by Fredrik, Public Domain, \url{https://commons.wikimedia.org/w/index.php?curid=1250248}.}
+
   We will discuss distinguishing between Cauchy sequences and
     convergent sequences.  
 \begin{itemize}
@@ -185,9 +194,30 @@ integers, rational, real numbers, complex numbers)
   \begin{enumerate}
   \item The limit is the most fundamental concept in
     Calculus.
+    \[\lim_{n\to\infty} a_n = a\] means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ then $|a_n - a| < \varepsilon$.
   \item limits in terms of sequences and
     convergence,
-  \item Cauchy vs convergent
+    A sequence $\{a\}_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
+
+  \item Cauchy vs convergent.
+      A sequence is $\{a\}_n$ is said to be Cauchy, if $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
+    
+    \includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}
+    \footnote{By Ceranilo, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=54837240}
+    \\Example of a sequence which converges to the limit $a$.
+    
+    \includegraphics[width=9cm]{Epsilonschlauch.png}
+    \footnote{By Ceranilo, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=54836520}
+    \\Regardless which $\varepsilon >0$ we have, there is an index $N_0$, so that the sequence lies afterwards completely in the epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
+.
+
+    
+    \includegraphics[width=9cm]{Epsilonschlauch-klein.png}
+    \footnote{By Ceranilo, CC BY-SA 4.0,
+    https://commons.wikimedia.org/w/index.php?curid=54836607} \\There is
+    also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so that
+    the sequence is afterwards inside the epsilon tube
+    $(a-\varepsilon_{1},a+\varepsilon_{1}$.
   \end{enumerate}
   
 \item Programming perspective
@@ -210,7 +240,11 @@ integers, rational, real numbers, complex numbers)
 
 \end{itemize}
 
-\subsection{Infinite sums}
+\pagebreak\subsection{Infinite sums}
+
+\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan --- Own work, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=27865201}}
+\\As the degree of the Taylor polynomial rises, it approaches the correct function.
+This image shows $\sin x$ and its Taylor approximations by polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -234,7 +268,21 @@ integers, rational, real numbers, complex numbers)
 \end{enumerate}
 \end{itemize}
 
-\subsection{Differential Calculus}
+\pagebreak\subsection{Differential Calculus}
+\noindent\includegraphics[width=10cm]{Secant-calculus.png}
+\footnote{By derivative work: Pbroks13 (talk) \text{Secant--calculus.png}: Shizhao --- \text{Secant--calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
+\\The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.
+
+
+\noindent\includegraphics[width=10cm]{Lim-secant.png}
+\footnote{By derivative work: Pbroks13 (talk) \text{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \text{Lim-secant.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4370022}}
+\\The tangent line as limit of secants.
+
+
+\noindent\includegraphics[width=10cm]{Tangent-calculus.png}
+\footnote{By derivative work: Pbroks13 (talk) \text{Tangent-calculus.png}: Rhythm --- \text{Tangent-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369975}}
+\\The tangent line at $(x, f(x))$.
+
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -264,7 +312,11 @@ the previous implementation of limit.
 \end{enumerate}
 \end{itemize}
 
-\subsection{Integral Calculus}
+\pagebreak\subsection{Integral Calculus}
+\includegraphics[width=13cm]{Riemann-sum-convergence.png}
+\footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
+\\Riemann sums converging.
+
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -276,7 +328,15 @@ the previous implementation of limit.
 \item Programming perspective
   \begin{enumerate}
   \item experessing limit of sum of rectangles/trapezoids
+    
+
   \end{enumerate}
+
+\includegraphics[width=8cm]{Integration-num-trapezes-notation.png}
+\footnote{By Scalerderivative work: Cdang (talk), CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=8541370}}
+\\Illustration of ``chained trapezoidal rule'' used on an irregularly-spaced partition of 
+$[a,b]$.
+
 
 \item Coding
 \begin{enumerate}
