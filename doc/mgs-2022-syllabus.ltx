@@ -6,6 +6,11 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{svg}
+\usepackage{xspace}
+\usepackage{color,colortbl}
+\definecolor{code}{rgb}{ 0,0,0}
+\newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
+
 \title{Visualizing Mathematical Models,\\
 2022 Mississippi Governor's School}
 
@@ -29,7 +34,7 @@ or ameliorate their love for Mathematics
 \item[Computer Science] to learn about functional
 programming by applying programming principles to mathematical
 principles which you'll learn along the way,
-\item[Communication] to reenforce your ability and confidence to explain and defend your ideas
+\item[Communication] to reinforce your ability and confidence to explain and defend your ideas
 \end{description}
 
 In this course you will learn many cursory things along the fast
@@ -86,7 +91,7 @@ intersection, complement, power set, comprehension, Cartesian product
 
 \item Definition of function.
 
-\item logical operators, existance $\exists$, for all $\forall$, implies $\implies$.
+\item logical operators, existence $\exists$, for all $\forall$, implies $\implies$.
 
   Which of the following are true?
   \begin{align}
@@ -102,9 +107,13 @@ intersection, complement, power set, comprehension, Cartesian product
     \exists n \in \mathbb{Z}\quad& n^2 > n\\
     \exists n \in \mathbb{Z}\quad& n^2 \geq n\\
     \nonumber\\
-    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n+1 > n)   &\iff& n+1\leq n)\big)\\
-    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n^2 > n)   &\iff& n^2 \leq n)\big)\\
-    \neg ~\big(n \in \mathbb{Z}\quad & \implies& \neg~ (n^2 \geq n)&\iff& n^2 < n)\big)
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n+1 > n)   ~\big)\label{eq.110}\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 > n)   ~\big)\label{eq.111}\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}\\
+    \nonumber\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big) & \text{equivalent to~\eqref{eq.110}}\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big) & \text{equivalent to~\eqref{eq.111}}\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big) & \text{equivalent to~\eqref{eq.112}}
   \end{align}
 \item Intuition and definition using Cartesian
 product.  Injection, surjection, inverse function, isomorphism.
@@ -119,7 +128,7 @@ product.  Injection, surjection, inverse function, isomorphism.
 \item Examples of sets, finite sets, infinite sets (natural numbers,
 integers, rational, real numbers, complex numbers)
 
-\item countable (homomorphic to integers), uncountable
+\item countable (isomorphic to integers), uncountable
 
 \end{enumerate}
 
@@ -127,101 +136,106 @@ integers, rational, real numbers, complex numbers)
 \begin{enumerate}
 \item Programming languages, functional, imperative
 
-\item Scala and IDE
+\item Create github account
+
+\item Open the development environment
+
+\item Scala and IDE, define simple functions in Scala, run, edit, test, debug in IntelliJ.
   
-\item Types, atomic types: (Double, Int, Boolean)
+\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean})
 
-\item Container types: List, Set, Vector, Map
+\item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}
 
-\item forall and exists methods
+\item \code{forall} and \code{exists} methods
 
-\item String, sort of atomic, sort of container
+\item \code{String}, sort of atomic, sort of container
 
 \item Function types
 
 \item Testing
   
-\item Version control, branch, pull request, pull
+\item Version control, branch, pull
 \end{enumerate}
 
 \item Coding
 
 \begin{enumerate}
-\item write a function to determine whether a sequence of pairs designates a relation
-\item write a function to determine whether a sequence of pairs designates a function
-\item decide whether such a function is injective, surjective, bijective.
-\item compute the union, intersection, and complement
-\item implement a subset function and an equivalence function based on your subset function.
+\item Write a function to determine whether a sequence of pairs designates a relation.
+\item Write a function to determine whether a sequence of pairs designates a function.
+\item Decide whether such a function is injective, surjective, bijective.
+\item Compute the union, intersection, and complement.
+\item Implement a subset function and an equivalence function based on your subset function.
 \end{enumerate}
 \end{itemize}
-  
+
 \pagebreak
 \subsection{Abstract Algebra --- Sets with mathematical structure}
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
 \begin{itemize}
 \item Mathematical perspective
-  \begin{enumerate}
-  \item Monoid --- A set $S$ closed under a binary operator $\circ$, for which
+  \begin{description}
+  \item[Monoid:] $(S,\circ)$ is a monoid if
     \begin{enumerate}
-    \item $\circ$ is associative:  $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
-    \item identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+    \item Closure: $a,b \in S \implies a\circ b \in S$.
+    \item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+    \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
     \end{enumerate}
-  \item Group --- A monoid with inverses --- A set $S$ closed under a binary operator $\circ$, for which
+
+  \item[Group:] $(S,\circ)$ is a group if
     \begin{enumerate}
-    \item $\circ$ is associative:  $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
-    \item identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
-    \item inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+    \item $(S,\circ)$ is a monoid.
+    \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
     \end{enumerate}
     If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
-  \item Ring --- A set $S$ with two operators $+$ and $\cdot$ for which $S$ is a Abelian group with respect to $+$ and a monoid with respect to $\cdot$, linked by a distributive law.
+
+  \item[Ring:] $(S,+,\times)$ is a ring if
     \begin{enumerate}
-    \item $+$ is associative:  $a,b,c \in S \implies (a+ b) + c = a + (b + c)$
-    \item identity: $\exists 0\in S$ such that $a\in S \implies a + 0 = 0 + a = a$
-    \item inverse: $\forall a\in S~\exists -a\in S$ such that $a + -a = -a + a = 0$
-    \item commutative: $\forall a,b\in S$ we have $a + b = b + a$.
-    \item $\cdot$ is associative:  $a,b,c \in S \implies (a\cdot b) \cdot c = a \cdot (b \cdot c)$
-    \item identity: $\exists e\in S$ such that $a\in S \implies a \cdot e = e \cdot a = a$
-    \item distributive: $a,b,c  \in S \implies a\cdot(b+c)=(a\cdot b)+(a\cdot c)$
-    \end{enumerate}    
-    
-  \item Field --- A ring for which the non-0 elements are also an Abelian group.
-    \begin{enumerate}
-    \item $+$ is associative:  $a,b,c \in S \implies (a+ b) + c = a + (b + c)$
-    \item identity: $\exists 0\in S$ such that $a\in S \implies a + 0 = 0 + a = a$
-    \item inverse: $\forall a\in S~\exists -a\in S$ such that $a + -a = -a + a = 0$
-    \item commutative: $\forall a,b\in S$ we have $a + b = b + a$.
-    \item $\cdot$ is associative:  $a,b,c \in S \implies (a\cdot b) \cdot c = a \cdot (b \cdot c)$
-    \item identity: $\exists e\in S$ such that $a\in S \implies a \cdot e = e \cdot a = a$
-    \item inverse: $\forall a\in S~(a\neq 0)~\exists a^{-1}\in S$ such that $a \cdot a^{-1} = a^{-1} \cdot a = e$
-    \item commutative: $\forall a,b\in S$ we have $a \cdot b = b \cdot a$.
-    \item distributive: $a,b,c  \in S \implies a\cdot(b+c)=(a\cdot b)+(a\cdot c)$
+    \item $(S,+)$ is an Abelian group.
+    \item $(S,\times)$ is a monoid.
+    \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
     \end{enumerate}    
 
-  \item Vector Space --- An Abelian group $(G,+)$ of vectors and a
-    field $(F,+,\cdot)$ of scalars with an additional operation,
-    $\circ$ between scalars and vectors (called scalar multiplication)
-    which obey distributive laws.
-  
+    In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+    
+  \item[Field:] $(F,+,\times)$ is a field if
     \begin{enumerate}
-    \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$
-    \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$
-    \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$
+    \item $(F,+)$ is an Abelian group
+    \item $(F \setminus 0, \times)$ is an Abelian group.
+    \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$
+    \end{enumerate}    
+
+  \item[Vector Space:] $(G,F,+,\times,\circ)$ is a vector space if
+    \begin{enumerate}
+    \item $(G,+)$ is an Abelian group.
+    \item $(F,+,\cdot)$ is a field.
+    \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
+    \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
+    \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
   \end{enumerate}    
-  \item operators and algebraic axioms,
-    commutativity, associativity, invertability, nullification.
-  \end{enumerate}
+    Elements of $G$ are called vectors.  Elements of $F$ are called
+    scalars. And $\times$ (normally written as juxtaposition) is
+    called scalar multiplication.
+
+  \end{description}
+
+  Review of definitions: associative, commutative, Abelian,
+  distributive, closure, identity, vector, scalar, scalar
+  multiplication, juxtaposition.
+
+  Fuzzy definitions: zero, one, add, multiply
   
 \item Programming perspective
   \begin{enumerate}
-  \item Monoid of string concatenation
-  \item Monoid List concatenation
-  \item Monoid Set union
-  \item Monoid of function application
-  \item Map[] type (polynomial as motivating example)
-  \item Ring of polynomials (polynomial add, subtract, multiply)
+  \item Monoid of \code{String} concatenation
+  \item Monoid \code{List[Int]} concatenation
+  \item Monoid \code{Set[Int]} union
+  \item (optional Monoid of function application \code{compose})
+  \item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
   \item Ring of matrix (matrix add, subtract, multiply)
+  \item \code{Map[Int,Double]} type (polynomial as motivating example)
+  \item Field of polynomials (polynomial add, scale, subtract, multiply)
   \item Property based testing
-  \item Teamwork projects using git and github.
+  \item Teamwork projects using git and github, pull request, merge.
   \end{enumerate}
 
 \item Coding
@@ -247,12 +261,75 @@ integers, rational, real numbers, complex numbers)
 \end{itemize}
 
   
-\pagebreak\subsection{Convergence}
+\pagebreak\subsection{Convergence} In the previous sections we talked
+about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
+the rationals, and $\mathbb{Q}$.  In particular we talked about what
+distinguishes them from each other.
+
+In an intuitive sense:
+\begin{itemize}
+  \item $\mathbb{N}$ is a set where we can add and
+multiply; \item $\mathbb{Z}$ is a set where we can add, subtract, and
+multiply; and \item $\mathbb{Q}$ is a set where we can add, subtract,
+multiply, and divide.
+\end{itemize}
+
+Unfortunately, we don't have a good example of \textbf{numbers} where
+we can add but not multiply; however, we saw examples of so-called
+monoids such as simple sets where the union operation is associative,
+the empty set, $\emptyset$, is the identity element, but there is no
+inverse operation of union, and nothing like multiplication.  So we
+might say a set is somewhere which allows associative addition, but
+not subtraction and not multiplication.
+
+In this section we will talk about a characteristic property/attribute which
+distinguishes the rational numbers, $\mathbb{Q}$, from the real
+numbers, $\mathbb{R}$.  That important feature of $\mathbb{R}$ not
+shared by $\mathbb{Q}$ is \emph{convergence}.  But what do we mean by
+convergence?
+
+Look at the following image.  It is easy to convince yourself that the
+circumference of the indicated circle with integer radius is a fixed
+quantity.  I.e., it is not an vague, indefinite concept, but the
+circumference of a circle has a real, actual, definite length.
+
+
 \noindent\includegraphics[width=\textwidth]{Archimedes-pi.png}
 \footnote{By Original: FredrikVector: Leszek Krupinski --- Own work based on: Archimedes pi.png:  by Fredrik, Public Domain, \url{https://commons.wikimedia.org/w/index.php?curid=1250248}.}
 
-  We will discuss distinguishing between Cauchy sequences and
-    convergent sequences.  
+
+The
+length of the circumference of the circle is always greater than the
+length of the perimeter of an inscribed polygon, and is always less
+than the length of the perimeter of a circumscribed polygon.
+Moreover, we have a decreasing sequence of numbers and an increasing
+sequence of numbers which grow arbitrarily close together.  I.e.,
+choose any small number, $\varepsilon$.  Now find a sufficiently large
+n such that the perimeter of the circumscribed polygon is within
+$\varepsilon$ of the perimeter of the inscribed polygon.  The
+sandwiched value is the circumference of the circle.
+
+The real numbers, $\mathbb{R}$, is the smallest set which contains all these numbers.
+\[\mathbb{Q} \subset \mathbb{R}\]
+\[\mathbb{R} \not\subset \mathbb{Q}\]
+
+
+As another example, using infinite sums which we will talk about in a later unit, consider the sequence: $(a_0, a_1, a_2, ...)$, such that $a_n$ is defined as:
+\[a_n = \sum_{k=0}^{n}\frac{8}{(4n+1)(4n+3)}\]
+
+This sequence is discussed on wikipedia.\footnote{Leibniz formula,
+\url{https://en.wikipedia.org/wiki/Leibniz_formula_for_pi}}.  This is
+a sequence of rational numbers; each numerator is an integer, namely
+8, and each denominator is an integer.  The successive rational
+numbers, $a_n$ and $a_{n+1}$ may be made as close as you like by
+choosing sufficiently large $n$.  Thus this sequence is Cauchy.
+Nevertheless, the value this sequence tends to is not rational.  Any
+rational number, $q$, you chose, you can find an $N$ such that if
+$n>N$ then either $a_n>q$ or $a_n<q$.  Thus we say that this sequence
+does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  In particular
+\[a_n \to \pi\,.\]
+
+
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -261,42 +338,48 @@ integers, rational, real numbers, complex numbers)
     \[\lim_{n\to\infty} a_n = a\] means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ then $|a_n - a| < \varepsilon$.
   \item limits in terms of sequences and
     convergence,
-    A sequence $\{a\}_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
+    A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
 
   \item Cauchy vs convergent.
-      A sequence is $\{a\}_n$ is said to be Cauchy, if $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
+    A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
+    $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$
+    such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
     
-    \includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}
-    \footnote{By Ceranilo, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=54837240}
+    \includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}\footnote{By
+    Ceranilo, CC BY-SA 4.0,
+    https://commons.wikimedia.org/w/index.php?curid=54837240}
     \\Example of a sequence which converges to the limit $a$.
     
-    \includegraphics[width=9cm]{Epsilonschlauch.png}
-    \footnote{By Ceranilo, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=54836520}
-    \\Regardless which $\varepsilon >0$ we have, there is an index $N_0$, so that the sequence lies afterwards completely in the epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
-.
+    \includegraphics[width=9cm]{Epsilonschlauch.png}\footnote{By
+    Ceranilo, CC BY-SA 4.0,
+    https://commons.wikimedia.org/w/index.php?curid=54836520}
+    \\Regardless which $\varepsilon >0$ we have, there is an index
+    $N_0$, so that the sequence lies afterwards completely in the
+    epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
 
     
-    \includegraphics[width=9cm]{Epsilonschlauch-klein.png}
-    \footnote{By Ceranilo, CC BY-SA 4.0,
-    https://commons.wikimedia.org/w/index.php?curid=54836607} \\There is
-    also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so that
-    the sequence is afterwards inside the epsilon tube
-    $(a-\varepsilon_{1},a+\varepsilon_{1}$.
+    \includegraphics[width=9cm]{Epsilonschlauch-klein.png}\footnote{By
+    Ceranilo, CC BY-SA 4.0,
+    https://commons.wikimedia.org/w/index.php?curid=54836607} \\There
+    is also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so
+    that the sequence is afterwards inside the epsilon tube
+    $(a-\varepsilon_{1},a+\varepsilon_{1})$.
   \end{enumerate}
   
 \item Programming perspective
   \begin{enumerate}
   \item recursion
   \item tail recursion,
-  \item folding.
-  \item higher order functions, 
+  \item fixed point
+  \item folding
+  \item higher order functions
   \end{enumerate}
 
 \item Coding
 \begin{enumerate}
+\item Detect Cauchy of sequences.
 \item Implement the limit function as a function which
     manipulates functions.
-\item Detect convergence of sequences.
 \item Contrast implementations of recursion, iteration, and folding.
 \end{enumerate}
 
@@ -317,18 +400,17 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
   
 \item Programming perspective
   \begin{enumerate}
-  \item review foldLeft
-  \item introduce foldM
+  \item review \code{foldLeft}
+  \item introduce \code{foldM}
   \end{enumerate}
 
 \item Coding
 \begin{enumerate}
-\item Implement the sin, cos, and exp functions in terms
-  of the infinite Taylor series
-\item understanding conditions of convergence, avoiding infinite loops.
+\item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
+  of the infinite Taylor series, understand conditions of convergence, avoiding infinite loops.
 \item Improve convergence using shifting and scaling.
-\item Compute sin and cos of square matrices.
-\item Compute sin and cos of complex numbers using $2\times 2$ matrix
+\item Compute $\sin$ and $\cos$ of square matrices.
+\item Compute $\sin$ and $\cos$ of complex numbers using $2\times 2$ matrix
 \end{enumerate}
 \end{itemize}
 
@@ -370,7 +452,7 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
 the previous implementation of limit.
 \item Compute exact derivative of a polynomial
 \item compare two approaches numerically.
-\item Compute cos in terms of derivative of sin,
+\item Compute $\cos$ in terms of derivative of $\sin$,
 \item compare to Taylor series computation.
 
 \end{enumerate}
@@ -391,7 +473,7 @@ the previous implementation of limit.
   
 \item Programming perspective
   \begin{enumerate}
-  \item experessing limit of sum of rectangles/trapezoids
+  \item expressing limit of sum of rectangles/trapezoids
     
 
   \end{enumerate}
@@ -423,7 +505,13 @@ $[a,b]$.
 % LocalWords:  gitkraken dev MUW GitLab Collaboratory msstate cse com
 % LocalWords:  HDMI Lethbridge https uleth ca jpg Programmatic meetup
 % LocalWords:  BucharestJS ozassignments png colorized jnewton jimka
-% LocalWords:  issy pastpresentfuture thispublicdiary illinois pdf
+% LocalWords:  issy pastpresentfuture thispublicdiary illinois pdf CC
 % LocalWords:  NevadaClassClose techservices teamwork MCCRS MDE usna
 % LocalWords:  SEC OAE org mdek xkcd lrde mgs Modularity Scala monoid
-% LocalWords:  invertability
+% LocalWords:  invertability Scalerderivative SA wikimedia php curid
+% LocalWords:  trapezes num Folgenglieder KSmrq Pbroks Lim Shizhao en
+% LocalWords:  CSTAR IkamusumeFan Epsilonschlauch Ceranilo github svg
+% LocalWords:  Abelian magma surjective surjection mathsisfun html
+% LocalWords:  Ethaniel wikipedia wiki Int forall Fredrik Krupinski
+% LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
+% LocalWords:  klein Leibniz uploader
