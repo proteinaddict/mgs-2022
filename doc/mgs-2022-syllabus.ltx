@@ -21,7 +21,7 @@
 \maketitle
 \sloppy
 
-
+\pagebreak
 \section{Objectives}
 
 
@@ -34,7 +34,8 @@ or ameliorate their love for Mathematics
 \item[Computer Science] to learn about functional
 programming by applying programming principles to mathematical
 principles which you'll learn along the way,
-\item[Communication] to reinforce your ability and confidence to explain and defend your ideas
+\item[Communication] to reinforce your ability and confidence to
+  explain and defend your ideas
 \end{description}
 
 In this course you will learn many cursory things along the fast
@@ -59,6 +60,7 @@ is intended not only to learn to accept constructive criticism but
 also to build confidence.
 
 
+\pagebreak
 \section{Overview}
 
 The scholars will proceed through up to 6 units, perhaps fewer if we
@@ -71,6 +73,30 @@ organized into three stages
 \item Presentation --- Present your work to your classmates, and
   defend your decisions.
   \end{itemize}
+
+
+\noindent\includegraphics[height=4cm]{liebniz-newton.png}\footnote{From
+web page
+\url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}.}\hfill
+\includegraphics[height=4cm]{scala-programming.jpg}
+
+In terms of mathematics, we will primarily cover introductions to
+Set Theory, Abstract Algebra, and Calculus.  Starting with Set Theory will allow
+us to write conceptually simple programs while learning the
+development environment, the programming language, and the
+collaboration model.  Additionally, Abstract Algebra and Calculus are
+fields of study you may continue pursuing the rest of your life.
+
+
+  
+We will use a functional programming language called Scala,
+\url{https://www.scala-lang.org}.  Functional languages are considered
+by some to be more difficult than imperative languages, and students
+rarely start programming using a functional.  We have chosen this
+approach, because the approach we will take will parallel many
+mathematical concepts.  You will be able to take the things you've
+learned and apply them back to other (more popular) programming
+languages such as Python, Java Script, C++, etc.
 
 
 
@@ -93,37 +119,74 @@ intersection, complement, power set, comprehension, Cartesian product
 
 \item logical operators, existence $\exists$, for all $\forall$, implies $\implies$.
 
-  Which of the following are true?
+  Propositions about sets can use various forms of syntax.
+  Which of the following implications true?
   \begin{align}
     n \in \mathbb{Z}\quad&\implies n + 1 > n\\
     n \in \mathbb{Z}\quad&\implies n^2 > n\\
-    n \in \mathbb{Z}\quad&\implies n^2 \geq n\\
-    \nonumber\\
+    n \in \mathbb{Z}\quad&\implies n^2 \geq n
+  \end{align}
+  These implications are equivalent to the following form which has a slightly different intuition.
+  \begin{align}
     \forall n \in \mathbb{Z}\quad& n + 1 > n\\
     \forall n \in \mathbb{Z}\quad& n^2 > n\\
     \forall n \in \mathbb{Z}\quad& n^2 \geq n\\
-    \nonumber\\
-    \exists n \in \mathbb{Z}\quad& n + 1 > n\\    
-    \exists n \in \mathbb{Z}\quad& n^2 > n\\
-    \exists n \in \mathbb{Z}\quad& n^2 \geq n\\
-    \nonumber\\
+  \end{align}
+  Rather than claiming something is true for every element of a set, we might also wish to claim
+  that something is true for some element or elements of the set.  
+  \begin{align}
+    \exists n \in \mathbb{Z}\quad& n + 1 > n\label{eq.a1}\\    
+    \exists n \in \mathbb{Z}\quad& n^2 > n\label{eq.a2}\\
+    \exists n \in \mathbb{Z}\quad& n^2 \geq n\label{eq.a3}
+  \end{align}
+  To say something is true for some element is equivalent to saying it
+  does not fail for every element.  This can be confusing in human
+  languages.  I can say ``Every car on the street is green,'' and
+  everyone understand. However, if I say, ``Every care on the street
+  is not green'' say, the some people will think ``No car is green,''
+  while others might think ``At least one car is not green.''  These
+  are very different claims.  And in mathematics we need a way to
+  construct both such claims, unambiguously.
+
+  The proposition \[\exists x\in S \quad P(x)\] is
+  equivalent to saying it is false that $\forall x\in S \text{~we
+    have~} \neg P(x)$.  That is to say,
+
+  \[\big(\exists x\in S \quad P(x)\big)
+  \iff
+  \neg\big(\forall x\in S \quad\neg P(x)\big)\,.
+  \]
+
+  Thus statements~\eqref{eq.a1}, \eqref{eq.a2},
+  and~\eqref{eq.a3} are respectively equivalent to the following.
+  
+  \begin{align}
     \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n+1 > n)   ~\big)\label{eq.110}\\
     \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 > n)   ~\big)\label{eq.111}\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}\\
-    \nonumber\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big) & \text{equivalent to~\eqref{eq.110}}\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big) & \text{equivalent to~\eqref{eq.111}}\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big) & \text{equivalent to~\eqref{eq.112}}
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}
+  \end{align}
+  
+  The inner logical negations $\neg~ (n+1 > n) $, $\neg~ (n^2 > n)$,
+  and $\neg~ (n^2 \geq n)$ are tricky for the human to understand, but
+  if you think about them, they are simply: $(n+1 \leq n)$, $(n^2 \leq n)$,
+  and $(n^2 < n)$.  So the following three propositions
+  are again equivalent to~\eqref{eq.a1}, \eqref{eq.a2},
+  and~\eqref{eq.a3} and easier to understand.
+
+
+  \begin{align}
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big)\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big)\\
+    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big)
   \end{align}
 \item Intuition and definition using Cartesian
 product.  Injection, surjection, inverse function, isomorphism.
 
 
 \includegraphics[height=4cm]{function.png}\quad
-\includegraphics[height=4cm]{bijective.png}\footnote{Borrowed from \url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}.}
+\includegraphics[height=4cm]{bijective.png}\footnote{Borrowed from
+\url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}.}
 
-
-\item Equivalence classes
 
 \item Examples of sets, finite sets, infinite sets (natural numbers,
 integers, rational, real numbers, complex numbers)
@@ -133,6 +196,7 @@ integers, rational, real numbers, complex numbers)
 \end{enumerate}
 
 \item Programming perspective
+
 \begin{enumerate}
 \item Programming languages, functional, imperative
 
@@ -173,90 +237,121 @@ integers, rational, real numbers, complex numbers)
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
 \begin{itemize}
 \item Mathematical perspective
-  \begin{description}
-  \item[Monoid:] $(S,\circ)$ is a monoid if
-    \begin{enumerate}
-    \item Closure: $a,b \in S \implies a\circ b \in S$.
-    \item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
-    \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
-    \end{enumerate}
+  \begin{enumerate}
+  \item Several mathematical structures defined by axioms
+    \begin{description}
+    \item[Monoid:] $(S,\circ)$ is a monoid if
+      \begin{enumerate}
+      \item Closure: $a,b \in S \implies a\circ b \in S$.
+      \item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+      \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+      \end{enumerate}
+      
+    \item[Group:] $(S,\circ)$ is a group if
+      \begin{enumerate}
+      \item $(S,\circ)$ is a monoid.
+      \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+      \end{enumerate}
+      If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
+      
+    \item[Ring:] $(S,+,\times)$ is a ring if
+      \begin{enumerate}
+      \item $(S,+)$ is an Abelian group.
+      \item $(S,\times)$ is a monoid.
+      \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
+      \end{enumerate}    
+      
+      In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+      
+    \item[Field:] $(F,+,\times)$ is a field if
+      \begin{enumerate}
+      \item $(F,+)$ is an Abelian group
+      \item $(F, \times)$ commutative monoid.
+      \item $(F \setminus 0, \times)$ is an Abelian group, where $0$ is the identity under $+$.
+      \end{enumerate}    
+    \end{description}
+  \item Optional
+    \begin{description}
+    \item[Vector Space:] $(G,F,+,\times,\circ)$ is a vector space if
+      \begin{enumerate}
+      \item $(G,+)$ is an Abelian group.
+      \item $(F,+,\cdot)$ is a field.
+      \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
+      \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
+      \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
+      \end{enumerate}    
+      Elements of $G$ are called vectors.  Elements of $F$ are called
+      scalars. And $\circ$ (normally written as juxtaposition, $av$ rather than $a\circ v$) is
+      called scalar multiplication.
+      
+    \end{description}
 
-  \item[Group:] $(S,\circ)$ is a group if
-    \begin{enumerate}
-    \item $(S,\circ)$ is a monoid.
-    \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
-    \end{enumerate}
-    If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
-
-  \item[Ring:] $(S,+,\times)$ is a ring if
-    \begin{enumerate}
-    \item $(S,+)$ is an Abelian group.
-    \item $(S,\times)$ is a monoid.
-    \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
-    \end{enumerate}    
-
-    In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
-    
-  \item[Field:] $(F,+,\times)$ is a field if
-    \begin{enumerate}
-    \item $(F,+)$ is an Abelian group
-    \item $(F \setminus 0, \times)$ is an Abelian group.
-    \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$
-    \end{enumerate}    
-
-  \item[Vector Space:] $(G,F,+,\times,\circ)$ is a vector space if
-    \begin{enumerate}
-    \item $(G,+)$ is an Abelian group.
-    \item $(F,+,\cdot)$ is a field.
-    \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
-    \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
-    \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
-  \end{enumerate}    
-    Elements of $G$ are called vectors.  Elements of $F$ are called
-    scalars. And $\times$ (normally written as juxtaposition) is
-    called scalar multiplication.
-
-  \end{description}
-
-  Review of definitions: associative, commutative, Abelian,
-  distributive, closure, identity, vector, scalar, scalar
-  multiplication, juxtaposition.
-
-  Fuzzy definitions: zero, one, add, multiply
+    \item Review of definitions: associative, commutative, Abelian,
+      distributive, closure, identity, vector, scalar, scalar
+      multiplication, juxtaposition.
+      
+    \item Fuzzy definitions: zero, one, add, multiply
   
+    \item Equivalence classes and groups of equivalence classes.
+  \end{enumerate}
+
+
 \item Programming perspective
   \begin{enumerate}
   \item Monoid of \code{String} concatenation
   \item Monoid \code{List[Int]} concatenation
   \item Monoid \code{Set[Int]} union
   \item (optional Monoid of function application \code{compose})
+  \item \code{Map[Int,Int]}, use \code{groupBy} to compute equivalence classes.
   \item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
   \item Ring of matrix (matrix add, subtract, multiply)
   \item \code{Map[Int,Double]} type (polynomial as motivating example)
   \item Field of polynomials (polynomial add, scale, subtract, multiply)
   \item Property based testing
-  \item Teamwork projects using git and github, pull request, merge.
+  \item Team work projects using git and github, pull request, merge.
   \end{enumerate}
 
 \item Coding
   \begin{enumerate}
-  \item partition a set into equivalence classes
-  \item generalize to partition based on equivalence of probe function.
-  \item rewrite step 1 in terms of 2
-  \item Implement exponentiation of Double
-  \item Generalize to implement exponentiation on a monoid 
-  \item implement matrix, add, subtract, multiply
-    multiplication.  
-  \item Test structural axioms (commutativity etc), Property based testing.
-    
-  \item Team project: implement functions to detect monoid, group,
-    ring, and field given a finite set, and the $+$ and $\cdot$
-    operations.
-  \item Complex numbers as special case of $2\times 2$ matrix.
-    
-  \item Implement the polynomial ring, with addition,
-    subtraction, multiplication
-  \item Implement polynomial exponentiation
+  \item The \code{Map[]} type
+    \begin{itemize}
+    \item Partition a sequence into equivalence classes      
+    \item Generalize to partition based on equivalence of probe function.
+    \item Rewrite step 1 in terms of 2
+    \item Partition a set of natural numbers form $0$ to $n$ into equivalence classes modulo $m$.
+    \end{itemize}
+
+  \item Matrices
+    \begin{itemize}
+    \item Implement matrix, add, subtract, multiply
+      multiplication.  
+    \item Test structural axioms (commutativity etc), Property based testing.
+    \item Complex numbers as special case of $2\times 2$ matrix.
+    \end{itemize}
+
+  \item Team Project
+    \begin{itemize}
+    \item Implement functions to detect monoid, group,
+      ring, and field given a finite set, and the $+$ and $\cdot$
+      operations.
+    \item When finished with your function, commit, push, and send a
+      pull request.
+    \item To test your code, you will need to pull the changes in the
+      repository.
+    \item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
+      monoid? Is it a group (Abelian)? etc. \ldots
+    \item For which values of $n$ is $\mathbb{Z}/n$ a field?
+    \end{itemize}
+
+  \item Team Project
+    \begin{itemize}
+    \item Implement the polynomial ring, with addition,
+      subtraction, multiplication
+    \item Generalize to the polynomial ring over a given field.
+    \item Consider the set of polynomials of degree $n$ whose scalars
+      are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction, and multiplication.
+    \end{itemize}
+
   \end{enumerate}
 \end{itemize}
 
@@ -371,16 +466,41 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
   \item recursion
   \item tail recursion,
   \item fixed point
-  \item folding
   \item higher order functions
+  \item representing finite and infinite sequences.
+  \item sequence functions: \code{map}, \code{filter}, \code{max}, \code{sum}, \code{head}, \code{tail}, 
+  \item \code{for} comprehension
   \end{enumerate}
 
 \item Coding
 \begin{enumerate}
-\item Detect Cauchy of sequences.
+\item Exponentiation
+  \begin{itemize}
+  \item Implement exponentiation of Double as a recursive function.
+  \item Generalize to implement exponentiation on a monoid
+  \item Implement matrix exponentiation.
+  \item Implement polynomial exponentiation.
+  \end{itemize}  
+\item Sequences
+  \begin{itemize}
+  \item Define a lazy sequence \[a_n =
+    \sum_{k=0}^{n}\frac{8}{(4n+1)(4n+3)}\,.\] Given $n$, compute the sequence of
+    $n+1$ numbers, and use the \code{sum} method to add them up. (We will
+    discuss a better way tomorrow).
+  \item Compute the same sums using normal recursion and tail recursion.
+  \item Convince yourself that $a_n$ is decreasing; i.e., $a_n >
+    a_{n+1}$.  Can you show this empirically? Can you prove this
+    mathematically?
+  \end{itemize}
+\item Convergence
+  \begin{itemize}
+  \item Now implement a function such that given $\varepsilon$, find and
+    return $N$, such that \[n>N \implies |a_n - \pi| < \varepsilon\,.\]
+  \item Detect Cauchy of sequences.
+  \end{itemize}  
+  
 \item Implement the limit function as a function which
-    manipulates functions.
-\item Contrast implementations of recursion, iteration, and folding.
+  manipulates functions.
 \end{enumerate}
 
 
@@ -389,9 +509,13 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 
 \pagebreak\subsection{Infinite sums}
 
-\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan --- Own work, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=27865201}}
-\\As the degree of the Taylor polynomial rises, it approaches the correct function.
-This image shows $\sin x$ and its Taylor approximations by polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
+\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan ---
+Own work, CC BY-SA 3.0,
+\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} \\As
+the degree of the Taylor polynomial rises, it approaches the correct
+function.  This image shows $\sin x$ and its Taylor approximations by
+polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
+
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
@@ -400,8 +524,10 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
   
 \item Programming perspective
   \begin{enumerate}
-  \item review \code{foldLeft}
-  \item introduce \code{foldM}
+  \item \code{Option[]}
+  \item folding:  \code{foldLeft},  \code{reduce}, \code{reduceOption}
+  \item \code{Either[]}
+  \item Introduce \code{foldM}
   \end{enumerate}
 
 \item Coding
@@ -415,6 +541,9 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
 \end{itemize}
 
 \pagebreak\subsection{Differential Calculus}
+\noindent\includegraphics[width=\textwidth]{derivative.png}\footnote{From web page \url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative}.}
+
+
 \noindent\includegraphics[width=10cm]{Secant-calculus.png}
 \footnote{By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
 \\The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.
@@ -432,7 +561,7 @@ This image shows $\sin x$ and its Taylor approximations by polynomials of degree
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
-  \item intuition of derivative
+  \item Intuition of derivative
   \item Linearity
   \item Definition of derivative
   \item Linearity using derivative
@@ -459,6 +588,8 @@ the previous implementation of limit.
 \end{itemize}
 
 \pagebreak\subsection{Integral Calculus}
+\includegraphics[width=\textwidth]{integral.png}\footnote{From the web page \url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}}
+
 \includegraphics[width=13cm]{Riemann-sum-convergence.png}
 \footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
 \\Riemann sums converging.
@@ -468,7 +599,7 @@ the previous implementation of limit.
   \begin{enumerate}
   \item Understanding the Riemann in terms of infinite
     sums of rectangle and trapezoid areas.
-  \item integral of polynomial
+  \item Integral of polynomial
   \end{enumerate}
   
 \item Programming perspective
@@ -514,4 +645,4 @@ $[a,b]$.
 % LocalWords:  Abelian magma surjective surjection mathsisfun html
 % LocalWords:  Ethaniel wikipedia wiki Int forall Fredrik Krupinski
 % LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
-% LocalWords:  klein Leibniz uploader
+% LocalWords:  klein Leibniz uploader reduceOption groupBy
