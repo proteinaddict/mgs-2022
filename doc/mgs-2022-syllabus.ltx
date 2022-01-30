@@ -10,6 +10,12 @@
 \usepackage{color,colortbl}
 \definecolor{code}{rgb}{ 0,0,0}
 \newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
+\usepackage{stackengine}
+\newsavebox\mybox
+\newcommand\Includegraphics[2][]{\sbox{\mybox}{%
+  \includegraphics[#1]{#2}}\abovebaseline[-.5\ht\mybox]{%
+  \addstackgap{\usebox{\mybox}}}}
+
 
 \title{Visualizing Mathematical Models,\\
 2022 Mississippi Governor's School}
@@ -488,9 +494,13 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
     $n+1$ numbers, and use the \code{sum} method to add them up. (We will
     discuss a better way tomorrow).
   \item Compute the same sums using normal recursion and tail recursion.
-  \item Convince yourself that $a_n$ is decreasing; i.e., $a_n >
-    a_{n+1}$.  Can you show this empirically? Can you prove this
-    mathematically?
+  \item Convince yourself that $\{a_n\}$ is strictly increasing; i.e.,
+    $a_n < a_{n+1}$.  Can you show this empirically? Can you prove
+    this mathematically?
+  \item However, the sequence of successive
+    differences is decreasing: if $d_n = a_{n+1} - a_n$ then the
+    sequence $\{d_n\}$ is decreasing: $d_n > d_{n+1}$.  Show this
+    empirically and mathematically.
   \end{itemize}
 \item Convergence
   \begin{itemize}
@@ -499,8 +509,6 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
   \item Detect Cauchy of sequences.
   \end{itemize}  
   
-\item Implement the limit function as a function which
-  manipulates functions.
 \end{enumerate}
 
 
@@ -544,43 +552,57 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 \noindent\includegraphics[width=\textwidth]{derivative.png}\footnote{From web page \url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative}.}
 
 
-\noindent\includegraphics[width=10cm]{Secant-calculus.png}
-\footnote{By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
-\\The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.
-
-
-\noindent\includegraphics[width=10cm]{Lim-secant.png}
-\footnote{By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4370022}}
-\\The tangent line as limit of secants.
-
-
-\noindent\includegraphics[width=10cm]{Tangent-calculus.png}
-\footnote{By derivative work: Pbroks13 (talk) \texttt{Tangent-calculus.png}: Rhythm --- \texttt{Tangent-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369975}}
-\\The tangent line at $(x, f(x))$.
-
 \begin{itemize}
 \item Mathematical perspective
+  What does this notation mean? \[\lim_{x\to a}f(x) = L\]
+  It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
+  \[|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon\,.\]
+  
   \begin{enumerate}
+  \item Intuition of limit
+    \includegraphics[width=8cm]{limit.png}\footnote{By User:HiTe - Own
+    work, Public Domain,
+    \url{https://commons.wikimedia.org/w/index.php?curid=2314281}}.
   \item Intuition of derivative
-  \item Linearity
-  \item Definition of derivative
-  \item Linearity using derivative
-  \item Derivative of polynomial using induction and linearity
+
+\noindent\begin{tabular}{lp{3cm}}
+\Includegraphics[width=9cm]{Secant-calculus.png}\footnote{By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369993}}
+&The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.\\
+\Includegraphics[width=9cm]{Lim-secant.png}\footnote{By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4370022}}
+&The tangent line as limit of secants.\\
+\Includegraphics[width=9cm]{Tangent-calculus.png}\footnote{By derivative work: Pbroks13 (talk) \texttt{Tangent-calculus.png}: Rhythm --- \texttt{Tangent-calculus.png}, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=4369975}}
+&The tangent line at $(x, f(x))$.
+\end{tabular}
+
+\item Definition of derivative
+  \[f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h} = \lim_{a\to x}\frac{f(x) - f(a)}{x - a}\,.\]
+\item Linearity of derivative.
+  \[f(x) = h(x) + g(x) \implies f'(x) = h'(x) + g'(x)\,,\]
+  and \[f(x) = \alpha h(x) \implies f'(x) = \alpha h'(x)\,.\]
+
+\item Product rule
+  \[f(x) = h(x)g(x) \implies f'(x) = f(x)g'(x) + f'(x)g(x)\,.\]
+\item Derivative of polynomial using induction and product rule.
+  \[f(x) = x^n \implies f'(x) = n x^{n-1}\,.\]
+\item Thus we can compute the derivative of any polynomial:
+  If \[f(x) = \sum_{k=0}^{n} a_n x^k\,,\] then \[f'(x) = \sum_{k=0}^{n} k a_n  x^{k-1}\,.\]
   \end{enumerate}
   
 \item Programming perspective
   \begin{enumerate}
   \item Definition of derivative in terms of limit,
-  \item derivative of polynomial
+  \item Derivative of polynomial
   \end{enumerate}
 
 
 \item Coding
 \begin{enumerate}
-\item compute derivative by successive approximation using
+\item Implement the limit function as a function which
+  manipulates functions.
+\item Compute derivative by successive approximation using
 the previous implementation of limit.
 \item Compute exact derivative of a polynomial
-\item compare two approaches numerically.
+\item Compare two approaches numerically.
 \item Compute $\cos$ in terms of derivative of $\sin$,
 \item compare to Taylor series computation.
 
