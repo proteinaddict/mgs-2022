@@ -553,7 +553,12 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 
 
 \begin{itemize}
-\item Mathematical perspective
+\item Mathematical perspective --- We start our discussion of the derivative by talking about the limit.
+  We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
+  and extension, of the limit in terms of a function of a single variable.
+  We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
+  model programmatically, by defining a function to estimate the limit, then to implement a function to estimate the derivative using the limit function.
+  
   What does this notation mean? \[\lim_{x\to a}f(x) = L\]
   It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
   \[|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon\,.\]
