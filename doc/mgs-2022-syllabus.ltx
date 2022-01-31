@@ -549,7 +549,6 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 \end{itemize}
 
 \pagebreak\subsection{Differential Calculus}
-\noindent\includegraphics[width=\textwidth]{derivative.png}\footnote{From web page \url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative}.}
 
 
 \begin{itemize}
@@ -559,15 +558,38 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
   We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
   model programmatically, by defining a function to estimate the limit, then to implement a function to estimate the derivative using the limit function.
   
+  \begin{enumerate}
+  \item Intuition of limit.  Consider the function:
+    \[f(x) = \frac{x-1}{x^2-1}\,.\]
+    We cannot evaluate this function at $x=1$; however if we take
+    values of $x$ close to $1$, the function evaluates just fine, and
+    is well-behaved.  Take a sequence of values approaching 1, and ask
+    yourself what value does $f(x)$ approach?
+
+    It turns out that any sequence $a_n \to 1$ (except those for which $a_k = 1$ for some $k$) corresponds
+    to a convergent sequence $f(a_n) \to \frac{1}{2}$.
+
+    Another way of phrasing this intuition is that we can make
+    $\frac{x-1}{x^2-1}$ close to $\frac{1}{2}$ by making $x$ close to
+    $1$.  But that statement is a vague.  We can make the statement
+    more precise by saying that we can make $\frac{x-1}{x^2-1}$
+    arbitrarily close to $\frac{1}{2}$ by making $x$ sufficiently
+    close to $1$.
+
+  \item Definition of limit
+    \includegraphics[width=8cm]{limit.png}\footnote{By User:HiTe --- Own
+    work, Public Domain,
+    \url{https://commons.wikimedia.org/w/index.php?curid=2314281}}.
+
   What does this notation mean? \[\lim_{x\to a}f(x) = L\]
   It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
   \[|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon\,.\]
   
-  \begin{enumerate}
-  \item Intuition of limit
-    \includegraphics[width=8cm]{limit.png}\footnote{By User:HiTe - Own
-    work, Public Domain,
-    \url{https://commons.wikimedia.org/w/index.php?curid=2314281}}.
+
+  Using the language we used above: the limit of a function $f$ at $a$
+  is $L$ means that we can make the value of $f$ arbitrarily close to
+  $L$ by making its argument sufficiently close to $a$.
+
   \item Intuition of derivative
 
 \noindent\begin{tabular}{lp{3cm}}
@@ -579,8 +601,25 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 &The tangent line at $(x, f(x))$.
 \end{tabular}
 
+
+    Again we can generate a sequence of values (of $h\to 0$)
+    approaching 0, and from that we can generate a sequence of values
+    of the slope of $f$, i.e., $\frac{f(x+h)-f(x)}{h}$.  Does this
+    sequence of slopes converge when the sequence of $h$ values
+    converges to $0$?
+
+
+    If $h \to 0$ then does $\frac{f(x+h)-f(x)}{h}$ approach some
+    value?  The value may very well be different for each $x$.  If so
+    that set of values is therefore a function of $x$, which leads to
+    the definition of the derivative.
+    
+
 \item Definition of derivative
   \[f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h} = \lim_{a\to x}\frac{f(x) - f(a)}{x - a}\,.\]
+\noindent\includegraphics[width=10cm]{derivative.png}\footnote{From web page \url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative}.}
+
+
 \item Linearity of derivative.
   \[f(x) = h(x) + g(x) \implies f'(x) = h'(x) + g'(x)\,,\]
   and \[f(x) = \alpha h(x) \implies f'(x) = \alpha h'(x)\,.\]
@@ -591,6 +630,7 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
   \[f(x) = x^n \implies f'(x) = n x^{n-1}\,.\]
 \item Thus we can compute the derivative of any polynomial:
   If \[f(x) = \sum_{k=0}^{n} a_n x^k\,,\] then \[f'(x) = \sum_{k=0}^{n} k a_n  x^{k-1}\,.\]
+
   \end{enumerate}
   
 \item Programming perspective
@@ -602,14 +642,15 @@ polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 
 \item Coding
 \begin{enumerate}
-\item Implement the limit function as a function which
+\item Implement the \code{limit} function as a function which
   manipulates functions.
+\item Use the \code{limit} function to evaluate    \[\lim_{x\to 1}\frac{x-1}{x^2-1}\,.\]
 \item Compute derivative by successive approximation using
 the previous implementation of limit.
 \item Compute exact derivative of a polynomial
 \item Compare two approaches numerically.
 \item Compute $\cos$ in terms of derivative of $\sin$,
-\item compare to Taylor series computation.
+\item Compare to Taylor series computation.
 
 \end{enumerate}
 \end{itemize}
@@ -617,37 +658,66 @@ the previous implementation of limit.
 \pagebreak\subsection{Integral Calculus}
 \includegraphics[width=\textwidth]{integral.png}\footnote{From the web page \url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}}
 
-\includegraphics[width=13cm]{Riemann-sum-convergence.png}
-\footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
-\\Riemann sums converging.
 
 \begin{itemize}
 \item Mathematical perspective
   \begin{enumerate}
-  \item Understanding the Riemann in terms of infinite
-    sums of rectangle and trapezoid areas.
-  \item Integral of polynomial
+  \item The notation and intuition of the integral.
+    
+  \item Understanding the Riemann sums in terms of infinite
+    sums of rectangles.
+
+  \item Integral of polynomial:
+    \[\int x^n~dx = \frac{1}{n+1}x^{n+1}\]
+    So by linearity,
+    \begin{align}
+      \int \sum_{k=0}^{n}a_k x^n~dx &= \sum_{k=0}^{n} \int a_k x^n~dx\\
+      & = \sum_{k=0}^{n} a_k \int x^n~dx\\
+      &= \sum_{k=0}^{n} \frac{a_k}{n+1} x^{n+1}\,.
+    \end{align}
+    
+  \item Fundamental Theorem of Calculus:
+
+  \begin{itemize}
+  \item The derivative of the integral is the function.
+    \[F(x) = \int_a^x f(t)dt \implies F'(x) = f(x)\,.\]
+    I.e.,
+    \[\frac{d}{dx} \int_a^x f(t)dt = f(x)\,.\]
+  \item The integral of the derivative is the function.
+    \[F'(x) = f(x) \implies \int_a^b f(x) dx = F(b) - F(a)\,.\]
+    I.e.,
+    \[\int_a^x f'(t)dt = f(x) - f(a)\,.\]
+
+  \end{itemize}
+
   \end{enumerate}
   
 \item Programming perspective
   \begin{enumerate}
-  \item expressing limit of sum of rectangles/trapezoids
-    
+  \item expressing limit of sum of rectangles\\
+\includegraphics[width=12cm]{Riemann-sum-convergence.png}
+\footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
+\\Riemann sums converging.
 
-  \end{enumerate}
-
+  \item expressing limit of sum of trapezoids\\
 \includegraphics[width=8cm]{Integration-num-trapezes-notation.png}
 \footnote{By Scalerderivative work: Cdang (talk), CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=8541370}}
 \\Illustration of ``chained trapezoidal rule'' used on an irregularly-spaced partition of 
 $[a,b]$.
+    
+
+  \end{enumerate}
+
 
 
 \item Coding
 \begin{enumerate}
 \item  Implement integral (function of function) using
-  limit.
+  limit, sum of rectangles, and sum of trapezoids.
+\item Compute area of a circle by integrating $\sqrt{1 - x^2}$. I.e., compute
+  \[2\int_{-1}^{1}\sqrt{1 - x^2}~dx\,.\]
 \item Compute explicit integral of polynomial
-\item compute volume of a sphere (actually of half a sphere)
+\item Verify the fundamental theorem of calculus experimentally.
 \end{enumerate}
 \end{itemize}
 
@@ -672,4 +742,6 @@ $[a,b]$.
 % LocalWords:  Abelian magma surjective surjection mathsisfun html
 % LocalWords:  Ethaniel wikipedia wiki Int forall Fredrik Krupinski
 % LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
-% LocalWords:  klein Leibniz uploader reduceOption groupBy
+% LocalWords:  klein Leibniz uploader reduceOption groupBy pagebreak
+% LocalWords:  leibniz hfill scala includegraphics noindent url ldots
+% LocalWords:  setminus
