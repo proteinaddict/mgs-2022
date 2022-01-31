@@ -680,29 +680,32 @@ the previous implementation of limit.
 
   \begin{itemize}
   \item The derivative of the integral is the function.
-    \[F(x) = \int_a^x f(t)dt \implies F'(x) = f(x)\,.\]
-    I.e.,
-    \[\frac{d}{dx} \int_a^x f(t)dt = f(x)\,.\]
+    \begin{align}
+      F(x) = \int_a^x f(t)dt &\implies F'(x) = f(x)\\
+      \frac{d}{dx} \int_a^x f(t)dt &= f(x)\,.
+    \end{align}
   \item The integral of the derivative is the function.
-    \[F'(x) = f(x) \implies \int_a^b f(x) dx = F(b) - F(a)\,.\]
-    I.e.,
-    \[\int_a^x f'(t)dt = f(x) - f(a)\,.\]
-
+    \begin{align}
+      F'(x) = f(x) & \implies \int_a^b f(x) dx = F(b) - F(a)\\
+    \int_a^x f'(t)dt & = f(x) - f(a)\,.
+    \end{align}
   \end{itemize}
 
   \end{enumerate}
   
 \item Programming perspective
   \begin{enumerate}
-  \item expressing limit of sum of rectangles\\
-\includegraphics[width=12cm]{Riemann-sum-convergence.png}
-\footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
-\\Riemann sums converging.
+  \item Expressing limit of sum of rectangles
 
-  \item expressing limit of sum of trapezoids\\
+    \includegraphics[width=12cm]{Riemann-sum-convergence.png}
+\footnote{By I, KSmrq, CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=2347919}}
+
+
+\item Expressing limit of sum of trapezoids
+  
 \includegraphics[width=8cm]{Integration-num-trapezes-notation.png}
 \footnote{By Scalerderivative work: Cdang (talk), CC BY-SA 3.0, \url{https://commons.wikimedia.org/w/index.php?curid=8541370}}
-\\Illustration of ``chained trapezoidal rule'' used on an irregularly-spaced partition of 
+
 $[a,b]$.
     
 
@@ -714,6 +717,9 @@ $[a,b]$.
 \begin{enumerate}
 \item  Implement integral (function of function) using
   limit, sum of rectangles, and sum of trapezoids.
+  Which converges faster?
+\item Compute area under line, and show experimentally that it grows quadratically.
+\item Compute area under parabola, and show experimentally that it grows cubically.
 \item Compute area of a circle by integrating $\sqrt{1 - x^2}$. I.e., compute
   \[2\int_{-1}^{1}\sqrt{1 - x^2}~dx\,.\]
 \item Compute explicit integral of polynomial
