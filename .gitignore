@@ -13,6 +13,7 @@ target/
 .jvmopts
 project/project/metals.sbt
 doc/*.aux
+doc/*.toc
 doc/*.fls
 doc/*.log
 doc/*.fdb_latexmk

@@ -21,6 +21,7 @@
 2022 Mississippi Governor's School}
 
 \author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr.\ Jim\ Newton}
+\setcounter{tocdepth}{2}
 \begin{document}
 
 
@@ -64,6 +65,8 @@ choices, recognizing strengths and shortcomings, and being subjected
 to peer review (important in the scientific process).  This exercise
 is intended not only to learn to accept constructive criticism but
 also to build confidence.
+
+\tableofcontents
 
 
 \pagebreak
@@ -528,17 +531,30 @@ In this section we'll look at ways to compute sums like these
   \ln(1+x) &= \sum_{k=1}^{\infty} \frac{{(-1)}^{k-1}x^{k}}{k}\,.
 \end{align}
 
-\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan ---
-Own work, CC BY-SA 3.0,
-\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} \\As
-the degree of the Taylor polynomial rises, it approaches the correct
-function.  This image shows $\sin x$ and its Taylor approximations by
-polynomials of degree 1, 3, 5, 7, 9, 11, and 13 at $x = 0$.
 
 \subsubsection{Mathematical perspective}
   \begin{enumerate}
-  \item Review functions $\sin$, $\cos$, and $\exp$.
+  \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
+    \includegraphics[width=9cm]{sin-cos.png}\footnote{By Stephan Kulla
+    (User:Stephan Kulla) --- Own work, CC0,
+    \url{https://commons.wikimedia.org/w/index.php?curid=57551646}}
   \item Contrast convergence and summability.
+  \item Taylor series is of the form
+    \[\sum_{k=0}^{\infty} a_{n}x^{n}\,.\]
+    In some cases this series conververges to an interesting function.
+    Since the $x^n$ terms are increasing rapidly, the $a_n$ terms must
+    therefore decrease (in absolute value) rapidly otherwise the
+    series will not converge (it will diverge).
+
+\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan ---
+Own work, CC BY-SA 3.0,
+\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} 
+
+    As the degree of the Taylor polynomial rises, it approaches the
+    correct function.  This image shows $\sin x$ and its Taylor
+    approximations by polynomials of degree 1, 3, 5, 7, 9, 11, and 13
+    at $x = 0$.
+
   \end{enumerate}
   
 \subsubsection{Programming perspective}
