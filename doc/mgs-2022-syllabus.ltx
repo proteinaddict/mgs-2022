@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 %\documentclass[14pt]{extarticle}
 \usepackage[margin=3cm]{geometry}
 \usepackage{graphicx}
@@ -72,7 +72,7 @@ also to build confidence.
 \pagebreak
 \section{Overview}
 
-The scholars will proceed through up to 6 units, perhaps fewer if we
+We will proceed through up to 6 units, perhaps fewer if we
 decide to dig deeper into particular ones.  Each unit will be
 organized into three stages
 \begin{itemize}
@@ -114,17 +114,12 @@ languages such as Python, Java Script, C++, etc.
 
 
 \subsection{Sets and Functions}
-\includegraphics[width=8cm]{Venn-A-intersect-B.png}
+\includegraphics[width=0.8\textwidth]{Venn-A-intersect-B.png}
 \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=98106965} from Wikipedia.}
 
 \subsubsection{Mathematical perspective}
 \begin{enumerate}
-\item Definition of set.
 
-\item Axioms of sets, empty set, element relation, subset relation, union,
-intersection, complement, power set, comprehension, Cartesian product
-
-\item Definition of function.
 
 \item logical operators, existence $\exists$, for all $\forall$, implies $\implies$.
 
@@ -188,6 +183,40 @@ intersection, complement, power set, comprehension, Cartesian product
     \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big)\\
     \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big)
   \end{align}
+
+
+\item Definition and axioms of set.
+  \begin{enumerate}
+  \item There exists a set with no element, notated $\emptyset$.
+  \item Given set $S$ and object $x$, then either $x\in S$ or $x \not\in S$.
+  \item Given sets $G,H$ the subset relation is defined as:
+    \[G\subset H \iff (x\in G \implies x\in H)\,.\]
+  \item Given sets $G,H$ the union $G \cup H$ is a set defined as:
+    \[x\in (G\cup H) \iff (x\in G \vee x\in H)\,.\]
+  \item Given sets $G,H$ the intersection $G \cap H$ is a set defined as:
+    \[x\in (G\cap H) \iff (x\in G \wedge x\in H)\,.\]
+  \item Given sets $G,H$ the relative complement
+    $G \setminus H$ is a set defined as:
+    \[x\in (G\setminus H) \iff (x\in G \wedge x\not\in H)\,.\]
+  \item Given set $G$, the power set $2^G$ is a set defined as:
+    \[H\in 2^G \iff H\subset G\,.\]
+  \item Given set $G$, and proposition $P$, the set comprehension
+    $\{x\in G \mid P(x)\}$ is a set defined as:
+    \[x\in \{x\in G \mid P(x)\} \iff x\in G \wedge P(x)~ \text{is true}\,.\]
+  \item Given sets $G,H$, Cartesian product product
+    $G\times H$ is a set defined as
+    \[(x,y)\in G\times H\iff x\in G \wedge y\in H\,.\]
+\end{enumerate}
+
+
+
+\item Definition of function.
+  \begin{enumerate}
+  \item A relation: $H R G$ is a subset of $H\times G$.   We say $x R y$ is true if and only if $(x,y)$ is in the subset.
+  \item A function $f:G \to H$ is a relation such that if $(x,y_1), (x,y_2) \in f:G \to H$,
+    then $y_1 = y_2$.
+  \item As notation we say that if $(x,y) \in f:G\to H$, then $y = f(x)$.
+  \end{enumerate}
 \item Intuition and definition using Cartesian
 product.  Injection, surjection, inverse function, isomorphism.
 
@@ -315,7 +344,7 @@ integers, rational, real numbers, complex numbers)
   \item Ring of matrix (matrix add, subtract, multiply)
   \item \code{Map[Int,Double]} type (polynomial as motivating example)
   \item Field of polynomials (polynomial add, scale, subtract, multiply)
-  \item Property based testing
+  \item Property based testing, generate randomly selected object.
   \item Team work projects using git and github, pull request, merge.
   \end{enumerate}
 
