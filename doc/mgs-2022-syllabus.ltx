@@ -227,29 +227,6 @@ The sets $\mathbb{N}$,  $\mathbb{Z}$,  and $\mathbb{Q}$ are countably infinite.
 
 The sets $\mathbb{R}$ and $\mathbb{C}$ are uncountable.
 
-\subsubsection{Functions }
-\begin{enumerate}
-\item A relation is a subset, $R \subset G\times G$.
-  We say $x~\prec~y$ is true if and only if $(x,y) \in R$.
-  $R$ is called a total order if $\forall (x,y) \in G\times G$, then either $x\prec y$ or $y\prec x$.
-  Otherwise $R$ is called a partial order.
-
-
-\item A function $f:G \to H$ is a relation such that if $(x,y_1), (x,y_2) \in f:G \to H$,
-  then $y_1 = y_2$.
-\item As notation we say that if $(x,y) \in f:G\to H$, then $y = f(x)$.
-\end{enumerate}
-
-
-Some functions have particularly nice properties.  A ffunction can be
-injective, surjective, invertable.  An invertable function is called
-and isomorphism.
-
-
-\includegraphics[height=4cm]{function.png}\quad
-\includegraphics[height=4cm]{bijective.png}\footnote{
-  \url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}, Borrowed from.}
-
 
 \subsubsection{Recurrence}
 
@@ -266,7 +243,8 @@ or  we can define it recursively
 \begin{equation}
   x^n = \begin{cases}
     1 &\,; \text{if $n=0$}\\
-    n \times x^{n-1} &\,; \text{if $n > 0$}
+    n \times x^{n-1} &\,; \text{if $n > 0$}\\
+    \frac{1}{x^{n}} &\,; \text{if $n < 0$}
   \end{cases}
 \end{equation}
 
@@ -287,7 +265,7 @@ The first case need not be $n=0$.  We can define the Fibonacci numbers.  Let $F(
 
 
 \begin{equation}
-  \mathfrak{P}_n(S) = \begin{cases}
+  F(n) = \begin{cases}
     1 &\,; \text{if $n=1$}\\
     1 &\,; \text{if $n=2$}\\
     F(n-1) + F(n-2)  &\,; \text{if $n > 2$}
@@ -296,14 +274,16 @@ The first case need not be $n=0$.  We can define the Fibonacci numbers.  Let $F(
 
 
 
-Likewise we can define the set of subsets of size $n$
+Likewise, we can define the set of subsets of size $n$
 
 \begin{equation}
   \mathfrak{P}_n(S) = \begin{cases}
     \{\emptyset\} &\,; \text{if $n=0$}\\
-    \{   x \cup \{y\} \mid (x,y) \in S \times \mathfrak{P}_{n-1}(S)  &\,; \text{if $n > 0$}
+    \{   \{x\} \cup y ~\forall x \in S ~\forall y \in \mathfrak{P}_{n-1}(S \setminus \{x\})  &\,; \text{if $n > 0$}
   \end{cases}
 \end{equation}
+
+
 
 
 \subsection{Programming perspective}
@@ -349,10 +329,12 @@ Likewise we can define the set of subsets of size $n$
   \end{itemize}
 \item Functions
   \begin{itemize}
-  \item Write a function to determine whether a relation given as a sequence of pairs
-    designates a function.
-  \item Decide whether such a function is injective, surjective, bijective.
-  \item Power, factorial, n-size subsets, and Fibonacci.
+  \item Implement power
+  \item Implement \code{String} concatenation using the power model.
+  \item Implement \code{List} concatenation using the power model.
+  \item Implement factorial
+  \item Implement n-size subsets
+  \item Implement Fibonacci.
   \end{itemize}
 \item Sets
   \begin{itemize}
