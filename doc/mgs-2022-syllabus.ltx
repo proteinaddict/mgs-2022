@@ -118,120 +118,193 @@ languages such as Python, Java Script, C++, etc.
 \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=98106965} from Wikipedia.}
 
 \subsection{Mathematical perspective}
+
+
+
+\subsubsection{Logical operators}
+What are the meanings of the symbols $\exists$, $\forall$, $\implies$, $\iff$, $neg$, $wedge$, $vee$.
+
+Propositions about sets can use various forms of syntax.
+Which of the following implications true?
+\begin{align}
+  n \in \mathbb{Z}\quad&\implies n + 1 > n\\
+  n \in \mathbb{Z}\quad&\implies n^2 > n\\
+  n \in \mathbb{Z}\quad&\implies n^2 \geq n
+\end{align}
+These implications are equivalent to the following form which has a slightly different intuition.
+\begin{align}
+  \forall n \in \mathbb{Z}\quad& n + 1 > n\\
+  \forall n \in \mathbb{Z}\quad& n^2 > n\\
+  \forall n \in \mathbb{Z}\quad& n^2 \geq n\\
+\end{align}
+Rather than claiming something is true for every element of a set, we might also wish to claim
+that something is true for some element or elements of the set.  
+\begin{align}
+  \exists n \in \mathbb{Z}\quad& n + 1 > n\label{eq.a1}\\    
+  \exists n \in \mathbb{Z}\quad& n^2 > n\label{eq.a2}\\
+  \exists n \in \mathbb{Z}\quad& n^2 \geq n\label{eq.a3}
+\end{align}
+To say something is true for some element is equivalent to saying it
+does not fail for every element.  This can be confusing in human
+languages.  I can say ``Every car on the street is green,'' and
+everyone understand. However, if I say, ``Every care on the street
+is not green'' say, the some people will think ``No car is green,''
+while others might think ``At least one car is not green.''  These
+are very different claims.  And in mathematics we need a way to
+construct both such claims, unambiguously.
+
+The proposition \[\exists x\in S \quad P(x)\] is
+equivalent to saying it is false that $\forall x\in S \text{~we
+  have~} \neg P(x)$.  That is to say,
+
+\[\big(\exists x\in S \quad P(x)\big)
+\iff
+\neg\big(\forall x\in S \quad\neg P(x)\big)\,.
+\]
+
+Thus statements~\eqref{eq.a1}, \eqref{eq.a2},
+and~\eqref{eq.a3} are respectively equivalent to the following.
+
+\begin{align}
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n+1 > n)   ~\big)\label{eq.110}\\
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 > n)   ~\big)\label{eq.111}\\
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}
+\end{align}
+
+The inner logical negations $\neg~ (n+1 > n) $, $\neg~ (n^2 > n)$,
+and $\neg~ (n^2 \geq n)$ are tricky for the human to understand, but
+if you think about them, they are simply: $(n+1 \leq n)$, $(n^2 \leq n)$,
+and $(n^2 < n)$.  So the following three propositions
+are again equivalent to~\eqref{eq.a1}, \eqref{eq.a2},
+and~\eqref{eq.a3} and easier to understand.
+
+
+\begin{align}
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big)\\
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big)\\
+  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big)
+\end{align}
+
+
+\subsubsection{Axioms of sets}
+In the following let $G$ and $H$ be sets.
 \begin{enumerate}
-
-
-\item logical operators, existence $\exists$, for all $\forall$, implies $\implies$.
-
-  Propositions about sets can use various forms of syntax.
-  Which of the following implications true?
-  \begin{align}
-    n \in \mathbb{Z}\quad&\implies n + 1 > n\\
-    n \in \mathbb{Z}\quad&\implies n^2 > n\\
-    n \in \mathbb{Z}\quad&\implies n^2 \geq n
-  \end{align}
-  These implications are equivalent to the following form which has a slightly different intuition.
-  \begin{align}
-    \forall n \in \mathbb{Z}\quad& n + 1 > n\\
-    \forall n \in \mathbb{Z}\quad& n^2 > n\\
-    \forall n \in \mathbb{Z}\quad& n^2 \geq n\\
-  \end{align}
-  Rather than claiming something is true for every element of a set, we might also wish to claim
-  that something is true for some element or elements of the set.  
-  \begin{align}
-    \exists n \in \mathbb{Z}\quad& n + 1 > n\label{eq.a1}\\    
-    \exists n \in \mathbb{Z}\quad& n^2 > n\label{eq.a2}\\
-    \exists n \in \mathbb{Z}\quad& n^2 \geq n\label{eq.a3}
-  \end{align}
-  To say something is true for some element is equivalent to saying it
-  does not fail for every element.  This can be confusing in human
-  languages.  I can say ``Every car on the street is green,'' and
-  everyone understand. However, if I say, ``Every care on the street
-  is not green'' say, the some people will think ``No car is green,''
-  while others might think ``At least one car is not green.''  These
-  are very different claims.  And in mathematics we need a way to
-  construct both such claims, unambiguously.
-
-  The proposition \[\exists x\in S \quad P(x)\] is
-  equivalent to saying it is false that $\forall x\in S \text{~we
-    have~} \neg P(x)$.  That is to say,
-
-  \[\big(\exists x\in S \quad P(x)\big)
-  \iff
-  \neg\big(\forall x\in S \quad\neg P(x)\big)\,.
-  \]
-
-  Thus statements~\eqref{eq.a1}, \eqref{eq.a2},
-  and~\eqref{eq.a3} are respectively equivalent to the following.
-  
-  \begin{align}
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n+1 > n)   ~\big)\label{eq.110}\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 > n)   ~\big)\label{eq.111}\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}
-  \end{align}
-  
-  The inner logical negations $\neg~ (n+1 > n) $, $\neg~ (n^2 > n)$,
-  and $\neg~ (n^2 \geq n)$ are tricky for the human to understand, but
-  if you think about them, they are simply: $(n+1 \leq n)$, $(n^2 \leq n)$,
-  and $(n^2 < n)$.  So the following three propositions
-  are again equivalent to~\eqref{eq.a1}, \eqref{eq.a2},
-  and~\eqref{eq.a3} and easier to understand.
-
-
-  \begin{align}
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big)\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big)\\
-    \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big)
-  \end{align}
-
-
-\item Definition and axioms of set.
-  \begin{enumerate}
-  \item There exists a set with no element, notated $\emptyset$.
-  \item Given set $S$ and object $x$, then either $x\in S$ or $x \not\in S$.
-  \item Given sets $G,H$ the subset relation is defined as:
-    \[G\subset H \iff (x\in G \implies x\in H)\,.\]
-  \item Given sets $G,H$ the union $G \cup H$ is a set defined as:
-    \[x\in (G\cup H) \iff (x\in G \vee x\in H)\,.\]
-  \item Given sets $G,H$ the intersection $G \cap H$ is a set defined as:
-    \[x\in (G\cap H) \iff (x\in G \wedge x\in H)\,.\]
-  \item Given sets $G,H$ the relative complement
-    $G \setminus H$ is a set defined as:
-    \[x\in (G\setminus H) \iff (x\in G \wedge x\not\in H)\,.\]
-  \item Given set $G$, the power set $2^G$ is a set defined as:
-    \[H\in 2^G \iff H\subset G\,.\]
-  \item Given set $G$, and proposition $P$, the set comprehension
-    $\{x\in G \mid P(x)\}$ is a set defined as:
-    \[x\in \{x\in G \mid P(x)\} \iff x\in G \wedge P(x)~ \text{is true}\,.\]
-  \item Given sets $G,H$, Cartesian product product
-    $G\times H$ is a set defined as
-    \[(x,y)\in G\times H\iff x\in G \wedge y\in H\,.\]
+\item There exists a set with no element, notated $\emptyset$.
+\item $\forall x$ it is true that either $x\in G$ or $x \not\in G$.
+\item The subset relation is defined as:
+  \[G\subset H \iff (x\in G \implies x\in H)\,.\]
+\item The union $G \cup H$ is a set defined as:
+  \[x\in (G\cup H) \iff (x\in G \vee x\in H)\,.\]
+\item The intersection $G \cap H$ is a set defined as:
+  \[x\in (G\cap H) \iff (x\in G \wedge x\in H)\,.\]
+\item The relative complement
+  $G \setminus H$ is a set defined as:
+  \[x\in (G\setminus H) \iff (x\in G \wedge x\not\in H)\,.\]
+\item The power set $2^G$ is a set defined as:
+  \[S\in 2^G \iff S\subset G\,.\]
+\item Given proposition $P$, the set comprehension
+  $\{x\in G \mid P(x)\}$ is a set defined as:
+  \[x\in \{x\in G \mid P(x)\} \iff x\in G \wedge P(x)~ \text{is true}\,.\]
+\item Cartesian product product
+  $G\times H$ is a set defined as
+  \[(x,y)\in G\times H\iff x\in G \wedge y\in H\,.\]
 \end{enumerate}
 
 
+A set may be finite, countably infinite, or uncountable.
 
-\item Definition of function.
-  \begin{enumerate}
-  \item A relation: $H R G$ is a subset of $H\times G$.   We say $x R y$ is true if and only if $(x,y)$ is in the subset.
-  \item A function $f:G \to H$ is a relation such that if $(x,y_1), (x,y_2) \in f:G \to H$,
-    then $y_1 = y_2$.
-  \item As notation we say that if $(x,y) \in f:G\to H$, then $y = f(x)$.
-  \end{enumerate}
-\item Intuition and definition using Cartesian
-product.  Injection, surjection, inverse function, isomorphism.
+A finite set $S$ has a size $|S|\in \mathbb{Z}$.
+
+A countably infinite set which can be put into a one to one correspondence with the
+natuarl numbers, $\mathbb{N}$.  This correspondence is called an isomorphis which will be seen below.
+
+An infinite set which is not countable is said to be uncountable.
+
+The set $\{0, 1, 2, ..., n\}$ is finite.
+
+The sets $\mathbb{N}$,  $\mathbb{Z}$,  and $\mathbb{Q}$ are countably infinite.
+
+
+The sets $\mathbb{R}$ and $\mathbb{C}$ are uncountable.
+
+\subsubsection{Functions }
+\begin{enumerate}
+\item A relation is a subset, $R \subset G\times G$.
+  We say $x~\prec~y$ is true if and only if $(x,y) \in R$.
+  $R$ is called a total order if $\forall (x,y) \in G\times G$, then either $x\prec y$ or $y\prec x$.
+  Otherwise $R$ is called a partial order.
+
+
+\item A function $f:G \to H$ is a relation such that if $(x,y_1), (x,y_2) \in f:G \to H$,
+  then $y_1 = y_2$.
+\item As notation we say that if $(x,y) \in f:G\to H$, then $y = f(x)$.
+\end{enumerate}
+
+
+Some functions have particularly nice properties.  A ffunction can be
+injective, surjective, invertable.  An invertable function is called
+and isomorphism.
 
 
 \includegraphics[height=4cm]{function.png}\quad
 \includegraphics[height=4cm]{bijective.png}\footnote{
-\url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}, Borrowed from.}
+  \url{https://www.mathsisfun.com/sets/injective-surjective-bijective.html}, Borrowed from.}
 
 
-\item Examples of sets, finite sets, infinite sets (natural numbers,
-integers, rational, real numbers, complex numbers)
+\subsubsection{Recurrence}
 
-\item countable (isomorphic to integers), uncountable
 
-\end{enumerate}
+Functions defined in terms of themselves
+
+Inductive definitions.
+
+
+We can define $x^n$ as
+\[x^n = \underbrace{x \times x \times ... \times x}_{n~\text{times}}\]
+or  we can define it recursively
+
+\begin{equation}
+  x^n = \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    n \times x^{n-1} &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
+
+
+
+We can define the factorial as
+\[n! = 1 \times 2 \times ... \times n\]
+or we can define it as
+\begin{equation}
+  n! = \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    n \times (n-1)! &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
+The first case need not be $n=0$.  We can define the Fibonacci numbers.  Let $F(n)$ denote the n'th Fibonacci number.
+
+
+\begin{equation}
+  \mathfrak{P}_n(S) = \begin{cases}
+    1 &\,; \text{if $n=1$}\\
+    1 &\,; \text{if $n=2$}\\
+    F(n-1) + F(n-2)  &\,; \text{if $n > 2$}
+  \end{cases}
+\end{equation}
+
+
+
+Likewise we can define the set of subsets of size $n$
+
+\begin{equation}
+  \mathfrak{P}_n(S) = \begin{cases}
+    \{\emptyset\} &\,; \text{if $n=0$}\\
+    \{   x \cup \{y\} \mid (x,y) \in S \times \mathfrak{P}_{n-1}(S)  &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
 
 \subsection{Programming perspective}
 
@@ -244,13 +317,15 @@ integers, rational, real numbers, complex numbers)
 
 \item Scala and IDE, define simple functions in Scala, run, edit, test, debug in IntelliJ.
   
-\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean})
+\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean}, \code{String})
 
-\item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}
+\item Conditionals
 
-\item \code{forall} and \code{exists} methods
+\item \code{Tuple}: create and destructure.
+  
+\item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}, \code{Option[]}
 
-\item \code{String}, sort of atomic, sort of container
+\item \code{for}, \code{forall} and \code{exists} methods
 
 \item Function types
 
@@ -262,75 +337,104 @@ integers, rational, real numbers, complex numbers)
 \subsection{Coding}
 
 \begin{enumerate}
-\item Write a function to determine whether a sequence of pairs designates a relation.
-\item Write a function to determine whether a sequence of pairs designates a function.
-\item Decide whether such a function is injective, surjective, bijective.
-\item Compute the union, intersection, and complement.
-\item Implement a subset function and an equivalence function based on your subset function.
+\item First Program
+  \begin{itemize}
+  \item Create a github account
+  \item Open the web-ide
+  \item Run an existing program in the IDE
+  \item Implement a test, demonstrate the test passes; change the
+    function to demonstrate a failing test; revert the change.
+  \item Implement hello-world, insert a given string, name, and the
+    current date into the hello-world message.
+  \end{itemize}
+\item Functions
+  \begin{itemize}
+  \item Write a function to determine whether a relation given as a sequence of pairs
+    designates a function.
+  \item Decide whether such a function is injective, surjective, bijective.
+  \item Power, factorial, n-size subsets, and Fibonacci.
+  \end{itemize}
+\item Sets
+  \begin{itemize}
+  \item Compute the union, intersection, and complement.
+  \item Implement a subset function and an equivalence function based on your subset function.
+  \end{itemize}
 \end{enumerate}
 
 
 \pagebreak
-\section{Abstract Algebra --- Sets with mathematical structure}
+\section{Abstract Algebra}
+
+In this unit we will study sets with mathematical structure.
+
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
 \subsection{Mathematical perspective}
-  \begin{enumerate}
-  \item Several mathematical structures defined by axioms
-    \begin{description}
-    \item[Monoid:] $(S,\circ)$ is a monoid if
-      \begin{enumerate}
-      \item Closure: $a,b \in S \implies a\circ b \in S$.
-      \item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
-      \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
-      \end{enumerate}
-      
-    \item[Group:] $(S,\circ)$ is a group if
-      \begin{enumerate}
-      \item $(S,\circ)$ is a monoid.
-      \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
-      \end{enumerate}
-      If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
-      
-    \item[Ring:] $(S,+,\times)$ is a ring if
-      \begin{enumerate}
-      \item $(S,+)$ is an Abelian group.
-      \item $(S,\times)$ is a monoid.
-      \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
-      \end{enumerate}    
-      
-      In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
-      
-    \item[Field:] $(F,+,\times)$ is a field if
-      \begin{enumerate}
-      \item $(F,+)$ is an Abelian group
-      \item $(F, \times)$ commutative monoid.
-      \item $(F \setminus 0, \times)$ is an Abelian group, where $0$ is the identity under $+$.
-      \end{enumerate}    
-    \end{description}
-  \item Optional
-    \begin{description}
-    \item[Vector Space:] $(G,F,+,\times,\circ)$ is a vector space if
-      \begin{enumerate}
-      \item $(G,+)$ is an Abelian group.
-      \item $(F,+,\cdot)$ is a field.
-      \item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
-      \item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
-      \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
-      \end{enumerate}    
-      Elements of $G$ are called vectors.  Elements of $F$ are called
-      scalars. And $\circ$ (normally written as juxtaposition, $av$ rather than $a\circ v$) is
-      called scalar multiplication.
-      
-    \end{description}
 
-    \item Review of definitions: associative, commutative, Abelian,
-      distributive, closure, identity, vector, scalar, scalar
-      multiplication, juxtaposition.
-      
-    \item Fuzzy definitions: zero, one, add, multiply
+Several mathematical structures defined by axioms
+
+\subsubsection{Monoid}
+$(S,\circ)$ is a monoid if
+\begin{enumerate}
+\item Closure: $a,b \in S \implies a\circ b \in S$.
+\item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+\item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+\end{enumerate}
+
+\subsubsection{Group}
+
+$(S,\circ)$ is a group if
+\begin{enumerate}
+\item $(S,\circ)$ is a monoid.
+\item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+\end{enumerate}
+If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
+
+\subsubsection{Ring}
+
+$(S,+,\times)$ is a ring if
+\begin{enumerate}
+\item $(S,+)$ is an Abelian group.
+\item $(S,\times)$ is a monoid.
+\item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
+\end{enumerate}    
+
+In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+
+\subsubsection{Field}
+
+$(F,+,\times)$ is a field if
+\begin{enumerate}
+\item $(F,+)$ is an Abelian group
+\item $(F, \times)$ commutative monoid.
+\item $(F \setminus 0, \times)$ is an Abelian group, where $0$ is the identity under $+$.
+\end{enumerate}    
+
+\subsubsection{Vector Space (optional)}
+
+$(G,F,+,\times,\circ)$ is a vector space if
+\begin{enumerate}
+\item $(G,+)$ is an Abelian group.
+\item $(F,+,\cdot)$ is a field.
+\item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
+\item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
+\item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
+\end{enumerate}    
+Elements of $G$ are called vectors.  Elements of $F$ are called
+scalars. And $\circ$ (normally written as juxtaposition, $av$ rather than $a\circ v$) is
+called scalar multiplication.
+
+
+\subsubsection{Review}
+Review  definitions: associative, commutative, Abelian,
+distributive, closure, identity, vector, scalar, scalar
+multiplication, juxtaposition.
+
+Fuzzy definitions: zero, one, add, multiply
   
-    \item Equivalence classes and groups of equivalence classes.
-  \end{enumerate}
+\subsubsection{Equivalnce classes}
+
+Equivalence classes and groups of equivalence classes.
+
 
 
 \subsection{Programming perspective}
