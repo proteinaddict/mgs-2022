@@ -29,7 +29,9 @@
 \sloppy
 
 \pagebreak
-\section{Objectives}
+\section{Introduction}
+
+\subsection{Objectives}
 
 
 You are a scholar participating in the 2022 Mississippi Governor's
@@ -70,7 +72,7 @@ also to build confidence.
 
 
 \pagebreak
-\section{Overview}
+\subsection{Overview}
 
 We will proceed through up to 6 units, perhaps fewer if we
 decide to dig deeper into particular ones.  Each unit will be
@@ -110,14 +112,12 @@ languages such as Python, Java Script, C++, etc.
 
 
 \pagebreak
-\section{Syllabus}
 
-
-\subsection{Sets and Functions}
+\section{Sets and Functions}
 \includegraphics[width=0.8\textwidth]{Venn-A-intersect-B.png}
 \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=98106965} from Wikipedia.}
 
-\subsubsection{Mathematical perspective}
+\subsection{Mathematical perspective}
 \begin{enumerate}
 
 
@@ -233,7 +233,7 @@ integers, rational, real numbers, complex numbers)
 
 \end{enumerate}
 
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
 
 \begin{enumerate}
 \item Programming languages, functional, imperative
@@ -259,7 +259,7 @@ integers, rational, real numbers, complex numbers)
 \item Version control, branch, pull
 \end{enumerate}
 
-\subsubsection{Coding}
+\subsection{Coding}
 
 \begin{enumerate}
 \item Write a function to determine whether a sequence of pairs designates a relation.
@@ -271,9 +271,9 @@ integers, rational, real numbers, complex numbers)
 
 
 \pagebreak
-\subsection{Abstract Algebra --- Sets with mathematical structure}
+\section{Abstract Algebra --- Sets with mathematical structure}
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
-\subsubsection{Mathematical perspective}
+\subsection{Mathematical perspective}
   \begin{enumerate}
   \item Several mathematical structures defined by axioms
     \begin{description}
@@ -333,7 +333,7 @@ integers, rational, real numbers, complex numbers)
   \end{enumerate}
 
 
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
   \begin{enumerate}
   \item Monoid of \code{String} concatenation
   \item Monoid \code{List[Int]} concatenation
@@ -348,7 +348,7 @@ integers, rational, real numbers, complex numbers)
   \item Team work projects using git and github, pull request, merge.
   \end{enumerate}
 
-\subsubsection{Coding}
+\subsection{Coding}
   \begin{enumerate}
   \item The \code{Map[]} type
     \begin{itemize}
@@ -394,7 +394,7 @@ integers, rational, real numbers, complex numbers)
 
 
   
-\pagebreak\subsection{Convergence} In the previous sections we talked
+\pagebreak\section{Convergence} In the previous sections we talked
 about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
 the rationals, and $\mathbb{Q}$.  In particular we talked about what
 distinguishes them from each other.
@@ -463,7 +463,7 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 \[a_n \to \pi\,.\]
 
 
-\subsubsection{Mathematical perspective}
+\subsection{Mathematical perspective}
   \begin{enumerate}
   \item The limit is the most fundamental concept in
     Calculus.
@@ -498,7 +498,7 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
     $(a-\varepsilon_{1},a+\varepsilon_{1})$.
   \end{enumerate}
   
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
   \begin{enumerate}
   \item recursion
   \item tail recursion,
@@ -509,7 +509,7 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
   \item \code{for} comprehension
   \end{enumerate}
 
-\subsubsection{Coding}
+\subsection{Coding}
 \begin{enumerate}
 \item Recursion
   \begin{itemize}
@@ -551,7 +551,7 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 
 
 
-\pagebreak\subsection{Infinite sums}
+\pagebreak\section{Infinite sums}
 
 In this section we'll look at ways to compute sums like these
 \begin{align}
@@ -562,7 +562,7 @@ In this section we'll look at ways to compute sums like these
 \end{align}
 
 
-\subsubsection{Mathematical perspective}
+\subsection{Mathematical perspective}
   \begin{enumerate}
   \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
     \includegraphics[width=9cm]{sin-cos.png}\footnote{
@@ -587,7 +587,7 @@ Own work, CC BY-SA 3.0,
 
   \end{enumerate}
   
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
   \begin{enumerate}
   \item \code{Option[]}
   \item folding:  \code{foldLeft},  \code{reduce}, \code{reduceOption}
@@ -595,7 +595,7 @@ Own work, CC BY-SA 3.0,
   \item Introduce \code{foldM}
   \end{enumerate}
 
-\subsubsection{Coding}
+\subsection{Coding}
 \begin{enumerate}
 \item Reimplement factorial using \code{foldLeft}.
 \item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
@@ -611,10 +611,10 @@ Own work, CC BY-SA 3.0,
 \end{enumerate}
 
 
-\pagebreak\subsection{Differential Calculus}
+\pagebreak\section{Differential Calculus}
 
 
-\subsubsection{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
+\subsection{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
   We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
   and extension, of the limit in terms of a function of a single variable.
   We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
@@ -641,7 +641,7 @@ Own work, CC BY-SA 3.0,
   \item Definition of limit
     \includegraphics[width=8cm]{limit.png}\footnote{By User:HiTe --- Own
     work, Public Domain,
-    \url{https://commons.wikimedia.org/w/index.php?curid=2314281}}.
+    \url{https://commons.wikimedgia.org/w/index.php?curid=2314281}}.
 
   What does this notation mean? \[\lim_{x\to a}f(x) = L\]
   It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
@@ -695,14 +695,14 @@ Own work, CC BY-SA 3.0,
 
   \end{enumerate}
   
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
   \begin{enumerate}
   \item Definition of derivative in terms of limit,
   \item Derivative of polynomial
   \end{enumerate}
 
 
-\subsubsection{Coding}
+\subsection{Coding}
 \begin{enumerate}
 \item Implement the \code{limit} function as a function which
   manipulates functions.
@@ -717,11 +717,11 @@ the previous implementation of limit.
 \end{enumerate}
 
 
-\pagebreak\subsection{Integral Calculus [Optional]}
+\pagebreak\section{Integral Calculus [Optional]}
 \includegraphics[width=\textwidth]{integral.png}\footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
 
 
-\subsubsection{Mathematical perspective}
+\subsection{Mathematical perspective}
   \begin{enumerate}
   \item The notation and intuition of the integral.
     
@@ -754,7 +754,7 @@ the previous implementation of limit.
 
   \end{enumerate}
   
-\subsubsection{Programming perspective}
+\subsection{Programming perspective}
   \begin{enumerate}
   \item Expressing limit of sum of rectangles
 
@@ -771,7 +771,7 @@ the previous implementation of limit.
 
 
 
-\subsubsection{Coding}
+\subsection{Coding}
 \begin{enumerate}
 \item  Implement integral (function of function) using
   limit, sum of rectangles, and sum of trapezoids.
