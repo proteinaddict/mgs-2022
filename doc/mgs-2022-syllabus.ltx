@@ -91,19 +91,21 @@ organized into three stages
 from Wikipedia.}\hfill
 \includegraphics[height=4cm]{scala-programming.jpg}
 
-In terms of mathematics, we will primarily cover introductions to
-Set Theory, Abstract Algebra, and Calculus.  Starting with Set Theory will allow
-us to write conceptually simple programs while learning the
-development environment, the programming language, and the
-collaboration model.  Additionally, Abstract Algebra and Calculus are
-fields of study you may continue pursuing the rest of your life.
+
+We will primarily cover introductions to three mathematical areas: Set
+Theory, Abstract Algebra, and Calculus.  Our treatment of Set Theory
+will allow us to write conceptually simple programs while learning the
+development development environment, the programming language, and the
+collaboration model.  Next, our practical treatment of Abstract
+Algebra and Calculus will help you prepare for a more theoretical
+treatment at the university level.
 
 
   
 We will use a functional programming language called Scala,
 \url{https://www.scala-lang.org}.  Functional languages are considered
 by some to be more difficult than imperative languages, and students
-rarely start programming using a functional.  We have chosen this
+rarely start programming using a functional language.  We have chosen this
 approach, because the approach we will take will parallel many
 mathematical concepts.  You will be able to take the things you've
 learned and apply them back to other (more popular) programming
@@ -220,7 +222,7 @@ natuarl numbers, $\mathbb{N}$.  This correspondence is called an isomorphis whic
 
 An infinite set which is not countable is said to be uncountable.
 
-The set $\{0, 1, 2, ..., n\}$ is finite.
+The set $\{0, 1, 2, \ldots, n\}$ is finite.
 
 The sets $\mathbb{N}$,  $\mathbb{Z}$,  and $\mathbb{Q}$ are countably infinite.
 
@@ -237,7 +239,7 @@ Inductive definitions.
 
 
 We can define $x^n$ as
-\[x^n = \underbrace{x \times x \times ... \times x}_{n~\text{times}}\]
+\[x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\]
 or  we can define it recursively
 
 \begin{equation}
@@ -252,7 +254,7 @@ or  we can define it recursively
 
 
 We can define the factorial as
-\[n! = 1 \times 2 \times ... \times n\]
+\[n! = 1 \times 2 \times \ldots \times n\]
 or we can define it as
 \begin{equation}
   n! = \begin{cases}
@@ -261,7 +263,8 @@ or we can define it as
   \end{cases}
 \end{equation}
 
-The first case need not be $n=0$.  We can define the Fibonacci numbers.  Let $F(n)$ denote the n'th Fibonacci number.
+The first case need not be $n=0$.  We can define the Fibonacci
+numbers.  Let $F(n)$ denote the n'th Fibonacci number.
 
 
 \begin{equation}
@@ -301,13 +304,13 @@ Likewise, we can define the set of subsets of size $n$
 
 \item Conditionals
 
+\item Recursive functions
+
 \item \code{Tuple}: create and destructure.
   
 \item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}, \code{Option[]}
 
 \item \code{for}, \code{forall} and \code{exists} methods
-
-\item Function types
 
 \item Testing
   
@@ -327,7 +330,7 @@ Likewise, we can define the set of subsets of size $n$
   \item Implement hello-world, insert a given string, name, and the
     current date into the hello-world message.
   \end{itemize}
-\item Functions
+\item Recursive Functions
   \begin{itemize}
   \item Implement power
   \item Implement \code{String} concatenation using the power model.
@@ -347,12 +350,20 @@ Likewise, we can define the set of subsets of size $n$
 \pagebreak
 \section{Abstract Algebra}
 
-In this unit we will study sets with mathematical structure.
 
-\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\includegraphics[width=\textwidth]{galois.png}
+
+
+
+
+In this unit we will study sets with mathematical structure.
+There are several mathematical structures defined by axioms.
+
+We will thereafter write programs as individuals and as teams to
+manipulate these structures.
+
 \subsection{Mathematical perspective}
 
-Several mathematical structures defined by axioms
 
 \subsubsection{Monoid}
 $(S,\circ)$ is a monoid if
@@ -406,6 +417,13 @@ scalars. And $\circ$ (normally written as juxtaposition, $av$ rather than $a\cir
 called scalar multiplication.
 
 
+\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+
+
+\subsubsection{Equivalnce classes}
+
+Equivalence classes and groups of equivalence classes.
+
 \subsubsection{Review}
 Review  definitions: associative, commutative, Abelian,
 distributive, closure, identity, vector, scalar, scalar
@@ -413,74 +431,94 @@ multiplication, juxtaposition.
 
 Fuzzy definitions: zero, one, add, multiply
   
-\subsubsection{Equivalnce classes}
-
-Equivalence classes and groups of equivalence classes.
-
 
 
 \subsection{Programming perspective}
-  \begin{enumerate}
-  \item Monoid of \code{String} concatenation
-  \item Monoid \code{List[Int]} concatenation
-  \item Monoid \code{Set[Int]} union
-  \item (optional Monoid of function application \code{compose})
-  \item \code{Map[Int,Int]}, use \code{groupBy} to compute equivalence classes.
-  \item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
-  \item Ring of matrix (matrix add, subtract, multiply)
-  \item \code{Map[Int,Double]} type (polynomial as motivating example)
-  \item Field of polynomials (polynomial add, scale, subtract, multiply)
-  \item Property based testing, generate randomly selected object.
-  \item Team work projects using git and github, pull request, merge.
-  \end{enumerate}
+\begin{enumerate}
+\item Monoid of \code{String} concatenation
+\item Monoid \code{List[Int]} concatenation
+\item Monoid \code{Set[Int]} union
+\item (optional Monoid of function application \code{compose})
+\item \code{Map[Int,Int]}, use \code{groupBy} to compute equivalence classes.
+\item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
+\item Ring of matrix (matrix add, subtract, multiply)
+\item \code{Map[Int,Double]} type (polynomial as motivating example)
+\item Field of polynomials (polynomial add, scale, subtract, multiply)
+\item Property based testing, generate randomly selected object.
+\item Team work projects using git and github, pull request, merge.
+\end{enumerate}
 
 \subsection{Coding}
-  \begin{enumerate}
-  \item The \code{Map[]} type
-    \begin{itemize}
-    \item Partition a sequence into equivalence classes      
-    \item Generalize to partition based on equivalence of probe function.
-    \item Rewrite step 1 in terms of 2
-    \item Partition a set of natural numbers form $0$ to $n$ into equivalence classes modulo $m$.
-    \end{itemize}
-
-  \item Matrices
-    \begin{itemize}
-    \item Implement matrix, add, subtract, multiply
-      multiplication.  
-    \item Test structural axioms (commutativity etc), Property based testing.
-    \item Complex numbers as special case of $2\times 2$ matrix.
-    \item Can you express the identity $i^2 = -1$ in terms of these $2\times 2$ matrices?
-    \end{itemize}
-
-  \item Team Project
-    \begin{itemize}
-    \item Implement functions to detect monoid, group,
-      ring, and field given a finite set, and the $+$ and $\cdot$
-      operations.
-    \item When finished with your function, commit, push, and send a
-      pull request.
-    \item To test your code, you will need to pull the changes in the
-      repository.
-    \item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
-      monoid? Is it a group (Abelian)? etc. \ldots
-    \item For which values of $n$ is $\mathbb{Z}/n$ a field?
-    \end{itemize}
-
-  \item Team Project
-    \begin{itemize}
-    \item Implement the polynomial ring, with addition,
-      subtraction, multiplication
-    \item Generalize to the polynomial ring over a given field.
-    \item Consider the set of polynomials of degree $n$ whose scalars
-      are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction, and multiplication.
-    \end{itemize}
-
-  \end{enumerate}
+\begin{enumerate}
+\item The \code{Map[]} type
+  \begin{itemize}
+  \item Partition a sequence into equivalence classes      
+  \item Generalize to partition based on equivalence of probe function.
+  \item Rewrite step 1 in terms of 2
+  \item Partition a set of natural numbers form $0$ to $n$ into equivalence classes modulo $m$.
+  \end{itemize}
+  
+\item Matrices
+  \begin{itemize}
+  \item Implement matrix, add, subtract, multiply
+    multiplication.  
+  \item Test structural axioms (commutativity etc), Property based testing.
+  \item Complex numbers as special case of $2\times 2$ matrix.
+  \item Can you express the identity $i^2 = -1$ in terms of these $2\times 2$ matrices?
+  \end{itemize}
+  
+\item Team Project
+  \begin{itemize}
+  \item Implement functions to detect monoid, group,
+    ring, and field given a finite set, and the $+$ and $\cdot$
+    operations.
+  \item When finished with your function, commit, push, and send a
+    pull request.
+  \item To test your code, you will need to pull the changes in the
+    repository.
+  \item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
+    monoid? Is it a group (Abelian)? etc. \ldots
+  \item For which values of $n$ is $\mathbb{Z}/n$ a field?
+  \end{itemize}
+  
+\item Team Project
+  \begin{itemize}
+  \item Implement the polynomial ring, with addition,
+    subtraction, multiplication
+  \item Generalize to the polynomial ring over a given field.
+  \item Consider the set of polynomials of degree $n$ whose scalars
+    are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction, and multiplication.
+  \end{itemize}
+  
+\end{enumerate}
 
 
   
-\pagebreak\section{Convergence} In the previous sections we talked
+\pagebreak\section{Convergence}
+
+In this section we will talk about a characteristic property/attribute
+which distinguishes the rational numbers, $\mathbb{Q}$, from the real
+numbers, $\mathbb{R}$.  That important feature of $\mathbb{R}$ not
+shared by $\mathbb{Q}$ is \emph{convergence}.  But what do we mean by
+convergence?
+
+We will discuss the mathematical definition of convergence, and we
+will write some programms which approximate real quanties with
+sequences which approximate them.
+
+Issac Newton and Gottfried Leibniz invented calculus around 1660 or
+1670.  Some 150 years later, around 1820 Augustin-Louis Cauchy and Bernard Bolzano
+presented the concept of the limit.  Thanks to the work of Cauchy and Bolzano and
+his contemporaries, we can understand at a fundamental level, the work
+of Newton and Leibniz.
+
+\noindent\includegraphics[width=0.48\textwidth]{bolzano.jpg}\footnote{Bernard Bolzano}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}\footnote{Augustin-Louis Cauchy}
+
+
+
+\subsection{Mathematical perspective}
+
+In the previous sections we talked
 about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
 the rationals, and $\mathbb{Q}$.  In particular we talked about what
 distinguishes them from each other.
@@ -501,11 +539,9 @@ inverse operation of union, and nothing like multiplication.  So we
 might say a set is somewhere which allows associative addition, but
 not subtraction and not multiplication.
 
-In this section we will talk about a characteristic property/attribute which
-distinguishes the rational numbers, $\mathbb{Q}$, from the real
-numbers, $\mathbb{R}$.  That important feature of $\mathbb{R}$ not
-shared by $\mathbb{Q}$ is \emph{convergence}.  But what do we mean by
-convergence?
+
+
+\subsubsection{Intuition of  convergence?}
 
 Look at the following image.  It is easy to convince yourself that the
 circumference of the indicated circle with integer radius is a fixed
@@ -533,7 +569,7 @@ The real numbers, $\mathbb{R}$, is the smallest set which contains all these num
 \[\mathbb{R} \not\subset \mathbb{Q}\]
 
 
-As another example, using infinite sums which we will talk about in a later unit, consider the sequence: $(a_0, a_1, a_2, ...)$, such that $a_n$ is defined as:
+As another example, using infinite sums which we will talk about in a later unit, consider the sequence: $(a_0, a_1, a_2, \ldots)$, such that $a_n$ is defined as:
 \[a_n = \sum_{k=0}^{n}\frac{8}{(4n+1)(4n+3)}\]
 
 This sequence is discussed on wikipedia.\footnote{Leibniz formula,
@@ -549,47 +585,47 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 \[a_n \to \pi\,.\]
 
 
-\subsection{Mathematical perspective}
-  \begin{enumerate}
-  \item The limit is the most fundamental concept in
-    Calculus.
-    \[\lim_{n\to\infty} a_n = a\] means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ then $|a_n - a| < \varepsilon$.
-  \item limits in terms of sequences and
-    convergence,
-    A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
 
-  \item Cauchy vs convergent.
-    A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
-    $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$
-    such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
-    
-    \includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}\footnote{By
-    Ceranilo, CC BY-SA 4.0,
-    https://commons.wikimedia.org/w/index.php?curid=54837240}
-    \\Example of a sequence which converges to the limit $a$.
-    
-    \includegraphics[width=9cm]{Epsilonschlauch.png}\footnote{By
-    Ceranilo, CC BY-SA 4.0,
-    https://commons.wikimedia.org/w/index.php?curid=54836520}
-    \\Regardless which $\varepsilon >0$ we have, there is an index
-    $N_0$, so that the sequence lies afterwards completely in the
-    epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
+\subsubsection{The limit of a sequence}
+The limit is the most fundamental concept in
+Calculus.
+\[\lim_{n\to\infty} a_n = a\] means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ then $|a_n - a| < \varepsilon$.
 
-    
-    \includegraphics[width=9cm]{Epsilonschlauch-klein.png}\footnote{By
-    Ceranilo, CC BY-SA 4.0,
-    https://commons.wikimedia.org/w/index.php?curid=54836607} \\There
-    is also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so
-    that the sequence is afterwards inside the epsilon tube
-    $(a-\varepsilon_{1},a+\varepsilon_{1})$.
-  \end{enumerate}
+
+A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
+  
+
+A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
+$\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$
+such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
+
+\includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}\footnote{By
+Ceranilo, CC BY-SA 4.0,
+https://commons.wikimedia.org/w/index.php?curid=54837240}
+\\Example of a sequence which converges to the limit $a$.
+
+\includegraphics[width=9cm]{Epsilonschlauch.png}\footnote{By
+Ceranilo, CC BY-SA 4.0,
+https://commons.wikimedia.org/w/index.php?curid=54836520}
+\\Regardless which $\varepsilon >0$ we have, there is an index
+$N_0$, so that the sequence lies afterwards completely in the
+epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
+
+
+\includegraphics[width=9cm]{Epsilonschlauch-klein.png}\footnote{By
+Ceranilo, CC BY-SA 4.0,
+https://commons.wikimedia.org/w/index.php?curid=54836607} \\There
+is also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so
+that the sequence is afterwards inside the epsilon tube
+$(a-\varepsilon_{1},a+\varepsilon_{1})$.
+
   
 \subsection{Programming perspective}
   \begin{enumerate}
-  \item recursion
   \item tail recursion,
   \item fixed point
   \item higher order functions
+  \item function type
   \item representing finite and infinite sequences.
   \item sequence functions: \code{map}, \code{filter}, \code{max}, \code{sum}, \code{head}, \code{tail}, 
   \item \code{for} comprehension
@@ -597,11 +633,6 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 
 \subsection{Coding}
 \begin{enumerate}
-\item Recursion
-  \begin{itemize}
-  \item Implement \code{factorial} using recursion
-  \item What happens for large input to the \code{factorial} function
-  \end{itemize}  
 \item Exponentiation
   \begin{itemize}
   \item Implement exponentiation of Double as a recursive function.
