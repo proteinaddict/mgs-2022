@@ -22,6 +22,11 @@
 import org.scalatest.funsuite.AnyFunSuite
 
 class SetsAndFunctionsTestSuite extends AnyFunSuite {
-  test("test1") {
+  import SetsAndFunctions._
+
+  test("relation") {
+    assert(relation(Set(1,2,3),Set(10,20,30),Seq()))
+    assert(relation(Set(1,2,3),Set(10,20,30),Seq((1,10),(1,20),(3,10))))
+    assert(! relation(Set(1,2,3),Set(10,20,30),Seq((2,10),(4,20),(2,10))))
   }
 }
