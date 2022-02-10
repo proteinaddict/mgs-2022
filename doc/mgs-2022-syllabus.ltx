@@ -38,13 +38,11 @@ You are a scholar participating in the 2022 Mississippi Governor's
 School major course Advanced Mathematical Concepts, and Functional
 Programming.  There are several objectives of this course:
 \begin{description}
-  \item[Mathematics] to develop
-or ameliorate their love for Mathematics
-\item[Computer Science] to learn about functional
+  \item[Mathematics:] Ameliorate their love for Mathematics
+\item[Computer Science:] Develop competence in functional
 programming by applying programming principles to mathematical
-principles which you'll learn along the way,
-\item[Communication] to reinforce your ability and confidence to
-  explain and defend your ideas
+principles.
+\item[Communication:] Explain and confidently defend your ideas
 \end{description}
 
 In this course you will learn many cursory things along the fast
@@ -310,7 +308,12 @@ Likewise, we can define the set of subsets of size $n$
   
 \item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}, \code{Option[]}
 
-\item \code{for}, \code{forall} and \code{exists} methods
+\item \code{for}, \code{forall} and \code{exists} methods.  We
+  implement the \code{fixedSizedSubsets} in live-coding.  We write
+  some tests.  Some of which pass, and some of which fail.  To compute
+  the number of subsets of size $k$ of a set of size $n$ we need to
+  compute $n \choose k$ using the \code{factorial} function, which you
+  will develop.
 
 \item Testing
   
@@ -346,7 +349,7 @@ Likewise, we can define the set of subsets of size $n$
   \item Find the function \code{quadraticFormula}, implement a test
     for this function.
 
-    \[\frac{-b \mp \sqrt{b^2 - 4ac}}{2a}\]
+    \[\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
     The test should go in the file \texttt{SetsAndFunctionsTestSuite.scala} in
     directory \texttt{src/test/scala/}.  There is
     already a function stub you can use.  Extend the tests.  Remember
@@ -360,10 +363,10 @@ Likewise, we can define the set of subsets of size $n$
     \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
     with an internet search.  You should refactor the function to
     define a variable \code{discriminant} whose value is
-    \[\Delta = \sqrt{b^2 - 4ac}\,.\]
+    \[\Delta = b^2 - 4ac\,.\]
     Then there are three cases, if $\Delta < 0$, if $\Delta = 0$, and
     if $\Delta > 0$. Refactor the function so that if there are no
-    real roots it returns an empty list; if there is a unique
+    real roots it returns an empty list; if there is a unique 
     solution, return a list of one number; and if there are two
     distinct solutions, return a list of those two solutions
     \textbf{in increasing order}.  I.e., if you return \code{(a,b)}
@@ -372,11 +375,13 @@ Likewise, we can define the set of subsets of size $n$
   \end{itemize}
 \item Recursive Functions
   \begin{itemize}
-  \item Implement power
+  \item Implement \code{power} for \code{Int} and \code{Double}.  In
+    the case of \code{Double} you should also handle the case of a
+    negative exponent.
   \item Implement \code{String} concatenation using the power model.
   \item Implement \code{List} concatenation using the power model.
-  \item Implement factorial
-  \item Implement n-size subsets
+  \item Implement \code{factorial}.
+  \item Use \code{factorial} to test n-sized subsets.  We develope the n-sized subsets function in class.
   \item Implement Fibonacci.
   \end{itemize}
 \item Sets

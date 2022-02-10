@@ -20,24 +20,91 @@
 import math.sqrt
 
 object SetsAndFunctions {
-    // 1. TASK: Write a test to validate the following function.
-    // 2. TASK: Update the formula to compute the discriminant,
-    //    and detect whether there are zero, one, or two real roots.
-    //    refactor the function to return a list of length 0, 1, or 2 
-    //    accordingly.  If there are two roots return them in increasing
-    //    order.
-    def quadraticFormula(a:Int, b:Int, c:Int):List[Double] = {
-      List( (-b + sqrt(b*b - 4 * a * c)) / (2 * a),
-        (-b - sqrt(b*b - 4 * a * c)) / (2 * a)).distinct
+  // 1. TASK: Write a test to validate the following function.
+  // 2. TASK: Update the formula to compute the discriminant,
+  //    and detect whether there are zero, one, or two real roots.
+  //    refactor the function to return a list of length 0, 1, or 2
+  //    accordingly.  If there are two roots return them in increasing
+  //    order.
+  def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
+    List((-b + sqrt(b * b - 4 * a * c)) / (2 * a),
+         (-b - sqrt(b * b - 4 * a * c)) / (2 * a)).distinct
+  }
+
+  // Recursive functions
+  // 3. TASK: implement power to return x^n where x in an Int
+  def power(n: Int, x: Int): Int = {
+    ???
+  }
+
+  // 4. TASK: implement power to return x^n where x in an Double.
+  //   In the case of Double (not not the other cases), you may
+  //   also implement negative exponents.  What to do if n<0.
+  def power(n: Int, x: Double): Double = {
+    ???
+  }
+
+  // 5. TASK: implement power to return x^n where x in a String
+  def power(n: Int, x: String): String = {
+    ???
+  }
+
+  // 6. TASK: implement power to return x^n where x in a List[T]
+  def power[T](n: Int, x: List[T]): List[T] = {
+    ???
+  }
+
+  // 7. TASK: implement factorial
+  def factorial(n: Int): Int = {
+    assert(n >= 0, s"n must be non-negative, got n=$n")
+    ???
+  }
+
+  // 8. TASK: you can now test this function, as factorial
+  //    has been implemented.
+  def fixedSizedSubsets[T](n: Int, s: Set[T]): Set[Set[T]] = {
+    assert(n >= 0, s"n must be non-negative, got n=$n")
+    if (n == 0)
+      Set(Set())
+    else if (n == 1) {
+      for {e <- s
+           } yield Set(e)
+    } else { // n > 1
+      for {e <- s
+           subs = fixedSizedSubsets(n - 1, s - e)
+           sub <- subs
+           } yield sub + e
     }
+  }
 
-    // 4. compute the union, intersection, and complement
-    // 5. implement a subset function and an equivalence function based on your subset function. 
-    // 6. partition a set into equivalence classes
-    // 7. generalize to partition based on equivalence of probe function.
-    // 8. rewrite step 5 in terms of 6.
+  // 9. TASK:  compute the n'th fibonacci number.
+  def fibonacci(n: Int): Int = {
+    ???
+  }
 
-  def main(argv:Array[String]):Unit = {
+  // 10. TASK: Given two sets, compute the union
+  def setUnion[T](a:Set[T],b:Set[T]):Set[T] = {
+    ???
+  }
+
+  // 11. TASK: Given two sets, compute the intersection
+  def setIntersection[T](a:Set[T],b:Set[T]):Set[T] = {
+    ???
+  }
+
+  // 12. TASK: Given two sets, compute the relative complement
+  def setMinus[T](a:Set[T],b:Set[T]):Set[T] = {
+    ???
+  }
+
+  // 13. TASK: set equivalence
+  def setEqual[T](a:Set[T],b:Set[T]):Boolean = {
+    ???
+  }
+
+
+
+  def main(argv: Array[String]): Unit = {
     println("Hello this is main of SetsAndFunctions")
   }
 }
