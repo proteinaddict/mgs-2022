@@ -38,7 +38,7 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   test("factorial") {
     ???
   }
-  
+
   test("fixedSizeSubsets") {
     assert(fixedSizedSubsets(0, Set(1, 2, 3)) == Set(Set()))
     assert(fixedSizedSubsets(1, Set(1, 2, 3)) == Set(Set(1), Set(2), Set(3)))

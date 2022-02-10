@@ -83,26 +83,24 @@ object SetsAndFunctions {
   }
 
   // 10. TASK: Given two sets, compute the union
-  def setUnion[T](a:Set[T],b:Set[T]):Set[T] = {
+  def setUnion[T](a:List[T],b:List[T]):List[T] = {
     ???
   }
 
   // 11. TASK: Given two sets, compute the intersection
-  def setIntersection[T](a:Set[T],b:Set[T]):Set[T] = {
+  def setIntersection[T](a:List[T],b:List[T]):List[T] = {
     ???
   }
 
   // 12. TASK: Given two sets, compute the relative complement
-  def setMinus[T](a:Set[T],b:Set[T]):Set[T] = {
+  def setMinus[T](a:List[T],b:List[T]):List[T] = {
     ???
   }
 
   // 13. TASK: set equivalence
-  def setEqual[T](a:Set[T],b:Set[T]):Boolean = {
+  def setEqual[T](a:List[T],b:List[T]):Boolean = {
     ???
   }
-
-
 
   def main(argv: Array[String]): Unit = {
     println("Hello this is main of SetsAndFunctions")

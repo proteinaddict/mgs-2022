@@ -363,7 +363,7 @@ Likewise, we can define the set of subsets of size $n$
     \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
     with an internet search.  You should refactor the function to
     define a variable \code{discriminant} whose value is
-    \[\Delta = b^2 - 4ac\,.\]
+    \[\Delta = b^2 - 4 a c\,.\]
     Then there are three cases, if $\Delta < 0$, if $\Delta = 0$, and
     if $\Delta > 0$. Refactor the function so that if there are no
     real roots it returns an empty list; if there is a unique 
@@ -381,12 +381,22 @@ Likewise, we can define the set of subsets of size $n$
   \item Implement \code{String} concatenation using the power model.
   \item Implement \code{List} concatenation using the power model.
   \item Implement \code{factorial}.
-  \item Use \code{factorial} to test n-sized subsets.  We develope the n-sized subsets function in class.
+  \item Use \code{factorial} to test n-sized subsets.  We develop the
+    n-sized subsets function in class.
+
+    \textbf{Discussion:} Do we
+    need a case for $n=0$ and also $n=1$?  How does this relate to the
+    principle of induction?  Look up \emph{Principle of Induction} if
+    you need to review it.
   \item Implement Fibonacci.
   \end{itemize}
 \item Sets
   \begin{itemize}
-  \item Compute the union, intersection, and complement.
+  \item Implement compute the union, intersection, and complement.
+    Can you use $\forall$ (Scala \code{obj.forall}) and $\exists$
+    (Scala \code{obj.exists}) in your implementation or your
+    tests. You may find the \code{filter} method to also be useful and
+    possibly the \code{for} comprehension.
   \item Implement a subset function and an equivalence function based on your subset function.
   \end{itemize}
 \end{enumerate}
@@ -967,4 +977,6 @@ the previous implementation of limit.
 % LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
 % LocalWords:  klein Leibniz uploader reduceOption groupBy pagebreak
 % LocalWords:  leibniz hfill scala includegraphics noindent url ldots
-% LocalWords:  setminus exp
+% LocalWords:  setminus exp internet quadraticFormula NaN destructure
+% LocalWords:  fixedSizedSubsets SetsAndFunctions buildserver galois
+% LocalWords:  SetsAndFunctionsTestSuite
