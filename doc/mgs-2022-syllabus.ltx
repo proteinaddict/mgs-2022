@@ -323,12 +323,52 @@ Likewise, we can define the set of subsets of size $n$
 \item First Program
   \begin{itemize}
   \item Create a github account
-  \item Open the web-ide
-  \item Run an existing program in the IDE
-  \item Implement a test, demonstrate the test passes; change the
-    function to demonstrate a failing test; revert the change.
-  \item Implement hello-world, insert a given string, name, and the
-    current date into the hello-world message.
+  \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
+  \item Fork the repository.
+  \item Open the web-ide with gitpod, you may just prepend
+    \url{http://gitpod.io/#} to the URL already in the web browser.
+  \item Find the Explorer, and open (click) \texttt{src/main/scala/SetsAndFunctions.scala}.
+    If you click on \code{SetsAndFunctions} you should see something like this:
+
+    \includegraphics[height=1.5cm]{rundebug.png}
+
+    Click \textbf{run}.  If you don't see \textbf{run debug}, you may
+    need to restart the build server, and recompile.  Find and click
+    the Metals icon \includegraphics[height=2cm]{metals.png}.  This
+    should open the Metals panel where you can \textbf{Restart the
+      build Server} and \textbf{Cascade compile}. 
+
+    \includegraphics[width=8cm]{buildserver.png}
+
+    Thereafter, you should be able to find the \textbf{run|debug} link
+    in the Scala code.
+    
+  \item Find the function \code{quadraticFormula}, implement a test
+    for this function.
+
+    \[\frac{-b \mp \sqrt{b^2 - 4ac}}{2a}\]
+    The test should go in the file \texttt{SetsAndFunctionsTestSuite.scala} in
+    directory \texttt{src/test/scala/}.  There is
+    already a function stub you can use.  Extend the tests.  Remember
+    that to test values of type \code{Double} you may need check
+    whether the absolute value is less than epsilon rather than
+    testing for exact equivalence.
+  \item Enhance \code{quadraticFormula}: Notice that the current
+    implementation is inefficient, because it computes almost the same
+    thing twice.  Also if you call the function with \code{a,b,c} for
+    which there are no real solutions, the function will return
+    \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
+    with an internet search.  You should refactor the function to
+    define a variable \code{discriminant} whose value is
+    \[\Delta = \sqrt{b^2 - 4ac}\,.\]
+    Then there are three cases, if $\Delta < 0$, if $\Delta = 0$, and
+    if $\Delta > 0$. Refactor the function so that if there are no
+    real roots it returns an empty list; if there is a unique
+    solution, return a list of one number; and if there are two
+    distinct solutions, return a list of those two solutions
+    \textbf{in increasing order}.  I.e., if you return \code{(a,b)}
+    assure that $a < b$.  Also update the test case to check for
+    $a<b$.
   \end{itemize}
 \item Recursive Functions
   \begin{itemize}
