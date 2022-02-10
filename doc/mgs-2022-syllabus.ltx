@@ -244,10 +244,10 @@ or  we can define it recursively
 \begin{equation}
   x^n = \begin{cases}
     1 &\,; \text{if $n=0$}\\
-    n \times x^{n-1} &\,; \text{if $n > 0$}\\
+    x \times x^{n-1} &\,; \text{if $n > 0$}\\
     \frac{1}{x^{n}} &\,; \text{if $n < 0$}
   \end{cases}
-\end{equation}
+\end{equation}\label{eq.slow.exponent}
 
 
 
@@ -457,6 +457,12 @@ $(F,+,\times)$ is a field if
 \item $(F \setminus 0, \times)$ is a group, where $0$ is the identity under $+$.
 \end{enumerate}    
 
+
+\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+
+
+
+
 \subsubsection{Vector Space (optional)}
 
 \textbf{Question:} What is a vector?
@@ -476,11 +482,28 @@ $(G,F,+,\times,\circ)$ is a vector space if
 \item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
 \end{enumerate}    
 Elements of $G$ are called vectors.  Elements of $F$ are called
-scalars. And $\circ$ (normally written as juxtaposition, $av$ rather than $a\circ v$) is
+scalars. And $\circ$ (normally written as juxtaposition, $a v$ rather than $a\circ v$) is
 called scalar multiplication.
 
 
-\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\subsubsection{Fast Exponentiation in a Monoid}
+
+Recall the definition of exponentiation in
+Equation~\eqref{eq.slow.exponent}.  In any monoid with operation $\circ$ and identity
+element $e$, we can compute an
+integer power of an element more efficiently according to the
+following formula.
+
+
+
+\begin{equation}
+  x^n = \begin{cases}
+    e &\,; \text{if $n=0$}\\
+    x &\,; \text{if $n=1$}\\
+    x \circ x^{n-1} &\,; \text{if $n$ is odd}\\
+    (x^\frac{n}{2})\circ     (x^\frac{n}{2}) &\,; \text{if $n$ is even}\\
+  \end{cases}
+\end{equation}\label{eq.fast.exponent}
 
 
 \subsubsection{Equivalence classes}
@@ -506,7 +529,7 @@ Fuzzy definitions: zero, one, add, multiply
 \item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
 \item Ring of matrix (matrix add, subtract, multiply)
 \item \code{Map[Int,Double]} type (polynomial as motivating example)
-\item Field of polynomials (polynomial add, scale, subtract, multiply)
+\item Ring of polynomials (polynomial add, scale, subtract, multiply)
 \item Property based testing, generate randomly selected object.
 \item Team work projects using git and github, pull request, merge.
 \end{enumerate}
@@ -526,6 +549,9 @@ Fuzzy definitions: zero, one, add, multiply
   \item Implement matrix, add, subtract, multiply multiplication, in
     functions \code{matrixAdd}, \code{matrixSubtract}, and
     \code{matrixMultiple}.
+  \item Implement fast monoid multiply for matrices:
+    \code{matrixPower}.  In the test case, multiply the slow way and
+    assert that the result is the same as \code{matrixPower}.
   \item Complex numbers as special case of $2\times 2$ matrix.
     Implement \code{complexAdd}, \code{complexSubtract},
     \code{complexMultiply} in terms of \code{matrixAdd},
@@ -562,7 +588,7 @@ Fuzzy definitions: zero, one, add, multiply
   \item For which values of $n$ is $\mathbb{Z}/n$ a field?
   \end{itemize}
   
-\item Team or Individual Project
+\item Group Interactive Project
   \begin{itemize}
   \item Implement the polynomial ring, with addition,
     subtraction, multiplication
@@ -596,6 +622,8 @@ Fuzzy definitions: zero, one, add, multiply
     
   \end{itemize}
   
+
+\item 
 \end{enumerate}
 
 
@@ -1041,3 +1069,4 @@ the previous implementation of limit.
 % LocalWords:  SetsAndFunctionsTestSuite Monoid Cdang cubically cfm
 % LocalWords:  mathtutordvd betterexplained programmatically Bolzano
 % LocalWords:  Augustin Gottfried matrixMultiple complexAdd rundebug
+% LocalWords:  complexSubtract

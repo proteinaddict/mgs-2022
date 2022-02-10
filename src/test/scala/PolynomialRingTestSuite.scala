@@ -19,69 +19,33 @@
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class AbstractAlgebraTestSuite extends AnyFunSuite {
+class PolynomialRingTestSuite extends AnyFunSuite {
 
-  import AbstractAlgebra._
+  import PolynomialRing._
 
-  test("groupByStringSize") {
+  type POLY = Map[Int,Double]
+
+  test("polyAlmostEqual"){
     ???
   }
 
-  test("groupByMinElement") {
+  test("polyAdd"){
     ???
   }
 
-  test("groupByModulus") {
-    assert(groupByModulus(0, 10, 3) == Map(0 -> Seq(0, 3, 6, 9),
-                                           1 -> Seq(1, 4, 7, 10),
-                                           2 -> Seq(2, 5, 8)))
-  }
-
-  test("matrixAdd"){
+  test("polyScale"){
     ???
   }
 
-  test("matrixSubtract"){
+  test("polySubtract"){
     ???
   }
 
-  test("matrixMultiply"){
+  test("polyMultiply"){
     ???
   }
 
-  test("matrixPower"){
-    ???
-  }
-
-  test("complexAdd"){
-    ???
-  }
-
-  test("complexSubtract"){
-    ???
-  }
-
-  test("complexMultiply"){
-    ???
-  }
-
-  test("i*i = -1"){
-    ??? // how can you test that i*i == -1
-  }
-
-  test("matrix addition commutative"){
-    ??? // use randomMatrix()
-  }
-
-  test("matrix addition associative"){
-    ??? // use randomMatrix()
-  }
-
-  test("matrix multiplication associative"){
-    ???  // use randomMatrix()
-  }
-
-  test("complex multiplication commutative"){
+  test("polyFastPower"){
     ???
   }
 }

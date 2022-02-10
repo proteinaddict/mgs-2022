@@ -17,71 +17,41 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import org.scalatest.funsuite.AnyFunSuite
+object PolynomialRing {
+  type POLY = Map[Int,Double]
 
-class AbstractAlgebraTestSuite extends AnyFunSuite {
-
-  import AbstractAlgebra._
-
-  test("groupByStringSize") {
+  def polyAlmostEqual(p1:POLY, p2:POLY, epsilon:Double = .0001): Boolean = {
     ???
   }
 
-  test("groupByMinElement") {
+  def polyAdd(p1:POLY, p2:POLY):POLY = {
     ???
   }
 
-  test("groupByModulus") {
-    assert(groupByModulus(0, 10, 3) == Map(0 -> Seq(0, 3, 6, 9),
-                                           1 -> Seq(1, 4, 7, 10),
-                                           2 -> Seq(2, 5, 8)))
-  }
-
-  test("matrixAdd"){
+  def polyScale(s:Double, p1:POLY):POLY = {
     ???
   }
 
-  test("matrixSubtract"){
+  def polySubtract(p1:POLY, p2:POLY): POLY = {
+    polyAdd(p1, polyScale(-1.0, p2))
+  }
+
+  def polyMultiply(p1:POLY, P2:POLY): POLY = {
     ???
   }
 
-  test("matrixMultiply"){
+  def polyFastPower(p1:POLY, n:Int): POLY = {
+    assert(n >= 0)
     ???
   }
 
-  test("matrixPower"){
+  def polySlowPower(p1:POLY, n:Int): POLY = {
+    assert(n >= 0)
     ???
   }
 
-  test("complexAdd"){
-    ???
-  }
-
-  test("complexSubtract"){
-    ???
-  }
-
-  test("complexMultiply"){
-    ???
-  }
-
-  test("i*i = -1"){
-    ??? // how can you test that i*i == -1
-  }
-
-  test("matrix addition commutative"){
-    ??? // use randomMatrix()
-  }
-
-  test("matrix addition associative"){
-    ??? // use randomMatrix()
-  }
-
-  test("matrix multiplication associative"){
-    ???  // use randomMatrix()
-  }
-
-  test("complex multiplication commutative"){
+  def randomPoly(n:Int): POLY = {
+    assert(n >= 0)
     ???
   }
 }

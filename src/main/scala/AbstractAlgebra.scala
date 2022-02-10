@@ -58,6 +58,12 @@ object AbstractAlgebra {
     ???
   }
 
+  // TASK: power of matrix, use the fast monoid multiplication
+  def matrixPower(m: Vector[Vector[Int]], n:Int): Unit ={
+    assert(n >=0)
+    ???
+  }
+
   // TASK: add two complex numbers by using MatrixAdd
   def complexAdd(a: (Int, Int), b: (Int, Int)): (Int, Int) = {
     ???
