@@ -30,4 +30,8 @@ object SetsAndFunctions {
     // 6. partition a set into equivalence classes
     // 7. generalize to partition based on equivalence of probe function.
     // 8. rewrite step 5 in terms of 6.
+
+  def main(argv:Array[String]):Unit = {
+    println("Hello this is main of SetsAndFunctions")
+  }
 }
