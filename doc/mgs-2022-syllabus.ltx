@@ -429,6 +429,11 @@ $(S,\circ)$ is a monoid if
 \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
 \end{enumerate}
 
+Notice that we assume that a monoid has an identity element, but we
+don't assume that it is unique.  Can a monoid have more than one
+identity element: $e_1$ and $e_2$?  The answer is no, but why?  
+
+
 \subsubsection{Group}
 
 $(S,\circ)$ is a group if
@@ -437,6 +442,11 @@ $(S,\circ)$ is a group if
 \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
 \end{enumerate}
 If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
+
+A group has an identity which is also the identity of the monoid,
+which we already know to be unique.  But we can ask a similar
+uniqueness question about the inverse.  Can an element $a\in S$ have
+two different inverses?  No, but why?
 
 \subsubsection{Ring}
 

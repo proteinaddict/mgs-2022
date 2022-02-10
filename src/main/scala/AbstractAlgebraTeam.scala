@@ -19,13 +19,11 @@
 
 object AbstractAlgebraTeam {
   def findIdentity[T](s: Set[T], op: (T, T) => T): Option[T] = {
-    val identities = s.filter(a =>
-                                s.forall(b =>
-                                           op(a, b) == b && op(b, a) == b))
-    if (identities.size == 1)
-      Some(identities.head)
-    else
-      None
+    // The identity is guaranteed to be unique if it exists.
+    // Because if there are two identifies e1 and e2, then
+    // op(e1,e2)=e1 and op(e1,e2)=e2, by definition of identity.
+    // so e1=e2.
+    s.find(e => s.forall(a => op(a,e) == a && op(e,a) == a))
   }
 
   def isMonoid[T](s: Set[T], op: (T, T) => T): Boolean = {
@@ -43,7 +41,7 @@ object AbstractAlgebraTeam {
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
     isMonoid(s, op) && {
       val Some(e) = findIdentity(s, op)
-      // every element is invertible
+      // is every element is invertible
       s.forall(a =>
                  s.exists(b =>
                             op(a, b) == e && op(b, a) == e))
