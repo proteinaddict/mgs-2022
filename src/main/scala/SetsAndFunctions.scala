@@ -17,14 +17,20 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+import math.sqrt
+
 object SetsAndFunctions {
-    // 1. write a function to determine whether a sequence of pairs designates a relation 
-    def relation(as:Set[Int], bs:Set[Int], cs:Seq[(Int,Int)]):Boolean = {
-        cs.forall{pair => as.contains(pair._1) && bs.contains(pair._2)}
+    // 1. TASK: Write a test to validate the following function.
+    // 2. TASK: Update the formula to compute the discriminant,
+    //    and detect whether there are zero, one, or two real roots.
+    //    refactor the function to return a list of length 0, 1, or 2 
+    //    accordingly.  If there are two roots return them in increasing
+    //    order.
+    def quadraticFormula(a:Int, b:Int, c:Int):List[Double] = {
+      List( (-b + sqrt(b*b - 4 * a * c)) / (2 * a),
+        (-b - sqrt(b*b - 4 * a * c)) / (2 * a)).distinct
     }
 
-    // 2. write a function to determine whether a sequence of pairs designates a function 
-    // 3. decide whether such a function is injective, surjective, bijective.
     // 4. compute the union, intersection, and complement
     // 5. implement a subset function and an equivalence function based on your subset function. 
     // 6. partition a set into equivalence classes

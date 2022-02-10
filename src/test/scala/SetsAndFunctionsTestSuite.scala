@@ -24,9 +24,9 @@ import org.scalatest.funsuite.AnyFunSuite
 class SetsAndFunctionsTestSuite extends AnyFunSuite {
   import SetsAndFunctions._
 
-  test("relation") {
-    assert(relation(Set(1,2,3),Set(10,20,30),Seq()))
-    assert(relation(Set(1,2,3),Set(10,20,30),Seq((1,10),(1,20),(3,10))))
-    assert(! relation(Set(1,2,3),Set(10,20,30),Seq((2,10),(4,20),(2,10))))
+  test("quadraticFormula") {
+    assert(quadraticFormula(1,0,0) == List(0.0))
+    assert(quadraticFormula(1,2,3).size == 2) // assert that there are two roots
+    println(quadraticFormula(1,1,1))
   }
 }
