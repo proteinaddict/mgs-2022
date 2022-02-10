@@ -11,3 +11,4 @@ target/
 .idea
 .jvmopts
 project/project/metals.sbt
+.DS_Store
