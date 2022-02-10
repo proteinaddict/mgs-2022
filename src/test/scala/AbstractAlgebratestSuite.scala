@@ -1,5 +1,3 @@
-// Copyright (c) 2020,21 EPITA Research and Development Laboratory
-//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation
 // files (the "Software"), to deal in the Software without restriction,
@@ -22,6 +20,64 @@
 import org.scalatest.funsuite.AnyFunSuite
 
 class AbstractAlgebraTestSuite extends AnyFunSuite {
-  test("test1") {
+
+  import AbstractAlgebra._
+
+  test("groupByStringSize") {
+    ???
+  }
+
+  test("groupByMinElement") {
+    ???
+  }
+
+  test("groupByModulus") {
+    assert(groupByModulus(0, 10, 3) == Map(0 -> Seq(0, 3, 6, 9),
+                                           1 -> Seq(1, 4, 7, 10),
+                                           2 -> Seq(2, 5, 8)))
+  }
+
+  test("matrixAdd"){
+    ???
+  }
+
+  test("matrixSubtract"){
+    ???
+  }
+
+  test("matrixMultiply"){
+    ???
+  }
+
+  test("complexAdd"){
+    ???
+  }
+
+  test("complexSubtract"){
+    ???
+  }
+
+  test("complexMultiply"){
+    ???
+  }
+
+  test("i*i = -1"){
+    ??? // how can you test that i*i == -1
+  }
+
+  test("matrix addition commutative"){
+    ??? // use randomMatrix()
+  }
+
+  test("matrix addition associative"){
+    ??? // use randomMatrix()
+  }
+
+  test("matrix multiplication associative"){
+    ???  // use randomMatrix()
+  }
+
+  test("complex multiplication commutative"){
+    ???
   }
 }

@@ -22,6 +22,7 @@
 
 \author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr.\ Jim\ Newton}
 \setcounter{tocdepth}{2}
+\setcounter{section}{-1}
 \begin{document}
 
 
@@ -452,12 +453,19 @@ In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called a
 
 $(F,+,\times)$ is a field if
 \begin{enumerate}
-\item $(F,+)$ is an Abelian group
-\item $(F, \times)$ commutative monoid.
-\item $(F \setminus 0, \times)$ is an Abelian group, where $0$ is the identity under $+$.
+\item $(F,+, \times)$ is an Abelian Ring.
+\item $(F \setminus 0, \times)$ is a group, where $0$ is the identity under $+$.
 \end{enumerate}    
 
 \subsubsection{Vector Space (optional)}
+
+\textbf{Question:} What is a vector?
+
+\textbf{Answer:} An element of a vector space.
+
+It turns out we don't define vectors by themselves, rather we define a
+set with a particular structure, and then call the elements
+\emph{vectors}.
 
 $(G,F,+,\times,\circ)$ is a vector space if
 \begin{enumerate}
@@ -475,7 +483,7 @@ called scalar multiplication.
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
 
 
-\subsubsection{Equivalnce classes}
+\subsubsection{Equivalence classes}
 
 Equivalence classes and groups of equivalence classes.
 
@@ -505,21 +513,39 @@ Fuzzy definitions: zero, one, add, multiply
 
 \subsection{Coding}
 \begin{enumerate}
-\item The \code{Map[]} type
+\item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
   \begin{itemize}
-  \item Partition a sequence into equivalence classes      
-  \item Generalize to partition based on equivalence of probe function.
-  \item Rewrite step 1 in terms of 2
-  \item Partition a set of natural numbers form $0$ to $n$ into equivalence classes modulo $m$.
+  \item Group strings by length of string (size).
+  \item Group sets of integers by minimum element.
+  \item Partition a set of natural numbers between to boundaries
+    \code{lower} and \code{upper} into equivalence classes modulo \code{n}.
   \end{itemize}
   
-\item Matrices
+\item Square matrices of integers
   \begin{itemize}
-  \item Implement matrix, add, subtract, multiply
-    multiplication.  
-  \item Test structural axioms (commutativity etc), Property based testing.
+  \item Implement matrix, add, subtract, multiply multiplication, in
+    functions \code{matrixAdd}, \code{matrixSubtract}, and
+    \code{matrixMultiple}.
   \item Complex numbers as special case of $2\times 2$ matrix.
-  \item Can you express the identity $i^2 = -1$ in terms of these $2\times 2$ matrices?
+    Implement \code{complexAdd}, \code{complexSubtract},
+    \code{complexMultiply} in terms of \code{matrixAdd},
+    \code{matrixSubtract}, and \code{matrixMultiple}.
+  \item Can you express the identity $i^2 = -1$ in terms of these
+    $2\times 2$ matrices?  Write this as a test case for
+    \code{complexMultiply}
+  \item Test structural axioms (commutativity etc), Property based
+    testing.  You'll need a function to generate a random $n\times n$
+    matrix.
+
+    \textbf{Discussion:} in which cases regarding matrices and complex
+    numbers can we check associativity and commutativity?  Is matrix
+    addition commutative?  Is matrix multiplication commutative?  Is
+    complex multiplication commutative?
+
+    \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
+    multiplication is, how can we implement complex numbers in terms
+    of matrices?
+    
   \end{itemize}
   
 \item Team Project
@@ -536,13 +562,38 @@ Fuzzy definitions: zero, one, add, multiply
   \item For which values of $n$ is $\mathbb{Z}/n$ a field?
   \end{itemize}
   
-\item Team Project
+\item Team or Individual Project
   \begin{itemize}
   \item Implement the polynomial ring, with addition,
     subtraction, multiplication
   \item Generalize to the polynomial ring over a given field.
   \item Consider the set of polynomials of degree $n$ whose scalars
-    are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction, and multiplication.
+    are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
+    and multiplication.
+
+    \textbf{Discussion:} Is the set of polynomials of degree $n$ with
+    integer coefficients an infinite
+    set or finite set?  Is this set closed under addition?  Are
+    multiplication and addition associative and commutative? Is it
+    closed under multiplication?  Does this set form a monoid, group,
+    ring, or field?
+
+    How does the answer change if addition and multiplication of
+    coefficients is done in $\mathbb{Z}/(n+1)$.
+
+    What if arithmetic on not only coefficients but also exponents is
+    done in $\mathbb{Z}/(n+1)$.
+    
+    What would you need to do to use the library you've written
+    \code{isMonoid}, \code{isGroup} etc to test your hypotheses?  How
+    would you write a program to generate all such polynomials?
+
+    \textbf{Discussion:} Is the set of $n\times n$ matricies with
+    integer content a finite or infinite set?  What if we restrict the
+    content to $\mathbb{Z}/(n+1)$?  How would you need to change the
+    matrix manipulation code you've already written to accomodate
+    arithmetic in $\mathbb{Z}/(n+1)$?
+    
   \end{itemize}
   
 \end{enumerate}
@@ -558,10 +609,10 @@ shared by $\mathbb{Q}$ is \emph{convergence}.  But what do we mean by
 convergence?
 
 We will discuss the mathematical definition of convergence, and we
-will write some programms which approximate real quanties with
+will write some programs which approximate real quantities with
 sequences which approximate them.
 
-Issac Newton and Gottfried Leibniz invented calculus around 1660 or
+Isaac Newton and Gottfried Leibniz invented calculus around 1660 or
 1670.  Some 150 years later, around 1820 Augustin-Louis Cauchy and Bernard Bolzano
 presented the concept of the limit.  Thanks to the work of Cauchy and Bolzano and
 his contemporaries, we can understand at a fundamental level, the work
@@ -605,7 +656,9 @@ circumference of a circle has a real, actual, definite length.
 
 
 \noindent\includegraphics[width=\textwidth]{Archimedes-pi.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By Original: FredrikVector: Leszek Krupinski --- Own work based on: Archimedes pi.png:  by Fredrik, Public Domain.}
+\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
+Original: FredrikVector: Leszek Krupinski --- Own work based on:
+Archimedes pi.png:  by Fredrik, Public Domain.}
 
 
 The
@@ -624,7 +677,9 @@ The real numbers, $\mathbb{R}$, is the smallest set which contains all these num
 \[\mathbb{R} \not\subset \mathbb{Q}\]
 
 
-As another example, using infinite sums which we will talk about in a later unit, consider the sequence: $(a_0, a_1, a_2, \ldots)$, such that $a_n$ is defined as:
+As another example, using infinite sums which we will talk about in a
+later unit, consider the sequence: $(a_0, a_1, a_2, \ldots)$, such
+that $a_n$ is defined as:
 \[a_n = \sum_{k=0}^{n}\frac{8}{(4n+1)(4n+3)}\]
 
 This sequence is discussed on wikipedia.\footnote{Leibniz formula,
@@ -636,7 +691,8 @@ choosing sufficiently large $n$.  Thus this sequence is Cauchy.
 Nevertheless, the value this sequence tends to is not rational.  Any
 rational number, $q$, you chose, you can find an $N$ such that if
 $n>N$ then either $a_n>q$ or $a_n<q$.  Thus we say that this sequence
-does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  In particular
+does not converge in $\mathbb{Q}$.  However, it converges to in
+$\mathbb{R}$.  In particular
 \[a_n \to \pi\,.\]
 
 
@@ -644,10 +700,13 @@ does not converge in $\mathbb{Q}$.  However, it converges to in $\mathbb{R}$.  I
 \subsubsection{The limit of a sequence}
 The limit is the most fundamental concept in
 Calculus.
-\[\lim_{n\to\infty} a_n = a\] means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such that if $n>N$ then $|a_n - a| < \varepsilon$.
+\[\lim_{n\to\infty} a_n = a\]
+means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such
+that if $n>N$ then $|a_n - a| < \varepsilon$.
 
 
-A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$, if \[\lim_{n\to\infty} a_n = a\,.\]
+A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$,
+if \[\lim_{n\to\infty} a_n = a\,.\]
   
 
 A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
@@ -743,7 +802,7 @@ In this section we'll look at ways to compute sums like these
   \item Contrast convergence and summability.
   \item Taylor series is of the form
     \[\sum_{k=0}^{\infty} a_{n}x^{n}\,.\]
-    In some cases this series conververges to an interesting function.
+    In some cases this series converges to an interesting function.
     Since the $x^n$ terms are increasing rapidly, the $a_n$ terms must
     therefore decrease (in absolute value) rapidly otherwise the
     series will not converge (it will diverge).
@@ -851,7 +910,7 @@ Own work, CC BY-SA 3.0,
 
 \item Definition of derivative
   \[f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h} = \lim_{a\to x}\frac{f(x) - f(a)}{x - a}\,.\]
-\noindent\includegraphics[width=10cm]{derivative.png}\footnote{\url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative} From web page .}
+\noindent\includegraphics[width=10cm]{derivative.png}\footnote{\url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative} From web page.}
 
 
 \item Linearity of derivative.
@@ -979,4 +1038,6 @@ the previous implementation of limit.
 % LocalWords:  leibniz hfill scala includegraphics noindent url ldots
 % LocalWords:  setminus exp internet quadraticFormula NaN destructure
 % LocalWords:  fixedSizedSubsets SetsAndFunctions buildserver galois
-% LocalWords:  SetsAndFunctionsTestSuite
+% LocalWords:  SetsAndFunctionsTestSuite Monoid Cdang cubically cfm
+% LocalWords:  mathtutordvd betterexplained programmatically Bolzano
+% LocalWords:  Augustin Gottfried matrixMultiple complexAdd rundebug
