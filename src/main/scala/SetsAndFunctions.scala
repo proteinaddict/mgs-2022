@@ -41,23 +41,41 @@ object SetsAndFunctions {
   //   In the case of Double (not not the other cases), you may
   //   also implement negative exponents.  What to do if n<0.
   def power(n: Int, x: Double): Double = {
-    ???
+    //???
+    if (n == 0)
+      1.0
+    else
+      power(n-1,x) * x
   }
 
   // 5. TASK: implement power to return x^n where x in a String
+  //     note that x^0 = ""
+  //     you may append lists with +. e.g., "abc" + "xyz" gives "abcxyz"
   def power(n: Int, x: String): String = {
-    ???
+    if (n == 0)
+      ""
+    else
+      power(n-1,x) + x
   }
 
   // 6. TASK: implement power to return x^n where x in a List[T]
+  //    x^0 = List()
+  //    you may append lists with ++
   def power[T](n: Int, x: List[T]): List[T] = {
-    ???
+    if (n == 0)
+      List()
+    else
+      power(n-1,x) ++ x
   }
 
   // 7. TASK: implement factorial
   def factorial(n: Int): Int = {
     assert(n >= 0, s"n must be non-negative, got n=$n")
-    ???
+    //???
+    if (n == 0)
+      1
+    else
+      n * factorial(n-1)
   }
 
   // 8. TASK: you can now test this function, as factorial
@@ -77,29 +95,36 @@ object SetsAndFunctions {
     }
   }
 
-  // 9. TASK:  compute the n'th fibonacci number.
+  // 9. TASK:  compute the n'th fibonacci number. (zero indexed)
   def fibonacci(n: Int): Int = {
-    ???
+    if (n == 0)
+      1
+    else if (n == 1)
+      1
+    else
+      fibonacci(n-1) + fibonacci(n-2)
   }
 
   // 10. TASK: Given two sets, compute the union
   def setUnion[T](a:List[T],b:List[T]):List[T] = {
-    ???
+    //???
+    a ++ b.filter(x => ! a.contains(x))
   }
 
   // 11. TASK: Given two sets, compute the intersection
   def setIntersection[T](a:List[T],b:List[T]):List[T] = {
-    ???
+    a.filter{x => b.contains(x)}
   }
 
   // 12. TASK: Given two sets, compute the relative complement
   def setMinus[T](a:List[T],b:List[T]):List[T] = {
-    ???
+    a.filter(x => ! b.contains(x))
   }
 
   // 13. TASK: set equivalence
   def setEqual[T](a:List[T],b:List[T]):Boolean = {
-    ???
+    a.forall(x => b.contains(x)) &&
+      b.forall(x => a.contains(x))
   }
 
   def main(argv: Array[String]): Unit = {

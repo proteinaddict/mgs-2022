@@ -30,11 +30,20 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   }
 
   test("power") {
-    ???
+    assert(power(3, "x") == "xxx")
+    assert(power(3,List(1,2)) == List(1,2,1,2,1,2))
+    assert(power(3,4.0) == 4.0 * 4.0 * 4.0)
+
+    assert(power(0, "x") == "")
+    assert(power(0, 13.0) == 1.0)
+    assert(power(0, List(1,2)) == List())
   }
 
   test("factorial") {
-    ???
+    assert(factorial(0) == 1)
+    assert(factorial(1) == 1)
+    assert(factorial(3) == 6)
+    assert(factorial(7) == 7 * factorial(6))
   }
 
   test("fixedSizeSubsets") {
@@ -60,22 +69,33 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   }
 
   test("fibonacci") {
-    ???
+    assert(fibonacci(0) == 1)
+    assert(fibonacci(1) == 1)
+    assert(fibonacci(2) == 2)
+    assert(fibonacci(3) == 3)
+    assert(fibonacci(4) == 5)
+    assert(fibonacci(5) == 8)
+    assert(fibonacci(6) == 13)
   }
 
   test("setUnion") {
-    ???
+    //???
+    assert(setEqual(setUnion(List(1,2,3),List(2,1,5)),
+                    List(1,2,3,5)))
   }
 
   test("setIntersection") {
-    ???
+    //???
+    assert(setEqual(setIntersection(List(1,2,3),List(2,1,5)),
+                    List(1,2)))
   }
 
   test("setMinus") {
-    ???
+    assert(setEqual(setMinus(List(1,2,3),List(2,1,5)),
+                    List(3)))
   }
 
   test("setEqual") {
-    ???
+    assert(setEqual(List(1,2,3),List(2,1,3)))
   }
 }
