@@ -17,7 +17,7 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-object AbstractAlgebraTeam {
+object AbstractAlgebraFinite {
   def findIdentity[T](s: Set[T], op: (T, T) => T): Option[T] = {
     // The identity is guaranteed to be unique if it exists.
     // Because if there are two identifies e1 and e2, then

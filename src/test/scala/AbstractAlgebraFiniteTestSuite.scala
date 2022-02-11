@@ -19,9 +19,9 @@
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class AbstractAlgebraTeamTestSuite extends AnyFunSuite {
+class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
 
-  import AbstractAlgebraTeam._
+  import AbstractAlgebraFinite._
 
   val rotationGroup = {
     def mult(a: String, b: String): String = {
