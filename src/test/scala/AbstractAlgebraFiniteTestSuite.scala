@@ -23,6 +23,17 @@ class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
 
   import AbstractAlgebraFinite._
 
+  def cartesianProduct[T](s:Set[T],mult:(T,T)=>T):(Set[(T,T)],((T,T),(T,T))=>(T,T)) = {
+    val newSet = for{ x <- s
+         y <- s } yield (x,y)
+    def newMult(a:(T,T),b:(T,T)):(T,T) = {
+      val (a1,a2) = a
+      val (b1,b2) = b
+      (mult(a1,b1),mult(a2,b2))
+    }
+    (newSet,newMult)
+  }
+
   val rotationGroup = {
     def mult(a: String, b: String): String = {
       (a, b) match {
@@ -140,6 +151,10 @@ class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
 
       assert(!isMonoid(s, subtract), s"should not be a monoid for n=$n s=$s")
     }
+    val kleinX2 = cartesianProduct(kleinGroup._1,kleinGroup._2)
+    assert(isMonoid(kleinX2._1, kleinX2._2))
+    val rotationX2 = cartesianProduct(kleinX2._1,kleinX2._2)
+    assert(isMonoid(rotationX2._1, rotationX2._2))
   }
 
   test("group") {
@@ -157,7 +172,8 @@ class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
   test("ring") {
     for {k <- 2 to 7
          triple = zMod(k)} {
-      assert(isRing(triple._1, triple._2, triple._3), s"should be a ring if k=$k, triple=${triple._1}")
+      assert(isRing(triple._1, triple._2, triple._3),
+             s"should be a ring if k=$k, triple=${triple._1}")
     }
   }
 
