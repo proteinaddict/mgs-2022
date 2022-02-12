@@ -43,11 +43,11 @@ object AbstractAlgebra {
     (lower to upper).groupBy(x => x % n)
   }
 
-  type MATRIX[T] = Vector[Vector[T]]
+  type MATRIX[T] = Seq[Seq[T]]
 
   def matrixTabulate(n: Int, f: (Int, Int) => Int): MATRIX[Int] = {
-    for {i <- (0 until n).toVector
-         } yield for {j <- (0 until n).toVector
+    for {i <- (0 until n)
+         } yield for {j <- (0 until n)
                       } yield f(i, j)
   }
 
@@ -73,7 +73,7 @@ object AbstractAlgebra {
   // TASK: matrix multiply
   def matrixMultiply(m: MATRIX[Int], n: MATRIX[Int]): MATRIX[Int] = {
     matrixTabulate(m.size,
-                   (i, j) => (for {k <- m.indices.toVector
+                   (i, j) => (for {k <- 0 until m.size
                                    } yield m(i)(k) * n(k)(j)).sum)
   }
 
@@ -94,14 +94,14 @@ object AbstractAlgebra {
 
   def complexToMatrix(z: (Int, Int)): MATRIX[Int] = {
     val (zr, zi) = z
-    Vector(Vector(zr, -zi),
-           Vector(zi, zr))
+    Seq(Seq(zr, -zi),
+        Seq(zi, zr))
   }
 
   def matrixToComplex(m: MATRIX[Int]): (Int, Int) = {
     assert(m.size == 2)
-    val Vector(Vector(zr, _),
-               Vector(zi, _)) = m
+    val Seq(Seq(zr, _),
+            Seq(zi, _)) = m
     (zr, zi)
   }
 

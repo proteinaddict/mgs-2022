@@ -165,6 +165,11 @@ procedure.
 
 \subsubsection{Mathematical notation}
 
+\begin{align}
+  f(x) &= 3x + 1 \label{eq.simple.1}
+\end{align}
+
+
 Let's start with a very simple function~\eqref{eq.simple.1}.
 Actually, the only thing specified here is the rule.  This function is
 written in a mathematical notation where the domain and range are not
@@ -173,11 +178,8 @@ domain and range.  For example, this function works for integers,
 $\mathbb{Z}$, as input, but it will also work for natural numbers,
 $\mathbb{N}$, rational numbers, $\mathbb{Q}$, real numbers, $\mathbb{R}$,
 complex numbers, $\mathbb{C}$.  The same function will also work for
-matricies or for functions themselves.
+matrices or for functions themselves.
 
-\begin{align}
-  f(x) &= 3x + 1 \label{eq.simple.1}
-\end{align}
 
 If we want to be more precise, we can use a more descriptive notation as in~\eqref{eq.simple.2}
 
@@ -186,9 +188,10 @@ If we want to be more precise, we can use a more descriptive notation as in~\eqr
 \end{align}
 
 
-The domain and range of a function need not be the same, and need not be a setof simple numbers.  For
-example, we use the symbol $\mathbb{R}^2$ to donote the set of ordered
-pairs of real numbers; i.e.,
+The domain and range of a function need not be the same, and need not
+be a set of simple numbers.  For example, we use the symbol
+$\mathbb{R}^2$ to denote the set of ordered pairs of real numbers;
+i.e.,
 \[\{(x,y)\mid x\in \mathbb{R} \wedge y\in\mathbb{R}\}\,.\]
 Equation~\eqref{eq.simple.3} shows an example of such a function.
 
@@ -266,7 +269,10 @@ Likewise, we can define the set of subsets of size $n$
   \end{cases}
 \end{equation}\label{eq.cases.1}
 
-Notice that Equation~\eqref{eq.cases.1} specifies a function, not of numbers, but of sets.  Its input is a set, and its output is a set of sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its range is a set of set of sets.
+Notice that Equation~\eqref{eq.cases.1} specifies a function, not of
+numbers, but of sets.  Its input is a set, and its output is a set of
+sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
+range is a set of set of sets.
 
 
 \subsection{Programming perspective}
@@ -279,22 +285,28 @@ Notice that Equation~\eqref{eq.cases.1} specifies a function, not of numbers, bu
 \item Open the development environment
 
 \item Scala and IDE, define simple functions in Scala, run, edit, test, debug in IntelliJ.
-  
-\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean}, \code{String})
 
-\item Conditionals
+\item Defining a function
+  
+\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean},
+  \code{String}), and operations on objects of these types.
+
+\item Conditionals, pattern matching
 
 \item Recursive functions
 
 \item \code{Tuple}: create and destructure.
   
-\item Container types: \code{List[]}, \code{Set[]}, \code{Vector[]}, \code{Map[]}, \code{Option[]}
+\item Container types: \code{List[]}, \code{Vector[]}, \code{Seq},
+  \code{Set[]}, \code{Map[]}, \code{Option[]}
 
-\item \code{for}, \code{forall} and \code{exists} methods.  We
+\item \code{for}, \code{forall}, \code{exists}, \code{contains}, \code{find}  methods.
+  
+\item We
   implement the \code{fixedSizedSubsets} in live-coding.  We write
   some tests.  Some of which pass, and some of which fail.  To compute
   the number of subsets of size $k$ of a set of size $n$ we need to
-  compute $n \choose k$ using the \code{factorial} function, which you
+  compute~$n \choose k$ using the \code{factorial} function, which you
   will develop.
 
 \item Testing
@@ -512,17 +524,44 @@ Fuzzy definitions: zero, one, add, multiply
 
 \subsection{Programming perspective}
 \begin{enumerate}
-\item Monoid of \code{String} concatenation
-\item Monoid \code{List[Int]} concatenation
-\item Monoid \code{Set[Int]} union
-\item (optional Monoid of function application \code{compose})
-\item \code{Map[Int,Int]}, use \code{groupBy} to compute equivalence classes.
-\item Multiple dimensional types: \code{Vector[Vector[Int]]}, \code{Vector[Vector[Double]]}
-\item Ring of matrix (matrix add, subtract, multiply)
-\item \code{Map[Int,Double]} type (polynomial as motivating example)
-\item Ring of polynomials (polynomial add, scale, subtract, multiply)
-\item Property based testing, generate randomly selected object.
-\item Team work projects using git and github, pull request, merge.
+\item Monoid
+  \begin{itemize}
+  \item \code{String} concatenation
+  \item \code{List[Int]} concatenation
+  \item \code{Set[Int]} union
+  \item \code{Seq[Int]}
+  \item (optional Monoid of function application \code{compose})
+  \end{itemize}
+\item Multiple dimensional types
+  \begin{itemize}
+  \item  \code{Seq[Seq[Int]]},  \code{Seq[Seq[Double]]}
+  \item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
+    \code{matrixScale}, \code{matrixMultiply} using concentric loops.
+  \item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
+  \item Ring of matrix (matrix add, subtract, multiply)
+  \end{itemize}
+\item The \code{Map[]} type
+  \begin{itemize}
+  \item \code{Map[Int,Int]}, creating, manipulating
+  \item Equivalence classes using \code{groupBy}.
+  \item Implement polynomial using \code{Map[Int,Double]}
+  \item Ring of polynomials (polynomial add, scale, subtract, multiply)
+  \item \code{almostEqual} comparing floating point
+  \end{itemize}
+\item Testing
+  \begin{itemize}
+  \item Testing with \code{main}
+  \item Debugging with print
+  \item Property based testing
+  \item Generating randomly selected object.
+  \end{itemize}
+\item Team work
+  \begin{itemize}
+  \item   pojects using git and github
+  \item pull request
+  \item merge and rebase
+\end{itemize}
+
 \end{enumerate}
 
 \subsection{Coding}
