@@ -25,18 +25,20 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
 
   test("quadraticFormula") {
     assert(quadraticFormula(1, 0, 0) == List(0.0))
-    assert(quadraticFormula(1, 2, 3).size == 2) // assert that there are two roots
+    assert(
+      quadraticFormula(1, 2, 3).size == 2
+    ) // assert that there are two roots
     println(quadraticFormula(1, 1, 1))
   }
 
   test("power") {
     assert(power(3, "x") == "xxx")
-    assert(power(3,List(1,2)) == List(1,2,1,2,1,2))
-    assert(power(3,4.0) == 4.0 * 4.0 * 4.0)
+    assert(power(3, List(1, 2)) == List(1, 2, 1, 2, 1, 2))
+    assert(power(3, 4.0) == 4.0 * 4.0 * 4.0)
 
     assert(power(0, "x") == "")
     assert(power(0, 13.0) == 1.0)
-    assert(power(0, List(1,2)) == List())
+    assert(power(0, List(1, 2)) == List())
   }
 
   test("factorial") {
@@ -49,23 +51,60 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   test("fixedSizeSubsets") {
     assert(fixedSizedSubsets(0, Set(1, 2, 3)) == Set(Set()))
     assert(fixedSizedSubsets(1, Set(1, 2, 3)) == Set(Set(1), Set(2), Set(3)))
-    assert(fixedSizedSubsets(2, Set(1, 2, 3)) == Set(Set(1, 2), Set(1, 3), Set(2, 3)))
+    assert(
+      fixedSizedSubsets(2, Set(1, 2, 3)) == Set(Set(1, 2), Set(1, 3), Set(2, 3))
+    )
     assert(fixedSizedSubsets(3, Set(1, 2, 3)) == Set(Set(1, 2, 3)))
-    assert(fixedSizedSubsets(3, Set(1, 2, 3, 4)) == Set(Set(1, 2, 3),
-                                                        Set(1, 2, 4),
-                                                        Set(1, 3, 4),
-                                                        Set(2, 3, 4)))
+    assert(
+      fixedSizedSubsets(3, Set(1, 2, 3, 4)) == Set(
+        Set(1, 2, 3),
+        Set(1, 2, 4),
+        Set(1, 3, 4),
+        Set(2, 3, 4)
+      )
+    )
     // how many subsets of size n of a set of size 5?  = C(5,n) = 5!/(n!(5-n)!)
-    assert(5 * 4 * 3 * 2 / (1 * (5 * 4 * 3 * 2)) == fixedSizedSubsets(0, Set(1, 2, 3, 4, 5)).size)
-    assert(5 * 4 * 3 * 2 / (1 * (4 * 3 * 2)) == fixedSizedSubsets(1, Set(1, 2, 3, 4, 5)).size)
-    assert(5 * 4 * 3 * 2 / (2 * (3 * 2)) == fixedSizedSubsets(2, Set(1, 2, 3, 4, 5)).size)
-    assert(5 * 4 * 3 * 2 / (3 * 2 * 2) == fixedSizedSubsets(3, Set(1, 2, 3, 4, 5)).size)
-    assert(5 * 4 * 3 * 2 / (4 * 3 * 2 * 1) == fixedSizedSubsets(4, Set(1, 2, 3, 4, 5)).size)
-    assert(5 * 4 * 3 * 2 / (4 * 4 * 3 * 2 * 1) == fixedSizedSubsets(5, Set(1, 2, 3, 4, 5)).size)
+    assert(
+      5 * 4 * 3 * 2 / (1 * (5 * 4 * 3 * 2)) == fixedSizedSubsets(
+        0,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
+    assert(
+      5 * 4 * 3 * 2 / (1 * (4 * 3 * 2)) == fixedSizedSubsets(
+        1,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
+    assert(
+      5 * 4 * 3 * 2 / (2 * (3 * 2)) == fixedSizedSubsets(
+        2,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
+    assert(
+      5 * 4 * 3 * 2 / (3 * 2 * 2) == fixedSizedSubsets(
+        3,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
+    assert(
+      5 * 4 * 3 * 2 / (4 * 3 * 2 * 1) == fixedSizedSubsets(
+        4,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
+    assert(
+      5 * 4 * 3 * 2 / (4 * 4 * 3 * 2 * 1) == fixedSizedSubsets(
+        5,
+        Set(1, 2, 3, 4, 5)
+      ).size
+    )
 
-    for {k <- 0 to 6
-         subsets = fixedSizedSubsets(k, Set(1, 2, 3, 4, 5, 6))
-         } assert(subsets.size == factorial(6) / (factorial(k) * factorial(6 - k)))
+    for {
+      k <- 0 to 6
+      subsets = fixedSizedSubsets(k, Set(1, 2, 3, 4, 5, 6))
+    } assert(subsets.size == factorial(6) / (factorial(k) * factorial(6 - k)))
   }
 
   test("fibonacci") {
@@ -79,23 +118,20 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   }
 
   test("setUnion") {
-    //???
-    assert(setEqual(setUnion(List(1,2,3),List(2,1,5)),
-                    List(1,2,3,5)))
+    // ???
+    assert(setEqual(setUnion(List(1, 2, 3), List(2, 1, 5)), List(1, 2, 3, 5)))
   }
 
   test("setIntersection") {
-    //???
-    assert(setEqual(setIntersection(List(1,2,3),List(2,1,5)),
-                    List(1,2)))
+    // ???
+    assert(setEqual(setIntersection(List(1, 2, 3), List(2, 1, 5)), List(1, 2)))
   }
 
   test("setMinus") {
-    assert(setEqual(setMinus(List(1,2,3),List(2,1,5)),
-                    List(3)))
+    assert(setEqual(setMinus(List(1, 2, 3), List(2, 1, 5)), List(3)))
   }
 
   test("setEqual") {
-    assert(setEqual(List(1,2,3),List(2,1,3)))
+    assert(setEqual(List(1, 2, 3), List(2, 1, 3)))
   }
 }
