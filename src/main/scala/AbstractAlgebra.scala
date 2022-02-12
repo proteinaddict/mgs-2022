@@ -43,66 +43,68 @@ object AbstractAlgebra {
     (lower to upper).groupBy(x => x % n)
   }
 
+  type MATRIX[T] = Vector[Vector[T]]
+
+  def matrixTabulate(n: Int, f: (Int, Int) => Int): MATRIX[Int] = {
+    for {i <- (0 until n).toVector
+         } yield for {j <- (0 until n).toVector
+                      } yield f(i, j)
+  }
+
   // TASK: matrix identity
-  def matrixIdentity(n:Int):Vector[Vector[Int]] = {
-    for{i <- (0 until n).toVector
-        } yield for {j <- (0 until n).toVector
-                     } yield (if (i == j) 1 else 0)
+  def matrixIdentity(n: Int): MATRIX[Int] = {
+    matrixTabulate(n, (i, j) => if (i == j) 1 else 0)
   }
 
   // TASK: matrix add
-  def matrixAdd(m: Vector[Vector[Int]], n: Vector[Vector[Int]]): Vector[Vector[Int]] = {
-    for{i <- m.indices.toVector
-        } yield for {j <- m.indices.toVector
-                     } yield m(i)(j) + n(i)(j)
+  def matrixAdd(m: MATRIX[Int], n: MATRIX[Int]): MATRIX[Int] = {
+    matrixTabulate(m.size, (i, j) => m(i)(j) + n(i)(j))
   }
 
-  def matrixScale(s: Int, m: Vector[Vector[Int]]): Vector[Vector[Int]] = {
-    for{i <- m.indices.toVector
-        } yield for {j <- m.indices.toVector
-                     } yield s * m(i)(j)
+  def matrixScale(s: Int, m: MATRIX[Int]): MATRIX[Int] = {
+    matrixTabulate(m.size, (i, j) => s * m(i)(j))
   }
 
   // TASK: matrix subtract in terms of matrixScale
-  def matrixSubtract(m: Vector[Vector[Int]], n: Vector[Vector[Int]]): Vector[Vector[Int]] = {
+  def matrixSubtract(m: MATRIX[Int], n: MATRIX[Int]): MATRIX[Int] = {
     matrixAdd(m, matrixScale(-1, n))
   }
 
   // TASK: matrix multiply
-  def matrixMultiply(m: Vector[Vector[Int]], n: Vector[Vector[Int]]): Vector[Vector[Int]] = {
-    for {i <- m.indices.toVector
-         } yield for {j <- m.indices.toVector
-                      } yield (for {k <- m.indices.toVector
-                                    } yield m(i)(k) * n(k)(j)).sum
+  def matrixMultiply(m: MATRIX[Int], n: MATRIX[Int]): MATRIX[Int] = {
+    matrixTabulate(m.size,
+                   (i, j) => (for {k <- m.indices.toVector
+                                   } yield m(i)(k) * n(k)(j)).sum)
   }
 
-
   // TASK: power of matrix, use the fast monoid multiplication
-  def matrixPower(m: Vector[Vector[Int]], n:Int): Vector[Vector[Int]] ={
-    assert(n >=0)
+  def matrixPower(m: MATRIX[Int], n: Int): MATRIX[Int] = {
+    assert(n >= 0)
     if (n == 0)
       matrixIdentity(n)
     else if (n == 1)
       m
     else if (n % 2 == 1)
-      matrixMultiply(m,matrixPower(m,n-1))
+      matrixMultiply(m, matrixPower(m, n - 1))
     else {
-      val tmp = matrixPower(m,n/2)
-      matrixMultiply(tmp,tmp)
+      val tmp = matrixPower(m, n / 2)
+      matrixMultiply(tmp, tmp)
     }
   }
 
-  def complexToMatrix(z:(Int,Int)):Vector[Vector[Int]] = {
-    val (zr,zi) = z
-    Vector(Vector(zr,-zi),
-           Vector(zi,zr))
+  def complexToMatrix(z: (Int, Int)): MATRIX[Int] = {
+    val (zr, zi) = z
+    Vector(Vector(zr, -zi),
+           Vector(zi, zr))
   }
-  def matrixToComplex(m:Vector[Vector[Int]]):(Int,Int) = {
+
+  def matrixToComplex(m: MATRIX[Int]): (Int, Int) = {
     assert(m.size == 2)
-    val Vector(Vector(zr,_),
-               Vector(zi,_)) = m
-    (zr,zi)
+    val Vector(Vector(zr, _),
+               Vector(zi, _)) = m
+    (zr, zi)
   }
+
   // TASK: add two complex numbers by using MatrixAdd
   def complexAdd(a: (Int, Int), b: (Int, Int)): (Int, Int) = {
     matrixToComplex(matrixAdd(complexToMatrix(a),
@@ -123,11 +125,9 @@ object AbstractAlgebra {
 
   // TASK: generate a random n x n matrix.  i.e. an nxn matrix
   //   with random integers.   Limit the integers to -100 <= k <= 100
-  def randomMatrix(n: Int): Vector[Vector[Int]] = {
+  def randomMatrix(n: Int): MATRIX[Int] = {
     assert(n > 0) // only consider matrices of positive size
     val rand = new Random()
-    for{i <- (0 until n).toVector
-        } yield for {j <- (0 until n).toVector
-                     } yield rand.between(-100,101) // -10 inclusive, 11 exclusive
+    matrixTabulate(n, (_, _) => rand.between(-100, 101)) // -10 inclusive, 11 exclusive
   }
 }
