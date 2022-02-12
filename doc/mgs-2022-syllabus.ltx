@@ -114,122 +114,103 @@ languages such as Python, Java Script, C++, etc.
 
 \pagebreak
 
-\section{Sets and Functions}
-\includegraphics[width=0.8\textwidth]{Venn-A-intersect-B.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=98106965} from Wikipedia.}
+\section{Functions}
+\includegraphics[width=0.6\textwidth]{Function_machine2.png}
 
+In this
+unit we will look at functions both from a mathematical perspective
+and also from a programming perspective.  There are some important
+similarities and some important differences.
 \subsection{Mathematical perspective}
 
+We would like to talk about functions.  But where should we start the conversation?
+
+You may already have some intuition about functions.  Sometimes
+functions have names, like $\sin$, $\cos$, and $\log$.  Sometimes
+functions lack names but have formulas such as
+$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$.
+
+\subsubsection{Specifying functions}
+
+What is a function? A function such as
+\[f : X \to Y\]
+is a correspondence beween two sets.  But it is a special
+correspondence.  In particular the function~$f$ associates a unique,
+well-determined, element of~$Y$ with each element of~$X$.
 
 
-\subsubsection{Logical operators}
-What are the meanings of the symbols $\exists$, $\forall$, $\implies$, $\iff$, $neg$, $wedge$, $vee$.
+More
+precisely, if $x\in X$, then~$f(x)$ designates a unique,
+well-determined, element of~$Y$.
+\[x \in S \implies f(x) \in Y\,.\]
 
-Propositions about sets can use various forms of syntax.
-Which of the following implications true?
-\begin{align}
-  n \in \mathbb{Z}\quad&\implies n + 1 > n\\
-  n \in \mathbb{Z}\quad&\implies n^2 > n\\
-  n \in \mathbb{Z}\quad&\implies n^2 \geq n
-\end{align}
-These implications are equivalent to the following form which has a slightly different intuition.
-\begin{align}
-  \forall n \in \mathbb{Z}\quad& n + 1 > n\\
-  \forall n \in \mathbb{Z}\quad& n^2 > n\\
-  \forall n \in \mathbb{Z}\quad& n^2 \geq n\\
-\end{align}
-Rather than claiming something is true for every element of a set, we might also wish to claim
-that something is true for some element or elements of the set.  
-\begin{align}
-  \exists n \in \mathbb{Z}\quad& n + 1 > n\label{eq.a1}\\    
-  \exists n \in \mathbb{Z}\quad& n^2 > n\label{eq.a2}\\
-  \exists n \in \mathbb{Z}\quad& n^2 \geq n\label{eq.a3}
-\end{align}
-To say something is true for some element is equivalent to saying it
-does not fail for every element.  This can be confusing in human
-languages.  I can say ``Every car on the street is green,'' and
-everyone understand. However, if I say, ``Every care on the street
-is not green'' say, the some people will think ``No car is green,''
-while others might think ``At least one car is not green.''  These
-are very different claims.  And in mathematics we need a way to
-construct both such claims, unambiguously.
-
-The proposition \[\exists x\in S \quad P(x)\] is
-equivalent to saying it is false that $\forall x\in S \text{~we
-  have~} \neg P(x)$.  That is to say,
-
-\[\big(\exists x\in S \quad P(x)\big)
-\iff
-\neg\big(\forall x\in S \quad\neg P(x)\big)\,.
-\]
-
-Thus statements~\eqref{eq.a1}, \eqref{eq.a2},
-and~\eqref{eq.a3} are respectively equivalent to the following.
-
-\begin{align}
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n+1 > n)   ~\big)\label{eq.110}\\
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 > n)   ~\big)\label{eq.111}\\
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies \neg~ (n^2 \geq n)~\big)\label{eq.112}
-\end{align}
-
-The inner logical negations $\neg~ (n+1 > n) $, $\neg~ (n^2 > n)$,
-and $\neg~ (n^2 \geq n)$ are tricky for the human to understand, but
-if you think about them, they are simply: $(n+1 \leq n)$, $(n^2 \leq n)$,
-and $(n^2 < n)$.  So the following three propositions
-are again equivalent to~\eqref{eq.a1}, \eqref{eq.a2},
-and~\eqref{eq.a3} and easier to understand.
+\includegraphics[width=8cm]{Function_color_example_3.png}
+\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
+\texttt{Function\_color\_example\_3.gif}: Wvbailey.
+The original uploader was Wvbailey at English Wikipedia.derivative work: Zerodamage ---
+This file was derived from: Function color example \texttt{3.gif}:, CC BY-SA 3.0.}
 
 
-\begin{align}
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n+1\leq n~\big)\\
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 \leq n~\big)\\
-  \neg ~\big(~n \in \mathbb{Z}\quad & \implies n^2 < n~\big)
-\end{align}
-
-
-\subsubsection{Axioms of sets}
-In the following let $G$ and $H$ be sets.
+Conceptually, a function has three parts
 \begin{enumerate}
-\item There exists a set with no element, notated $\emptyset$.
-\item $\forall x$ it is true that either $x\in G$ or $x \not\in G$.
-\item The subset relation is defined as:
-  \[G\subset H \iff (x\in G \implies x\in H)\,.\]
-\item The union $G \cup H$ is a set defined as:
-  \[x\in (G\cup H) \iff (x\in G \vee x\in H)\,.\]
-\item The intersection $G \cap H$ is a set defined as:
-  \[x\in (G\cap H) \iff (x\in G \wedge x\in H)\,.\]
-\item The relative complement
-  $G \setminus H$ is a set defined as:
-  \[x\in (G\setminus H) \iff (x\in G \wedge x\not\in H)\,.\]
-\item The power set $2^G$ is a set defined as:
-  \[S\in 2^G \iff S\subset G\,.\]
-\item Given proposition $P$, the set comprehension
-  $\{x\in G \mid P(x)\}$ is a set defined as:
-  \[x\in \{x\in G \mid P(x)\} \iff x\in G \wedge P(x)~ \text{is true}\,.\]
-\item Cartesian product product
-  $G\times H$ is a set defined as
-  \[(x,y)\in G\times H\iff x\in G \wedge y\in H\,.\]
+\item A \emph{domain}, i.e., a place from which input values may be taken.
+\item A \emph{range}, i.e., places where output values are found.
+\item A \emph{rule}, i.e., a way of determining the output value given only the input value.
 \end{enumerate}
 
+To implement a function in the Scala programming language we have to
+specify the \emph{domain} and \emph{range} in terms of what are called
+\emph{types}, and we designate the \emph{rule} in terms of a
+procedure.
 
-A set may be finite, countably infinite, or uncountable.
+\subsubsection{Mathematical notation}
 
-A finite set $S$ has a size $|S|\in \mathbb{Z}$.
+Let's start with a very simple function~\eqref{eq.simple.1}.
+Actually, the only thing specified here is the rule.  This function is
+written in a mathematical notation where the domain and range are not
+specified.  The same notation can be used for different choices of
+domain and range.  For example, this function works for integers,
+$\mathbb{Z}$, as input, but it will also work for natural numbers,
+$\mathbb{N}$, rational numbers, $\mathbb{Q}$, real numbers, $\mathbb{R}$,
+complex numbers, $\mathbb{C}$.  The same function will also work for
+matricies or for functions themselves.
 
-A countably infinite set which can be put into a one to one correspondence with the
-natuarl numbers, $\mathbb{N}$.  This correspondence is called an isomorphis which will be seen below.
+\begin{align}
+  f(x) &= 3x + 1 \label{eq.simple.1}
+\end{align}
 
-An infinite set which is not countable is said to be uncountable.
+If we want to be more precise, we can use a more descriptive notation as in~\eqref{eq.simple.2}
 
-The set $\{0, 1, 2, \ldots, n\}$ is finite.
-
-The sets $\mathbb{N}$,  $\mathbb{Z}$,  and $\mathbb{Q}$ are countably infinite.
-
-
-The sets $\mathbb{R}$ and $\mathbb{C}$ are uncountable.
+\begin{align}
+  f:\mathbb{N}\to\mathbb{N}~\text{by}~ f(x) &= 3x + 1 \label{eq.simple.2}
+\end{align}
 
 
-\subsubsection{Recurrence}
+The domain and range of a function need not be the same, and need not be a setof simple numbers.  For
+example, we use the symbol $\mathbb{R}^2$ to donote the set of ordered
+pairs of real numbers; i.e.,
+\[\{(x,y)\mid x\in \mathbb{R} \wedge y\in\mathbb{R}\}\,.\]
+Equation~\eqref{eq.simple.3} shows an example of such a function.
+
+\begin{align}
+  f:\mathbb{R}^2\to\mathbb{R}~\text{by}~ f(x,y) &= 3x - 2y + 1 \label{eq.simple.3}
+\end{align}
+
+Mathematical notation such as $a+b$, $a\times b$, $a-b$, $a^3$, and
+$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$, but we may also specify
+functions using cases, like in Equation~\eqref{eq.simple.4}
+
+
+\begin{equation}
+  |x| = \begin{cases}
+    x &\,; \text{if $x>0$}\\
+    0 &\,; \text{if $x=0$}\\
+    -x &\,; \text{if $x<0$}
+  \end{cases}
+\end{equation}\label{eq.simple.4}
+
+
+\subsubsection{Specifying functions by recurrence}
 
 
 Functions defined in terms of themselves
@@ -279,13 +260,13 @@ numbers.  Let $F(n)$ denote the n'th Fibonacci number.
 Likewise, we can define the set of subsets of size $n$
 
 \begin{equation}
-  \mathfrak{P}_n(S) = \begin{cases}
+  \mathbb{P}_n(S) = \begin{cases}
     \{\emptyset\} &\,; \text{if $n=0$}\\
-    \{   \{x\} \cup y ~\forall x \in S ~\forall y \in \mathfrak{P}_{n-1}(S \setminus \{x\})  &\,; \text{if $n > 0$}
+    \{   \{x\} \cup y ~\forall x \in S ~\forall y \in \mathbb{P}_{n-1}(S \setminus \{x\})  &\,; \text{if $n > 0$}
   \end{cases}
-\end{equation}
+\end{equation}\label{eq.cases.1}
 
-
+Notice that Equation~\eqref{eq.cases.1} specifies a function, not of numbers, but of sets.  Its input is a set, and its output is a set of sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its range is a set of set of sets.
 
 
 \subsection{Programming perspective}
