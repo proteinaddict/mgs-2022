@@ -128,7 +128,7 @@ We would like to talk about functions.  But where should we start the conversati
 You may already have some intuition about functions.  Sometimes
 functions have names, like $\sin$, $\cos$, and $\log$.  Sometimes
 functions lack names but have formulas such as
-$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$.
+$\frac{x^2-1}{x^2+2x+1}$.
 
 \subsubsection{Specifying functions}
 
@@ -142,7 +142,7 @@ well-determined, element of~$Y$ with each element of~$X$.
 More
 precisely, if $x\in X$, then~$f(x)$ designates a unique,
 well-determined, element of~$Y$.
-\[x \in S \implies f(x) \in Y\,.\]
+\[x \in X \implies f(x) \in Y\,.\]
 
 \includegraphics[width=8cm]{Function_color_example_3.png}
 \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
@@ -200,43 +200,41 @@ Equation~\eqref{eq.simple.3} shows an example of such a function.
 \end{align}
 
 Mathematical notation such as $a+b$, $a\times b$, $a-b$, $a^3$, and
-$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$, but we may also specify
+$\frac{x^2-1}{x^2+2x+1}$, but we may also specify
 functions using cases, like in Equation~\eqref{eq.simple.4}
 
 
-\begin{equation}
+\begin{equation}\label{eq.simple.4}
   |x| = \begin{cases}
     x &\,; \text{if $x>0$}\\
     0 &\,; \text{if $x=0$}\\
     -x &\,; \text{if $x<0$}
   \end{cases}
-\end{equation}\label{eq.simple.4}
+\end{equation}
 
 
 \subsubsection{Specifying functions by recurrence}
 
 
-Functions defined in terms of themselves
+Functions can be defined in terms of themselves.  We might use an intuitive definition
+such as Equation~\eqref{eq.simple.5}.
 
-Inductive definitions.
+\begin{equation}\label{eq.simple.5}
+x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\,.
+\end{equation}
 
+We can define the same function more explicitly by using recursion as in Equation~\eqref{eq.slow.exponent}.
 
-We can define $x^n$ as
-\[x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\]
-or  we can define it recursively
-
-\begin{equation}
+\begin{equation}\label{eq.slow.exponent}
   x^n = \begin{cases}
     1 &\,; \text{if $n=0$}\\
     x \times x^{n-1} &\,; \text{if $n > 0$}\\
     \frac{1}{x^{n}} &\,; \text{if $n < 0$}
   \end{cases}
-\end{equation}\label{eq.slow.exponent}
+\end{equation}
 
 
-
-
-We can define the factorial as
+Similarly, we can define the factorial as
 \[n! = 1 \times 2 \times \ldots \times n\]
 or we can define it as
 \begin{equation}
@@ -262,17 +260,17 @@ numbers.  Let $F(n)$ denote the n'th Fibonacci number.
 
 Likewise, we can define the set of subsets of size $n$
 
-\begin{equation}
+\begin{equation}\label{eq.cases.1}
   \mathbb{P}_n(S) = \begin{cases}
     \{\emptyset\} &\,; \text{if $n=0$}\\
-    \{   \{x\} \cup y ~\forall x \in S ~\forall y \in \mathbb{P}_{n-1}(S \setminus \{x\})  &\,; \text{if $n > 0$}
+    \big\{\{x\} \cup y \mid x \in S, y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
   \end{cases}
-\end{equation}\label{eq.cases.1}
+\end{equation}
 
 Notice that Equation~\eqref{eq.cases.1} specifies a function, not of
 numbers, but of sets.  Its input is a set, and its output is a set of
 sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
-range is a set of set of sets.
+range is a set of sets of sets.
 
 
 \subsection{Programming perspective}
