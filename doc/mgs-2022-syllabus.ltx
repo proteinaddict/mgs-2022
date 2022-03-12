@@ -515,7 +515,9 @@ Fuzzy definitions: zero, one, add, multiply
   \item \code{List[Int]} concatenation
   \item \code{Set[Int]} union
   \item \code{Seq[Int]}
-  \item (optional Monoid of function application \code{compose})
+  \item Implement \code{fastPower} for \code{Double}.
+  \item Generalize \code{fastPower} to work on any monoid.
+  \item Refactor \code{power} from unit 1 to use \code{fastPower}.
   \end{itemize}
 \item Multiple dimensional types
   \begin{itemize}
@@ -567,6 +569,9 @@ Fuzzy definitions: zero, one, add, multiply
   \item Implement fast monoid multiply for matrices:
     \code{matrixPower}.  In the test case, multiply the slow way and
     assert that the result is the same as \code{matrixPower}.
+  \end{itemize}
+\item Complex numbers using matrices (Optional)
+  \begin{itemize}
   \item Complex numbers as special case of $2\times 2$ matrix.
     Implement \code{complexAdd}, \code{complexSubtract},
     \code{complexMultiply} in terms of \code{matrixAdd},
@@ -577,18 +582,18 @@ Fuzzy definitions: zero, one, add, multiply
   \item Test structural axioms (commutativity etc), Property based
     testing.  You'll need a function to generate a random $n\times n$
     matrix.
-
-    
-  \end{itemize}
-
-    \textbf{Discussion:} in which cases regarding matrices and complex
+    \item \textbf{Discussion:} in which cases regarding matrices and complex
     numbers can we check associativity and commutativity?  Is matrix
     addition commutative?  Is matrix multiplication commutative?  Is
     complex multiplication commutative?
 
-    \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
+  \item \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
     multiplication is, how can we implement complex numbers in terms
     of matrices?
+    
+    
+  \end{itemize}
+
 
   
 \item Team Project
