@@ -20,114 +20,83 @@
 import math.sqrt
 
 object SetsAndFunctions {
-  // 1. TASK: Write a test to validate the following function.
-  // 2. TASK: Update the formula to compute the discriminant,
+  // 1. TASK:
+  //      Write a test to validate the following function.
+  def quadraticFormula(a:Int, b:Int, c:Int):List[Double] = {
+    List( (-b + sqrt(b*b - 4 * a * c)) / (2 * a),
+          (-b - sqrt(b*b - 4 * a * c)) / (2 * a)).distinct
+  }
+
+  // 2. TASK:
+  //    Update the formula to compute the discriminant,
   //    and detect whether there are zero, one, or two real roots.
   //    refactor the function to return a list of length 0, 1, or 2
   //    accordingly.  If there are two roots return them in increasing
   //    order.
-  def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
-    List((-b + sqrt(b * b - 4 * a * c)) / (2 * a),
-         (-b - sqrt(b * b - 4 * a * c)) / (2 * a)).distinct
-  }
 
-  // Recursive functions
-  // 3. TASK: implement power to return x^n where x in an Int
-  def power(n: Int, x: Int): Int = {
+  // 3. TASK:
+  //    Do your tests still work?  If not, do you need to
+  //    update your tests, or do you need to update the function?
+  //    Make sure your tests are up to date, and that they test the
+  //    new features you implemented in step #2.
+
+
+  // 4. TASK:
+  //     Implement two functions named power, one which accepts
+  //      and Int base and Int exponent, and a second which accepts
+  //      a Double base and Int exponent.  The second function should
+  //      also support a negative exponent, however the first one cannot.
+  //      Why can it not?
+  //
+  def power(b:Int, n:Int):Int = {
     ???
   }
 
-  // 4. TASK: implement power to return x^n where x in an Double.
-  //   In the case of Double (not not the other cases), you may
-  //   also implement negative exponents.  What to do if n<0.
-  def power(n: Int, x: Double): Double = {
-    //???
-    if (n == 0)
-      1.0
-    else
-      power(n-1,x) * x
+  def power(b:Double, n:Int): Double = {
+    ???
   }
 
-  // 5. TASK: implement power to return x^n where x in a String
-  //     note that x^0 = ""
-  //     you may append lists with +. e.g., "abc" + "xyz" gives "abcxyz"
-  def power(n: Int, x: String): String = {
-    if (n == 0)
-      ""
-    else
-      power(n-1,x) + x
+  // 5. TASK:
+  //      Implement String concatenation using the same model as the
+  //      power function.  The function should accept a String, and an
+  //      exponent n >= 0.  What should it return if n=0?
+  def power(b:String, n:Int):String = {
+    ???
   }
 
-  // 6. TASK: implement power to return x^n where x in a List[T]
-  //    x^0 = List()
-  //    you may append lists with ++
-  def power[T](n: Int, x: List[T]): List[T] = {
-    if (n == 0)
-      List()
-    else
-      power(n-1,x) ++ x
+  // 6. TASK:
+  //      Implement List concatenation using the same concept.  What
+  //      should the function return when n=0?
+  def power[T](b:List[T], n:Int):List[T] = {
+    ???
   }
 
-  // 7. TASK: implement factorial
-  def factorial(n: Int): Int = {
-    assert(n >= 0, s"n must be non-negative, got n=$n")
-    //???
-    if (n == 0)
-      1
-    else
-      n * factorial(n-1)
+  // 7. TASK:
+  //      Implement factorial as a recursive model.  What is the base
+  //      case of the recursion?   Experimentally determine what happens
+  //      if the input to the factorial function is large.  What is the
+  //      largest Int for which you can correctly compute the factorial?
+  def factorial(n:Int):Int = {
+    ???
   }
 
-  // 8. TASK: you can now test this function, as factorial
-  //    has been implemented.
-  def fixedSizedSubsets[T](n: Int, s: Set[T]): Set[Set[T]] = {
-    assert(n >= 0, s"n must be non-negative, got n=$n")
-    if (n == 0)
-      Set(Set())
-    else if (n == 1) {
-      for {e <- s
-           } yield Set(e)
-    } else { // n > 1
-      for {e <- s
-           subs = fixedSizedSubsets(n - 1, s - e)
-           sub <- subs
-           } yield sub + e
-    }
+  // 8. TASK:
+  //      Use factorial to compute the number of n-sized subsets of an m-element set.
+  //      Use your function to write some tests for the n-sized subset
+  //      function which was developed in class.
+  def countSubsets(n:Int, m:Int):Int = {
+    ???
   }
 
-  // 9. TASK:  compute the n'th fibonacci number. (zero indexed)
-  def fibonacci(n: Int): Int = {
-    if (n == 0)
-      1
-    else if (n == 1)
-      1
-    else
-      fibonacci(n-1) + fibonacci(n-2)
+  // 9. TASK
+  //    Implement fibonacci.   Given n, compute the nth Fibonacci number.
+  def fibonacci(n:Int):Int = {
+    ???
   }
 
-  // 10. TASK: Given two sets, compute the union
-  def setUnion[T](a:List[T],b:List[T]):List[T] = {
-    //???
-    a ++ b.filter(x => ! a.contains(x))
-  }
-
-  // 11. TASK: Given two sets, compute the intersection
-  def setIntersection[T](a:List[T],b:List[T]):List[T] = {
-    a.filter{x => b.contains(x)}
-  }
-
-  // 12. TASK: Given two sets, compute the relative complement
-  def setMinus[T](a:List[T],b:List[T]):List[T] = {
-    a.filter(x => ! b.contains(x))
-  }
-
-  // 13. TASK: set equivalence
-  def setEqual[T](a:List[T],b:List[T]):Boolean = {
-    a.forall(x => b.contains(x)) &&
-      b.forall(x => a.contains(x))
-  }
-
-  def main(argv: Array[String]): Unit = {
+  def main(argv:Array[String]):Unit = {
     println("Hello this is main of SetsAndFunctions")
+    println(quadraticFormula(1,2,-3))
+    println(quadraticFormula(-1,3,7))
   }
 }
