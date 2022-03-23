@@ -131,21 +131,18 @@ We would like to talk about functions.  But where should we start the conversati
 You may already have some intuition about functions.  Sometimes
 functions have names, like $\sin$, $\cos$, and $\log$.  Sometimes
 functions lack names but have formulas such as
-$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$.
+$\frac{x^2-1}{x^2+2x+1}$.
 
 \subsubsection{Specifying functions}
 
 What is a function? A function such as
 \[f : X \to Y\]
 is a correspondence beween two sets.  But it is a special
-correspondence.  In particular the function~$f$ associates a unique,
+correspondence.  In particular the function,~$f$, associates a unique,
 well-determined, element of~$Y$ with each element of~$X$.
-
-
-More
-precisely, if $x\in X$, then~$f(x)$ designates a unique,
+More precisely, if $x\in X$, then~$f(x)$ designates a unique,
 well-determined, element of~$Y$.
-\[x \in S \implies f(x) \in Y\,.\]
+\[x \in X \implies f(x) \in Y\,.\]
 
 \includegraphics[width=8cm]{Function_color_example_3.png}
 \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
@@ -203,43 +200,41 @@ Equation~\eqref{eq.simple.3} shows an example of such a function.
 \end{align}
 
 Mathematical notation such as $a+b$, $a\times b$, $a-b$, $a^3$, and
-$\frac{\frac{x+1}{x^2-1}+2}{x^2+1}$, but we may also specify
+$\frac{x^2-1}{x^2+2x+1}$, but we may also specify
 functions using cases, like in Equation~\eqref{eq.simple.4}
 
 
-\begin{equation}
+\begin{equation}\label{eq.simple.4}
   |x| = \begin{cases}
     x &\,; \text{if $x>0$}\\
     0 &\,; \text{if $x=0$}\\
     -x &\,; \text{if $x<0$}
   \end{cases}
-\end{equation}\label{eq.simple.4}
+\end{equation}
 
 
 \subsubsection{Specifying functions by recurrence}
 
 
-Functions defined in terms of themselves
+Functions can be defined in terms of themselves.  We might use an intuitive definition
+such as Equation~\eqref{eq.simple.5}.
 
-Inductive definitions.
+\begin{equation}\label{eq.simple.5}
+x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\,.
+\end{equation}
 
+We can define the same function more explicitly by using recursion as in Equation~\eqref{eq.slow.exponent}.
 
-We can define $x^n$ as
-\[x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\]
-or  we can define it recursively
-
-\begin{equation}
+\begin{equation}\label{eq.slow.exponent}
   x^n = \begin{cases}
     1 &\,; \text{if $n=0$}\\
     x \times x^{n-1} &\,; \text{if $n > 0$}\\
     \frac{1}{x^{n}} &\,; \text{if $n < 0$}
   \end{cases}
-\end{equation}\label{eq.slow.exponent}
+\end{equation}
 
 
-
-
-We can define the factorial as
+Similarly, we can define the factorial as
 \[n! = 1 \times 2 \times \ldots \times n\]
 or we can define it as
 \begin{equation}
@@ -265,17 +260,17 @@ numbers.  Let $F(n)$ denote the n'th Fibonacci number.
 
 Likewise, we can define the set of subsets of size $n$
 
-\begin{equation}
+\begin{equation}\label{eq.cases.1}
   \mathbb{P}_n(S) = \begin{cases}
     \{\emptyset\} &\,; \text{if $n=0$}\\
-    \{   \{x\} \cup y ~\forall x \in S ~\forall y \in \mathbb{P}_{n-1}(S \setminus \{x\})  &\,; \text{if $n > 0$}
+    \big\{\{x\} \cup y \mid x \in S, y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
   \end{cases}
-\end{equation}\label{eq.cases.1}
+\end{equation}
 
 Notice that Equation~\eqref{eq.cases.1} specifies a function, not of
 numbers, but of sets.  Its input is a set, and its output is a set of
 sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
-range is a set of set of sets.
+range is a set of sets of sets.
 
 
 \subsection{Programming perspective}
@@ -287,11 +282,11 @@ range is a set of set of sets.
 
 \item Open the development environment
 
-\item Scala and IDE, define simple functions in Scala, run, edit, test, debug in IntelliJ.
+\item Scala and IDE, define simple functions in Scala, run, edit, test, debug in VS Code.
 
 \item Defining a function
   
-\item Types, atomic types: (\code{Double}, \code{Int}, \code{Boolean},
+\item Atomic types: (\code{Double}, \code{Int}, \code{Boolean},
   \code{String}), and operations on objects of these types.
 
 \item Conditionals, pattern matching
@@ -385,7 +380,13 @@ range is a set of set of sets.
     need a case for $n=0$ and also $n=1$?  How does this relate to the
     principle of induction?  Look up \emph{Principle of Induction} if
     you need to review it.
-  \item Implement Fibonacci.
+  \end{itemize}
+\item Fibonacci numbers
+  \begin{itemize}
+  \item Implement a recursive function such that given $n$ it returns the nth Fibonacci number, $F_n$.
+  \item What is the largest Fibonacci number you can compute in Scala?
+  \item Search on the internet and find the Binet's formula for computing the nth Fibonacci number.
+    Implement this function and compare the results to the recursive implementation.
   \end{itemize}
 \end{enumerate}
 
@@ -401,7 +402,6 @@ range is a set of set of sets.
 
 In this unit we will study sets with mathematical structure.
 There are several mathematical structures defined by axioms.
-
 We will thereafter write programs as individuals and as teams to
 manipulate these structures.
 
@@ -460,27 +460,6 @@ $(F,+,\times)$ is a field if
 
 
 
-\subsubsection{Vector Space (optional)}
-
-\textbf{Question:} What is a vector?
-
-\textbf{Answer:} An element of a vector space.
-
-It turns out we don't define vectors by themselves, rather we define a
-set with a particular structure, and then call the elements
-\emph{vectors}.
-
-$(G,F,+,\times,\circ)$ is a vector space if
-\begin{enumerate}
-\item $(G,+)$ is an Abelian group.
-\item $(F,+,\cdot)$ is a field.
-\item $a,b\in F$ and $v\in G$, we have $(a + b)\circ v = a\circ v + b\circ v$.
-\item $a\in F$ and $u,v\in G$, we have $a\circ (u + v) = (a\circ v) + (a\circ v)$.
-\item $a,b\in F$ and $v\in G$, we have $(a\cdot b)\circ v = a\circ (b \circ v)$.
-\end{enumerate}    
-Elements of $G$ are called vectors.  Elements of $F$ are called
-scalars. And $\circ$ (normally written as juxtaposition, $a v$ rather than $a\circ v$) is
-called scalar multiplication.
 
 
 \subsubsection{Fast Exponentiation in a Monoid}
@@ -509,12 +488,10 @@ Equivalence classes and groups of equivalence classes.
 
 \subsubsection{Review}
 Review  definitions: associative, commutative, Abelian,
-distributive, closure, identity, vector, scalar, scalar
-multiplication, juxtaposition.
+distributive, closure, identity, juxtaposition.
 
 Fuzzy definitions: zero, one, add, multiply
   
-
 
 \subsection{Programming perspective}
 \begin{enumerate}
@@ -524,7 +501,9 @@ Fuzzy definitions: zero, one, add, multiply
   \item \code{List[Int]} concatenation
   \item \code{Set[Int]} union
   \item \code{Seq[Int]}
-  \item (optional Monoid of function application \code{compose})
+  \item Implement \code{fastPower} for \code{Double}.
+  \item Generalize \code{fastPower} to work on any monoid.
+  \item Refactor \code{power} from unit 1 to use \code{fastPower}.
   \end{itemize}
 \item Multiple dimensional types
   \begin{itemize}
@@ -551,7 +530,7 @@ Fuzzy definitions: zero, one, add, multiply
   \end{itemize}
 \item Team work
   \begin{itemize}
-  \item   pojects using git and github
+  \item   projects using git and github
   \item pull request
   \item merge and rebase
 \end{itemize}
@@ -573,31 +552,21 @@ Fuzzy definitions: zero, one, add, multiply
   \item Implement matrix, add, subtract, multiply multiplication, in
     functions \code{matrixAdd}, \code{matrixSubtract}, and
     \code{matrixMultiple}.
+
   \item Implement fast monoid multiply for matrices:
     \code{matrixPower}.  In the test case, multiply the slow way and
     assert that the result is the same as \code{matrixPower}.
-  \item Complex numbers as special case of $2\times 2$ matrix.
-    Implement \code{complexAdd}, \code{complexSubtract},
-    \code{complexMultiply} in terms of \code{matrixAdd},
-    \code{matrixSubtract}, and \code{matrixMultiple}.
-  \item Can you express the identity $i^2 = -1$ in terms of these
-    $2\times 2$ matrices?  Write this as a test case for
-    \code{complexMultiply}
-  \item Test structural axioms (commutativity etc), Property based
-    testing.  You'll need a function to generate a random $n\times n$
-    matrix.
 
-    
+  \item Use the \code{matrixPower} function to compute any three
+    consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
+    \[\begin{bmatrix}1&1\\1&0\end{bmatrix}^n = \begin{bmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{bmatrix}\]
+    Do these results agree with those you computed in unit 1?
+
+  \item You now have three ways to compute Fibonacci numbers.  
+    Devise an experiment to determine which of the approaches is
+    faster in terms of execution time?
   \end{itemize}
 
-    \textbf{Discussion:} in which cases regarding matrices and complex
-    numbers can we check associativity and commutativity?  Is matrix
-    addition commutative?  Is matrix multiplication commutative?  Is
-    complex multiplication commutative?
-
-    \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
-    multiplication is, how can we implement complex numbers in terms
-    of matrices?
 
   
 \item Team Project
@@ -642,12 +611,49 @@ Fuzzy definitions: zero, one, add, multiply
     \code{isMonoid}, \code{isGroup} etc to test your hypotheses?  How
     would you write a program to generate all such polynomials?
 
-    \textbf{Discussion:} Is the set of $n\times n$ matricies with
+    \textbf{Discussion:} Is the set of $n\times n$ matrices with
     integer content a finite or infinite set?  What if we restrict the
     content to $\mathbb{Z}/(n+1)$?  How would you need to change the
-    matrix manipulation code you've already written to accomodate
+    matrix manipulation code you've already written to accommodate
     arithmetic in $\mathbb{Z}/(n+1)$?
   
+
+
+\item Complex numbers using matrices (Optional)\\ The complex numbers,
+  $\mathbb{C}$, are an extension of the real numbers which allows us,
+  among other things, to represent $i = \sqrt{-1}$ and consequently to
+  represent roots of polynomials such as $x^2 + 1 = (x+i)\times(x-i)$.
+  A complex number, can be expressed as $a + bi$ with $a$ being the
+  real part and $b$ being the imaginary part.  Together $a+bi$ is a
+  complex number.
+    
+    An alternate way of representing a complex number is as a $2\times 2$ matrix.
+    \[a + ib = \begin{bmatrix}a&-b\\b&a\end{bmatrix}\]
+
+  \begin{itemize}
+      
+  \item Verify anecdotally by constructing 4 concentric loops
+    that
+      \[(a_1 + i b_1)\times (a_2 + i b_2) = (a_2 + i b_2)\times (a_1 + i b_1)\,.\]
+
+      Useg the matrix multiply function you implemented previously.
+      
+    \item Verify anecdotally that $i^2 = -1$.  What does this mean in
+      terms of the matrix representation?
+      
+    \item \textbf{Discussion:} in which cases regarding matrices and complex
+      numbers can we check associativity and commutativity?  Is matrix
+      addition commutative?  Is matrix multiplication commutative?  Is
+      complex multiplication commutative?
+      
+    \item \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
+      multiplication is, why can we implement complex numbers in terms
+      of matrices?
+      
+      
+  \end{itemize}
+  
+
 
 
 \end{enumerate}
@@ -1095,4 +1101,7 @@ the previous implementation of limit.
 % LocalWords:  SetsAndFunctionsTestSuite Monoid Cdang cubically cfm
 % LocalWords:  mathtutordvd betterexplained programmatically Bolzano
 % LocalWords:  Augustin Gottfried matrixMultiple complexAdd rundebug
-% LocalWords:  complexSubtract
+% LocalWords:  complexSubtract Binet's refactor fastPower matrixAdd
+% LocalWords:  matrixIdentity matrixTabulate matrixMultiply rebase
+% LocalWords:  matrixScale almostEqual matrixSubtract isGroup monoids
+% LocalWords:  isMonoid
