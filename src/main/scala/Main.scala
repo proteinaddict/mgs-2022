@@ -1,5 +1,3 @@
-// Copyright (c) 2020,21 EPITA Research and Development Laboratory
-//
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation
 // files (the "Software"), to deal in the Software without restriction,
@@ -23,5 +21,6 @@ object Main {
 
   def main(args: Array[String]):Unit = {
     println("hello world")
+    println("")
   }
 }
