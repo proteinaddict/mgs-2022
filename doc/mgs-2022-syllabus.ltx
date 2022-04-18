@@ -270,11 +270,11 @@ range is a set of sets of sets.
 \subsection{Programming perspective}
 
 \begin{enumerate}
-\item Programming languages, functional, imperative
-
-\item Create github account
+\item Create GitHub account
 
 \item Open the development environment
+
+\item Programming languages, functional, imperative
 
 \item Scala and IDE, define simple functions in Scala, run, edit, test, debug in VS Code.
 
@@ -307,17 +307,108 @@ range is a set of sets of sets.
 \end{enumerate}
 
 \pagebreak
-\subsection{Coding}
+
+\subsubsection{GitHub}
+
+
+In this course we will be developing software together.   You will be able to
+share your code with your classmates, and with the world.  However, you control
+when you want to make your code available to the world, and when you want to
+encorporate your classmate's code into your development area.
+
+To achieve this goal we have a central repository of code, hosted by
+GitHub on the cloud.  You will download a copy of this repository,
+edit existing code, and create new code, and then upload your
+contributions back to the central repository, making your
+contributions available to everyone else.
+
+\noindent\includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}\footnote{
+\url{https://www.edureka.co/blog/how-to-use-github/}}
+
+GitHub is a web based service which hosts projects, small and large, in a cloud.
+Typically, users have a development environment on their local computer
+(laptop or desktop) and periodically upload and download changes to
+the cloud.
+
+The URL \url{https://github.com/jimka2001/mgs-2022}, is the public
+entry point to the GitHub project which we will work on in this
+MGS-2022 course.
+How we will edit code in the GitHub project is describe in Section~\ref{sec.gitpod}.
+
+You must create an account on GitHub (if you don't have one already).  This will be done
+in Section~\ref{sec.coding.1}.
+
+
+
+
+\subsubsection{GitPod}\label{sec.gitpod}
+
+Most people install software such as IDEs (integrated development
+environments), editors, compiler, language implementations, version
+control software, onto their personal computer or laptop.   You are free
+to do that when you return home.  But for the entirety of MGS-2022, we'll
+use a development environment entirely on the cloud.
+
+We will use a web based service called, GitPod to provide an
+environment for working with GitHub.  This environment and all the
+code you develop will still be available to you after MGS-2022 is
+finished.
+
+The GitPod web site is \url{https://www.gitpod.io}.
+
+Here is an image of what the development environment looks like.
+
+\noindent\includegraphics[width=0.9\textwidth]{gitpodenv.png}
+
+You should be able to do all code editing, and collaboration efforts
+(push, pull, view history) using this interface.
+
+
+\pagebreak
+\subsubsection{Functional Programming Languages}
+
+We will not spend much time talking about programming languages which
+are not \emph{functional} but very briefly.  Imperative programming
+langauges tend to model the machine, allowing you to phrase your
+programs in a way which the machine can interpret.  Functional
+langauges, tend to make the machine understand mathematical notations,
+which is a more natural and elegant way of thinking.  Functional
+languages are often considered more difficult and more exotic.
+However, not everyone (including your instructor) agrees that they
+need to be considered difficult.
+
+
+Imperative langauges allow you to detail how a computation should be
+carried out.  Functional languages allow you describe the problem in
+terms of what the solution looks like.
+
+\noindent\includegraphics[width=\textwidth]{functionalvsimperative.jpg}
+
+The website and lots of documentation about the Scala language can be
+found here: \url{https://www.scala-lang.org}.  The newest Scala
+version is 3.1.x; however, we will use 2.13.8 (or higher).
+
+
+
+
+\pagebreak
+\subsection{Coding}\label{sec.coding.1}
 
 \begin{enumerate}
 \item First Program
   \begin{itemize}
-  \item Create a github account
+  \item Create a GitHub account.  This URL,
+    \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
+    explains how to create a GitHub account.  There are many similar
+    websites, e.g.,
+    \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
+    Primarily this is self explanitory at the URL
+    \url{https://github.com/join}.
   \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
   \item Fork the repository.
   \item Open the web-ide with gitpod, you may just prepend
     \url{http://gitpod.io/#} to the URL already in the web browser.
-  \item Find the Explorer, and open (click) \texttt{src/main/scala/SetsAndFunctions.scala}.
+  \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
     If you click on \code{SetsAndFunctions} you should see something like this:
 
     \includegraphics[height=1.5cm]{rundebug.png}
@@ -334,14 +425,14 @@ range is a set of sets of sets.
     in the Scala code.
     
   \item Find the function \code{quadraticFormula}, implement a test
-    for this function.
-
-    \[\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
+    for this function.   The Scala function implements the mathematical
+    function $x_{1,2}(a,b,c) = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.  The function computes the roots
+    of the polynomial $ax^2 + bx + c$, assuming $a>0$, and assuming $b^2 \geq 4ac$.
     The test should go in the file \texttt{SetsAndFunctionsTestSuite.scala} in
     directory \texttt{src/test/scala/}.  There is
     already a function stub you can use.  Extend the tests.  Remember
     that to test values of type \code{Double} you may need check
-    whether the absolute value is less than epsilon rather than
+    whether the absolute value is less than some threshold ($\varepsilon$) rather than
     testing for exact equivalence.
   \item Enhance \code{quadraticFormula}: Notice that the current
     implementation is inefficient, because it computes almost the same
@@ -351,8 +442,8 @@ range is a set of sets of sets.
     with an internet search.  You should refactor the function to
     define a variable \code{discriminant} whose value is
     \[\Delta = b^2 - 4 a c\,.\]
-    Then there are three cases, if $\Delta < 0$, if $\Delta = 0$, and
-    if $\Delta > 0$. Refactor the function so that if there are no
+    Then there are three cases, if ${\Delta < 0}$, if ${\Delta = 0}$, and
+    if ${\Delta > 0}$. Refactor the function so that if there are no
     real roots it returns an empty list; if there is a unique 
     solution, return a list of one number; and if there are two
     distinct solutions, return a list of those two solutions
@@ -527,7 +618,7 @@ Fuzzy definitions: zero, one, add, multiply
   \end{itemize}
 \item Team work
   \begin{itemize}
-  \item   projects using git and github
+  \item   projects using git and GitHub
   \item pull request
   \item merge and rebase
 \end{itemize}
