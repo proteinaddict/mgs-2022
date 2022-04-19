@@ -527,9 +527,42 @@ Examples of monoids.
 
 \begin{enumerate}
 \item The natural numbers $\mathbb{N}$ under addition.
+
 \item The positive integers, ${\mathbb{N} \setminus \{0\}}$, under multiplication.
-\item  \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}\footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
-  The integers on the face of the clock form a
+
+\item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
+\item \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}\footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+
+ The integers on the face of the clock form a
+  monoid under addition with the following
+  addition table.
+ 
+    \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      + & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 &12\\
+      \hline
+      \hline 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1\\
+      \hline 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2\\
+      \hline 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3\\
+      \hline 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4\\
+      \hline 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5\\
+      \hline 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6\\
+      \hline 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7\\
+      \hline 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8\\
+      \hline 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9\\
+      \hline 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+      \hline 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+      \hline 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+    We may verify that every $a\in\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}$
+    we have  $12 + a = a + 12 = a$.
+
+
+
+\item   The integers on the face of the clock also form a
   monoid under multiplication with the following
   multiplication table.
  
@@ -616,7 +649,7 @@ integer addition.   Why?
 \item $(\mathbb{Z},+)$ is a monoid with $0$ being the identity.
 \item If $a \in \mathbb{Z}$ there exists $b\in\mathbb{Z}$ such that $a+b=0$.  E.g.   ${12 + (-12) = 0}$
 \end{itemize}
-\item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
+
 \item Imagine a clock going from 1 to 11, rather than 1 to 12.
   Similar to the clock monoid seen above, here is the multiplication
   table of the strange 11-clock.
@@ -640,12 +673,12 @@ integer addition.   Why?
     \end{tabular}
   \end{center}
 
-In this example, we see that the set is NOT a multiplicitive group,
+In this example, we see that the set is NOT a multiplicative group,
 because the element 11 has no inverse.  However, every non-11 element
-has an inverse.  We can tediously verify the existance of a uniuqe
+has an inverse.  We can tediously verify the existence of a unique
 inverse for every non-11 element.
 
-The set of non-11 elements of the 11-clock is a multiplicitive group
+The set of non-11 elements of the 11-clock is a multiplicative group
 with the following multiplication table.
 
   \begin{center}
@@ -666,7 +699,61 @@ with the following multiplication table.
     \end{tabular}
   \end{center}
 
+\item Equivalence classes: if $(G,\circ)$ and $(H,\circ)$ are groups and $h$ is a
+  function, ${h:G\to H}$, with the property that
+  $h(a\circ b) = h(a)\circ h(b)$, then $h$ divides $G$ into equivalence classes.
 
+  The set of such equivalence classes, $G/h$, is also a group.
+
+  For example, take the additive 12-clock group whose addition table is as follows.
+
+    Let $H = \{1,2,3,4\}$ and let $h:G\to H$ by $h(a)=3\times a$,
+    where $\times$ is understood to be 12-clock multiplication.
+    I.e.,
+    ${h(1) = 3}$,
+    ${h(2) = 6}$,
+    ${h(3) = 9}$,
+    ${h(4) = 12}$,
+    ${h(5) = 3}$,
+    ${h(6) = 6}$,
+    ${h(7) = 9}$,
+    ${h(8) = 12}$,
+    ${h(9) = 3}$,
+    ${h(10) = 6}$,
+    ${h(11) = 9}$,
+    ${h(12) = 12}$
+    
+    The function, $h$, partitions $G$ into 4 equivalence classes
+    \[G/h = \big\{\{1,5,9\},\{2,6,10\},\{3,7,11\},\{4,8,12\}\big\}\,.\]
+    Each equivalence contains the elements for which $h$ has the same
+    value. I.e., \\
+    ${h(1) = h(5) = h(9) = 3}$,\\
+    ${h(2) = h(6) = h(10) = 6}$,\\
+    ${h(3) = h(7) = h(11) = 9}$, and \\
+    ${h(4) = h(8) = h(12) = 12}$.
+    
+    The addition table for $G/h$ is the following.
+    
+\begin{center}
+    \begin{tabular}{c||c|c|c|c|}
+      + & \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\}\\
+      \hline
+      \hline \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\} & \{1,5,9\}\\
+      \hline \{2,6,10\} & \{3,7,11\}& \{4,8,12\} & \{1,5,9\} & \{2,6,10\} \\
+      \hline \{3,7,11\} & \{4,8,12\}& \{1,5,9\}& \{2,6,10\}& \{3,7,11\} \\
+      \hline \{4,8,12\} & \{1,5,9\} & \{2,6,10\}& \{3,7,11\} & \{4,8,12\} \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+
+We can notice that the identity element is ${\{4,8,12\}}$ and that every element has an inverse:
+\begin{itemize}
+  \item $\{1,5,9\}^{-1} = \{3,7,11\}$
+  \item $\{2,6,10\}^{-1} = \{2,6,10\}$
+  \item $\{3,7,11\}^{-1} = \{1,5,9\}$
+  \item $\{4,8,12\}^{-1} = \{4,8,12\}$
+\end{itemize}
 
 
 \end{enumerate}
@@ -690,8 +777,8 @@ $(S,+,\times)$ is called a \emph{ring} if
 \begin{enumerate}
 \item The integers $(\mathbb{Z},+,\times)$
 \item The set of $n\times n$ matrices.
-\item The set of polynomoials with integer coefficients such as ${3x^4+2x^2-5x+1}$.
-\item The set of 8-bit sequences (types) consisting of 0 and 1, such as 00101101,
+\item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$.
+\item The set of 8-bit sequences (bytes) consisting of 0 and 1, such as 00101101,
   with the two operations AND and XOR, defined bitwise using the following tables.
 \begin{center}
     \begin{tabular}{c||c|c|}
@@ -801,17 +888,17 @@ set in which we can add and multiply, but not necessarily subtract and divide.
 
 These summaries are vague.  For example when we say ``add'' in a
 monoid, the actual multiplication may be addition, multiplication,
-concatentation, or many other operations depending on the actual
+concatenation, or many other operations depending on the actual
 monoid.  The distinction between adding and multiplying requires that
 both exist, thus they can only be distinguished in a semi-ring.
 
 If a set has both a $1$ and a $0$ then dividing by $0$ does not make
 sense.  For example, in a field, we require all non-zero elements to
-have and multiplicitive inverse even though all elements have an
+have and multiplicative inverse even though all elements have an
 additive inverse.
 
 
-\subsubsection{Fast Exponentiation in a Monoid}
+\subsubsection{Fast Exponentiation in a Monoid and in a Group}
 
 Recall the definition of exponentiation in
 Equation~\eqref{eq.slow.exponent}.  In any monoid with operation $\circ$ and identity
@@ -830,18 +917,25 @@ following formula.
   \end{cases}
 \end{equation}\label{eq.fast.exponent}
 
+If the monoid is also group, then inverse elements exist, so we can
+talk about \emph{negative} exponents in the sense that $x^{-n} =
+(x^{-1})^n = (x^n)^{-1}$, in which case we can compute positive and
+negative powers efficiently.  Either we compute $x^{|n|}$ and then
+compute its inverse, or we can compute $x^{-1}$ and then raise that to
+the power of $|n|$.
 
-\subsubsection{Equivalence classes}
+\begin{equation}
+  x^n = \begin{cases}
+    e &\,; \text{if $n=0$}\\
+    x &\,; \text{if $n=1$}\\
+    x \circ x^{n-1} &\,; \text{if $n>0$ is odd}\\
+    (x^\frac{n}{2})\circ     (x^\frac{n}{2}) &\,; \text{if $n>0$ is even}\\
+    (x^{-1})^{|n|} &\,; \text{if $n<0$}\\
+  \end{cases}
+\end{equation}\label{eq.fast.exponent.group}
 
-Equivalence classes and groups of equivalence classes.
 
-\subsubsection{Review}
-Review  definitions: associative, commutative, Abelian,
-distributive, closure, identity, juxtaposition.
-
-Fuzzy definitions: zero, one, add, multiply
-  
-
+\pagebreak
 \subsection{Programming perspective}
 \begin{enumerate}
 \item Monoid
