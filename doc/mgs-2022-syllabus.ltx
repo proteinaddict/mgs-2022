@@ -4,9 +4,11 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{svg}
 \usepackage{xspace}
+\usepackage{amssymb}
 \usepackage{color,colortbl}
 \definecolor{code}{rgb}{ 0,0,0}
 \newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
@@ -15,6 +17,7 @@
 \newcommand\Includegraphics[2][]{\sbox{\mybox}{%
   \includegraphics[#1]{#2}}\abovebaseline[-.5\ht\mybox]{%
   \addstackgap{\usebox{\mybox}}}}
+\newtheorem{definition}{Definition}
 
 
 \title{Visualizing Mathematical Models,\\
@@ -129,7 +132,7 @@ $\frac{x^2-1}{x^2+2x+1}$.
 
 What is a function? A function such as
 \[f : X \to Y\]
-is a correspondence beween two sets.  But it is a special
+is a correspondence between two sets.  But it is a special
 correspondence.  In particular the function,~$f$, associates a unique,
 well-determined, element of~$Y$ with each element of~$X$.
 More precisely, if $x\in X$, then~$f(x)$ designates a unique,
@@ -314,7 +317,7 @@ range is a set of sets of sets.
 In this course we will be developing software together.   You will be able to
 share your code with your classmates, and with the world.  However, you control
 when you want to make your code available to the world, and when you want to
-encorporate your classmate's code into your development area.
+incorporate your classmate's code into your development area.
 
 To achieve this goal we have a central repository of code, hosted by
 GitHub on the cloud.  You will download a copy of this repository,
@@ -369,22 +372,22 @@ You should be able to do all code editing, and collaboration efforts
 
 We will not spend much time talking about programming languages which
 are not \emph{functional} but very briefly.  Imperative programming
-langauges tend to model the machine, allowing you to phrase your
+languages tend to model the machine, allowing you to phrase your
 programs in a way which the machine can interpret.  Functional
-langauges, tend to make the machine understand mathematical notations,
+languages, tend to make the machine understand mathematical notations,
 which is a more natural and elegant way of thinking.  Functional
 languages are often considered more difficult and more exotic.
 However, not everyone (including your instructor) agrees that they
 need to be considered difficult.
 
 
-Imperative langauges allow you to detail how a computation should be
+Imperative languages allow you to detail how a computation should be
 carried out.  Functional languages allow you describe the problem in
 terms of what the solution looks like.
 
 \noindent\includegraphics[width=\textwidth]{functionalvsimperative.jpg}
 
-The website and lots of documentation about the Scala language can be
+The web site and lots of documentation about the Scala language can be
 found here: \url{https://www.scala-lang.org}.  The newest Scala
 version is 3.1.x; however, we will use 2.13.8 (or higher).
 
@@ -395,14 +398,14 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \subsection{Coding}\label{sec.coding.1}
 
 \begin{enumerate}
-\item First Program
+\item Setting up the environment
   \begin{itemize}
   \item Create a GitHub account.  This URL,
     \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
     explains how to create a GitHub account.  There are many similar
     websites, e.g.,
     \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
-    Primarily this is self explanitory at the URL
+    Primarily this is self explanatory at the URL
     \url{https://github.com/join}.
   \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
   \item Fork the repository.
@@ -423,7 +426,9 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
     Thereafter, you should be able to find the \textbf{run|debug} link
     in the Scala code.
-    
+  \end{itemize}
+\item My First Program, Implement the Quadratic Formula
+  \begin{itemize}
   \item Find the function \code{quadraticFormula}, implement a test
     for this function.   The Scala function implements the mathematical
     function $x_{1,2}(a,b,c) = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.  The function computes the roots
@@ -485,7 +490,14 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
 \includegraphics[width=\textwidth]{galois.png}
 
-
+The story of Evariste Galois, a 20 year old French mathematician who
+quickly wrote down the principles of abstract algebra before his death
+as a result of a duel, is depicted in several YouTube videos: notably
+\emph{Evariste Galois a documentary}
+\url{https://www.youtube.com/watch?v=J6dsanpnpt0} and \emph{Galois
+  Theory Explained Simply}
+\url{https://www.youtube.com/watch?v=Ct2fyigNgPY}, both produced by
+Math Visualized.
 
 
 In this unit we will study sets with mathematical structure.
@@ -493,39 +505,178 @@ There are several mathematical structures defined by axioms.
 We will thereafter write programs as individuals and as teams to
 manipulate these structures.
 
+\pagebreak
 \subsection{Mathematical perspective}
 
 
 \subsubsection{Monoid}
-$(S,\circ)$ is a monoid if
+\begin{definition}[Monoid]
+$(S,\circ)$ is called a \emph{monoid} if
 \begin{enumerate}
 \item Closure: $a,b \in S \implies a\circ b \in S$.
 \item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
 \item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
 \end{enumerate}
+\end{definition}
 
 \noindent Notice that we assume that a monoid has an identity element, but we
 don't assume that it is unique.  Can a monoid have more than one
 identity element: $e_1$ and $e_2$?  The answer is no, but why?  
 
+Examples of monoids.
 
+\begin{enumerate}
+\item The natural numbers $\mathbb{N}$ under addition.
+\item The positive integers, ${\mathbb{N} \setminus \{0\}}$, under multiplication.
+\item  \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}\footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+  The integers on the face of the clock form a
+  monoid under multiplication with the following
+  multiplication table.
+ 
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline
+      \hline 1 & 1  & 2  & 3  & 4  & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline 2 & 2  & 4  & 6  & 8  & 10 & 12 & 2  & 4  & 6  & 8  & 10 & 12\\
+      \hline 3 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12\\
+      \hline 4 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12\\
+      \hline 5 & 5  & 10 & 3  & 8  & 1  & 6  & 11 & 4  & 9  & 2  & 7  & 12\\
+      \hline 6 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12\\
+      \hline 7 & 7  & 2  & 9  & 4  & 11 & 6  & 1  & 8  & 3  & 10 & 5  & 12\\
+      \hline 8 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12\\
+      \hline 9 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12\\
+      \hline 10& 10 & 8  & 6  & 4  & 2  & 12 & 10 & 8  & 6  & 4  & 2  & 12\\
+      \hline 11& 11 & 10 & 9  & 8  & 7  & 6  & 5  & 4  & 3  & 2  & 1  & 12\\
+      \hline 12& 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  In the clock multiplication monoid, $12$ has the property that
+  ${1 \times a = a\times 1 = a}$ for every ${a\in\{1,2,\ldots,12\}}$.
+
+  
+
+\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
+  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all finite sequences
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$.
+  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
+  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
+
+  Let $+$ denote sequence concatenation.  E.g.,
+  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
+  ${\mathcal{L}(\Sigma)}$ is a monoid.
+
+  What is its identity element.
+
+  Is it a commutative monoid?
+  
+\end{enumerate}
+
+\pagebreak
 \subsubsection{Group}
 
-$(S,\circ)$ is a group if
+An notable property missing from a monoid is the ability solve equations.  As an example,
+take the 12-clock above.  Which of these equations can be solved:
+\begin{enumerate}
+\item Solve for $a$ in $a\times 3 = 7$.
+\item Solve for $b$ in $4\times b = 8$.
+\item Solve for $c$ in $7\times c = 11$.
+\end{enumerate}
+
+To solve such an equation we need to be able to find an inverse with
+respect to the operation of the monoid.  Essential to the idea
+of inverse is that an inverse be unique.
+
+A monoid for which every element has a uniquie inverse is called
+a group.
+
+
+\begin{definition}[Group]
+$(S,\circ)$ is called a \emph{group} if
 \begin{enumerate}
 \item $(S,\circ)$ is a monoid.
 \item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
 \end{enumerate}
-If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S and Abelian group.
+If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S an \emph{Abelian} group.
+\end{definition}
+
 
 A group has an identity which is also the identity of the monoid,
 which we already know to be unique.  But we can ask a similar
 uniqueness question about the inverse.  Can an element $a\in S$ have
 two different inverses?  No, but why?
 
+\noindent Examples of groups.
+\begin{enumerate}
+\item The set of integers, ${\mathbb{Z} = \{0, \pm 1, \pm 2, \ldots\}}$, is a group under
+integer addition.   Why?
+\begin{itemize}
+\item $(\mathbb{Z},+)$ is a monoid with $0$ being the identity.
+\item If $a \in \mathbb{Z}$ there exists $b\in\mathbb{Z}$ such that $a+b=0$.  E.g.   ${12 + (-12) = 0}$
+\end{itemize}
+\item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
+\item Imagine a clock going from 1 to 11, rather than 1 to 12.
+  Similar to the clock monoid seen above, here is the multiplication
+  table of the strange 11-clock.
+  
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9& 11\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8& 11\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7& 11\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6& 11\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5& 11\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4& 11\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3& 11\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2& 11\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1& 11\\
+\hline 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+In this example, we see that the set is NOT a multiplicitive group,
+because the element 11 has no inverse.  However, every non-11 element
+has an inverse.  We can tediously verify the existance of a uniuqe
+inverse for every non-11 element.
+
+The set of non-11 elements of the 11-clock is a multiplicitive group
+with the following multiplication table.
+
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+
+
+
+\end{enumerate}
+
+
+\pagebreak
 \subsubsection{Ring}
 
-$(S,+,\times)$ is a ring if
+\begin{definition}[Ring]
+$(S,+,\times)$ is called a \emph{ring} if
 \begin{enumerate}
 \item $(S,+)$ is an Abelian group.
 \item $(S,\times)$ is a monoid.
@@ -533,21 +684,131 @@ $(S,+,\times)$ is a ring if
 \end{enumerate}    
 
 \noindent In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+\end{definition}
 
+\noindent Examples of rings.
+\begin{enumerate}
+\item The integers $(\mathbb{Z},+,\times)$
+\item The set of $n\times n$ matrices.
+\item The set of polynomoials with integer coefficients such as ${3x^4+2x^2-5x+1}$.
+\item The set of 8-bit sequences (types) consisting of 0 and 1, such as 00101101,
+  with the two operations AND and XOR, defined bitwise using the following tables.
+\begin{center}
+    \begin{tabular}{c||c|c|}
+      XOR & 0 & 1 \\
+\hline
+\hline0& 0& 1\\
+\hline1& 1& 0\\
+\hline
+\end{tabular}\quad\quad
+    \begin{tabular}{c||c|c|}
+      AND & 0 & 1 \\
+      \hline
+\hline0& 0& 0\\
+\hline1& 0& 1\\
+\hline
+\end{tabular}
+\end{center}
+  
+For example
+\begin{itemize}
+\item 00101101 XOR 00110011 = 00011110
+\item 00101101 AND 00110011 = 00100001
+\end{itemize}
+
+\end{enumerate}
+
+\pagebreak
 \subsubsection{Field}
 
-$(F,+,\times)$ is a field if
+\begin{definition}[Field]
+$(F,+,\times)$ is called a \emph{field} if
 \begin{enumerate}
 \item $(F,+, \times)$ is an Abelian Ring.
-\item $(F \setminus 0, \times)$ is a group, where $0$ is the identity under $+$.
+\item $(F \setminus 0, \times)$ is a (Abelian) group, where $0$ is the identity under $+$.
 \end{enumerate}    
+\end{definition}
 
+
+\noindent Some notable examples of fields:
+\begin{enumerate}
+\item The rational numbers, $\mathbb{Q}$.
+\item The set of $2\times 2$ matrices of the form $\begin{bmatrix}a&-b\\b&a\end{bmatrix}$ where $a,b\in\mathbb{Q}$.
+\item The integers modulo any prime such as $7$.
+
+\begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|}
+      $+$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline0& 0& 1& 2& 3& 4& 5& 6\\
+\hline1& 1& 2& 3& 4& 5& 6& 0\\
+\hline2& 2& 3& 4& 5& 6& 0& 1\\
+\hline3& 3& 4& 5& 6& 0& 1& 2\\
+\hline4& 4& 5& 6& 0& 1& 2& 3\\
+\hline5& 5& 6& 0& 1& 2& 3& 4\\
+\hline6& 6& 0& 1& 2& 3& 4& 5\\
+\hline
+\end{tabular}\quad\quad
+    \begin{tabular}{c||c|c|c|c|c|c|c|}
+      $\times$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline0& 0& 0& 0& 0& 0& 0& 0\\
+\hline1& 0& 1& 2& 3& 4& 5& 6\\
+\hline2& 0& 2& 4& 6& 1& 3& 5\\
+\hline3& 0& 3& 6& 2& 5& 1& 4\\
+\hline4& 0& 4& 1& 5& 2& 6& 3\\
+\hline5& 0& 5& 3& 1& 6& 4& 2\\
+\hline6& 0& 6& 5& 4& 3& 2& 1\\
+\hline
+\end{tabular}
+\end{center}
+
+With these addition and multiplication tables we can tediously verify
+that
+\begin{itemize}
+\item $0$ is the additive identity.
+\item $1$ is the multiplicitive identity.
+\item Every element has an additive inverse.
+\item Every non-zero element has a multiplicitive inverse.
+\item Addition and multiplication are associative.
+\item Addition and multiplication are commutative.
+\item The distributive property holds.
+\end{itemize}
+
+\item The set $\mathbb{Q}\{\sqrt{2}\} = \{a+b\sqrt{2} \mid a,b\in\mathbb{Q}\}$
+  is a field.   Moreover, each of the following can be expressed in the same form ${a+b\sqrt{2}}$.
+  \begin{itemize}
+  \item $(a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2})$
+  \item $(a_1 + b_1\sqrt{2}) - (a_2 + b_2\sqrt{2})$
+  \item $(a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2})$
+  \item {\Large $\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}}$}, provided $a_2,b_2$ are not both 0.
+  \end{itemize}
+
+\end{enumerate}
+
+\pagebreak
+\subsubsection{Summary of Algebraic Structures}
 
 \includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
 
+\begin{enumerate}
+\item A \emph{monoid} is a set where we can add.
+\item A \emph{group} is a set where we can add and subtract.
+\item A \emph{ring} is a set where we can add, subtract, and multiply.
+\item A \emph{field} is a set where we can add, subtract, multiply, and divide.
+\end{enumerate}
 
+For simplicity we omit the formal definition of \emph{semi-ring} which is a
+set in which we can add and multiply, but not necessarily subtract and divide.
 
+These summaries are vague.  For example when we say ``add'' in a
+monoid, the actual multiplication may be addition, multiplication,
+concatentation, or many other operations depending on the actual
+monoid.  The distinction between adding and multiplying requires that
+both exist, thus they can only be distinguished in a semi-ring.
 
+If a set has both a $1$ and a $0$ then dividing by $0$ does not make
+sense.  For example, in a field, we require all non-zero elements to
+have and multiplicitive inverse even though all elements have an
+additive inverse.
 
 
 \subsubsection{Fast Exponentiation in a Monoid}
@@ -599,7 +860,7 @@ Fuzzy definitions: zero, one, add, multiply
   \item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
     \code{matrixScale}, \code{matrixMultiply} using concentric loops.
   \item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
-  \item Ring of matrix (matrix add, subtract, multiply)
+  \item Ring of matrixes (matrix add, subtract, multiply)
   \end{itemize}
 \item The \code{Map[]} type
   \begin{itemize}
@@ -626,7 +887,7 @@ Fuzzy definitions: zero, one, add, multiply
 \end{enumerate}
 
 \pagebreak
-\subsection{Coding}
+\subsection{Coding}\label{sec.coding.2}
 \begin{enumerate}
 \item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
   \begin{itemize}
@@ -643,8 +904,18 @@ Fuzzy definitions: zero, one, add, multiply
     \code{matrixMultiple}.
 
   \item Implement fast monoid multiply for matrices:
-    \code{matrixPower}.  In the test case, multiply the slow way and
-    assert that the result is the same as \code{matrixPower}.
+    \code{matrixPower}.  Do this in two different ways: by repeated
+    multiplication (compute $M^n$ as a result of $n-1$
+    multiplications), and again using \code{fastPower}.  How do you
+    specify the monoidic arguments (multiplication and unit) for
+    \code{matrixPower} using \code{fastPower}.
+
+  \item Test your code using \code{scalatest}. In the test case,
+    multiply the slow way and assert that the result is the same as
+    \code{matrixPower}.  Can you experimentally determine the time
+    needed to raise a large $m\times m$ matrix to the $n$th power
+    using the two algorithms?  To find out how to compute the time spent
+    in a scala function, do an internet search.
 
   \item Use the \code{matrixPower} function to compute any three
     consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
@@ -676,6 +947,8 @@ Fuzzy definitions: zero, one, add, multiply
   \begin{itemize}
   \item Implement the polynomial ring, with addition,
     subtraction, multiplication
+  \item Can you implement \code{polynomialPower} using
+    \code{fastPower}.  Is it faster than an iterative implementation?
   \item Generalize to the polynomial ring over a given field.
   \item Consider the set of polynomials of degree $n$ whose scalars
     are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
@@ -1208,4 +1481,5 @@ the previous implementation of limit.
 % LocalWords:  complexSubtract Binet's refactor fastPower matrixAdd
 % LocalWords:  matrixIdentity matrixTabulate matrixMultiply rebase
 % LocalWords:  matrixScale almostEqual matrixSubtract isGroup monoids
-% LocalWords:  isMonoid
+% LocalWords:  isMonoid IDEs GitPod gitpodenv functionalvsimperative
+% LocalWords:  monoidic
