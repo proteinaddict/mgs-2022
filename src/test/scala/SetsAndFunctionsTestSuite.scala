@@ -18,9 +18,13 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import org.scalatest.funsuite.AnyFunSuite
+import functions.Fibonacci._
+import functions.QuadraticFormula._
+import functions.FastPower._
+import functions.Factorial._
+import functions.CountSubsets._
 
 class SetsAndFunctionsTestSuite extends AnyFunSuite {
-  import functions.SetsAndFunctions._
 
   test("quadraticFormula") {
     assert(quadraticFormula(1, 0, 0) == List(0.0))
