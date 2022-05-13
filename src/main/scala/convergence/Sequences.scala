@@ -1,0 +1,3 @@
+package convergence
+
+object Sequences {}
