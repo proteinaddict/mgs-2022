@@ -1,7 +1,0 @@
-package algebra
-
-object AbstractAlgebra {
-
-
-
-}
