@@ -91,10 +91,12 @@ stages:
   \end{itemize}
 
 
-\noindent\includegraphics[height=4cm]{liebniz-newton.png}\footnote{
-\url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}
-from Wikipedia.}\hfill
+\begin{figure}
+\noindent\includegraphics[height=4cm]{liebniz-newton.png}
+%% \url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}
+%% from Wikipedia.
 \includegraphics[height=4cm]{scala-programming.jpg}
+\end{figure}
 
 We will primarily cover introductions to two mathematical areas:
 Abstract Algebra and Calculus.  Our practical treatment of Abstract
@@ -114,7 +116,11 @@ languages such as Python, Java Script, Lisp, C++, etc.
 \pagebreak
 
 \section{Functions}
-\includegraphics[width=0.6\textwidth]{Function_machine2.png}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Function_machine2.png}
+  \caption{Functional programming is about functions.}
+\end{figure}
 
 In this unit we will look at functions both from a mathematical
 perspective and also from a programming perspective.  There are some
@@ -139,12 +145,16 @@ More precisely, if $x\in X$, then~$f(x)$ designates a unique,
 well-determined, element of~$Y$.
 \[x \in X \implies f(x) \in Y\,.\]
 
-\includegraphics[width=8cm]{Function_color_example_3.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
-\texttt{Function\_color\_example\_3.gif}: Wvbailey.
-The original uploader was Wvbailey at English Wikipedia.derivative work: Zerodamage ---
-This file was derived from: Function color example \texttt{3.gif}:, CC BY-SA 3.0.}
-
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm]{Function_color_example_3.png}
+%%\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
+%%  \texttt{Function\_color\_example\_3.gif}: Wvbailey.
+%%  The original uploader was Wvbailey at English Wikipedia.derivative work: Zerodamage ---
+%%  This file was derived from: Function color example \texttt{3.gif}:, CC BY-SA 3.0.}
+  \caption{A function is a well-defined with all the elements of one set
+    (the domain) with some of the elements of another set (the range).}
+\end{figure}
 
 Conceptually, a function has three parts
 \begin{enumerate}
@@ -325,9 +335,13 @@ edit existing code, and create new code, and then upload your
 contributions back to the central repository, making your
 contributions available to everyone else.
 
-\noindent\includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}\footnote{
-\url{https://www.edureka.co/blog/how-to-use-github/}}
-
+\begin{figure}
+  \centering
+  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
+  read/write access from local git clients.}
+\end{figure}
 GitHub is a web based service which hosts projects, small and large, in a cloud.
 Typically, users have a development environment on their local computer
 (laptop or desktop) and periodically upload and download changes to
@@ -359,15 +373,20 @@ finished.
 
 The GitPod web site is \url{https://www.gitpod.io}.
 
-Here is an image of what the development environment looks like.
+Figure~\ref{lab.gitpod.env} shows an image of what the development environment looks like.
 
-\noindent\includegraphics[width=0.9\textwidth]{gitpodenv.png}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
+  \caption{The GitPod development environment allows devlopers to
+    access remote a repository using only a web browser.}\label{lab.gitpod.env}
+\end{figure}
 You should be able to do all code editing, and collaboration efforts
 (push, pull, view history) using this interface.
 
 
-\pagebreak
+\clearpage
 \subsubsection{Functional Programming Languages}
 
 We will not spend much time talking about programming languages which
@@ -385,7 +404,11 @@ Imperative languages allow you to detail how a computation should be
 carried out.  Functional languages allow you describe the problem in
 terms of what the solution looks like.
 
-\noindent\includegraphics[width=\textwidth]{functionalvsimperative.jpg}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{functionalvsimperative.jpg}
+\caption{Imperative vs Functional programming}
+\end{figure}
 
 The web site and lots of documentation about the Scala language can be
 found here: \url{https://www.scala-lang.org}.  The newest Scala
@@ -394,7 +417,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
 
 
-\pagebreak
+\clearpage
 \subsection{Coding}\label{sec.coding.1}
 
 \begin{enumerate}
@@ -456,7 +479,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
     assure that $a < b$.  Also update the test case to check for
     $a<b$.
   \end{itemize}
-\pagebreak
+\clearpage
 \item Recursive Functions
   \begin{itemize}
   \item Implement \code{power} for \code{Int} and \code{Double}.  In
@@ -473,7 +496,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
     principle of induction?  Look up \emph{Principle of Induction} if
     you need to review it.
   \end{itemize}
-\pagebreak
+\clearpage
 \item Fibonacci numbers
   \begin{itemize}
   \item Implement a recursive function such that given $n$ it returns the nth Fibonacci number, $F_n$.
@@ -484,11 +507,14 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \end{enumerate}
 
 
-\pagebreak
+\clearpage
 \section{Abstract Algebra}
 
-
+\begin{figure}
+\centering
 \includegraphics[width=\textwidth]{galois.png}
+\caption{Evariste Galois died at 20 years old as a result of a duel.}
+\end{figure}
 
 The story of Evariste Galois, a 20 year old French mathematician who
 quickly wrote down the principles of abstract algebra before his death
@@ -505,7 +531,7 @@ There are several mathematical structures defined by axioms.
 We will thereafter write programs as individuals and as teams to
 manipulate these structures.
 
-\pagebreak
+\clearpage
 \subsection{Mathematical perspective}
 
 
@@ -531,7 +557,8 @@ Examples of monoids.
 \item The positive integers, ${\mathbb{N} \setminus \{0\}}$, under multiplication.
 
 \item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
-\item \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}\footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+\item \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}
+%% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
 
  The integers on the face of the clock form a
   monoid under addition with the following
@@ -607,7 +634,7 @@ Examples of monoids.
   
 \end{enumerate}
 
-\pagebreak
+\clearpage
 \subsubsection{Group}
 
 An notable property missing from a monoid is the ability solve equations.  As an example,
@@ -759,7 +786,7 @@ We can notice that the identity element is ${\{4,8,12\}}$ and that every element
 \end{enumerate}
 
 
-\pagebreak
+\clearpage
 \subsubsection{Ring}
 
 \begin{definition}[Ring]
@@ -805,7 +832,7 @@ For example
 
 \end{enumerate}
 
-\pagebreak
+\clearpage
 \subsubsection{Field}
 
 \begin{definition}[Field]
@@ -871,10 +898,15 @@ that
 
 \end{enumerate}
 
-\pagebreak
+\clearpage
 \subsubsection{Summary of Algebraic Structures}
 
-\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\begin{figure}
+  \centering
+\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
+%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\caption{There are many algebraic structures which are linked by subset relations.}
+\end{figure}
 
 \begin{enumerate}
 \item A \emph{monoid} is a set where we can add.
@@ -935,7 +967,7 @@ the power of $|n|$.
 \end{equation}\label{eq.fast.exponent.group}
 
 
-\pagebreak
+\clearpage
 \subsection{Programming perspective}
 \begin{enumerate}
 \item Monoid
@@ -980,7 +1012,7 @@ the power of $|n|$.
 
 \end{enumerate}
 
-\pagebreak
+\clearpage
 \subsection{Coding}\label{sec.coding.2}
 \begin{enumerate}
 \item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
@@ -1116,7 +1148,14 @@ the power of $|n|$.
 
 
   
-\pagebreak\section{Convergence}
+\clearpage\section{Convergence}
+
+\begin{figure}
+\centering\includegraphics[width=0.48\textwidth]{bolzano.jpg}
+%% \footnote{Bernard Bolzano}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}
+%% \footnote{Augustin-Louis Cauchy}
+\caption{Bernard Bolzano (left), Augustin-Louis Cauchy (right)}
+\end{figure}
 
 In this section we will talk about a characteristic property/attribute
 which distinguishes the rational numbers, $\mathbb{Q}$, from the real
@@ -1134,10 +1173,9 @@ presented the concept of the limit.  Thanks to the work of Cauchy and Bolzano an
 his contemporaries, we can understand at a fundamental level, the work
 of Newton and Leibniz.
 
-\noindent\includegraphics[width=0.48\textwidth]{bolzano.jpg}\footnote{Bernard Bolzano}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}\footnote{Augustin-Louis Cauchy}
 
 
-\pagebreak
+\clearpage
 \subsection{Mathematical perspective}
 
 In the previous sections we talked
@@ -1163,20 +1201,23 @@ inverse operation of union, and nothing like multiplication.
 
 \subsubsection{Intuition of  convergence?}
 
-In the following image, we can convince ourselves that the
+In Figure~\ref{fig.circle.perim} we can convince ourselves that the
 circumference of the circle is a fixed
 quantity.  I.e., it is not an vague, indefinite concept, but the
 circumference of a circle has a real, actual, definite length.
 
 
-\noindent\includegraphics[width=\textwidth]{Archimedes-pi.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
-Original: FredrikVector: Leszek Krupinski --- Own work based on:
-Archimedes pi.png:  by Fredrik, Public Domain.}
+\begin{figure}
+\centering\includegraphics[width=\textwidth]{Archimedes-pi.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
+%%Original: FredrikVector: Leszek Krupinski --- Own work based on:
+%%Archimedes pi.png:  by Fredrik, Public Domain.}
+\caption{The length of the circumference of the circle is bounded between the
+lengths of the various polygonal perimeters.}
+\label{fig.circle.perim}
+\end{figure}
 
-
-The
-length of the circumference of the circle is always greater than the
+The length of the circumference of the circle is always greater than the
 length of the perimeter of an inscribed polygon, and is always less
 than the length of the perimeter of a circumscribed polygon.
 Moreover, we have a decreasing sequence of numbers and an increasing
@@ -1232,22 +1273,23 @@ A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
 $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$
 such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
 
-\includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}\footnote{By
-Ceranilo, CC BY-SA 4.0,
-https://commons.wikimedia.org/w/index.php?curid=54837240}
+\includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+% https://commons.wikimedia.org/w/index.php?curid=54837240}
 \\Example of a sequence which converges to the limit $a$.
 
-\includegraphics[width=9cm]{Epsilonschlauch.png}\footnote{By
-Ceranilo, CC BY-SA 4.0,
-https://commons.wikimedia.org/w/index.php?curid=54836520}
+\includegraphics[width=9cm]{Epsilonschlauch.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+%% https://commons.wikimedia.org/w/index.php?curid=54836520}
 \\Regardless which $\varepsilon >0$ we have, there is an index
 $N_0$, so that the sequence lies afterwards completely in the
 epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
 
 
-\includegraphics[width=9cm]{Epsilonschlauch-klein.png}\footnote{By
-Ceranilo, CC BY-SA 4.0,
-https://commons.wikimedia.org/w/index.php?curid=54836607} \\There
+\includegraphics[width=9cm]{Epsilonschlauch-klein.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+%% https://commons.wikimedia.org/w/index.php?curid=54836607} 
+\\There
 is also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so
 that the sequence is afterwards inside the epsilon tube
 $(a-\varepsilon_{1},a+\varepsilon_{1})$.
@@ -1313,7 +1355,7 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
 
 
-\pagebreak\section{Infinite sums}
+\clearpage\section{Infinite sums}
 
 In this section we'll look at ways to compute sums like these
 \begin{align}
@@ -1327,9 +1369,10 @@ In this section we'll look at ways to compute sums like these
 \subsection{Mathematical perspective}
   \begin{enumerate}
   \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
-    \includegraphics[width=9cm]{sin-cos.png}\footnote{
-    \url{https://commons.wikimedia.org/w/index.php?curid=57551646} By Stephan Kulla
-    (User:Stephan Kulla) --- Own work, CC0.}
+    \includegraphics[width=9cm]{sin-cos.png}
+%%\footnote{
+%%    \url{https://commons.wikimedia.org/w/index.php?curid=57551646} By Stephan Kulla
+%%    (User:Stephan Kulla) --- Own work, CC0.}
   \item Contrast convergence and summability.
   \item Taylor series is of the form
     \[\sum_{k=0}^{\infty} a_{n}x^{n}\,.\]
@@ -1338,9 +1381,10 @@ In this section we'll look at ways to compute sums like these
     therefore decrease (in absolute value) rapidly otherwise the
     series will not converge (it will diverge).
 
-\includegraphics[width=10cm]{sintay.png}\footnote{By IkamusumeFan ---
-Own work, CC BY-SA 3.0,
-\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} 
+\includegraphics[width=10cm]{sintay.png}
+%%\footnote{By IkamusumeFan ---
+%%Own work, CC BY-SA 3.0,
+%%\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} 
 
     As the degree of the Taylor polynomial rises, it approaches the
     correct function.  This image shows $\sin x$ and its Taylor
@@ -1373,8 +1417,13 @@ Own work, CC BY-SA 3.0,
 \end{enumerate}
 
 
-\pagebreak\section{Differential Calculus}
-
+\clearpage\section{Differential Calculus}
+\begin{figure}
+  \centering
+\includegraphics[width=12cm]{Tangent-calculus.png}
+\caption{Intuitively, the derive compute the slope of the line tangent to a curve at a given point.}
+\label{lab.deriv.by.tangent.line}
+\end{figure}
 
 \subsection{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
   We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
@@ -1401,9 +1450,10 @@ Own work, CC BY-SA 3.0,
     close to $1$.
 
   \item Definition of limit
-    \includegraphics[width=8cm]{limit.png}\footnote{By User:HiTe --- Own
-    work, Public Domain,
-    \url{https://commons.wikimedgia.org/w/index.php?curid=2314281}}.
+    \includegraphics[width=8cm]{limit.png}
+%%\footnote{By User:HiTe --- Own
+%%    work, Public Domain,
+%%    \url{https://commons.wikimedgia.org/w/index.php?curid=2314281}}.
 
   What does this notation mean? \[\lim_{x\to a}f(x) = L\]
   It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
@@ -1416,15 +1466,24 @@ Own work, CC BY-SA 3.0,
 
   \item Intuition of derivative
 
+    \begin{figure}
+      \centering
 \noindent\begin{tabular}{lp{3cm}}
-\Includegraphics[width=9cm]{Secant-calculus.png}\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4369993} By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, }
+\Includegraphics[width=9cm]{Secant-calculus.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4369993}
+%% By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: 
+%%Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, }
+
 &The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.\\
-\Includegraphics[width=9cm]{Lim-secant.png}\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4370022} By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0.}
-&The tangent line as limit of secants.\\
-\Includegraphics[width=9cm]{Tangent-calculus.png}\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4369975} By derivative work: Pbroks13 (talk) \texttt{Tangent-calculus.png}: Rhythm --- \texttt{Tangent-calculus.png}, CC BY-SA 3.0.}
-&The tangent line at $(x, f(x))$.
+\Includegraphics[width=9cm]{Lim-secant.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4370022} By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0.}
+
+&The tangent line as limit of secants.
 \end{tabular}
 
+\caption{We may estimate the derivative by a sequence of secent lines which estimate
+the tangent line.  The secent lines approach the tangent line in Figure~\ref{lab.deriv.by.tangent.line}.}
+\end{figure}
 
     Again we can generate a sequence of values (of $h\to 0$)
     approaching 0, and from that we can generate a sequence of values
@@ -1441,7 +1500,8 @@ Own work, CC BY-SA 3.0,
 
 \item Definition of derivative
   \[f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h} = \lim_{a\to x}\frac{f(x) - f(a)}{x - a}\,.\]
-\noindent\includegraphics[width=10cm]{derivative.png}\footnote{\url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative} From web page.}
+\noindent\includegraphics[width=10cm]{derivative.png}
+%% \footnote{\url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative} From web page.}
 
 
 \item Linearity of derivative.
@@ -1479,9 +1539,13 @@ the previous implementation of limit.
 \end{enumerate}
 
 
-\pagebreak\section{Integral Calculus [Optional]}
-\includegraphics[width=\textwidth]{integral.png}\footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
-
+\clearpage\section{Integral Calculus [Optional]}
+\begin{figure}
+\includegraphics[width=\textwidth]{integral.png}
+%% \footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
+\caption{The initial intuition of the Reimann integral is a computation of the area
+  \emph{under} the curve of a given function. }
+\end{figure}
 
 \subsection{Mathematical perspective}
   \begin{enumerate}
@@ -1521,13 +1585,13 @@ the previous implementation of limit.
   \item Expressing limit of sum of rectangles
 
     \includegraphics[width=12cm]{Riemann-sum-convergence.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=2347919} By I, KSmrq, CC BY-SA 3.0.}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=2347919} By I, KSmrq, CC BY-SA 3.0.}
 
 
 \item Expressing limit of sum of trapezoids
   
 \includegraphics[width=8cm]{Integration-num-trapezes-notation.png}
-\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=8541370} By Scalerderivative work: Cdang (talk), CC BY-SA 3.0.}
+%% \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=8541370} By Scalerderivative work: Cdang (talk), CC BY-SA 3.0.}
 
   \end{enumerate}
 
@@ -1565,7 +1629,7 @@ the previous implementation of limit.
 % LocalWords:  Abelian magma surjective surjection mathsisfun html
 % LocalWords:  Ethaniel wikipedia wiki Int forall Fredrik Krupinski
 % LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
-% LocalWords:  klein Leibniz uploader reduceOption groupBy pagebreak
+% LocalWords:  klein Leibniz uploader reduceOption groupBy clearpage
 % LocalWords:  leibniz hfill scala includegraphics noindent url ldots
 % LocalWords:  setminus exp internet quadraticFormula NaN destructure
 % LocalWords:  fixedSizedSubsets SetsAndFunctions buildserver galois
