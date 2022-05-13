@@ -20,8 +20,7 @@
 import org.scalatest.funsuite.AnyFunSuite
 
 class SetsAndFunctionsTestSuite extends AnyFunSuite {
-
-  import SetsAndFunctions._
+  import functions.SetsAndFunctions._
 
   test("quadraticFormula") {
     assert(quadraticFormula(1, 0, 0) == List(0.0))
