@@ -115,6 +115,107 @@ languages such as Python, Java Script, Lisp, C++, etc.
 
 \pagebreak
 
+\section{Development Flow}
+
+\subsection{GitHub}
+
+
+In this course we will be developing software together.   You will be able to
+share your code with your classmates, and with the world.  However, you control
+when you want to make your code available to the world, and when you want to
+incorporate your classmate's code into your development area.
+
+To achieve this goal we have a central repository of code, hosted by
+GitHub on the cloud.  You will download a copy of this repository,
+edit existing code, and create new code, and then upload your
+contributions back to the central repository, making your
+contributions available to everyone else.
+
+\begin{figure}
+  \centering
+  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
+  read/write access from local git clients.}
+\end{figure}
+GitHub is a web based service which hosts projects, small and large, in a cloud.
+Typically, users have a development environment on their local computer
+(laptop or desktop) and periodically upload and download changes to
+the cloud.
+
+The URL \url{https://github.com/jimka2001/mgs-2022}, is the public
+entry point to the GitHub project which we will work on in this
+MGS-2022 course.
+How we will edit code in the GitHub project is describe in Section~\ref{sec.gitpod}.
+
+You must create an account on GitHub (if you don't have one already).  This will be done
+in Section~\ref{sec.coding.1}.
+
+
+
+
+\subsection{GitPod}\label{sec.gitpod}
+
+Most people install software such as IDEs (integrated development
+environments), editors, compiler, language implementations, version
+control software, onto their personal computer or laptop.   You are free
+to do that when you return home.  But for the entirety of MGS-2022, we'll
+use a development environment entirely on the cloud.
+
+We will use a web based service called, GitPod to provide an
+environment for working with GitHub.  This environment and all the
+code you develop will still be available to you after MGS-2022 is
+finished.
+
+The GitPod web site is \url{https://www.gitpod.io}.
+
+Figure~\ref{lab.gitpod.env} shows an image of what the development environment looks like.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
+  \caption{The GitPod development environment allows devlopers to
+    access remote a repository using only a web browser.}\label{lab.gitpod.env}
+\end{figure}
+You should be able to do all code editing, and collaboration efforts
+(push, pull, view history) using this interface.
+
+
+\subsection{Setting up the environment}
+\begin{itemize}
+  \item Create a GitHub account.  This URL,
+    \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
+    explains how to create a GitHub account.  There are many similar
+    websites, e.g.,
+    \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
+    Primarily this is self explanatory at the URL
+    \url{https://github.com/join}.
+  \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
+  \item Fork the repository.
+  \item Open the web-ide with gitpod, you may just prepend
+    \url{http://gitpod.io/#} to the URL already in the web browser.
+  \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
+    If you click on \code{SetsAndFunctions} you should see something like this:
+
+    \includegraphics[height=1.5cm]{rundebug.png}
+
+    Click \textbf{run}.  If you don't see \textbf{run debug}, you may
+    need to restart the build server, and recompile.  Find and click
+    the Metals icon \includegraphics[height=2cm]{metals.png}.  This
+    should open the Metals panel where you can \textbf{Restart the
+      build Server} and \textbf{Cascade compile}. 
+
+    \includegraphics[width=8cm]{buildserver.png}
+
+    Thereafter, you should be able to find the \textbf{run|debug} link
+    in the Scala code.
+  \end{itemize}
+
+
+
+\pagebreak
+
 \section{Functions}
 \begin{figure}[t]
   \centering
@@ -283,13 +384,7 @@ range is a set of sets of sets.
 \subsection{Programming perspective}
 
 \begin{enumerate}
-\item Create GitHub account
-
-\item Open the development environment
-
 \item Programming languages, functional, imperative
-
-\item Scala and IDE, define simple functions in Scala, run, edit, test, debug in VS Code.
 
 \item Defining a function
   
@@ -320,70 +415,6 @@ range is a set of sets of sets.
 \end{enumerate}
 
 \pagebreak
-
-\subsubsection{GitHub}
-
-
-In this course we will be developing software together.   You will be able to
-share your code with your classmates, and with the world.  However, you control
-when you want to make your code available to the world, and when you want to
-incorporate your classmate's code into your development area.
-
-To achieve this goal we have a central repository of code, hosted by
-GitHub on the cloud.  You will download a copy of this repository,
-edit existing code, and create new code, and then upload your
-contributions back to the central repository, making your
-contributions available to everyone else.
-
-\begin{figure}
-  \centering
-  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
-%%  \url{https://www.edureka.co/blog/how-to-use-github/}
-  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
-  read/write access from local git clients.}
-\end{figure}
-GitHub is a web based service which hosts projects, small and large, in a cloud.
-Typically, users have a development environment on their local computer
-(laptop or desktop) and periodically upload and download changes to
-the cloud.
-
-The URL \url{https://github.com/jimka2001/mgs-2022}, is the public
-entry point to the GitHub project which we will work on in this
-MGS-2022 course.
-How we will edit code in the GitHub project is describe in Section~\ref{sec.gitpod}.
-
-You must create an account on GitHub (if you don't have one already).  This will be done
-in Section~\ref{sec.coding.1}.
-
-
-
-
-\subsubsection{GitPod}\label{sec.gitpod}
-
-Most people install software such as IDEs (integrated development
-environments), editors, compiler, language implementations, version
-control software, onto their personal computer or laptop.   You are free
-to do that when you return home.  But for the entirety of MGS-2022, we'll
-use a development environment entirely on the cloud.
-
-We will use a web based service called, GitPod to provide an
-environment for working with GitHub.  This environment and all the
-code you develop will still be available to you after MGS-2022 is
-finished.
-
-The GitPod web site is \url{https://www.gitpod.io}.
-
-Figure~\ref{lab.gitpod.env} shows an image of what the development environment looks like.
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
-  \caption{The GitPod development environment allows devlopers to
-    access remote a repository using only a web browser.}\label{lab.gitpod.env}
-\end{figure}
-You should be able to do all code editing, and collaboration efforts
-(push, pull, view history) using this interface.
 
 
 \clearpage
@@ -421,35 +452,6 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \subsection{Coding}\label{sec.coding.1}
 
 \begin{enumerate}
-\item Setting up the environment
-  \begin{itemize}
-  \item Create a GitHub account.  This URL,
-    \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
-    explains how to create a GitHub account.  There are many similar
-    websites, e.g.,
-    \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
-    Primarily this is self explanatory at the URL
-    \url{https://github.com/join}.
-  \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
-  \item Fork the repository.
-  \item Open the web-ide with gitpod, you may just prepend
-    \url{http://gitpod.io/#} to the URL already in the web browser.
-  \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
-    If you click on \code{SetsAndFunctions} you should see something like this:
-
-    \includegraphics[height=1.5cm]{rundebug.png}
-
-    Click \textbf{run}.  If you don't see \textbf{run debug}, you may
-    need to restart the build server, and recompile.  Find and click
-    the Metals icon \includegraphics[height=2cm]{metals.png}.  This
-    should open the Metals panel where you can \textbf{Restart the
-      build Server} and \textbf{Cascade compile}. 
-
-    \includegraphics[width=8cm]{buildserver.png}
-
-    Thereafter, you should be able to find the \textbf{run|debug} link
-    in the Scala code.
-  \end{itemize}
 \item My First Program, Implement the Quadratic Formula
   \begin{itemize}
   \item Find the function \code{quadraticFormula}, implement a test
