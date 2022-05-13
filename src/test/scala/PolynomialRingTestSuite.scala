@@ -21,7 +21,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class PolynomialRingTestSuite extends AnyFunSuite {
 
-  import PolynomialRing._
+  import algebra.PolynomialRing._
 
   val max_num_tests = 1000
 

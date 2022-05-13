@@ -21,7 +21,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
 
-  import AbstractAlgebraFinite._
+  import algebra.AbstractAlgebraFinite._
 
   def cartesianProduct[T](s:Set[T],mult:(T,T)=>T):(Set[(T,T)],((T,T),(T,T))=>(T,T)) = {
     val newSet = for{ x <- s

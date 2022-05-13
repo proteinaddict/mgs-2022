@@ -1,0 +1,5 @@
+package algebra
+
+object Grouping {
+
+}

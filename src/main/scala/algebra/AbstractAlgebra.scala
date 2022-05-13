@@ -1,3 +1,7 @@
 package algebra
 
-object AbstractAlgebra {}
+object AbstractAlgebra {
+
+
+
+}
