@@ -32,8 +32,18 @@
 \sloppy
 
 
+\pagebreak
+\tableofcontents
+
 \chapter{Introduction}
 
+\begin{figure}[h]
+\centering\includegraphics[width=0.9\textwidth]{Mathematics-and-Computing.jpg}
+%% https://leverageedu.com/blog/mathematics-and-computing/
+\end{figure}
+
+
+\clearpage
 
 
 \section{Objectives}
@@ -74,12 +84,19 @@ shortcomings, and being subjected to peer review (important in the
 scientific process).  This exercise is intended not only to learn to
 accept constructive criticism but also to build confidence.
 
-\pagebreak
-\tableofcontents
 
 
 \pagebreak
 \section{Overview}
+
+
+\begin{figure}
+\includegraphics[height=4.2cm]{liebniz-newton.png}
+%% \url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}
+%% from Wikipedia.
+\includegraphics[height=4.2cm]{scala-programming.jpg}
+\end{figure}
+
 
 We will proceed through up to 6 units. Each unit is organized in three
 stages:
@@ -92,12 +109,8 @@ stages:
   \end{itemize}
 
 
-\begin{figure}
-\noindent\includegraphics[height=4cm]{liebniz-newton.png}
-%% \url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}
-%% from Wikipedia.
-\includegraphics[height=4cm]{scala-programming.jpg}
-\end{figure}
+
+
 
 We will primarily cover introductions to two mathematical areas:
 Abstract Algebra and Calculus.  Our practical treatment of Abstract
@@ -177,11 +190,33 @@ Figure~\ref{lab.gitpod.env} shows an image of what the development environment l
 \begin{figure}
   \centering
   \includegraphics[width=0.95\textwidth]{gitpodenv.png}
-  \caption{The GitPod development environment allows devlopers to
+  \caption{The GitPod development environment allows developers to
     access remote a repository using only a web browser.}\label{lab.gitpod.env}
 \end{figure}
-You should be able to do all code editing, and collaboration efforts
-(push, pull, view history) using this interface.
+
+GitPod provides a version control interface. You should be able to do
+all code editing, and collaboration efforts (push, pull, view history)
+using this interface.
+
+\section{Version Control}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{branching.png}
+  %https://betterprogramming.pub/git-branching-strategy-for-better-team-collaboration-aacb5f235d05
+  \caption{Version Control allows us to manage development points in out project.}
+  \label{label.vc}
+\end{figure}
+
+
+A version control system allows us to maintain a history of our work;
+see Figure~\ref{label.vc}.  We can revisit previous states of our
+project.  We can also create branches to develop different features in
+parallel without them interfering with each other.
+
+An important feature of modern version control systems is collaboration.
+Developers can easily share their work with other developers.
 
 
 \section{Setting up the environment}
@@ -189,13 +224,13 @@ You should be able to do all code editing, and collaboration efforts
   \item Create a GitHub account.  This URL,
     \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
     explains how to create a GitHub account.  There are many similar
-    websites, e.g.,
+    web-sites, e.g.,
     \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
     Primarily this is self explanatory at the URL
     \url{https://github.com/join}.
   \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
   \item Fork the repository.
-  \item Open the web-ide with gitpod, you may just prepend
+  \item Open the web-ide with GitPod, you may just prepend
     \url{http://gitpod.io/#} to the URL already in the web browser.
   \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
     If you click on \code{SetsAndFunctions} you should see something like this:
@@ -217,7 +252,7 @@ You should be able to do all code editing, and collaboration efforts
 
 
 
-\chapter{Functions}
+\chapter{Sets and Functions}
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\textwidth]{Function_machine2.png}
@@ -517,6 +552,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{escher.jpg}
+%% https://www.researchgate.net/publication/339436680_A_1d_Up_Approach_to_Conformal_Geometric_Algebra_Applications_in_Line_Fitting_and_Quantum_Mechanics/figures?lo=1
 \end{figure}
 
 
@@ -663,7 +699,7 @@ To solve such an equation we need to be able to find an inverse with
 respect to the operation of the monoid.  Essential to the idea
 of inverse is that an inverse be unique.
 
-A monoid for which every element has a uniquie inverse is called
+A monoid for which every element has a unique inverse is called
 a group.
 
 
@@ -1507,8 +1543,8 @@ In this chapter we'll look at ways to compute sums like these
 &The tangent line as limit of secants.
 \end{tabular}
 
-\caption{We may estimate the derivative by a sequence of secent lines which estimate
-the tangent line.  The secent lines approach the tangent line in Figure~\ref{lab.deriv.by.tangent.line}.}
+\caption{We may estimate the derivative by a sequence of secant lines which estimate
+the tangent line.  The secant lines approach the tangent line in Figure~\ref{lab.deriv.by.tangent.line}.}
 \end{figure}
 
     Again we can generate a sequence of values (of $h\to 0$)
@@ -1569,7 +1605,7 @@ the previous implementation of limit.
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{integral.png}
 %% \footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
-\caption{The initial intuition of the Reimann integral is a computation of the area
+\caption{The initial intuition of the Riemann integral is a computation of the area
   \emph{under} the curve of a given function. }
 \end{figure}
 
@@ -1668,4 +1704,4 @@ the previous implementation of limit.
 % LocalWords:  matrixIdentity matrixTabulate matrixMultiply rebase
 % LocalWords:  matrixScale almostEqual matrixSubtract isGroup monoids
 % LocalWords:  isMonoid IDEs GitPod gitpodenv functionalvsimperative
-% LocalWords:  monoidic
+% LocalWords:  monoidic Mann
