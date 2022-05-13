@@ -1,0 +1,1707 @@
+\documentclass[14pt]{extreport}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{svg}
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{color,colortbl}
+\definecolor{code}{rgb}{ 0,0,0}
+\newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
+\usepackage{stackengine}
+\newsavebox\mybox
+\newcommand\Includegraphics[2][]{\sbox{\mybox}{%
+  \includegraphics[#1]{#2}}\abovebaseline[-.5\ht\mybox]{%
+  \addstackgap{\usebox{\mybox}}}}
+\newtheorem{definition}{Definition}
+
+
+\title{Visualizing Mathematical Models,\\
+2022 Mississippi Governor's School}
+
+\author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr.\ Jim\ Newton}
+\setcounter{tocdepth}{2}
+\setcounter{chapter}{-1}
+\begin{document}
+
+
+\maketitle
+\sloppy
+
+
+\pagebreak
+\tableofcontents
+
+\chapter{Introduction}
+
+\begin{figure}[h]
+\centering\includegraphics[width=0.9\textwidth]{Mathematics-and-Computing.jpg}
+%% https://leverageedu.com/blog/mathematics-and-computing/
+\end{figure}
+
+
+\clearpage
+
+
+\section{Objectives}
+
+
+There are several objectives of this course:
+\begin{description}
+\item[Mathematics:] Ameliorate your love for Mathematics.
+\item[Computer Science:] Develop competence in functional
+  programming.
+\item[Communication:] Explain and confidently defend your ideas.
+\end{description}
+
+The mathematical and computer science topics have been chosen for this
+course complement each other.  You will enforce what you've learned by
+explaining it to your peers.
+
+
+It is important that the leaders of tomorrow, especially the leaders
+in the technology sector, understand the impact on humans of
+technological development.  We must know how to apply abstract
+concepts to real computation problems, and how to explain their ideas
+and defend their decisions to their peers.
+
+Don't forget that you are working not only with machines but also with
+humans.  In this course, we will maintain a respectful, inclusive, and
+safe environment.  Remember that different people have different
+strengths and weaknesses.  Scientific discussions can sometimes become
+heated and experts might disagree about the best course of action.
+We'll learn to keep disagreements objective and use science to test
+ideas, rather than relying on emotions.
+
+Good ideas that are never explained die and are forgotten.  It is my
+belief that you don't understand something until you can explain it.
+After each unit, some students will present their solutions to their
+peers.  This means defending your choices, recognizing strengths and
+shortcomings, and being subjected to peer review (important in the
+scientific process).  This exercise is intended not only to learn to
+accept constructive criticism but also to build confidence.
+
+
+
+\pagebreak
+\section{Overview}
+
+
+\begin{figure}
+\includegraphics[height=4.2cm]{liebniz-newton.png}
+%% \url{https://stemfellowship.org/who-got-there-first-newton-leibniz-and-their-work-on-calculus/}
+%% from Wikipedia.
+\includegraphics[height=4.2cm]{scala-programming.jpg}
+\end{figure}
+
+
+We will proceed through up to 6 units. Each unit is organized in three
+stages:
+\begin{itemize}
+\item Theory --- Learn mathematics and computer science concepts.
+\item Lab --- Implement code relating to the theory and link it to
+  previous units.
+\item Presentation --- Present your work to your classmates, and
+  defend your decisions.
+  \end{itemize}
+
+
+
+
+
+We will primarily cover introductions to two mathematical areas:
+Abstract Algebra and Calculus.  Our practical treatment of Abstract
+Algebra and Calculus will help you prepare for a more theoretical
+treatment at the university level.
+  
+We will use a functional programming language called Scala,
+\url{https://www.scala-lang.org}.  Functional languages are considered
+by some to be more difficult than imperative languages, and students
+rarely start programming using a functional language.  We have chosen
+this approach, because the approach we will take will parallel many
+mathematical concepts.  You will be able to take the things you've
+learned and apply them back to other (more popular) programming
+languages such as Python, Java Script, Lisp, C++, etc.
+
+
+
+\chapter{Development Flow}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+\end{figure}
+
+
+\clearpage
+
+\section{GitHub}
+
+
+In this course we will be developing software together.   You will be able to
+share your code with your classmates, and with the world.  However, you control
+when you want to make your code available to the world, and when you want to
+incorporate your classmate's code into your development area.
+
+To achieve this goal we have a central repository of code, hosted by
+GitHub on the cloud.  You will download a copy of this repository,
+edit existing code, and create new code, and then upload your
+contributions back to the central repository, making your
+contributions available to everyone else.
+
+GitHub is a web based service which hosts projects, small and large, in a cloud.
+Typically, users have a development environment on their local computer
+(laptop or desktop) and periodically upload and download changes to
+the cloud.
+
+The URL \url{https://github.com/jimka2001/mgs-2022}, is the public
+entry point to the GitHub project which we will work on in this
+MGS-2022 course.
+How we will edit code in the GitHub project is describe in Section~\ref{sec.gitpod}.
+
+You must create an account on GitHub (if you don't have one already).  This will be done
+in Section~\ref{sec.coding.1}.
+
+
+
+
+\section{GitPod}\label{sec.gitpod}
+
+Most people install software such as IDEs (integrated development
+environments), editors, compiler, language implementations, version
+control software, onto their personal computer or laptop.   You are free
+to do that when you return home.  But for the entirety of MGS-2022, we'll
+use a development environment entirely on the cloud.
+
+We will use a web based service called, GitPod to provide an
+environment for working with GitHub.  This environment and all the
+code you develop will still be available to you after MGS-2022 is
+finished.
+
+The GitPod web site is \url{https://www.gitpod.io}.
+
+Figure~\ref{lab.gitpod.env} shows an image of what the development environment looks like.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
+  \caption{The GitPod development environment allows developers to
+    access remote a repository using only a web browser.}\label{lab.gitpod.env}
+\end{figure}
+
+GitPod provides a version control interface. You should be able to do
+all code editing, and collaboration efforts (push, pull, view history)
+using this interface.
+
+\section{Version Control}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{branching.png}
+  %https://betterprogramming.pub/git-branching-strategy-for-better-team-collaboration-aacb5f235d05
+  \caption{Version Control allows us to manage development points in out project.}
+  \label{label.vc}
+\end{figure}
+
+
+A version control system allows us to maintain a history of our work;
+see Figure~\ref{label.vc}.  We can revisit previous states of our
+project.  We can also create branches to develop different features in
+parallel without them interfering with each other.
+
+An important feature of modern version control systems is collaboration.
+Developers can easily share their work with other developers.
+
+
+\section{Setting up the environment}
+\begin{itemize}
+  \item Create a GitHub account.  This URL,
+    \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
+    explains how to create a GitHub account.  There are many similar
+    web-sites, e.g.,
+    \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
+    Primarily this is self explanatory at the URL
+    \url{https://github.com/join}.
+  \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
+  \item Fork the repository.
+  \item Open the web-ide with GitPod, you may just prepend
+    \url{http://gitpod.io/#} to the URL already in the web browser.
+  \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
+    If you click on \code{SetsAndFunctions} you should see something like this:
+
+    \includegraphics[height=1.5cm]{rundebug.png}
+
+    Click \textbf{run}.  If you don't see \textbf{run debug}, you may
+    need to restart the build server, and recompile.  Find and click
+    the Metals icon \includegraphics[height=2cm]{metals.png}.  This
+    should open the Metals panel where you can \textbf{Restart the
+      build Server} and \textbf{Cascade compile}. 
+
+    \includegraphics[width=8cm]{buildserver.png}
+
+    Thereafter, you should be able to find the \textbf{run|debug} link
+    in the Scala code.
+  \end{itemize}
+
+
+
+
+\chapter{Sets and Functions}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Function_machine2.png}
+\end{figure}
+
+\clearpage
+
+In this unit we will look at functions both from a mathematical
+perspective and also from a programming perspective.  There are some
+important similarities and some important differences.
+\section{Mathematical perspective}
+
+We would like to talk about functions.  But where should we start the conversation?
+
+You may already have some intuition about functions.  Sometimes
+functions have names, like $\sin$, $\cos$, and $\log$.  Sometimes
+functions lack names but have formulas such as
+$\frac{x^2-1}{x^2+2x+1}$.
+
+\subsection{Specifying functions}
+
+What is a function? A function such as
+\[f : X \to Y\]
+is a correspondence between two sets.  But it is a special
+correspondence.  In particular the function,~$f$, associates a unique,
+well-determined, element of~$Y$ with each element of~$X$.
+More precisely, if $x\in X$, then~$f(x)$ designates a unique,
+well-determined, element of~$Y$.
+\[x \in X \implies f(x) \in Y\,.\]
+
+\begin{figure}
+  \centering
+  \includegraphics[width=8cm]{Function_color_example_3.png}
+%%\url{https://commons.wikimedia.org/w/index.php?curid=20802095}, By
+%%  \texttt{Function\_color\_example\_3.gif}: Wvbailey.
+%%  The original uploader was Wvbailey at English Wikipedia.derivative work: Zerodamage ---
+%%  This file was derived from: Function color example \texttt{3.gif}:, CC BY-SA 3.0.}
+  \caption{A function is a well-defined with all the elements of one set
+    (the domain) with some of the elements of another set (the range).}
+\end{figure}
+
+Conceptually, a function has three parts
+\begin{enumerate}
+\item A \emph{domain}, i.e., a place from which input values may be taken.
+\item A \emph{range}, i.e., places where output values are found.
+\item A \emph{rule}, i.e., a way of determining the output value given only the input value.
+\end{enumerate}
+
+To implement a function in the Scala programming language we have to
+specify the \emph{domain} and \emph{range} in terms of what are called
+\emph{types}, and we designate the \emph{rule} in terms of a
+procedure.
+
+\pagebreak
+\subsection{Mathematical notation}
+
+\begin{align}
+  f(x) &= 3x + 1 \label{eq.simple.1}
+\end{align}
+
+
+Let's start with a very simple function~\eqref{eq.simple.1}.
+Actually, the only thing specified here is the rule.  This function is
+written in a mathematical notation where the domain and range are not
+specified.  The same notation can be used for different choices of
+domain and range.  For example, this function works for integers,
+$\mathbb{Z}$, as input, but it will also work for natural numbers,
+$\mathbb{N}$, rational numbers, $\mathbb{Q}$, real numbers, $\mathbb{R}$,
+complex numbers, $\mathbb{C}$.  The same function will also work for
+matrices or for functions themselves.
+
+
+If we want to be more precise, we can use a more descriptive notation as in~\eqref{eq.simple.2}
+
+\begin{align}
+  f:\mathbb{N}\to\mathbb{N}~\text{by}~ f(x) &= 3x + 1 \label{eq.simple.2}
+\end{align}
+
+
+The domain and range of a function need not be the same, and need not
+be a set of simple numbers.  For example, we use the symbol
+$\mathbb{R}^2$ to denote the set of ordered pairs of real numbers;
+i.e.,
+\[\{(x,y)\mid x\in \mathbb{R} \wedge y\in\mathbb{R}\}\,.\]
+Equation~\eqref{eq.simple.3} shows an example of such a function.
+
+\begin{align}
+  f:\mathbb{R}^2\to\mathbb{R}~\text{by}~ f(x,y) &= 3x - 2y + 1 \label{eq.simple.3}
+\end{align}
+
+Mathematical notation such as $a+b$, $a\times b$, $a-b$, $a^3$, and
+$\frac{x^2-1}{x^2+2x+1}$, but we may also specify
+functions using cases, like in Equation~\eqref{eq.simple.4}
+
+
+\begin{equation}\label{eq.simple.4}
+  |x| = \begin{cases}
+    x &\,; \text{if $x>0$}\\
+    0 &\,; \text{if $x=0$}\\
+    -x &\,; \text{if $x<0$}
+  \end{cases}
+\end{equation}
+
+
+\pagebreak
+\subsection{Specifying functions by recurrence}
+
+
+Functions can be defined in terms of themselves.  We might use an intuitive definition
+such as Equation~\eqref{eq.simple.5}.
+
+\begin{equation}\label{eq.simple.5}
+x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\,.
+\end{equation}
+
+We can define the same function more explicitly by using recursion as in Equation~\eqref{eq.slow.exponent}.
+
+\begin{equation}\label{eq.slow.exponent}
+  x^n = \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    x \times x^{n-1} &\,; \text{if $n > 0$}\\
+    \frac{1}{x^{n}} &\,; \text{if $n < 0$}
+  \end{cases}
+\end{equation}
+
+
+Similarly, we can define the factorial as
+\[n! = 1 \times 2 \times \ldots \times n\]
+or we can define it as
+\begin{equation}
+  n! = \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    n \times (n-1)! &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
+The first case need not be $n=0$.  We can define the Fibonacci
+numbers.  Let $F(n)$ denote the n'th Fibonacci number.
+
+
+\begin{equation}
+  F(n) = \begin{cases}
+    1 &\,; \text{if $n=1$}\\
+    1 &\,; \text{if $n=2$}\\
+    F(n-1) + F(n-2)  &\,; \text{if $n > 2$}
+  \end{cases}
+\end{equation}
+
+
+
+Likewise, we can define the set of subsets of size $n$
+
+\begin{equation}\label{eq.cases.1}
+  \mathbb{P}_n(S) = \begin{cases}
+    \{\emptyset\} &\,; \text{if $n=0$}\\
+    \big\{\{x\} \cup y \mid x \in S, y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
+Notice that Equation~\eqref{eq.cases.1} specifies a function, not of
+numbers, but of sets.  Its input is a set, and its output is a set of
+sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
+range is a set of sets of sets.
+
+
+\section{Programming perspective}
+
+\begin{enumerate}
+\item Programming languages, functional, imperative
+
+\item Defining a function
+  
+\item Atomic types: (\code{Double}, \code{Int}, \code{Boolean},
+  \code{String}), and operations on objects of these types.
+
+\item Conditionals, pattern matching
+
+\item Recursive functions
+
+\item \code{Tuple}: create and destructure.
+  
+\item Container types: \code{List[]}, \code{Vector[]}, \code{Seq},
+  \code{Set[]}, \code{Map[]}, \code{Option[]}
+
+\item \code{for}, \code{forall}, \code{exists}, \code{contains}, \code{find}  methods.
+  
+\item We
+  implement the \code{fixedSizedSubsets} in live-coding.  We write
+  some tests.  Some of which pass, and some of which fail.  To compute
+  the number of subsets of size $k$ of a set of size $n$ we need to
+  compute~$n \choose k$ using the \code{factorial} function, which you
+  will develop.
+
+\item Testing
+  
+\item Version control, branch, pull
+\end{enumerate}
+
+\pagebreak
+
+
+\clearpage
+\subsection{Functional Programming Languages}
+
+We will not spend much time talking about programming languages which
+are not \emph{functional} but very briefly.  Imperative programming
+languages tend to model the machine, allowing you to phrase your
+programs in a way which the machine can interpret.  Functional
+languages, tend to make the machine understand mathematical notations,
+which is a more natural and elegant way of thinking.  Functional
+languages are often considered more difficult and more exotic.
+However, not everyone (including your instructor) agrees that they
+need to be considered difficult.
+
+
+Imperative languages allow you to detail how a computation should be
+carried out.  Functional languages allow you describe the problem in
+terms of what the solution looks like.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{functionalvsimperative.jpg}
+\caption{Imperative vs Functional programming}
+\end{figure}
+
+The web site and lots of documentation about the Scala language can be
+found here: \url{https://www.scala-lang.org}.  The newest Scala
+version is 3.1.x; however, we will use 2.13.8 (or higher).
+
+
+
+
+\clearpage
+\section{Coding}\label{sec.coding.1}
+
+\begin{enumerate}
+\item My First Program, Implement the Quadratic Formula
+  \begin{itemize}
+  \item Find the function \code{quadraticFormula}, implement a test
+    for this function.   The Scala function implements the mathematical
+    function $x_{1,2}(a,b,c) = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.  The function computes the roots
+    of the polynomial $ax^2 + bx + c$, assuming $a>0$, and assuming $b^2 \geq 4ac$.
+    The test should go in the file \texttt{SetsAndFunctionsTestSuite.scala} in
+    directory \texttt{src/test/scala/}.  There is
+    already a function stub you can use.  Extend the tests.  Remember
+    that to test values of type \code{Double} you may need check
+    whether the absolute value is less than some threshold ($\varepsilon$) rather than
+    testing for exact equivalence.
+  \item Enhance \code{quadraticFormula}: Notice that the current
+    implementation is inefficient, because it computes almost the same
+    thing twice.  Also if you call the function with \code{a,b,c} for
+    which there are no real solutions, the function will return
+    \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
+    with an internet search.  You should refactor the function to
+    define a variable \code{discriminant} whose value is
+    \[\Delta = b^2 - 4 a c\,.\]
+    Then there are three cases, if ${\Delta < 0}$, if ${\Delta = 0}$, and
+    if ${\Delta > 0}$. Refactor the function so that if there are no
+    real roots it returns an empty list; if there is a unique 
+    solution, return a list of one number; and if there are two
+    distinct solutions, return a list of those two solutions
+    \textbf{in increasing order}.  I.e., if you return \code{(a,b)}
+    assure that $a < b$.  Also update the test case to check for
+    $a<b$.
+  \end{itemize}
+\clearpage
+\item Recursive Functions
+  \begin{itemize}
+  \item Implement \code{power} for \code{Int} and \code{Double}.  In
+    the case of \code{Double} you should also handle the case of a
+    negative exponent.
+  \item Implement \code{String} concatenation using the power model.
+  \item Implement \code{List} concatenation using the power model.
+  \item Implement \code{factorial}.
+  \item Use \code{factorial} to test n-sized subsets.  We develop the
+    n-sized subsets function in class.
+
+    \textbf{Discussion:} Do we
+    need a case for $n=0$ and also $n=1$?  How does this relate to the
+    principle of induction?  Look up \emph{Principle of Induction} if
+    you need to review it.
+  \end{itemize}
+\clearpage
+\item Fibonacci numbers
+  \begin{itemize}
+  \item Implement a recursive function such that given $n$ it returns the nth Fibonacci number, $F_n$.
+  \item What is the largest Fibonacci number you can compute in Scala?
+  \item Search on the internet and find the Binet's formula for computing the nth Fibonacci number.
+    Implement this function and compare the results to the recursive implementation.
+  \end{itemize}
+\end{enumerate}
+
+
+
+\chapter{Abstract Algebra}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{escher.jpg}
+%% https://www.researchgate.net/publication/339436680_A_1d_Up_Approach_to_Conformal_Geometric_Algebra_Applications_in_Line_Fitting_and_Quantum_Mechanics/figures?lo=1
+\end{figure}
+
+
+\clearpage
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{galois.png}
+\caption{Evariste Galois died at 20 years old as a result of a duel.}
+\end{figure}
+
+The story of Evariste Galois, a 20 year old French mathematician who
+quickly wrote down the principles of abstract algebra before his death
+as a result of a duel, is depicted in several YouTube videos: notably
+\emph{Evariste Galois a documentary}
+\url{https://www.youtube.com/watch?v=J6dsanpnpt0} and \emph{Galois
+  Theory Explained Simply}
+\url{https://www.youtube.com/watch?v=Ct2fyigNgPY}, both produced by
+Math Visualized.
+
+
+In this unit we will study sets with mathematical structure.
+There are several mathematical structures defined by axioms.
+We will thereafter write programs as individuals and as teams to
+manipulate these structures.
+
+\clearpage
+\section{Mathematical perspective}
+
+
+\subsection{Monoid}
+\begin{definition}[Monoid]
+$(S,\circ)$ is called a \emph{monoid} if
+\begin{enumerate}
+\item Closure: $a,b \in S \implies a\circ b \in S$.
+\item Associative: $a,b,c \in S \implies (a\circ b) \circ c = a \circ (b \circ c)$
+\item Identity: $\exists e\in S$ such that $a\in S \implies a\circ e = e\circ a = a$
+\end{enumerate}
+\end{definition}
+
+\noindent Notice that we assume that a monoid has an identity element, but we
+don't assume that it is unique.  Can a monoid have more than one
+identity element: $e_1$ and $e_2$?  The answer is no, but why?  
+
+Examples of monoids.
+
+\begin{enumerate}
+\item The natural numbers $\mathbb{N}$ under addition.
+
+\item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{512px-Big_Ben_Closeup.jpg}
+%% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+\end{figure}
+
+\item  The integers on the face of the clock form a
+  monoid under addition with the following
+  addition table.
+ 
+    \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      + & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 &12\\
+      \hline
+      \hline 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1\\
+      \hline 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2\\
+      \hline 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3\\
+      \hline 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4\\
+      \hline 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5\\
+      \hline 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6\\
+      \hline 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7\\
+      \hline 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8\\
+      \hline 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9\\
+      \hline 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+      \hline 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+      \hline 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+    We may verify that every $a\in\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}$
+    we have  $12 + a = a + 12 = a$.
+
+
+
+\item   The integers on the face of the clock also form a
+  monoid under multiplication with the following
+  multiplication table.
+ 
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline
+      \hline 1 & 1  & 2  & 3  & 4  & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline 2 & 2  & 4  & 6  & 8  & 10 & 12 & 2  & 4  & 6  & 8  & 10 & 12\\
+      \hline 3 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12\\
+      \hline 4 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12\\
+      \hline 5 & 5  & 10 & 3  & 8  & 1  & 6  & 11 & 4  & 9  & 2  & 7  & 12\\
+      \hline 6 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12\\
+      \hline 7 & 7  & 2  & 9  & 4  & 11 & 6  & 1  & 8  & 3  & 10 & 5  & 12\\
+      \hline 8 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12\\
+      \hline 9 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12\\
+      \hline 10& 10 & 8  & 6  & 4  & 2  & 12 & 10 & 8  & 6  & 4  & 2  & 12\\
+      \hline 11& 11 & 10 & 9  & 8  & 7  & 6  & 5  & 4  & 3  & 2  & 1  & 12\\
+      \hline 12& 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  In the clock multiplication monoid, $1$ has the property that
+  ${1 \times a = a\times 1 = a}$ for every ${a\in\{1,2,\ldots,12\}}$.
+
+  
+
+\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
+  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all finite sequences
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$.
+  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
+  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
+
+  Let $+$ denote sequence concatenation.  E.g.,
+  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
+  ${\mathcal{L}(\Sigma)}$ is a monoid.
+
+  What is its identity element.
+
+  Is it a commutative monoid?
+  
+\end{enumerate}
+
+\clearpage
+\subsection{Group}
+
+An notable property missing from a monoid is the ability solve equations.  As an example,
+take the 12-clock above.  Which of these equations can be solved:
+\begin{enumerate}
+\item Solve for $a$ in $a\times 3 = 7$.
+\item Solve for $b$ in $4\times b = 8$.
+\item Solve for $c$ in $7\times c = 11$.
+\end{enumerate}
+
+To solve such an equation we need to be able to find an inverse with
+respect to the operation of the monoid.  Essential to the idea
+of inverse is that an inverse be unique.
+
+A monoid for which every element has a unique inverse is called
+a group.
+
+
+\begin{definition}[Group]
+$(S,\circ)$ is called a \emph{group} if
+\begin{enumerate}
+\item $(S,\circ)$ is a monoid.
+\item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+\end{enumerate}
+If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S an \emph{Abelian} group.
+\end{definition}
+
+
+A group has an identity which is also the identity of the monoid,
+which we already know to be unique.  But we can ask a similar
+uniqueness question about the inverse.  Can an element $a\in S$ have
+two different inverses?  No, but why?
+
+\noindent Examples of groups.
+\begin{enumerate}
+\item The set of integers, ${\mathbb{Z} = \{0, \pm 1, \pm 2, \ldots\}}$, is a group under
+integer addition.   Why?
+\begin{itemize}
+\item $(\mathbb{Z},+)$ is a monoid with $0$ being the identity.
+\item If $a \in \mathbb{Z}$ there exists $b\in\mathbb{Z}$ such that $a+b=0$.  E.g.   ${12 + (-12) = 0}$
+\end{itemize}
+
+\item Imagine a clock going from 1 to 11, rather than 1 to 12.
+  Similar to the clock monoid seen above, here is the multiplication
+  table of the strange 11-clock.
+  
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9& 11\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8& 11\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7& 11\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6& 11\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5& 11\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4& 11\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3& 11\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2& 11\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1& 11\\
+\hline 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+In this example, we see that the set is NOT a multiplicative group,
+because the element 11 has no inverse.  However, every non-11 element
+has an inverse.  We can tediously verify the existence of a unique
+inverse for every non-11 element.
+
+The set of non-11 elements of the 11-clock is a multiplicative group
+with the following multiplication table.
+
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+\item Equivalence classes: if $(G,\circ)$ and $(H,\circ)$ are groups and $h$ is a
+  function, ${h:G\to H}$, with the property that
+  $h(a\circ b) = h(a)\circ h(b)$, then $h$ divides $G$ into equivalence classes.
+
+  The set of such equivalence classes, $G/h$, is also a group.
+
+  For example, take the additive 12-clock group whose addition table is as follows.
+
+    Let $H = \{1,2,3,4\}$ and let $h:G\to H$ by $h(a)=3\times a$,
+    where $\times$ is understood to be 12-clock multiplication.
+    I.e.,
+    ${h(1) = 3}$,
+    ${h(2) = 6}$,
+    ${h(3) = 9}$,
+    ${h(4) = 12}$,
+    ${h(5) = 3}$,
+    ${h(6) = 6}$,
+    ${h(7) = 9}$,
+    ${h(8) = 12}$,
+    ${h(9) = 3}$,
+    ${h(10) = 6}$,
+    ${h(11) = 9}$,
+    ${h(12) = 12}$
+    
+    The function, $h$, partitions $G$ into 4 equivalence classes
+    \[G/h = \big\{\{1,5,9\},\{2,6,10\},\{3,7,11\},\{4,8,12\}\big\}\,.\]
+    Each equivalence contains the elements for which $h$ has the same
+    value. I.e., \\
+    ${h(1) = h(5) = h(9) = 3}$,\\
+    ${h(2) = h(6) = h(10) = 6}$,\\
+    ${h(3) = h(7) = h(11) = 9}$, and \\
+    ${h(4) = h(8) = h(12) = 12}$.
+    
+    The addition table for $G/h$ is the following.
+    
+\begin{center}
+    \begin{tabular}{c||c|c|c|c|}
+      + & \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\}\\
+      \hline
+      \hline \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\} & \{1,5,9\}\\
+      \hline \{2,6,10\} & \{3,7,11\}& \{4,8,12\} & \{1,5,9\} & \{2,6,10\} \\
+      \hline \{3,7,11\} & \{4,8,12\}& \{1,5,9\}& \{2,6,10\}& \{3,7,11\} \\
+      \hline \{4,8,12\} & \{1,5,9\} & \{2,6,10\}& \{3,7,11\} & \{4,8,12\} \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+
+We can notice that the identity element is ${\{4,8,12\}}$ and that every element has an inverse:
+\begin{itemize}
+  \item $\{1,5,9\}^{-1} = \{3,7,11\}$
+  \item $\{2,6,10\}^{-1} = \{2,6,10\}$
+  \item $\{3,7,11\}^{-1} = \{1,5,9\}$
+  \item $\{4,8,12\}^{-1} = \{4,8,12\}$
+\end{itemize}
+
+
+\end{enumerate}
+
+
+\clearpage
+\subsection{Ring}
+
+\begin{definition}[Ring]
+$(S,+,\times)$ is called a \emph{ring} if
+\begin{enumerate}
+\item $(S,+)$ is an Abelian group.
+\item $(S,\times)$ is a monoid.
+\item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
+\end{enumerate}    
+
+\noindent In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+\end{definition}
+
+\noindent Examples of rings.
+\begin{enumerate}
+\item The integers $(\mathbb{Z},+,\times)$
+\item The set of $n\times n$ matrices.
+\item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$.
+\item The set of 8-bit sequences (bytes) consisting of 0 and 1, such as 00101101,
+  with the two operations AND and XOR, defined bitwise using the following tables.
+\begin{center}
+    \begin{tabular}{c||c|c|}
+      XOR & 0 & 1 \\
+\hline
+\hline0& 0& 1\\
+\hline1& 1& 0\\
+\hline
+\end{tabular}\quad\quad
+    \begin{tabular}{c||c|c|}
+      AND & 0 & 1 \\
+      \hline
+\hline0& 0& 0\\
+\hline1& 0& 1\\
+\hline
+\end{tabular}
+\end{center}
+  
+For example
+\begin{itemize}
+\item 00101101 XOR 00110011 = 00011110
+\item 00101101 AND 00110011 = 00100001
+\end{itemize}
+
+\end{enumerate}
+
+\clearpage
+\subsection{Field}
+
+\begin{definition}[Field]
+$(F,+,\times)$ is called a \emph{field} if
+\begin{enumerate}
+\item $(F,+, \times)$ is an Abelian Ring.
+\item $(F \setminus 0, \times)$ is a (Abelian) group, where $0$ is the identity under $+$.
+\end{enumerate}    
+\end{definition}
+
+
+\noindent Some notable examples of fields:
+\begin{enumerate}
+\item The rational numbers, $\mathbb{Q}$.
+\item The set of $2\times 2$ matrices of the form $\begin{bmatrix}a&-b\\b&a\end{bmatrix}$ where $a,b\in\mathbb{Q}$.
+\item The integers modulo any prime such as $7$.
+
+\begin{center}
+    \begin{tabular}{c||c|c|c|c|c|c|c|}
+      $+$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline0& 0& 1& 2& 3& 4& 5& 6\\
+\hline1& 1& 2& 3& 4& 5& 6& 0\\
+\hline2& 2& 3& 4& 5& 6& 0& 1\\
+\hline3& 3& 4& 5& 6& 0& 1& 2\\
+\hline4& 4& 5& 6& 0& 1& 2& 3\\
+\hline5& 5& 6& 0& 1& 2& 3& 4\\
+\hline6& 6& 0& 1& 2& 3& 4& 5\\
+\hline
+\end{tabular}\quad\quad
+    \begin{tabular}{c||c|c|c|c|c|c|c|}
+      $\times$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline0& 0& 0& 0& 0& 0& 0& 0\\
+\hline1& 0& 1& 2& 3& 4& 5& 6\\
+\hline2& 0& 2& 4& 6& 1& 3& 5\\
+\hline3& 0& 3& 6& 2& 5& 1& 4\\
+\hline4& 0& 4& 1& 5& 2& 6& 3\\
+\hline5& 0& 5& 3& 1& 6& 4& 2\\
+\hline6& 0& 6& 5& 4& 3& 2& 1\\
+\hline
+\end{tabular}
+\end{center}
+
+With these addition and multiplication tables we can tediously verify
+that
+\begin{itemize}
+\item $0$ is the additive identity.
+\item $1$ is the multiplicitive identity.
+\item Every element has an additive inverse.
+\item Every non-zero element has a multiplicitive inverse.
+\item Addition and multiplication are associative.
+\item Addition and multiplication are commutative.
+\item The distributive property holds.
+\end{itemize}
+
+\item The set $\mathbb{Q}\{\sqrt{2}\} = \{a+b\sqrt{2} \mid a,b\in\mathbb{Q}\}$
+  is a field.   Moreover, each of the following can be expressed in the same form ${a+b\sqrt{2}}$.
+  \begin{itemize}
+  \item $(a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2})$
+  \item $(a_1 + b_1\sqrt{2}) - (a_2 + b_2\sqrt{2})$
+  \item $(a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2})$
+  \item {\Large $\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}}$}, provided $a_2,b_2$ are not both 0.
+  \end{itemize}
+
+\end{enumerate}
+
+\clearpage
+\subsection{Summary of Algebraic Structures}
+
+\begin{figure}
+  \centering
+\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
+%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\caption{There are many algebraic structures which are linked by subset relations.}
+\end{figure}
+
+\begin{enumerate}
+\item A \emph{monoid} is a set where we can add.
+\item A \emph{group} is a set where we can add and subtract.
+\item A \emph{ring} is a set where we can add, subtract, and multiply.
+\item A \emph{field} is a set where we can add, subtract, multiply, and divide.
+\end{enumerate}
+
+For simplicity we omit the formal definition of \emph{semi-ring} which is a
+set in which we can add and multiply, but not necessarily subtract and divide.
+
+These summaries are vague.  For example when we say ``add'' in a
+monoid, the actual multiplication may be addition, multiplication,
+concatenation, or many other operations depending on the actual
+monoid.  The distinction between adding and multiplying requires that
+both exist, thus they can only be distinguished in a semi-ring.
+
+If a set has both a $1$ and a $0$ then dividing by $0$ does not make
+sense.  For example, in a field, we require all non-zero elements to
+have and multiplicative inverse even though all elements have an
+additive inverse.
+
+
+\subsection{Fast Exponentiation in a Monoid and Group}
+
+Recall the definition of exponentiation in
+Equation~\eqref{eq.slow.exponent}.  In any monoid with operation $\circ$ and identity
+element $e$, we can compute an
+integer power of an element more efficiently according to the
+following formula.
+
+
+
+\begin{equation}
+  x^n = \begin{cases}
+    e &\,; \text{if $n=0$}\\
+    x &\,; \text{if $n=1$}\\
+    x \circ x^{n-1} &\,; \text{if $n$ is odd}\\
+    (x^\frac{n}{2})\circ     (x^\frac{n}{2}) &\,; \text{if $n$ is even}\\
+  \end{cases}
+\end{equation}\label{eq.fast.exponent}
+
+If the monoid is also group, then inverse elements exist, so we can
+talk about \emph{negative} exponents in the sense that $x^{-n} =
+(x^{-1})^n = (x^n)^{-1}$, in which case we can compute positive and
+negative powers efficiently.  Either we compute $x^{|n|}$ and then
+compute its inverse, or we can compute $x^{-1}$ and then raise that to
+the power of $|n|$.
+
+\begin{equation}
+  x^n = \begin{cases}
+    e &\,; \text{if $n=0$}\\
+    x &\,; \text{if $n=1$}\\
+    x \circ x^{n-1} &\,; \text{if $n>0$ is odd}\\
+    (x^\frac{n}{2})\circ     (x^\frac{n}{2}) &\,; \text{if $n>0$ is even}\\
+    (x^{-1})^{|n|} &\,; \text{if $n<0$}\\
+  \end{cases}
+\end{equation}\label{eq.fast.exponent.group}
+
+
+\clearpage
+\section{Programming perspective}
+\begin{enumerate}
+\item Monoid
+  \begin{itemize}
+  \item \code{String} concatenation
+  \item \code{List[Int]} concatenation
+  \item \code{Set[Int]} union
+  \item \code{Seq[Int]}
+  \item Implement \code{fastPower} for \code{Double}.
+  \item Generalize \code{fastPower} to work on any monoid.
+  \item Refactor \code{power} from unit 1 to use \code{fastPower}.
+  \end{itemize}
+\item Multiple dimensional types
+  \begin{itemize}
+  \item  \code{Seq[Seq[Int]]},  \code{Seq[Seq[Double]]}
+  \item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
+    \code{matrixScale}, \code{matrixMultiply} using concentric loops.
+  \item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
+  \item Ring of matrixes (matrix add, subtract, multiply)
+  \end{itemize}
+\item The \code{Map[]} type
+  \begin{itemize}
+  \item \code{Map[Int,Int]}, creating, manipulating
+  \item Equivalence classes using \code{groupBy}.
+  \item Implement polynomial using \code{Map[Int,Double]}
+  \item Ring of polynomials (polynomial add, scale, subtract, multiply)
+  \item \code{almostEqual} comparing floating point
+  \end{itemize}
+\item Testing
+  \begin{itemize}
+  \item Testing with \code{main}
+  \item Debugging with print
+  \item Property based testing
+  \item Generating randomly selected object.
+  \end{itemize}
+\item Team work
+  \begin{itemize}
+  \item   projects using git and GitHub
+  \item pull request
+  \item merge and rebase
+\end{itemize}
+
+\end{enumerate}
+
+\clearpage
+\section{Coding}\label{sec.coding.2}
+\begin{enumerate}
+\item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
+  \begin{itemize}
+  \item Group strings by length of string (size).
+  \item Group sets of integers by minimum element.
+  \item Partition a set of natural numbers between to boundaries
+    \code{lower} and \code{upper} into equivalence classes modulo \code{n}.
+  \end{itemize}
+  
+\item Square matrices of integers
+  \begin{itemize}
+  \item Implement matrix, add, subtract, multiply multiplication, in
+    functions \code{matrixAdd}, \code{matrixSubtract}, and
+    \code{matrixMultiple}.
+
+  \item Implement fast monoid multiply for matrices:
+    \code{matrixPower}.  Do this in two different ways: by repeated
+    multiplication (compute $M^n$ as a result of $n-1$
+    multiplications), and again using \code{fastPower}.  How do you
+    specify the monoidic arguments (multiplication and unit) for
+    \code{matrixPower} using \code{fastPower}.
+
+  \item Test your code using \code{scalatest}. In the test case,
+    multiply the slow way and assert that the result is the same as
+    \code{matrixPower}.  Can you experimentally determine the time
+    needed to raise a large $m\times m$ matrix to the $n$th power
+    using the two algorithms?  To find out how to compute the time spent
+    in a scala function, do an internet search.
+
+  \item Use the \code{matrixPower} function to compute any three
+    consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
+    \[\begin{bmatrix}1&1\\1&0\end{bmatrix}^n = \begin{bmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{bmatrix}\]
+    Do these results agree with those you computed in unit 1?
+
+  \item You now have three ways to compute Fibonacci numbers.  
+    Devise an experiment to determine which of the approaches is
+    faster in terms of execution time?
+  \end{itemize}
+
+
+  
+\item Team Project
+  \begin{itemize}
+  \item Implement functions to detect monoid, group,
+    ring, and field given a finite set, and the $+$ and $\cdot$
+    operations.
+  \item When finished with your function, commit, push, and send a
+    pull request.
+  \item To test your code, you will need to pull the changes in the
+    repository.
+  \item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
+    monoid? Is it a group (Abelian)? etc. \ldots
+  \item For which values of $n$ is $\mathbb{Z}/n$ a field?
+  \end{itemize}
+  
+\item Group Interactive Project
+  \begin{itemize}
+  \item Implement the polynomial ring, with addition,
+    subtraction, multiplication
+  \item Can you implement \code{polynomialPower} using
+    \code{fastPower}.  Is it faster than an iterative implementation?
+  \item Generalize to the polynomial ring over a given field.
+  \item Consider the set of polynomials of degree $n$ whose scalars
+    are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
+    and multiplication.
+
+    
+  \end{itemize}
+    \textbf{Discussion:} Is the set of polynomials of degree $n$ with
+    integer coefficients an infinite
+    set or finite set?  Is this set closed under addition?  Are
+    multiplication and addition associative and commutative? Is it
+    closed under multiplication?  Does this set form a monoid, group,
+    ring, or field?
+
+    How does the answer change if addition and multiplication of
+    coefficients is done in $\mathbb{Z}/(n+1)$.
+
+    What if arithmetic on not only coefficients but also exponents is
+    done in $\mathbb{Z}/(n+1)$.
+    
+    What would you need to do to use the library you've written
+    \code{isMonoid}, \code{isGroup} etc to test your hypotheses?  How
+    would you write a program to generate all such polynomials?
+
+    \textbf{Discussion:} Is the set of $n\times n$ matrices with
+    integer content a finite or infinite set?  What if we restrict the
+    content to $\mathbb{Z}/(n+1)$?  How would you need to change the
+    matrix manipulation code you've already written to accommodate
+    arithmetic in $\mathbb{Z}/(n+1)$?
+  
+
+
+\item Complex numbers using matrices (Optional)\\ The complex numbers,
+  $\mathbb{C}$, are an extension of the real numbers which allows us,
+  among other things, to represent $i = \sqrt{-1}$ and consequently to
+  represent roots of polynomials such as $x^2 + 1 = (x+i)\times(x-i)$.
+  A complex number, can be expressed as $a + bi$ with $a$ being the
+  real part and $b$ being the imaginary part.  Together $a+bi$ is a
+  complex number.
+    
+    An alternate way of representing a complex number is as a $2\times 2$ matrix.
+    \[a + ib = \begin{bmatrix}a&-b\\b&a\end{bmatrix}\]
+
+  \begin{itemize}
+      
+  \item Verify anecdotally by constructing 4 concentric loops
+    that
+      \[(a_1 + i b_1)\times (a_2 + i b_2) = (a_2 + i b_2)\times (a_1 + i b_1)\,.\]
+
+      Use the matrix multiply function you implemented previously.
+      
+    \item Verify anecdotally that $i^2 = -1$.  What does this mean in
+      terms of the matrix representation?
+      
+    \item \textbf{Discussion:} in which cases regarding matrices and complex
+      numbers can we check associativity and commutativity?  Is matrix
+      addition commutative?  Is matrix multiplication commutative?  Is
+      complex multiplication commutative?
+      
+    \item \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
+      multiplication is, why can we implement complex numbers in terms
+      of matrices?
+      
+      
+  \end{itemize}
+  
+
+
+
+\end{enumerate}
+
+
+  
+\chapter{Convergence}
+
+\begin{figure}[h]
+\centering\includegraphics[width=\textwidth]{Archimedes-pi.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
+%%Original: FredrikVector: Leszek Krupinski --- Own work based on:
+%%Archimedes pi.png:  by Fredrik, Public Domain.}
+\label{fig.circle.perim}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.48\textwidth]{bolzano.jpg}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}
+%% \footnote{Bernard Bolzano}
+%% \footnote{Augustin-Louis Cauchy}
+\caption{Bernard Bolzano (left), Augustin-Louis Cauchy (right)}
+\end{figure}
+
+
+
+In this section we will talk about a characteristic property/attribute
+which distinguishes the rational numbers, $\mathbb{Q}$, from the real
+numbers, $\mathbb{R}$.  That important feature of $\mathbb{R}$ not
+shared by $\mathbb{Q}$ is \emph{convergence}.  But what do we mean by
+convergence?
+
+We will discuss the mathematical definition of convergence, and we
+will write some programs which approximate real quantities with
+sequences which approximate them.
+
+Isaac Newton and Gottfried Leibniz invented calculus around 1660 or
+1670.  Some 150 years later, around 1820 Augustin-Louis Cauchy and Bernard Bolzano
+presented the concept of the limit.  Thanks to the work of Cauchy and Bolzano and
+his contemporaries, we can understand at a fundamental level, the work
+of Newton and Leibniz.
+
+
+
+\clearpage
+\section{Mathematical perspective}
+
+In the previous sections we talked
+about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
+the rationals, and $\mathbb{Q}$.  In particular we talked about what
+distinguishes them from each other.
+
+In an intuitive sense:
+\begin{itemize}
+  \item $\mathbb{N}$ is a set where we can add and
+multiply; \item $\mathbb{Z}$ is a set where we can add, subtract, and
+multiply; and \item $\mathbb{Q}$ is a set where we can add, subtract,
+multiply, and divide.
+\end{itemize}
+
+Unfortunately, we don't have a good example of \textbf{numbers} where
+we can add but not multiply; however, we saw examples of so-called
+monoids such as simple sets where the union operation is associative,
+the empty set, $\emptyset$, is the identity element, but there is no
+inverse operation of union, and nothing like multiplication.  
+
+
+
+\subsection{Intuition of  convergence?}
+
+In the figure on page~\pageref{fig.circle.perim} we can convince ourselves that the
+circumference of the circle is a fixed
+quantity.  I.e., it is not an vague, indefinite concept, but the
+circumference of a circle has a real, actual, definite length.
+
+
+
+The length of the circumference of the circle is always greater than the
+length of the perimeter of an inscribed polygon, and is always less
+than the length of the perimeter of a circumscribed polygon.
+Moreover, we have a decreasing sequence of numbers and an increasing
+sequence of numbers which grow arbitrarily close together.  I.e.,
+choose any small number, $\varepsilon$.  Now find a sufficiently large
+n such that the perimeter of the circumscribed n-sided polygon is within
+$\varepsilon$ of the perimeter of the inscribed polygon.  The
+sandwiched value is the circumference of the circle.
+
+The real numbers, $\mathbb{R}$, is the smallest set which contains all these numbers.
+\[\mathbb{Q} \subset \mathbb{R}\]
+\[\mathbb{R} \not\subset \mathbb{Q}\]
+
+
+As another example, using infinite sums which we will talk about in a
+later unit, consider the sequence: $(a_0, a_1, a_2, \ldots)$, such
+that $a_n$ is defined as:
+\[a_n = \sum_{k=0}^{n}\frac{8}{(4k+1)(4k+3)}\]
+
+This sequence is discussed on wikipedia.\footnote{Leibniz formula,
+\url{https://en.wikipedia.org/wiki/Leibniz_formula_for_pi}}.  This is
+a sequence of rational numbers; each numerator is an integer, namely
+8, and each denominator is an integer.  The successive rational
+numbers, $a_n$ and $a_{n+1}$ may be made as close as you like by
+choosing sufficiently large $n$.  Thus this sequence is Cauchy.
+Nevertheless, the value this sequence tends to is not rational.  If you
+chose any rational number, $q\in\mathbb{Q}$, then either:
+\begin{enumerate}
+\item You can find an $N$ such that if $n>N$ then $a_n>q$.
+\item You can find an $N$ such that if $n>N$ then $a_n<q$.
+\end{enumerate}
+
+  Thus we say that this sequence
+does not converge in $\mathbb{Q}$.  However, it converges to in
+$\mathbb{R}$.  In particular
+\[a_n \to \pi\,.\]
+
+
+
+\subsection{The limit of a sequence}
+The limit is the most fundamental concept in
+Calculus.
+\[\lim_{n\to\infty} a_n = a\]
+means that $\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$ such
+that if $n>N$ then $|a_n - a| < \varepsilon$.
+
+
+A sequence $\lbrace a\rbrace_n$ converges to $a$, written $a_n\to a$,
+if \[\lim_{n\to\infty} a_n = a\,.\]
+  
+
+A sequence is $\lbrace a\rbrace_n$ is said to be Cauchy, if
+$\forall~\varepsilon > 0~ \exists~ N\in\mathbb{N}$
+such that if $n>N$ and $m>N$ then $|a_n - a_m| < \varepsilon$.
+
+\includegraphics[width=9cm]{Folgenglieder_im_KOSY.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+% https://commons.wikimedia.org/w/index.php?curid=54837240}
+\\Example of a sequence which converges to the limit $a$.
+
+\includegraphics[width=9cm]{Epsilonschlauch.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+%% https://commons.wikimedia.org/w/index.php?curid=54836520}
+\\Regardless which $\varepsilon >0$ we have, there is an index
+$N_0$, so that the sequence lies afterwards completely in the
+epsilon tube $(a-\varepsilon ,a+\varepsilon)$.
+
+
+\includegraphics[width=9cm]{Epsilonschlauch-klein.png}
+%%\footnote{By Ceranilo, CC BY-SA 4.0,
+%% https://commons.wikimedia.org/w/index.php?curid=54836607} 
+\\There
+is also for a smaller $\varepsilon_{1}>0$, an index $N_{1}$, so
+that the sequence is afterwards inside the epsilon tube
+$(a-\varepsilon_{1},a+\varepsilon_{1})$.
+
+  
+\section{Programming perspective}
+  \begin{enumerate}
+  \item tail recursion,
+  \item fixed point
+  \item higher order functions
+  \item function type
+  \item representing finite and infinite sequences.
+  \item sequence functions: \code{map}, \code{filter}, \code{max}, \code{sum}, \code{head}, \code{tail}, 
+  \item \code{for} comprehension
+  \end{enumerate}
+
+\section{Coding}
+\begin{enumerate}
+\item Exponentiation
+  \begin{itemize}
+  \item Implement exponentiation of Double as a recursive function.
+  \item Generalize to implement exponentiation on a monoid
+  \item Implement matrix exponentiation.
+  \item Implement polynomial exponentiation.
+  \end{itemize}  
+\item Sequences
+  \begin{itemize}
+  \item Define a sequence \[a_n =
+    \sum_{k=0}^{n}\frac{8}{(4k+1)(4k+3)}\,.\] Given $n$, compute the sequence of
+    $n+1$ numbers, and use the \code{sum} method to add them up. (We will
+    discuss a better way tomorrow).
+  \item Compute the same sums using normal recursion and tail recursion.
+  \item Convince yourself that $\{a_n\}$ is strictly increasing; i.e.,
+    $a_n < a_{n+1}$.  Can you show this empirically? Can you prove
+    this mathematically?
+  \item However, the sequence of successive
+    differences is decreasing: if $d_n = a_{n+1} - a_n$ then the
+    sequence $\{d_n\}$ is decreasing: $d_n > d_{n+1}$.  Show this
+    empirically and mathematically.
+  \end{itemize}
+\item Convergence
+  \begin{itemize}
+  \item Now implement a function such that given $\varepsilon$, find and
+    return $N$, such that \[n>N \implies |a_n - \pi| < \varepsilon\,.\]
+  \item Detect Cauchy of sequences: write a function such that given a
+    sequence in the form of a function, $a$ of an \code{Int} $k$, and
+    a \code{Double} $\varepsilon$.  The function should return an
+    \code{Int}, $k$, indicating the first value for which $| a_k -
+    a_{k+1}| < \varepsilon$.
+  \item Use Google or Wikipedia etc, to find another sequence which
+    converges to $\pi$.  Use the function you just wrote to
+    empirically verify this conversion.
+  \item Now you have two sequences which both converge to $\pi$. Does
+    the sequence created by averaging the corresponding elements also
+    converge?  If so, what does it converge to?  Does it converge
+    faster or slower?  Can you devise an experiment to show
+    empirically?
+  \end{itemize}  
+  
+\end{enumerate}
+
+
+
+
+
+\chapter{Infinite sums}
+
+\begin{figure}[h]
+\centering\includegraphics[height=10cm]{infsum.jpg}
+\end{figure}
+
+\clearpage
+
+In this chapter we'll look at ways to compute sums like these
+\begin{align}
+  \exp(x) &= \sum_{k=0}^{\infty} \frac{x^k}{k!}\\
+  \sin(x) &= \sum_{k=0}^{\infty} \frac{{(-1)}^{k}x^{2k+1}}{(2k+1)!}\\
+  \cos(x) &= \sum_{k=0}^{\infty} \frac{{(-1)}^{k}x^{2k}}{(2k)!} \\
+  \ln(1+x) &= \sum_{k=1}^{\infty} \frac{{(-1)}^{k-1}x^{k}}{k}\,.
+\end{align}
+
+
+\section{Mathematical perspective}
+  \begin{enumerate}
+  \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
+    \includegraphics[width=9cm]{sin-cos.png}
+%%\footnote{
+%%    \url{https://commons.wikimedia.org/w/index.php?curid=57551646} By Stephan Kulla
+%%    (User:Stephan Kulla) --- Own work, CC0.}
+  \item Contrast convergence and summability.
+  \item Taylor series is of the form
+    \[\sum_{k=0}^{\infty} a_{n}x^{n}\,.\]
+    In some cases this series converges to an interesting function.
+    Since the $x^n$ terms are increasing rapidly, the $a_n$ terms must
+    therefore decrease (in absolute value) rapidly otherwise the
+    series will not converge (it will diverge).
+
+\includegraphics[width=10cm]{sintay.png}
+%%\footnote{By IkamusumeFan ---
+%%Own work, CC BY-SA 3.0,
+%%\url{https://commons.wikimedia.org/w/index.php?curid=27865201}} 
+
+    As the degree of the Taylor polynomial rises, it approaches the
+    correct function.  This image shows $\sin x$ and its Taylor
+    approximations by polynomials of degree 1, 3, 5, 7, 9, 11, and 13
+    at $x = 0$.
+
+  \end{enumerate}
+  
+\section{Programming perspective}
+  \begin{enumerate}
+  \item \code{Option[]}
+  \item folding:  \code{foldLeft},  \code{reduce}, \code{reduceOption}
+  \item \code{Either[]}
+  \item Introduce \code{foldM}
+  \end{enumerate}
+
+\section{Coding}
+\begin{enumerate}
+\item Reimplement factorial using \code{foldLeft}.
+\item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
+  of the infinite Taylor series, understand conditions of convergence, avoiding infinite loops.
+\item Improve convergence using shifting and scaling.
+\item Compute $\sin$ and $\cos$ of square matrices.
+\item Determine experimentally the value of $\cos^2(M) + \sin^2(M)$ for a square matrix $M$.
+\item Can you find other trigonometric identities which have an analog
+  in the world of trigonometry on matrices?  Can you find identities
+  on the real numbers which don't correspond to matrices?
+\item Compute $\sin$ and $\cos$ of complex numbers using $2\times 2$ matrix
+  
+\end{enumerate}
+
+
+\chapter{Differential Calculus [Optional]}
+\begin{figure}[h]
+  \centering
+\includegraphics[width=12cm]{Tangent-calculus.png}
+\caption{Intuitively, the derive compute the slope of the line tangent to a curve at a given point.}
+\label{lab.deriv.by.tangent.line}
+\end{figure}
+
+\clearpage
+
+\section{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
+  We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
+  and extension, of the limit in terms of a function of a single variable.
+  We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
+  model programmatically, by defining a function to estimate the limit, then to implement a function to estimate the derivative using the limit function.
+  
+  \begin{enumerate}
+  \item Intuition of limit.  Consider the function:
+    \[f(x) = \frac{x-1}{x^2-1}\,.\]
+    We cannot evaluate this function at $x=1$; however if we take
+    values of $x$ close to $1$, the function evaluates just fine, and
+    is well-behaved.  Take a sequence of values approaching 1, and ask
+    yourself what value does $f(x)$ approach?
+
+    It turns out that any sequence $a_n \to 1$ (except those for which $a_k = 1$ for some $k$) corresponds
+    to a convergent sequence $f(a_n) \to \frac{1}{2}$.
+
+    Another way of phrasing this intuition is that we can make
+    $\frac{x-1}{x^2-1}$ close to $\frac{1}{2}$ by making $x$ close to
+    $1$.  But that statement is a vague.  We can make the statement
+    more precise by saying that we can make $\frac{x-1}{x^2-1}$
+    arbitrarily close to $\frac{1}{2}$ by making $x$ sufficiently
+    close to $1$.
+
+  \item Definition of limit
+    \includegraphics[width=8cm]{limit.png}
+%%\footnote{By User:HiTe --- Own
+%%    work, Public Domain,
+%%    \url{https://commons.wikimedgia.org/w/index.php?curid=2314281}}.
+
+  What does this notation mean? \[\lim_{x\to a}f(x) = L\]
+  It means that: $\forall \varepsilon > 0~\exists \delta > 0$ such that
+  \[|x - a| < \delta \implies |f(x) - f(a)| < \varepsilon\,.\]
+  
+
+  Using the language we used above: the limit of a function $f$ at $a$
+  is $L$ means that we can make the value of $f$ arbitrarily close to
+  $L$ by making its argument sufficiently close to $a$.
+
+  \item Intuition of derivative
+
+    \begin{figure}
+      \centering
+\noindent\begin{tabular}{lp{3cm}}
+\Includegraphics[width=9cm]{Secant-calculus.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4369993}
+%% By derivative work: Pbroks13 (talk) \texttt{Secant-calculus.png}: 
+%%Shizhao --- \texttt{Secant-calculus.png}, CC BY-SA 3.0, }
+
+&The secant to curve $y= f(x)$ determined by points $(x, f(x))$ and $(x + h, f(x + h))$.\\
+\Includegraphics[width=9cm]{Lim-secant.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=4370022} By derivative work: Pbroks13 (talk) \texttt{Lim-secant.png}: The original uploader was CSTAR at English Wikipedia. --- \texttt{Lim-secant.png}, CC BY-SA 3.0.}
+
+&The tangent line as limit of secants.
+\end{tabular}
+
+\caption{We may estimate the derivative by a sequence of secant lines which estimate
+the tangent line.  The secant lines approach the tangent line in Figure~\ref{lab.deriv.by.tangent.line}.}
+\end{figure}
+
+    Again we can generate a sequence of values (of $h\to 0$)
+    approaching 0, and from that we can generate a sequence of values
+    of the slope of $f$, i.e., $\frac{f(x+h)-f(x)}{h}$.  Does this
+    sequence of slopes converge when the sequence of $h$ values
+    converges to $0$?
+
+
+    If $h \to 0$ then does $\frac{f(x+h)-f(x)}{h}$ approach some
+    value?  The value may very well be different for each $x$.  If so
+    that set of values is therefore a function of $x$, which leads to
+    the definition of the derivative.
+    
+
+\item Definition of derivative
+  \[f'(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h} = \lim_{a\to x}\frac{f(x) - f(a)}{x - a}\,.\]
+\noindent\includegraphics[width=10cm]{derivative.png}
+%% \footnote{\url{https://betterexplained.com/articles/calculus-building-intuition-for-the-derivative} From web page.}
+
+
+\item Linearity of derivative.
+  \[f(x) = h(x) + g(x) \implies f'(x) = h'(x) + g'(x)\,,\]
+  and \[f(x) = \alpha h(x) \implies f'(x) = \alpha h'(x)\,.\]
+
+\item Product rule
+  \[f(x) = h(x)g(x) \implies f'(x) = f(x)g'(x) + f'(x)g(x)\,.\]
+\item Derivative of polynomial using induction and product rule.
+  \[f(x) = x^n \implies f'(x) = n x^{n-1}\,.\]
+\item Thus we can compute the derivative of any polynomial:
+  If \[f(x) = \sum_{k=0}^{n} a_n x^k\,,\] then \[f'(x) = \sum_{k=0}^{n} k a_n  x^{k-1}\,.\]
+
+  \end{enumerate}
+  
+\section{Programming perspective}
+  \begin{enumerate}
+  \item Definition of derivative in terms of limit,
+  \item Derivative of polynomial
+  \end{enumerate}
+
+
+\section{Coding}
+\begin{enumerate}
+\item Implement the \code{limit} function as a function which
+  manipulates functions.
+\item Use the \code{limit} function to evaluate    \[\lim_{x\to 1}\frac{x-1}{x^2-1}\,.\]
+\item Compute derivative by successive approximation using
+the previous implementation of limit.
+\item Compute exact derivative of a polynomial
+\item Compare two approaches numerically.
+\item Compute $\cos$ in terms of derivative of $\sin$,
+\item Compare to Taylor series computation.
+
+\end{enumerate}
+
+
+\chapter{Integral Calculus [Optional]}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{integral.png}
+%% \footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
+\caption{The initial intuition of the Riemann integral is a computation of the area
+  \emph{under} the curve of a given function. }
+\end{figure}
+
+\clearpage
+
+\section{Mathematical perspective}
+  \begin{enumerate}
+  \item The notation and intuition of the integral.
+    
+  \item Understanding the Riemann sums in terms of infinite
+    sums of rectangles.
+
+  \item Integral of polynomial:
+    \[\int x^n~dx = \frac{1}{n+1}x^{n+1}\]
+    So by linearity,
+    \begin{align}
+      \int \sum_{k=0}^{n}a_k x^n~dx &= \sum_{k=0}^{n} \int a_k x^n~dx\\
+      & = \sum_{k=0}^{n} a_k \int x^n~dx\\
+      &= \sum_{k=0}^{n} \frac{a_k}{n+1} x^{n+1}\,.
+    \end{align}
+    
+  \item Fundamental Theorem of Calculus:
+
+  \begin{itemize}
+  \item The derivative of the integral is the function.
+    \begin{align}
+      F(x) = \int_a^x f(t)dt &\implies F'(x) = f(x)\\
+      \frac{d}{dx} \int_a^x f(t)dt &= f(x)\,.
+    \end{align}
+  \item The integral of the derivative is the function.
+    \begin{align}
+      F'(x) = f(x) & \implies \int_a^b f(x) dx = F(b) - F(a)\\
+    \int_a^x f'(t)dt & = f(x) - f(a)\,.
+    \end{align}
+  \end{itemize}
+
+  \end{enumerate}
+  
+\section{Programming perspective}
+  \begin{enumerate}
+  \item Expressing limit of sum of rectangles
+
+    \includegraphics[width=12cm]{Riemann-sum-convergence.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=2347919} By I, KSmrq, CC BY-SA 3.0.}
+
+
+\item Expressing limit of sum of trapezoids
+  
+\includegraphics[width=8cm]{Integration-num-trapezes-notation.png}
+%% \footnote{\url{https://commons.wikimedia.org/w/index.php?curid=8541370} By Scalerderivative work: Cdang (talk), CC BY-SA 3.0.}
+
+  \end{enumerate}
+
+
+
+\section{Coding}
+\begin{enumerate}
+\item  Implement integral (function of function) using
+  limit, sum of rectangles, and sum of trapezoids.
+  Which converges faster?
+\item Compute area under line, and show experimentally that it grows quadratically.
+\item Compute area under parabola, and show experimentally that it grows cubically.
+\item Compute area of a circle by integrating $\sqrt{1 - x^2}$. I.e., compute
+  \[2\int_{-1}^{1}\sqrt{1 - x^2}~dx\,.\]
+\item Compute explicit integral of polynomial
+\item Verify the fundamental theorem of calculus experimentally.
+\end{enumerate}
+
+
+\end{document}
+
+
+
+% LocalWords:  EPITA priori epita www luke edu Sentier Etroites Issy
+% LocalWords:  Moulineaux gmail les des GitHub IDE GitKraken IntelliJ
+% LocalWords:  gitkraken dev MUW GitLab Collaboratory msstate cse com
+% LocalWords:  HDMI Lethbridge https uleth ca jpg Programmatic meetup
+% LocalWords:  BucharestJS ozassignments png colorized jnewton jimka
+% LocalWords:  issy pastpresentfuture thispublicdiary illinois pdf CC
+% LocalWords:  NevadaClassClose techservices teamwork MCCRS MDE usna
+% LocalWords:  SEC OAE org mdek xkcd lrde mgs Modularity Scala monoid
+% LocalWords:  invertability Scalerderivative SA wikimedia php curid
+% LocalWords:  trapezes num Folgenglieder KSmrq Pbroks Lim Shizhao en
+% LocalWords:  CSTAR IkamusumeFan Epsilonschlauch Ceranilo github svg
+% LocalWords:  Abelian magma surjective surjection mathsisfun html
+% LocalWords:  Ethaniel wikipedia wiki Int forall Fredrik Krupinski
+% LocalWords:  FredrikVector Leszek sintay summability foldLeft foldM
+% LocalWords:  klein Leibniz uploader reduceOption groupBy clearpage
+% LocalWords:  leibniz hfill scala includegraphics noindent url ldots
+% LocalWords:  setminus exp internet quadraticFormula NaN destructure
+% LocalWords:  fixedSizedSubsets SetsAndFunctions buildserver galois
+% LocalWords:  SetsAndFunctionsTestSuite Monoid Cdang cubically cfm
+% LocalWords:  mathtutordvd betterexplained programmatically Bolzano
+% LocalWords:  Augustin Gottfried matrixMultiple complexAdd rundebug
+% LocalWords:  complexSubtract Binet's refactor fastPower matrixAdd
+% LocalWords:  matrixIdentity matrixTabulate matrixMultiply rebase
+% LocalWords:  matrixScale almostEqual matrixSubtract isGroup monoids
+% LocalWords:  isMonoid IDEs GitPod gitpodenv functionalvsimperative
+% LocalWords:  monoidic Mann

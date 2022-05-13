@@ -3,6 +3,7 @@ vscode:
   extensions:
     - scala-lang.scala
     - scalameta.metals
+    - mhutchie.git-graph
 tasks:
-- init: source ./gitpod_init.sh
-- command: source ./gitpod_command.sh
+  - init: source ./gitpod_init.sh
+  - command: source ./gitpod_command.sh

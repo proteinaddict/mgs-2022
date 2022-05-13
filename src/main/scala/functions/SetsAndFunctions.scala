@@ -5,6 +5,7 @@ import scala.math.sqrt
 object SetsAndFunctions {
   // 1. TASK:
   //      Write a test to validate the following function.
+
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
     List(
       (-b + sqrt(b * b - 4 * a * c)) / (2 * a),

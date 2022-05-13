@@ -19,7 +19,115 @@
 
 import org.scalatest.funsuite.AnyFunSuite
 
+import scala.util.Random
+
 class AbstractAlgebraTestSuite extends AnyFunSuite {
-  test("test1") {
+
+  import AbstractAlgebra._
+
+  test("groupByStringSize") {
+    assert(groupByStringSize(Seq("a","aa","aaa","b","bbb")) == Map(1 -> Seq("a","b"),
+                                                                   2 -> Seq("aa"),
+                                                                   3 -> Seq("aaa","bbb")))
+  }
+
+  test("groupByMinElement") {
+   assert(groupByMinElement(Seq(Set(1),Set(2,3),Set(1,2,3))) == Map(1 -> Seq(Set(1),Set(1,2,3)),
+                                                                    2 -> Seq(Set(2,3))))
+  }
+
+  test("groupByModulus") {
+    assert(groupByModulus(0, 10, 3) == Map(0 -> Seq(0, 3, 6, 9),
+                                           1 -> Seq(1, 4, 7, 10),
+                                           2 -> Seq(2, 5, 8)))
+  }
+
+  test("matrixAdd") {
+    assert(matrixAdd(Vector(Vector(1, 2, 3),
+                            Vector(-1, 2, 0),
+                            Vector(2, 1, 1)),
+                     Vector(Vector(2, 0, 1),
+                            Vector(-3, 1, 1),
+                            Vector(0, -1, 0))) == Vector(Vector(3, 2, 4),
+                                                         Vector(-4, 3, 1),
+                                                         Vector(2, 0, 1)))
+  }
+
+  test("matrixSubtract") {
+    assert(matrixSubtract(Vector(Vector(1, 2, 3),
+                                 Vector(-1, 2, 0),
+                                 Vector(2, 1, 1)),
+                          Vector(Vector(2, 0, 1),
+                                 Vector(-3, 1, 1),
+                                 Vector(0, -1, 0))) == Vector(Vector(-1, 2, 2),
+                                                              Vector(2, 1, -1),
+                                                              Vector(2, 2, 1)))
+  }
+
+  test("matrixMultiply") {
+    assert(matrixMultiply(Vector(Vector(1, 2, 3),
+                                 Vector(-1, 2, 0),
+                                 Vector(2, 1, 1)),
+                          Vector(Vector(2, 0, 1),
+                                 Vector(-3, 1, 1),
+                                 Vector(0, -1, 0))) == Vector(Vector(-4, -1, 3),
+                                                              Vector(-8, 2, 1),
+                                                              Vector(1, 0, 3)))
+  }
+
+  test("matrixPower") {
+
+  }
+
+  test("complexAdd") {
+    assert((4, 7) == complexAdd((1, 2), (3, 5)))
+  }
+
+  test("complexSubtract") {
+    assert((-2, -3) == complexSubtract((1, 2), (3, 5)))
+  }
+
+  test("complexMultiply") {
+    assert((-5, 10) == complexMultiply((1, 2), (3, 4)))
+  }
+
+  test("i*i = -1") {
+    assert((-1, 0) == complexMultiply((0, 1), (0, 1)))
+
+    // ??? // how can you test that i*i == -1
+  }
+
+  test("matrix addition commutative") {
+    for {n <- 1 to 5
+         _ <- 0 to 1000
+         a = randomMatrix(n)
+         b = randomMatrix(n)
+         } assert(matrixAdd(a, b) == matrixAdd(b, a))
+  }
+
+  test("matrix addition associative") {
+    for {n <- 1 to 5
+         _ <- 0 to 1000
+         a = randomMatrix(n)
+         b = randomMatrix(n)
+         c = randomMatrix(n)
+         } assert(matrixAdd(a, matrixAdd(b, c)) == matrixAdd(matrixAdd(a, b), c))
+  }
+
+  test("matrix multiplication associative") {
+    for {n <- 1 to 5
+         _ <- 0 to 1000
+         a = randomMatrix(n)
+         b = randomMatrix(n)
+         c = randomMatrix(n)
+         } assert(matrixMultiply(a, matrixMultiply(b, c)) == matrixMultiply(matrixMultiply(a, b), c))
+  }
+
+  test("complex multiplication commutative") {
+    val rand = new Random()
+    for {_ <- 0 to 1000
+         a = (rand.between(-10, 10), rand.between(-10, 10))
+         b = (rand.between(-10, 10), rand.between(-10, 10))
+         } assert(complexMultiply(a, b) == complexMultiply(b, a))
   }
 }
