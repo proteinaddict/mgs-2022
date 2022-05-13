@@ -1,5 +1,4 @@
-%\documentclass[12pt]{article}
-\documentclass[14pt]{extarticle}
+\documentclass[14pt]{extreport}
 \usepackage[margin=3cm]{geometry}
 \usepackage{graphicx}
 \usepackage{url}
@@ -25,17 +24,19 @@
 
 \author{\includegraphics[width=\textwidth]{mgs-2022.jpg}\\Dr.\ Jim\ Newton}
 \setcounter{tocdepth}{2}
-\setcounter{section}{-1}
+\setcounter{chapter}{-1}
 \begin{document}
 
 
 \maketitle
 \sloppy
 
-\pagebreak
-\section{Introduction}
 
-\subsection{Objectives}
+\chapter{Introduction}
+
+
+
+\section{Objectives}
 
 
 There are several objectives of this course:
@@ -78,7 +79,7 @@ accept constructive criticism but also to build confidence.
 
 
 \pagebreak
-\subsection{Overview}
+\section{Overview}
 
 We will proceed through up to 6 units. Each unit is organized in three
 stages:
@@ -113,11 +114,21 @@ learned and apply them back to other (more popular) programming
 languages such as Python, Java Script, Lisp, C++, etc.
 
 
-\pagebreak
 
-\section{Development Flow}
+\chapter{Development Flow}
 
-\subsection{GitHub}
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
+  read/write access from local git clients.}
+\end{figure}
+
+
+\clearpage
+
+\section{GitHub}
 
 
 In this course we will be developing software together.   You will be able to
@@ -131,13 +142,6 @@ edit existing code, and create new code, and then upload your
 contributions back to the central repository, making your
 contributions available to everyone else.
 
-\begin{figure}
-  \centering
-  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
-%%  \url{https://www.edureka.co/blog/how-to-use-github/}
-  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
-  read/write access from local git clients.}
-\end{figure}
 GitHub is a web based service which hosts projects, small and large, in a cloud.
 Typically, users have a development environment on their local computer
 (laptop or desktop) and periodically upload and download changes to
@@ -154,7 +158,7 @@ in Section~\ref{sec.coding.1}.
 
 
 
-\subsection{GitPod}\label{sec.gitpod}
+\section{GitPod}\label{sec.gitpod}
 
 Most people install software such as IDEs (integrated development
 environments), editors, compiler, language implementations, version
@@ -182,7 +186,7 @@ You should be able to do all code editing, and collaboration efforts
 (push, pull, view history) using this interface.
 
 
-\subsection{Setting up the environment}
+\section{Setting up the environment}
 \begin{itemize}
   \item Create a GitHub account.  This URL,
     \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
@@ -214,19 +218,20 @@ You should be able to do all code editing, and collaboration efforts
 
 
 
-\pagebreak
 
-\section{Functions}
-\begin{figure}[t]
+\chapter{Functions}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{Function_machine2.png}
   \caption{Functional programming is about functions.}
 \end{figure}
 
+\clearpage
+
 In this unit we will look at functions both from a mathematical
 perspective and also from a programming perspective.  There are some
 important similarities and some important differences.
-\subsection{Mathematical perspective}
+\section{Mathematical perspective}
 
 We would like to talk about functions.  But where should we start the conversation?
 
@@ -235,7 +240,7 @@ functions have names, like $\sin$, $\cos$, and $\log$.  Sometimes
 functions lack names but have formulas such as
 $\frac{x^2-1}{x^2+2x+1}$.
 
-\subsubsection{Specifying functions}
+\subsection{Specifying functions}
 
 What is a function? A function such as
 \[f : X \to Y\]
@@ -270,7 +275,7 @@ specify the \emph{domain} and \emph{range} in terms of what are called
 procedure.
 
 \pagebreak
-\subsubsection{Mathematical notation}
+\subsection{Mathematical notation}
 
 \begin{align}
   f(x) &= 3x + 1 \label{eq.simple.1}
@@ -321,7 +326,7 @@ functions using cases, like in Equation~\eqref{eq.simple.4}
 
 
 \pagebreak
-\subsubsection{Specifying functions by recurrence}
+\subsection{Specifying functions by recurrence}
 
 
 Functions can be defined in terms of themselves.  We might use an intuitive definition
@@ -381,7 +386,7 @@ sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
 range is a set of sets of sets.
 
 
-\subsection{Programming perspective}
+\section{Programming perspective}
 
 \begin{enumerate}
 \item Programming languages, functional, imperative
@@ -418,7 +423,7 @@ range is a set of sets of sets.
 
 
 \clearpage
-\subsubsection{Functional Programming Languages}
+\subsection{Functional Programming Languages}
 
 We will not spend much time talking about programming languages which
 are not \emph{functional} but very briefly.  Imperative programming
@@ -449,7 +454,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
 
 \clearpage
-\subsection{Coding}\label{sec.coding.1}
+\section{Coding}\label{sec.coding.1}
 
 \begin{enumerate}
 \item My First Program, Implement the Quadratic Formula
@@ -509,14 +514,16 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \end{enumerate}
 
 
-\clearpage
-\section{Abstract Algebra}
 
-\begin{figure}
+\chapter{Abstract Algebra}
+
+\begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{galois.png}
 \caption{Evariste Galois died at 20 years old as a result of a duel.}
 \end{figure}
+
+\clearpage
 
 The story of Evariste Galois, a 20 year old French mathematician who
 quickly wrote down the principles of abstract algebra before his death
@@ -534,10 +541,10 @@ We will thereafter write programs as individuals and as teams to
 manipulate these structures.
 
 \clearpage
-\subsection{Mathematical perspective}
+\section{Mathematical perspective}
 
 
-\subsubsection{Monoid}
+\subsection{Monoid}
 \begin{definition}[Monoid]
 $(S,\circ)$ is called a \emph{monoid} if
 \begin{enumerate}
@@ -637,7 +644,7 @@ Examples of monoids.
 \end{enumerate}
 
 \clearpage
-\subsubsection{Group}
+\subsection{Group}
 
 An notable property missing from a monoid is the ability solve equations.  As an example,
 take the 12-clock above.  Which of these equations can be solved:
@@ -789,7 +796,7 @@ We can notice that the identity element is ${\{4,8,12\}}$ and that every element
 
 
 \clearpage
-\subsubsection{Ring}
+\subsection{Ring}
 
 \begin{definition}[Ring]
 $(S,+,\times)$ is called a \emph{ring} if
@@ -835,7 +842,7 @@ For example
 \end{enumerate}
 
 \clearpage
-\subsubsection{Field}
+\subsection{Field}
 
 \begin{definition}[Field]
 $(F,+,\times)$ is called a \emph{field} if
@@ -901,7 +908,7 @@ that
 \end{enumerate}
 
 \clearpage
-\subsubsection{Summary of Algebraic Structures}
+\subsection{Summary of Algebraic Structures}
 
 \begin{figure}
   \centering
@@ -932,7 +939,7 @@ have and multiplicative inverse even though all elements have an
 additive inverse.
 
 
-\subsubsection{Fast Exponentiation in a Monoid and in a Group}
+\subsection{Fast Exponentiation in a Monoid and in a Group}
 
 Recall the definition of exponentiation in
 Equation~\eqref{eq.slow.exponent}.  In any monoid with operation $\circ$ and identity
@@ -970,7 +977,7 @@ the power of $|n|$.
 
 
 \clearpage
-\subsection{Programming perspective}
+\section{Programming perspective}
 \begin{enumerate}
 \item Monoid
   \begin{itemize}
@@ -1015,7 +1022,7 @@ the power of $|n|$.
 \end{enumerate}
 
 \clearpage
-\subsection{Coding}\label{sec.coding.2}
+\section{Coding}\label{sec.coding.2}
 \begin{enumerate}
 \item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
   \begin{itemize}
@@ -1150,14 +1157,16 @@ the power of $|n|$.
 
 
   
-\clearpage\section{Convergence}
+\chapter{Convergence}
 
-\begin{figure}
+\begin{figure}[h]
 \centering\includegraphics[width=0.48\textwidth]{bolzano.jpg}
 %% \footnote{Bernard Bolzano}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}
 %% \footnote{Augustin-Louis Cauchy}
 \caption{Bernard Bolzano (left), Augustin-Louis Cauchy (right)}
 \end{figure}
+
+\clearpage
 
 In this section we will talk about a characteristic property/attribute
 which distinguishes the rational numbers, $\mathbb{Q}$, from the real
@@ -1178,7 +1187,7 @@ of Newton and Leibniz.
 
 
 \clearpage
-\subsection{Mathematical perspective}
+\section{Mathematical perspective}
 
 In the previous sections we talked
 about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
@@ -1201,7 +1210,7 @@ inverse operation of union, and nothing like multiplication.
 
 
 
-\subsubsection{Intuition of  convergence?}
+\subsection{Intuition of  convergence?}
 
 In Figure~\ref{fig.circle.perim} we can convince ourselves that the
 circumference of the circle is a fixed
@@ -1259,7 +1268,7 @@ $\mathbb{R}$.  In particular
 
 
 
-\subsubsection{The limit of a sequence}
+\subsection{The limit of a sequence}
 The limit is the most fundamental concept in
 Calculus.
 \[\lim_{n\to\infty} a_n = a\]
@@ -1297,7 +1306,7 @@ that the sequence is afterwards inside the epsilon tube
 $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
   
-\subsection{Programming perspective}
+\section{Programming perspective}
   \begin{enumerate}
   \item tail recursion,
   \item fixed point
@@ -1308,7 +1317,7 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
   \item \code{for} comprehension
   \end{enumerate}
 
-\subsection{Coding}
+\section{Coding}
 \begin{enumerate}
 \item Exponentiation
   \begin{itemize}
@@ -1357,9 +1366,15 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
 
 
-\clearpage\section{Infinite sums}
+\chapter{Infinite sums}
 
-In this section we'll look at ways to compute sums like these
+\begin{figure}[h]
+\centering\includegraphics[height=10cm]{infsum.jpg}
+\end{figure}
+
+\clearpage
+
+In this chapter we'll look at ways to compute sums like these
 \begin{align}
   \exp(x) &= \sum_{k=0}^{\infty} \frac{x^k}{k!}\\
   \sin(x) &= \sum_{k=0}^{\infty} \frac{{(-1)}^{k}x^{2k+1}}{(2k+1)!}\\
@@ -1368,7 +1383,7 @@ In this section we'll look at ways to compute sums like these
 \end{align}
 
 
-\subsection{Mathematical perspective}
+\section{Mathematical perspective}
   \begin{enumerate}
   \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
     \includegraphics[width=9cm]{sin-cos.png}
@@ -1395,7 +1410,7 @@ In this section we'll look at ways to compute sums like these
 
   \end{enumerate}
   
-\subsection{Programming perspective}
+\section{Programming perspective}
   \begin{enumerate}
   \item \code{Option[]}
   \item folding:  \code{foldLeft},  \code{reduce}, \code{reduceOption}
@@ -1403,7 +1418,7 @@ In this section we'll look at ways to compute sums like these
   \item Introduce \code{foldM}
   \end{enumerate}
 
-\subsection{Coding}
+\section{Coding}
 \begin{enumerate}
 \item Reimplement factorial using \code{foldLeft}.
 \item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
@@ -1419,15 +1434,17 @@ In this section we'll look at ways to compute sums like these
 \end{enumerate}
 
 
-\clearpage\section{Differential Calculus}
-\begin{figure}
+\chapter{Differential Calculus}
+\begin{figure}[h]
   \centering
 \includegraphics[width=12cm]{Tangent-calculus.png}
 \caption{Intuitively, the derive compute the slope of the line tangent to a curve at a given point.}
 \label{lab.deriv.by.tangent.line}
 \end{figure}
 
-\subsection{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
+\clearpage
+
+\section{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
   We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
   and extension, of the limit in terms of a function of a single variable.
   We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
@@ -1519,14 +1536,14 @@ the tangent line.  The secent lines approach the tangent line in Figure~\ref{lab
 
   \end{enumerate}
   
-\subsection{Programming perspective}
+\section{Programming perspective}
   \begin{enumerate}
   \item Definition of derivative in terms of limit,
   \item Derivative of polynomial
   \end{enumerate}
 
 
-\subsection{Coding}
+\section{Coding}
 \begin{enumerate}
 \item Implement the \code{limit} function as a function which
   manipulates functions.
@@ -1541,15 +1558,17 @@ the previous implementation of limit.
 \end{enumerate}
 
 
-\clearpage\section{Integral Calculus [Optional]}
-\begin{figure}
+\chapter{Integral Calculus [Optional]}
+\begin{figure}[h]
 \includegraphics[width=\textwidth]{integral.png}
 %% \footnote{\url{https://www.mathtutordvd.com/public/How-Isaac-Newton-Changed-the-World-with-the-Invention-of-Calculus.cfm}From the web page }
 \caption{The initial intuition of the Reimann integral is a computation of the area
   \emph{under} the curve of a given function. }
 \end{figure}
 
-\subsection{Mathematical perspective}
+\clearpage
+
+\section{Mathematical perspective}
   \begin{enumerate}
   \item The notation and intuition of the integral.
     
@@ -1582,7 +1601,7 @@ the previous implementation of limit.
 
   \end{enumerate}
   
-\subsection{Programming perspective}
+\section{Programming perspective}
   \begin{enumerate}
   \item Expressing limit of sum of rectangles
 
@@ -1599,7 +1618,7 @@ the previous implementation of limit.
 
 
 
-\subsection{Coding}
+\section{Coding}
 \begin{enumerate}
 \item  Implement integral (function of function) using
   limit, sum of rectangles, and sum of trapezoids.
