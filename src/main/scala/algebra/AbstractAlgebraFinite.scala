@@ -9,7 +9,7 @@ object AbstractAlgebraFinite {
     // Because if there are two identifies e1 and e2, then
     // op(e1,e2)=e1 and op(e1,e2)=e2, by definition of identity.
     // so e1=e2.
-    s.find(e => s.forall(a => op(a, e) == a && op(e, a) == a))
+    ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
@@ -17,30 +17,24 @@ object AbstractAlgebraFinite {
   //   of the monoid axioms.
   def isMonoid[T](s: Set[T], op: (T, T) => T): Boolean = {
     // has identity ?
-    findIdentity(s, op) != None &&
     // is closed ?
-    s.forall(a => s.forall(b => s.contains(op(a, b)))) &&
     // is associative ?
-    s.forall(a =>
-      s.forall(b => s.forall(c => op(a, op(b, c)) == op(op(a, b), c)))
-    )
+    ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a group.  I.e., check all possible cases
   //   of the group axioms.   Make use of the isMonoid function.
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
-    isMonoid(s, op) && {
-      val Some(e) = findIdentity(s, op)
-      // is every element is invertible
-      s.forall(a => s.exists(b => op(a, b) == e && op(b, a) == e))
-    }
+    // is monoid?
+    // every element has identity
+    ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether the operation is commutative
   def isAbelian[T](s: Set[T], op: (T, T) => T): Boolean = {
-    s.forall(a => s.forall(b => op(a, b) == op(b, a)))
+    ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
@@ -48,14 +42,10 @@ object AbstractAlgebraFinite {
   //   of the ring axioms.  make use of the isGroup, isAbelian, and isMonoid
   //   functions.
   def isRing[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
-    isGroup(s, add) &&
-    isAbelian(s, add) &&
-    isMonoid(s, times) &&
-    s.forall(a =>
-      s.forall(b =>
-        s.forall(c => times(a, add(b, c)) == add(times(a, b), times(a, c)))
-      )
-    )
+    // does addition make an Abelian group
+    // does times make a monoid
+    // does distributive law work for ALL elements
+    ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
@@ -65,10 +55,9 @@ object AbstractAlgebraFinite {
   //   you must test group-ness on the set minus the zero element, which
   //   you must find using the findIdentity function.
   def isField[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
-    isAbelian(s, times) &&
-    isRing(s, add, times) && {
-      val Some(zero) = findIdentity(s, add)
-      isGroup(s - zero, times)
-    }
+    // is times commutative
+    // is it a ring
+    // is times a ring if we remove the additive zero?
+    ???
   }
 }
