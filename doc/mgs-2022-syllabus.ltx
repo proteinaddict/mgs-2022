@@ -119,10 +119,8 @@ languages such as Python, Java Script, Lisp, C++, etc.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[height=7cm]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
 %%  \url{https://www.edureka.co/blog/how-to-use-github/}
-  \caption{GitHub is a remote (cloud) service service which hosts a git repository, allowing
-  read/write access from local git clients.}
 \end{figure}
 
 
@@ -222,8 +220,7 @@ You should be able to do all code editing, and collaboration efforts
 \chapter{Functions}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.6\textwidth]{Function_machine2.png}
-  \caption{Functional programming is about functions.}
+  \includegraphics[width=0.9\textwidth]{Function_machine2.png}
 \end{figure}
 
 \clearpage
@@ -519,11 +516,17 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
 \begin{figure}[h]
 \centering
+\includegraphics[width=0.8\textwidth]{escher.jpg}
+\end{figure}
+
+
+\clearpage
+
+\begin{figure}[t]
+\centering
 \includegraphics[width=\textwidth]{galois.png}
 \caption{Evariste Galois died at 20 years old as a result of a duel.}
 \end{figure}
-
-\clearpage
 
 The story of Evariste Galois, a 20 year old French mathematician who
 quickly wrote down the principles of abstract algebra before his death
@@ -563,13 +566,15 @@ Examples of monoids.
 \begin{enumerate}
 \item The natural numbers $\mathbb{N}$ under addition.
 
-\item The positive integers, ${\mathbb{N} \setminus \{0\}}$, under multiplication.
-
 \item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
-\item \includegraphics[width=6cm]{512px-Big_Ben_Closeup.jpg}
-%% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
 
- The integers on the face of the clock form a
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{512px-Big_Ben_Closeup.jpg}
+%% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+\end{figure}
+
+\item  The integers on the face of the clock form a
   monoid under addition with the following
   addition table.
  
@@ -622,7 +627,7 @@ Examples of monoids.
     \end{tabular}
   \end{center}
 
-  In the clock multiplication monoid, $12$ has the property that
+  In the clock multiplication monoid, $1$ has the property that
   ${1 \times a = a\times 1 = a}$ for every ${a\in\{1,2,\ldots,12\}}$.
 
   
@@ -939,7 +944,7 @@ have and multiplicative inverse even though all elements have an
 additive inverse.
 
 
-\subsection{Fast Exponentiation in a Monoid and in a Group}
+\subsection{Fast Exponentiation in a Monoid and Group}
 
 Recall the definition of exponentiation in
 Equation~\eqref{eq.slow.exponent}.  In any monoid with operation $\circ$ and identity
@@ -1160,13 +1165,24 @@ the power of $|n|$.
 \chapter{Convergence}
 
 \begin{figure}[h]
-\centering\includegraphics[width=0.48\textwidth]{bolzano.jpg}
-%% \footnote{Bernard Bolzano}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}
+\centering\includegraphics[width=\textwidth]{Archimedes-pi.png}
+%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
+%%Original: FredrikVector: Leszek Krupinski --- Own work based on:
+%%Archimedes pi.png:  by Fredrik, Public Domain.}
+\label{fig.circle.perim}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.48\textwidth]{bolzano.jpg}~\includegraphics[width=0.48\textwidth]{cauchy.jpg}
+%% \footnote{Bernard Bolzano}
 %% \footnote{Augustin-Louis Cauchy}
 \caption{Bernard Bolzano (left), Augustin-Louis Cauchy (right)}
 \end{figure}
 
-\clearpage
+
 
 In this section we will talk about a characteristic property/attribute
 which distinguishes the rational numbers, $\mathbb{Q}$, from the real
@@ -1212,21 +1228,12 @@ inverse operation of union, and nothing like multiplication.
 
 \subsection{Intuition of  convergence?}
 
-In Figure~\ref{fig.circle.perim} we can convince ourselves that the
+In the figure on page~\pageref{fig.circle.perim} we can convince ourselves that the
 circumference of the circle is a fixed
 quantity.  I.e., it is not an vague, indefinite concept, but the
 circumference of a circle has a real, actual, definite length.
 
 
-\begin{figure}
-\centering\includegraphics[width=\textwidth]{Archimedes-pi.png}
-%%\footnote{\url{https://commons.wikimedia.org/w/index.php?curid=1250248}. By
-%%Original: FredrikVector: Leszek Krupinski --- Own work based on:
-%%Archimedes pi.png:  by Fredrik, Public Domain.}
-\caption{The length of the circumference of the circle is bounded between the
-lengths of the various polygonal perimeters.}
-\label{fig.circle.perim}
-\end{figure}
 
 The length of the circumference of the circle is always greater than the
 length of the perimeter of an inscribed polygon, and is always less
@@ -1434,7 +1441,7 @@ In this chapter we'll look at ways to compute sums like these
 \end{enumerate}
 
 
-\chapter{Differential Calculus}
+\chapter{Differential Calculus [Optional]}
 \begin{figure}[h]
   \centering
 \includegraphics[width=12cm]{Tangent-calculus.png}
