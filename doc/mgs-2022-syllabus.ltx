@@ -132,12 +132,73 @@ languages such as Python, Java Script, Lisp, C++, etc.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
-%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \includegraphics[width=0.9\textwidth]{developers.png}
+%% https://woz-u.com/wp-content/uploads/2020/02/What-Do-Software-Engineers-Do-WOZ-1-min.png
 \end{figure}
 
 
 \clearpage
+
+
+\section{Editors}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{learning-curve.jpg}
+%% https://linuxteaching.com/storage/img/images_1/vim_vs_emacs_detailed_comparison.png
+  \caption{Some editors are easy to learn, others are very powerful after you learn them.}\label{lab.editors}
+\end{figure}
+
+
+To develop a computer program you must create and edit text files.
+These are files containing only characters.  This \emph{can} be done
+using a simple text editor such as Notepad, or a more powerful editor
+such as \emph{emacs} or \emph{vi}.  Using an editor means the
+programmer must have a more complete understanding of the compiler and
+the build environment.  Many expert programmers prefer this approach
+has it give more low-level control.
+
+Since the 1980s there have been culture wars between users of
+different editors.  Users of one editor usually think it is the best.
+However, these rivalries have resulted in both programs becoming
+better and better products.
+
+We will use an IDE (interactive
+development environment) rather than an text editor for this project.
+
+\section{VS Code}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
+  \caption{The VS Code IDE runs stand-alone, or in the GitPod
+    development environment. The GitPod/VS~Code integration allows
+    you, the developer, to access remote a repository using only a web
+    browser.}\label{lab.gitpod.env}
+\end{figure}
+
+
+The most popular IDE for working with Scala is probably IntelliJ.
+However, setting up Scala on IntelliJ is often time consuming.
+Instead we will use VS~Code which comes pre-installed in the cloud
+environment which we will use.
+
+The IDE we will use is called
+\emph{VS~Code}\footnote{\url{https://code.visualstudio.com} and
+  \url{https://en.wikipedia.org/wiki/Visual_Studio_Code}}. VS~Code is
+a free and open source product made my Microsoft for Windows, Linux,
+and macOS.
+
+An IDE allows you to edit code as a text file. It also allows testing
+and debugging.  Learning a new programming language (Scala in our
+code) is much easier with an IDE as the environment provides many
+development hints such has highlighting, error detection, coding
+suggestions, and completion.
+
+And IDE often has a \emph{plug-in} for the programming language you
+are using, because syntax, naming, and usemodel may be very different
+from language to language.
+
 
 
 \section{Version Control}
@@ -160,7 +221,28 @@ parallel without them interfering with each other.
 An important feature of modern version control systems is collaboration.
 Developers can easily share their work with other developers.
 
+We will use \emph{git} as the version control system.  In recent years
+git has become ubiquitous in the field of open source software
+development.  There are many videos on YouTube to help a person learn
+git.  We will interact with git exclusively through our IDE.  The IDE
+hides most of the difficulty of performing simple tasks, but if
+something goes wrong, and IDE is not very good for debugging version
+control issues.
+
+
 \section{GitHub}
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \caption{GitHub is a cloud service which hosts code repositories.
+    You cannot to GitHub either by web browser or directory from
+    \emph{git}.}
+\end{figure}
+
 
 
 In this course we will be developing software together.   You will be able to
@@ -192,6 +274,15 @@ in Section~\ref{sec.coding.1}.
 
 \section{GitPod}\label{sec.gitpod}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{gitpod-teaser.jpg}
+%%  \url{https://www.gitpod.io/images/blog/cloud-based-development-for-everyone/teaser.jpg}
+  \caption{GitPod provides a web-brower-based development environment
+    which integrates VS~Code with GitHub.}
+\end{figure}
+
+
 Most people install software such as IDEs (integrated development
 environments), editors, compiler, language implementations, version
 control software, onto their personal computer or laptop.   You are free
@@ -208,46 +299,85 @@ The GitPod web site is \url{https://www.gitpod.io}.
 Figure~\ref{lab.gitpod.env} shows an image of what the development environment looks like.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.95\textwidth]{gitpodenv.png}
-  \caption{The GitPod development environment allows developers to
-    access remote a repository using only a web browser.}\label{lab.gitpod.env}
-\end{figure}
 
 GitPod provides a version control interface. You should be able to do
 all code editing, and collaboration efforts (push, pull, view history)
 using this interface.
 
 \section{Setting up the environment}
-\begin{itemize}
-  \item Create a GitHub account.  This URL,
-    \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
-    explains how to create a GitHub account.  There are many similar
-    web-sites, e.g.,
-    \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
-    Primarily this is self explanatory at the URL
-    \url{https://github.com/join}.
-  \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
-  \item Fork the repository.
-  \item Open the web-ide with GitPod, you may just prepend
-    \url{http://gitpod.io/#} to the URL already in the web browser.
-  \item Find the Explorer, and open (click) \url{src/main/scala/SetsAndFunctions.scala}.
-    If you click on \code{SetsAndFunctions} you should see something like this:
 
-    \includegraphics[height=1.5cm]{rundebug.png}
+It may be a bit tedious to set up the development environment, because
+before you can learn to use a piece of software, you have to install
+it; necessarily you are installing things you don't yet understand.
+The following steps should help, but often things go wrong with
+set-up, so we'll troubleshoot as we go.
 
-    Click \textbf{run}.  If you don't see \textbf{run debug}, you may
-    need to restart the build server, and recompile.  Find and click
-    the Metals icon \includegraphics[height=2cm]{metals.png}.  This
-    should open the Metals panel where you can \textbf{Restart the
-      build Server} and \textbf{Cascade compile}. 
+\begin{enumerate}
+\item Create a GitHub account.  This URL,
+  \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
+  explains how to create a GitHub account.  There are many similar
+  web-sites, e.g.,
+  \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
+  Primarily this is self explanatory at the URL
+  \url{https://github.com/join}.
+\item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
+\item Fork the repository.
 
-    \includegraphics[width=8cm]{buildserver.png}
+  \includegraphics[width=0.85\textwidth]{fork-repo.png}
 
-    Thereafter, you should be able to find the \textbf{run|debug} link
-    in the Scala code.
-  \end{itemize}
+\item Open the web-ide with GitPod, you may just prepend
+  \url{http://gitpod.io/#} to the URL already in the web browser.
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.5\textwidth]{explorer.png}
+\caption{Opening \code{Main.scala}}\label{lab.explorer}
+\end{figure}
+
+\item Find the Explorer, and open it to find \code{Main.scala} at
+  \url{src/main/scala/introduction/Main.scala}. See Figure~\ref{lab.explorer}.
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.85\textwidth]{open-object-Main.png}
+\caption{The editor pane of the \code{Main} object.}\label{lab.object.main}
+\end{figure}
+
+\item Click \code{Main.scala} to open the file in an editor pane.  You
+  should see something like in Figure~\ref{lab.object.main}.
+
+
+\item The \code{run | debug} link between
+  lines 2 and 3 may not appear immediately, you may have to wait a
+  couple of minutes. If you don't see \textbf{run debug}, you may
+  need to restart the build server, and recompile.  Find and click
+  the Metals icon \includegraphics[height=2cm]{metals.png}.  This
+  should open the Metals panel where you can \textbf{Restart the
+    build Server} and \textbf{Cascade compile}. 
+  
+  \includegraphics[width=8cm]{buildserver.png}
+  
+  Thereafter, you should be able to find the \textbf{run|debug} link
+  in the Scala code.
+
+\item Find the definition \code{object Main}.
+  If you click on \code{Main} you should see something like this:
+  
+  \includegraphics[height=1.5cm]{rundebug.png}
+  
+  Click \textbf{run}.  
+
+\item You should see a new window pane appear below the program text showin \code{hello world}, as shown in Figure~\ref{lab.afterrun}.
+
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.85\textwidth]{afterrun.png}
+\caption{The editor pane after running the \code{Main} object.}\label{lab.afterrun}
+\end{figure}
+
+
+\end{enumerate}
 
 
 
