@@ -1,5 +1,0 @@
-package algebra
-
-object Polynomial {
-
-}

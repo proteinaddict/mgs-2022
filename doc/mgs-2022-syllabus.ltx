@@ -616,62 +616,73 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 \clearpage
 \section{Coding}\label{sec.coding.1}
 
-\begin{enumerate}
-\item My First Program, Implement the Quadratic Formula
-  \begin{itemize}
-  \item Find the function \code{quadraticFormula}, implement a test
-    for this function.   The Scala function implements the mathematical
-    function $x_{1,2}(a,b,c) = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.  The function computes the roots
-    of the polynomial $ax^2 + bx + c$, assuming $a>0$, and assuming $b^2 \geq 4ac$.
-    The test should go in the file \texttt{SetsAndFunctionsTestSuite.scala} in
-    directory \texttt{src/test/scala/}.  There is
-    already a function stub you can use.  Extend the tests.  Remember
-    that to test values of type \code{Double} you may need check
-    whether the absolute value is less than some threshold ($\varepsilon$) rather than
-    testing for exact equivalence.
-  \item Enhance \code{quadraticFormula}: Notice that the current
-    implementation is inefficient, because it computes almost the same
-    thing twice.  Also if you call the function with \code{a,b,c} for
-    which there are no real solutions, the function will return
-    \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
-    with an internet search.  You should refactor the function to
-    define a variable \code{discriminant} whose value is
-    \[\Delta = b^2 - 4 a c\,.\]
-    Then there are three cases, if ${\Delta < 0}$, if ${\Delta = 0}$, and
-    if ${\Delta > 0}$. Refactor the function so that if there are no
-    real roots it returns an empty list; if there is a unique 
-    solution, return a list of one number; and if there are two
-    distinct solutions, return a list of those two solutions
-    \textbf{in increasing order}.  I.e., if you return \code{(a,b)}
-    assure that $a < b$.  Also update the test case to check for
-    $a<b$.
-  \end{itemize}
-\clearpage
-\item Recursive Functions
-  \begin{itemize}
-  \item Implement \code{power} for \code{Int} and \code{Double}.  In
-    the case of \code{Double} you should also handle the case of a
-    negative exponent.
-  \item Implement \code{String} concatenation using the power model.
-  \item Implement \code{List} concatenation using the power model.
-  \item Implement \code{factorial}.
-  \item Use \code{factorial} to test n-sized subsets.  We develop the
-    n-sized subsets function in class.
+\subsection{Implement the Quadratic Formula}
 
-    \textbf{Discussion:} Do we
-    need a case for $n=0$ and also $n=1$?  How does this relate to the
-    principle of induction?  Look up \emph{Principle of Induction} if
-    you need to review it.
-  \end{itemize}
+As a first program in Scala you will implement the quadratic formula.
+recall that if
+\[ax^2 + bx + c = 0\,,\]
+then 
+\[x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\,.\]
+
+\begin{itemize}
+\item Find the function \code{quadraticFormula}, implement a test
+  for this function.   The Scala function implements the mathematical
+  function $x_{1,2}(a,b,c) = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.  The function computes the roots
+  of the polynomial $ax^2 + bx + c$, assuming $a>0$, and assuming $b^2 \geq 4ac$.
+  The test should go in the file \texttt{QuadraticFormula.scala} in
+  directory \texttt{src/test/scala/functions}.  There is
+  already a function stub you can use.
+\item Extend the tests.  Remember
+  that to test values of type \code{Double} you may need check
+  whether the absolute value is less than some threshold ($\varepsilon$) rather than
+  testing for exact equivalence.
+\item Enhance \code{quadraticFormula}: Notice that the current
+  implementation is inefficient, because it computes almost the same
+  thing twice.  Also if you call the function with \code{a,b,c} for
+  which there are no real solutions, the function will return
+  \code{NaN,NaN}. What is \code{NaN}?  If you don't know, look it up
+  with an internet search.  You should refactor the function to
+  define a variable \code{discriminant} whose value is
+  \[\Delta = b^2 - 4 a c\,.\]
+  Then there are three cases, if ${\Delta < 0}$, if ${\Delta = 0}$, and
+  if ${\Delta > 0}$. Refactor the function so that if there are no
+  real roots it returns an empty list; if there is a unique 
+  solution, return a list of one number; and if there are two
+  distinct solutions, return a list of those two solutions
+  \textbf{in increasing order}.  I.e., if you return \code{(a,b)}
+  assure that $a < b$.  Also update the test case to check for
+  $a<b$.
+\end{itemize}
+
+
 \clearpage
-\item Fibonacci numbers
-  \begin{itemize}
-  \item Implement a recursive function such that given $n$ it returns the nth Fibonacci number, $F_n$.
-  \item What is the largest Fibonacci number you can compute in Scala?
-  \item Search on the internet and find the Binet's formula for computing the nth Fibonacci number.
-    Implement this function and compare the results to the recursive implementation.
-  \end{itemize}
-\end{enumerate}
+\subsection{Recursive Functions}
+\begin{itemize}
+\item Implement \code{power} for \code{Int} and \code{Double}.  In
+  the case of \code{Double} you should also handle the case of a
+  negative exponent.
+\item Implement \code{String} concatenation using the power model.
+\item Implement \code{List} concatenation using the power model.
+\item Implement \code{factorial}.
+\item Use \code{factorial} to test n-sized subsets.  We develop the
+  n-sized subsets function in class.
+\end{itemize}
+  
+\textbf{Discussion:} Do we
+  need a case for $n=0$ and also $n=1$?  How does this relate to the
+  principle of induction?  Look up \emph{Principle of Induction} if
+  you need to review it.
+
+
+\subsection{Fibonacci numbers}
+
+\begin{itemize}
+\item Implement a recursive function such that given $n$, the function
+  returns the nth Fibonacci number, $F_n$.
+\item What is the largest Fibonacci number you can compute in Scala?
+\item Search on the internet and find the Binet's formula for computing the nth Fibonacci number.
+  Implement this function and compare the results to the recursive implementation.
+\end{itemize}
 
 
 
@@ -1147,185 +1158,193 @@ the power of $|n|$.
 
 \clearpage
 \section{Programming perspective}
-\begin{enumerate}
-\item Monoid
-  \begin{itemize}
-  \item \code{String} concatenation
-  \item \code{List[Int]} concatenation
-  \item \code{Set[Int]} union
-  \item \code{Seq[Int]}
-  \item Implement \code{fastPower} for \code{Double}.
-  \item Generalize \code{fastPower} to work on any monoid.
-  \item Refactor \code{power} from unit 1 to use \code{fastPower}.
-  \end{itemize}
-\item Multiple dimensional types
-  \begin{itemize}
-  \item  \code{Seq[Seq[Int]]},  \code{Seq[Seq[Double]]}
-  \item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
-    \code{matrixScale}, \code{matrixMultiply} using concentric loops.
-  \item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
-  \item Ring of matrixes (matrix add, subtract, multiply)
-  \end{itemize}
-\item The \code{Map[]} type
-  \begin{itemize}
-  \item \code{Map[Int,Int]}, creating, manipulating
-  \item Equivalence classes using \code{groupBy}.
-  \item Implement polynomial using \code{Map[Int,Double]}
-  \item Ring of polynomials (polynomial add, scale, subtract, multiply)
-  \item \code{almostEqual} comparing floating point
-  \end{itemize}
-\item Testing
-  \begin{itemize}
-  \item Testing with \code{main}
-  \item Debugging with print
-  \item Property based testing
-  \item Generating randomly selected object.
-  \end{itemize}
-\item Team work
-  \begin{itemize}
-  \item   projects using git and GitHub
-  \item pull request
-  \item merge and rebase
+
+\subsection{Monoid}
+\begin{itemize}
+\item \code{String} concatenation
+\item \code{List[Int]} concatenation
+\item \code{Set[Int]} union
+\item \code{Seq[Int]}
+\item Implement \code{fastPower} for \code{Double}.
+\item Generalize \code{fastPower} to work on any monoid.
+\item Refactor \code{power} from unit 1 to use \code{fastPower}.
 \end{itemize}
 
-\end{enumerate}
+\subsection{Multiple dimensional types}
+
+\begin{itemize}
+\item  \code{Seq[Seq[Int]]},  \code{Seq[Seq[Double]]}
+\item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
+  \code{matrixScale}, \code{matrixMultiply} using concentric loops.
+\item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
+\item Ring of matrixes (matrix add, subtract, multiply)
+\end{itemize}
+
+\subsection{The \code{Map[]} type}
+\begin{itemize}
+\item \code{Map[Int,Int]}, creating, manipulating
+\item Equivalence classes using \code{groupBy}.
+\item Implement polynomial using \code{Map[Int,Double]}
+\item Ring of polynomials (polynomial add, scale, subtract, multiply)
+\item \code{almostEqual} comparing floating point
+\end{itemize}
+
+\subsection{Testing}
+\begin{itemize}
+\item Testing with \code{main}
+\item Debugging with print
+\item Property based testing
+\item Generating randomly selected object.
+\end{itemize}
+
+\subsection{Team work}
+\begin{itemize}
+\item   projects using git and GitHub
+\item pull request
+\item merge and rebase
+\end{itemize}
+
 
 \clearpage
 \section{Coding}\label{sec.coding.2}
-\begin{enumerate}
-\item The \code{Map[]} type.  Partition a sequence into equivalence classes in several ways.
-  \begin{itemize}
-  \item Group strings by length of string (size).
-  \item Group sets of integers by minimum element.
-  \item Partition a set of natural numbers between to boundaries
-    \code{lower} and \code{upper} into equivalence classes modulo \code{n}.
-  \end{itemize}
+
+\subsection{Equivalence classes}
+
+By using the \code{Map[]} type you will partition a sequence into equivalence classes in several ways.
+
+\begin{itemize}
+\item Group strings by length of string (size).
+\item Group sets of integers by minimum element.
+\item Partition a set of natural numbers between to boundaries
+  \code{lower} and \code{upper} into equivalence classes modulo \code{n}.
+\end{itemize}
+
+\subsection{Square matrices of Double}
+
+\begin{itemize}
+\item Implement matrix arithematic functions: add, scale, subtract,
+  multiply, identity, etc..
   
-\item Square matrices of integers
-  \begin{itemize}
-  \item Implement matrix, add, subtract, multiply multiplication, in
-    functions \code{matrixAdd}, \code{matrixSubtract}, and
-    \code{matrixMultiple}.
+\item Implement fast monoid multiply for matrices:
+  \code{matrixPower}.  Do this in two different ways: by repeated
+  multiplication (compute $M^n$ as a result of $n-1$
+  multiplications), and again using \code{fastPower}.  How do you
+  specify the monoidic arguments (multiplication and unit) for
+  \code{matrixPower} using \code{fastPower}.
+  
+\item Can you devise a way to test whether \code{fastPower} is really
+  faster than \code{slowPower}? To compute a power of matrix $m$
+  the \emph{slow} way, you compute by $m-1$ consecutive
+  multiplications, e.g., using a recursive function.
 
-  \item Implement fast monoid multiply for matrices:
-    \code{matrixPower}.  Do this in two different ways: by repeated
-    multiplication (compute $M^n$ as a result of $n-1$
-    multiplications), and again using \code{fastPower}.  How do you
-    specify the monoidic arguments (multiplication and unit) for
-    \code{matrixPower} using \code{fastPower}.
-
-  \item Test your code using \code{scalatest}. In the test case,
-    multiply the slow way and assert that the result is the same as
-    \code{matrixPower}.  Can you experimentally determine the time
-    needed to raise a large $m\times m$ matrix to the $n$th power
-    using the two algorithms?  To find out how to compute the time spent
-    in a scala function, do an internet search.
-
-  \item Use the \code{matrixPower} function to compute any three
-    consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
-    \[\begin{bmatrix}1&1\\1&0\end{bmatrix}^n = \begin{bmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{bmatrix}\]
-    Do these results agree with those you computed in unit 1?
-
-  \item You now have three ways to compute Fibonacci numbers.  
-    Devise an experiment to determine which of the approaches is
-    faster in terms of execution time?
-  \end{itemize}
+\item Test your code using \code{scalatest}. In the test case,
+  multiply the slow way and assert that the result is the same as
+  \code{matrixPower}.  Can you experimentally determine the time
+  needed to raise a large $m\times m$ matrix to the $n$th power
+  using the two algorithms?  To find out how to compute the time spent
+  in a scala function, do an internet search.
+  
+\item Use the \code{matrixPower} function to compute any three
+  consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
+  \[\begin{bmatrix}1&1\\1&0\end{bmatrix}^n = \begin{bmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{bmatrix}\]
+  Do these results agree with those you computed in unit 1?
+  
+\item You now have three ways to compute Fibonacci numbers.  
+  Devise an experiment to determine which of the approaches is
+  faster in terms of execution time?
+\end{itemize}
 
 
   
-\item Team Project
-  \begin{itemize}
-  \item Implement functions to detect monoid, group,
-    ring, and field given a finite set, and the $+$ and $\cdot$
-    operations.
-  \item When finished with your function, commit, push, and send a
-    pull request.
-  \item To test your code, you will need to pull the changes in the
-    repository.
-  \item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
-    monoid? Is it a group (Abelian)? etc. \ldots
-  \item For which values of $n$ is $\mathbb{Z}/n$ a field?
-  \end{itemize}
+\subsection{Team Project}
+\begin{itemize}
+\item Implement functions to detect monoid, group,
+  ring, and field given a finite set, and the $+$ and $\cdot$
+  operations.
+\item When finished with your function, commit, push, and send a
+  pull request.
+\item To test your code, you will need to pull the changes in the
+  repository.
+\item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
+  monoid? Is it a group (Abelian)? etc. \ldots
+\item For which values of $n$ is $\mathbb{Z}/n$ a field?
+\end{itemize}
   
-\item Group Interactive Project
-  \begin{itemize}
-  \item Implement the polynomial ring, with addition,
-    subtraction, multiplication
-  \item Can you implement \code{polynomialPower} using
-    \code{fastPower}.  Is it faster than an iterative implementation?
-  \item Generalize to the polynomial ring over a given field.
-  \item Consider the set of polynomials of degree $n$ whose scalars
-    are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
-    and multiplication.
+\subsection{Group Interactive Project}
+\begin{itemize}
+\item Implement the polynomial ring, with addition,
+  subtraction, multiplication
+\item Can you implement \code{polynomialPower} using
+  \code{fastPower}.  Is it faster than an iterative implementation?
+\item Generalize to the polynomial ring over a given field.
+\item Consider the set of polynomials of degree $n$ whose scalars
+  are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
+  and multiplication.
+\end{itemize}
 
+\textbf{Discussion:} Is the set of polynomials of degree $n$ with
+integer coefficients an infinite
+set or finite set?  Is this set closed under addition?  Are
+multiplication and addition associative and commutative? Is it
+closed under multiplication?  Does this set form a monoid, group,
+ring, or field?
+
+How does the answer change if addition and multiplication of
+coefficients is done in $\mathbb{Z}/(n+1)$.
+
+What if arithmetic on not only coefficients but also exponents is
+done in $\mathbb{Z}/(n+1)$.
+
+What would you need to do to use the library you've written
+\code{isMonoid}, \code{isGroup} etc to test your hypotheses?  How
+would you write a program to generate all such polynomials?
+
+\textbf{Discussion:} Is the set of $n\times n$ matrices with
+integer content a finite or infinite set?  What if we restrict the
+content to $\mathbb{Z}/(n+1)$?  How would you need to change the
+matrix manipulation code you've already written to accommodate
+arithmetic in $\mathbb{Z}/(n+1)$?
+  
+
+
+\subsection{Complex matrices [optional]}
+
+The complex numbers,
+$\mathbb{C}$, are an extension of the real numbers which allows us,
+among other things, to represent $i = \sqrt{-1}$ and consequently to
+represent roots of polynomials such as $x^2 + 1 = (x+i)\times(x-i)$.
+A complex number, can be expressed as $a + bi$ with $a$ being the
+real part and $b$ being the imaginary part.  Together $a+bi$ is a
+complex number.
+
+An alternate way of representing a complex number is as a $2\times 2$ matrix.
+
+\[a + ib = \begin{bmatrix}a&-b\\b&a\end{bmatrix}\]
+  
+\begin{itemize}
     
-  \end{itemize}
-    \textbf{Discussion:} Is the set of polynomials of degree $n$ with
-    integer coefficients an infinite
-    set or finite set?  Is this set closed under addition?  Are
-    multiplication and addition associative and commutative? Is it
-    closed under multiplication?  Does this set form a monoid, group,
-    ring, or field?
-
-    How does the answer change if addition and multiplication of
-    coefficients is done in $\mathbb{Z}/(n+1)$.
-
-    What if arithmetic on not only coefficients but also exponents is
-    done in $\mathbb{Z}/(n+1)$.
-    
-    What would you need to do to use the library you've written
-    \code{isMonoid}, \code{isGroup} etc to test your hypotheses?  How
-    would you write a program to generate all such polynomials?
-
-    \textbf{Discussion:} Is the set of $n\times n$ matrices with
-    integer content a finite or infinite set?  What if we restrict the
-    content to $\mathbb{Z}/(n+1)$?  How would you need to change the
-    matrix manipulation code you've already written to accommodate
-    arithmetic in $\mathbb{Z}/(n+1)$?
+\item Verify anecdotally by constructing 4 concentric loops
+  that
+  \[(a_1 + i b_1)\times (a_2 + i b_2) = (a_2 + i b_2)\times (a_1 + i b_1)\,.\]
   
-
-
-\item Complex numbers using matrices (Optional)\\ The complex numbers,
-  $\mathbb{C}$, are an extension of the real numbers which allows us,
-  among other things, to represent $i = \sqrt{-1}$ and consequently to
-  represent roots of polynomials such as $x^2 + 1 = (x+i)\times(x-i)$.
-  A complex number, can be expressed as $a + bi$ with $a$ being the
-  real part and $b$ being the imaginary part.  Together $a+bi$ is a
-  complex number.
-    
-    An alternate way of representing a complex number is as a $2\times 2$ matrix.
-    \[a + ib = \begin{bmatrix}a&-b\\b&a\end{bmatrix}\]
-
-  \begin{itemize}
-      
-  \item Verify anecdotally by constructing 4 concentric loops
-    that
-      \[(a_1 + i b_1)\times (a_2 + i b_2) = (a_2 + i b_2)\times (a_1 + i b_1)\,.\]
-
-      Use the matrix multiply function you implemented previously.
-      
-    \item Verify anecdotally that $i^2 = -1$.  What does this mean in
-      terms of the matrix representation?
-      
-    \item \textbf{Discussion:} in which cases regarding matrices and complex
-      numbers can we check associativity and commutativity?  Is matrix
-      addition commutative?  Is matrix multiplication commutative?  Is
-      complex multiplication commutative?
-      
-    \item \textbf{Discussion:}    If matrix multiplication is not commutative, but complex
-      multiplication is, why can we implement complex numbers in terms
-      of matrices?
-      
-      
-  \end{itemize}
+  Use the matrix multiply function you implemented previously.
+  
+\item Verify anecdotally that $i^2 = -1$.  What does this mean in
+  terms of the matrix representation?
+\end{itemize}
+  
+\textbf{Discussion:} in which cases regarding matrices and complex
+  numbers can we check associativity and commutativity?  Is matrix
+  addition commutative?  Is matrix multiplication commutative?  Is
+  complex multiplication commutative?
+  
+\textbf{Discussion:}    If matrix multiplication is not commutative, but complex
+  multiplication is, why can we implement complex numbers in terms
+  of matrices?
   
 
 
 
-\end{enumerate}
-
-
-  
 \chapter{Convergence}
 
 \begin{figure}[h]
@@ -1489,50 +1508,49 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
   \end{enumerate}
 
 \section{Coding}
-\begin{enumerate}
-\item Exponentiation
-  \begin{itemize}
-  \item Implement exponentiation of Double as a recursive function.
-  \item Generalize to implement exponentiation on a monoid
-  \item Implement matrix exponentiation.
-  \item Implement polynomial exponentiation.
-  \end{itemize}  
-\item Sequences
-  \begin{itemize}
-  \item Define a sequence \[a_n =
-    \sum_{k=0}^{n}\frac{8}{(4k+1)(4k+3)}\,.\] Given $n$, compute the sequence of
-    $n+1$ numbers, and use the \code{sum} method to add them up. (We will
-    discuss a better way tomorrow).
-  \item Compute the same sums using normal recursion and tail recursion.
-  \item Convince yourself that $\{a_n\}$ is strictly increasing; i.e.,
-    $a_n < a_{n+1}$.  Can you show this empirically? Can you prove
-    this mathematically?
-  \item However, the sequence of successive
-    differences is decreasing: if $d_n = a_{n+1} - a_n$ then the
-    sequence $\{d_n\}$ is decreasing: $d_n > d_{n+1}$.  Show this
-    empirically and mathematically.
-  \end{itemize}
-\item Convergence
-  \begin{itemize}
-  \item Now implement a function such that given $\varepsilon$, find and
-    return $N$, such that \[n>N \implies |a_n - \pi| < \varepsilon\,.\]
-  \item Detect Cauchy of sequences: write a function such that given a
-    sequence in the form of a function, $a$ of an \code{Int} $k$, and
-    a \code{Double} $\varepsilon$.  The function should return an
-    \code{Int}, $k$, indicating the first value for which $| a_k -
-    a_{k+1}| < \varepsilon$.
-  \item Use Google or Wikipedia etc, to find another sequence which
-    converges to $\pi$.  Use the function you just wrote to
-    empirically verify this conversion.
-  \item Now you have two sequences which both converge to $\pi$. Does
-    the sequence created by averaging the corresponding elements also
-    converge?  If so, what does it converge to?  Does it converge
-    faster or slower?  Can you devise an experiment to show
-    empirically?
-  \end{itemize}  
-  
-\end{enumerate}
 
+\subsection{Exponentiation}
+\begin{itemize}
+\item Implement exponentiation of Double as a recursive function.
+\item Generalize to implement exponentiation on a monoid
+\item Implement matrix exponentiation.
+\item Implement polynomial exponentiation.
+\end{itemize}  
+
+\subsection{Sequences}
+\begin{itemize}
+\item Define a sequence \[a_n =
+  \sum_{k=0}^{n}\frac{8}{(4k+1)(4k+3)}\,.\] Given $n$, compute the sequence of
+  $n+1$ numbers, and use the \code{sum} method to add them up. (We will
+  discuss a better way tomorrow).
+\item Compute the same sums using normal recursion and tail recursion.
+\item Convince yourself that $\{a_n\}$ is strictly increasing; i.e.,
+  $a_n < a_{n+1}$.  Can you show this empirically? Can you prove
+  this mathematically?
+\item However, the sequence of successive
+  differences is decreasing: if $d_n = a_{n+1} - a_n$ then the
+  sequence $\{d_n\}$ is decreasing: $d_n > d_{n+1}$.  Show this
+  empirically and mathematically.
+\end{itemize}
+
+\subsection{Convergence}
+\begin{itemize}
+\item Now implement a function such that given $\varepsilon$, find and
+  return $N$, such that \[n>N \implies |a_n - \pi| < \varepsilon\,.\]
+\item Detect Cauchy of sequences: write a function such that given a
+  sequence in the form of a function, $a$ of an \code{Int} $k$, and
+  a \code{Double} $\varepsilon$.  The function should return an
+  \code{Int}, $k$, indicating the first value for which $| a_k -
+  a_{k+1}| < \varepsilon$.
+\item Use Google or Wikipedia etc, to find another sequence which
+  converges to $\pi$.  Use the function you just wrote to
+  empirically verify this conversion.
+\item Now you have two sequences which both converge to $\pi$. Does
+  the sequence created by averaging the corresponding elements also
+  converge?  If so, what does it converge to?  Does it converge
+  faster or slower?  Can you devise an experiment to show
+  empirically?
+\end{itemize}  
 
 
 
@@ -1590,18 +1608,24 @@ In this chapter we'll look at ways to compute sums like these
   \end{enumerate}
 
 \section{Coding}
+
+\subsection{Taylor series with numbers}
+
 \begin{enumerate}
 \item Reimplement factorial using \code{foldLeft}.
 \item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
   of the infinite Taylor series, understand conditions of convergence, avoiding infinite loops.
 \item Improve convergence using shifting and scaling.
+\end{enumerate}
+
+\subsection{Taylor series with matrices}
+\begin{enumerate}
 \item Compute $\sin$ and $\cos$ of square matrices.
 \item Determine experimentally the value of $\cos^2(M) + \sin^2(M)$ for a square matrix $M$.
 \item Can you find other trigonometric identities which have an analog
   in the world of trigonometry on matrices?  Can you find identities
   on the real numbers which don't correspond to matrices?
 \item Compute $\sin$ and $\cos$ of complex numbers using $2\times 2$ matrix
-  
 \end{enumerate}
 
 
