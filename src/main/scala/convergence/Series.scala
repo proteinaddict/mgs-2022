@@ -1,3 +1,0 @@
-package convergence
-
-object Series {}

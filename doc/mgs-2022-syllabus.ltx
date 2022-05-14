@@ -1068,9 +1068,9 @@ With these addition and multiplication tables we can tediously verify
 that
 \begin{itemize}
 \item $0$ is the additive identity.
-\item $1$ is the multiplicitive identity.
+\item $1$ is the multiplicative identity.
 \item Every element has an additive inverse.
-\item Every non-zero element has a multiplicitive inverse.
+\item Every non-zero element has a multiplicative inverse.
 \item Addition and multiplication are associative.
 \item Addition and multiplication are commutative.
 \item The distributive property holds.
@@ -1343,6 +1343,25 @@ An alternate way of representing a complex number is as a $2\times 2$ matrix.
   of matrices?
   
 
+\subsection{Monoid Exponentiation}
+
+You have implemented a \emph{fast-power} function several times for
+different types.  Here we implement the same thing for a monoid, and
+then refactor the previously implemented functions to use
+\code{monoidFastPower}.
+
+\begin{itemize}
+\item Implement \code{monoidFastPower}.  The challenge is to figure out what the arguments
+  of the function are.
+\item Refactor exponentiation of \code{Double}.
+\item Refactor matrix exponentiation.
+\item Refactor polynomial exponentiation.
+\item Refactor complex  exponentiation.
+\end{itemize}  
+
+\textbf{Discussion:} What must you do to allow negative exponents?  Is
+it possible for a monoid?  Which algebraic structure is necessary to
+support negative exponents
 
 
 \chapter{Convergence}
@@ -1509,14 +1528,6 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
 \section{Coding}
 
-\subsection{Exponentiation}
-\begin{itemize}
-\item Implement exponentiation of Double as a recursive function.
-\item Generalize to implement exponentiation on a monoid
-\item Implement matrix exponentiation.
-\item Implement polynomial exponentiation.
-\end{itemize}  
-
 \subsection{Sequences}
 \begin{itemize}
 \item Define a sequence \[a_n =
@@ -1615,6 +1626,9 @@ In this chapter we'll look at ways to compute sums like these
 \item Reimplement factorial using \code{foldLeft}.
 \item Implement the $\sin$, $\cos$, and $\exp$ functions in terms
   of the infinite Taylor series, understand conditions of convergence, avoiding infinite loops.
+\item Devise a way using an $\varepsilon$ and the \code{foldM}
+  function to elegantly terminiate the iteration with the target value
+  is close enough.
 \item Improve convergence using shifting and scaling.
 \end{enumerate}
 
@@ -1622,6 +1636,7 @@ In this chapter we'll look at ways to compute sums like these
 \begin{enumerate}
 \item Compute $\sin$ and $\cos$ of square matrices.
 \item Determine experimentally the value of $\cos^2(M) + \sin^2(M)$ for a square matrix $M$.
+\item Can you anecdotally verify or disprove the identity $e^x \times e^y = e^{x+y}$?
 \item Can you find other trigonometric identities which have an analog
   in the world of trigonometry on matrices?  Can you find identities
   on the real numbers which don't correspond to matrices?

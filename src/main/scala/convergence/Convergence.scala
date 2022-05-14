@@ -1,5 +1,5 @@
 package convergence
 
-object Sequences {
+object Convergence {
 
 }

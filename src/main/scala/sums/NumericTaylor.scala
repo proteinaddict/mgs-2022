@@ -1,0 +1,3 @@
+package sums
+
+object NumericTaylor {}
