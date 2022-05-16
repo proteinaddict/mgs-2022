@@ -78,13 +78,11 @@ ideas, rather than relying on emotions.
 
 Good ideas that are never explained die and are forgotten.  It is my
 belief that you don't understand something until you can explain it.
-After each unit, some students will present their solutions to their
+From time to time, some students will present their solutions to their
 peers.  This means defending your choices, recognizing strengths and
 shortcomings, and being subjected to peer review (important in the
 scientific process).  This exercise is intended not only to learn to
 accept constructive criticism but also to build confidence.
-
-
 
 \pagebreak
 \section{Overview}
@@ -98,21 +96,22 @@ accept constructive criticism but also to build confidence.
 \end{figure}
 
 
-We will proceed through up to 7 units.  The first unit is special,
-dealing with setting up the environment.  Units 2 through 6 are each organized
-in three stages:
+We will probably proceed through up to 5 units.  The first unit is special,
+dealing with setting up the environment.  Units 2 through 5 are each organized
+in two stages:
 
 \begin{itemize}
 \item Theory --- Learn mathematics and computer science concepts.
-\item Lab --- Create code relating to the theory of various units.
-\item Presentation --- Present your work to your classmates;
-  defend your decisions.
-  \end{itemize}
+\item Practice --- Create code relating to the theory of various units.
+\end{itemize}
+
+There are two remaining sections (6 and 7) which you can continue with
+after MGS if you find them interesting and challenging.
 
 We will primarily cover introductions to two mathematical areas:
-Abstract Algebra and Analysis (Calculus).  Our practical treatment of 
-Algebra and Analysis will help you prepare for a more theoretical
-treatment at the university level.
+Abstract Algebra and Analysis (the fundamental principles of
+Calculus).  Our practical treatment of Algebra and Analysis will help
+you prepare for a more theoretical treatment at the university level.
   
 We will use a functional programming language called Scala,
 \url{https://www.scala-lang.org}.  Functional languages are considered
@@ -136,11 +135,16 @@ Week & Day & Unit & Activities\\
 ~&&&\\
 \hline
 ~&&&\\
-2 & Mon & 4 & Analysis, Convergence\\
-2 & Tue & 4 & Coding Exercises, Presentation\\
-2 & Wed & 5 & Analysis, Infinite sums\\
-2 & Thu & 5 & Coding Exercises, Presentation\\
-2 & Fri & 6 & Analysis, Differentiation/Integration\\
+2 & Mon & 4 & Review, Coding Exercises\\
+2 & Tue & 4 & Analysis, Convergence\\
+2 & Wed & 5 & Coding Exercises, Presentation\\
+2 & Thu & 5 & Analysis, Infinite sums\\
+2 & Fri & 6 & Coding Exercises, Presentation\\
+~&&&\\
+\hline
+~&&&\\
+& & 6 & Analysis, Derivative\\
+& & 7 & Analysis, Integral\\
 ~&&&\\
 \hline
 \end{tabular}
@@ -1176,6 +1180,34 @@ the power of $|n|$.
 
 
 \clearpage
+
+\subsection{Binary Search}
+
+A binary search algorithm is a divide an conquer algorithm.  Suppose
+we know that some \emph{event} occurs at a number between $x_{left}$
+and $x_{right}$.  For example, suppose $f(x) = 0$ for some
+$x_{left} < x < x_{right}$.  Then if we take $x_{mid} = \frac{x_{left} + x_{right}}{2}$, then
+at least one of the following is true.
+
+\begin{align}
+  f(x) & = 0 & \text{ for some } x_{left} < x \leq x_{mid}\\
+  f(x) & = 0 & \text{ for some }  x_{mid} < x < x_{right}
+\end{align}
+
+This means if we split the interval $(x_{left},x_{right})$ in half,
+the \emph{event} occurs either in the left half or the right half.
+In such a case, we can write a (recursive) function which divides the
+interval in half, and \emph{recurs} either on the right half or left half.
+We end the recursion when we have found the event.
+
+If we don't find the exact value we are searching for, then we must have a
+termination condition to avoid looping forever.  Typically the way this is
+done is to recur until the interval is sufficiently small:  i.e., until
+${x_{right} - x_{left} < \varepsilon}$.
+
+
+
+\clearpage
 \section{Programming perspective}
 
 \subsection{Monoid}
@@ -1292,14 +1324,32 @@ By using the \code{Map[]} type you will partition a sequence into equivalence cl
 \subsection{Group Interactive Project}
 \begin{itemize}
 \item Implement the polynomial ring, with addition,
-  subtraction, multiplication
+  subtraction, multiplication.
+
+\item What does it mean for two polynomials to be equal?  For example:
+  are these polynomials equal or not?
+  \begin{align}
+    x^3 - 2x + 1\\
+    2x^3 - 4x + 2\\
+    -x^3 + 2x - 1
+  \end{align}
+  Should we consider a polynomial to be the function itself, or should we
+  consider it as an equivalence class of all polynomials with the same roots.
+  I.e., can we consider \emph{normalized} polynomials such that the leading
+  term is 1?
+\item Implement \code{polyAlmostEqual}.  Why do we use
+  \code{polyAlmostEqual}?  Can we detect whether two polynomials are
+  exactly equal?
+\item Every odd degree polynomial has a real root.  Can you justify
+  this claim?  Write a function to find (estimate) at least one real root of a
+  given odd-degree polynomial.
 \item Can you implement \code{polynomialPower} using
   \code{fastPower}.  Is it faster than an iterative implementation?
-\item Generalize to the polynomial ring over a given field.
-\item Consider the set of polynomials of degree $n$ whose scalars
-  are the field $\mathbb{Z}/p$.  Demonstrate addition, subtraction,
-  and multiplication.
+\item Implement a function to generate a randomly selected polynomial
+  of a given degree: \code{randomPoly}.
 \end{itemize}
+
+
 
 \textbf{Discussion:} Is the set of polynomials of degree $n$ with
 integer coefficients an infinite
@@ -1310,6 +1360,12 @@ ring, or field?
 
 How does the answer change if addition and multiplication of
 coefficients is done in $\mathbb{Z}/(n+1)$.
+
+How would you generalize to the polynomial ring over a given field?
+
+Consider the set of polynomials of degree $n$ whose scalars are the
+field $\mathbb{Z}/p$.  How would you implement addition, subtraction,
+and multiplication?
 
 What if arithmetic on not only coefficients but also exponents is
 done in $\mathbb{Z}/(n+1)$.

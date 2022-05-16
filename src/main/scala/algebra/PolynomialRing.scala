@@ -65,6 +65,18 @@ object PolynomialRing {
       polyMultiply(p, polySlowPower(p, n - 1))
   }
 
+  def findRoot(p:POLY):Double = {
+    // first find left and right such that the polynomial
+    // has opposite sign at left and right
+    ???
+    // now perform a binary search to find a root
+    ???
+  }
+
+  def polyValue(p:POLY,x:Double):Double = {
+    ???
+  }
+
   def randomPoly(n: Int): POLY = {
     assert(n >= 0)
     val rand = new Random()
