@@ -2,5 +2,5 @@ package sums
 
 object MatrixTaylor {
 
-  
+
 }

@@ -515,7 +515,8 @@ such as Equation~\eqref{eq.simple.5}.
 x^n = \underbrace{x \times x \times \ldots \times x}_{n~\text{times}}\,.
 \end{equation}
 
-We can define the same function more explicitly by using recursion as in Equation~\eqref{eq.slow.exponent}.
+We can define the same function more explicitly by using recursion as
+in Equation~\eqref{eq.slow.exponent}.
 
 \begin{equation}\label{eq.slow.exponent}
   x^n = \begin{cases}
@@ -637,7 +638,7 @@ version is 3.1.x; however, we will use 2.13.8 (or higher).
 
 As a first program in Scala you will implement the quadratic formula.
 recall that if
-\[ax^2 + bx + c = 0\,,\]
+\[ax^2 + bx + c = 0\,,a\ne 0\]
 then 
 \[x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\,.\]
 
@@ -1003,7 +1004,8 @@ $(S,+,\times)$ is called a \emph{ring} if
 \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
 \end{enumerate}    
 
-\noindent In the special case that $(S,\times)$ is commutative, $(S,+,\times)$ is called an Abelian ring.
+\noindent In the special case that $(S,\times)$ is commutative,
+$(S,+,\times)$ is called an Abelian ring.
 \end{definition}
 
 \noindent Examples of rings.
@@ -1330,8 +1332,8 @@ The complex numbers,
 $\mathbb{C}$, are an extension of the real numbers which allows us,
 among other things, to represent $i = \sqrt{-1}$ and consequently to
 represent roots of polynomials such as $x^2 + 1 = (x+i)\times(x-i)$.
-A complex number, can be expressed as $a + bi$ with $a$ being the
-real part and $b$ being the imaginary part.  Together $a+bi$ is a
+A complex number, can be expressed as $a + b i$ with $a$ being the
+real part and $b$ being the imaginary part.  Together $a+b i$ is a
 complex number.
 
 An alternate way of representing a complex number is as a $2\times 2$ matrix.
@@ -1672,10 +1674,13 @@ In this chapter we'll look at ways to compute sums like these
 \clearpage
 
 \section{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
-  We saw the limit already in terms of sequences.  Now we look at a slightly different concept,
-  and extension, of the limit in terms of a function of a single variable.
-  We will thereafter, define the derivative in terms of the limit.  Additionally, we will follow the same
-  model programmatically, by defining a function to estimate the limit, then to implement a function to estimate the derivative using the limit function.
+  We saw the limit already in terms of sequences.  Now we look at a
+  slightly different concept, and extension, of the limit in terms of
+  a function of a single variable.  We will thereafter, define the
+  derivative in terms of the limit.  Additionally, we will follow the
+  same model programmatically, by defining a function to estimate the
+  limit, then to implement a function to estimate the derivative using
+  the limit function.
   
   \begin{enumerate}
   \item Intuition of limit.  Consider the function:
@@ -1685,8 +1690,9 @@ In this chapter we'll look at ways to compute sums like these
     is well-behaved.  Take a sequence of values approaching 1, and ask
     yourself what value does $f(x)$ approach?
 
-    It turns out that any sequence $a_n \to 1$ (except those for which $a_k = 1$ for some $k$) corresponds
-    to a convergent sequence $f(a_n) \to \frac{1}{2}$.
+    It turns out that any sequence $a_n \to 1$ (except those for which
+    $a_k = 1$ for some $k$) corresponds to a convergent sequence
+    $f(a_n) \to \frac{1}{2}$.
 
     Another way of phrasing this intuition is that we can make
     $\frac{x-1}{x^2-1}$ close to $\frac{1}{2}$ by making $x$ close to
@@ -1888,4 +1894,6 @@ the previous implementation of limit.
 % LocalWords:  matrixIdentity matrixTabulate matrixMultiply rebase
 % LocalWords:  matrixScale almostEqual matrixSubtract isGroup monoids
 % LocalWords:  isMonoid IDEs GitPod gitpodenv functionalvsimperative
-% LocalWords:  monoidic Mann
+% LocalWords:  monoidic Mann Wvbailey Evariste youtube Arturo bolzano
+% LocalWords:  creativecommons matrixPower polynomialPower perim
+% LocalWords:  infsum
