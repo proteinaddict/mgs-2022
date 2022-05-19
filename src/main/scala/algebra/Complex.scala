@@ -8,8 +8,10 @@ object Complex {
 
   val i: COMPLEX = ???
 
+  // unit for complex multiplication
   val one: COMPLEX = ???
 
+  // unit for complex addition
   val zero: COMPLEX = ???
 
   def complexToMatrix(z: COMPLEX): MATRIX = {
@@ -45,7 +47,7 @@ object Complex {
     ???
   }
 
-  def main(argv:Array[String]):Unit = {
+  def main(argv: Array[String]): Unit = {
     // verify that i*i = -1
     ???
   }
