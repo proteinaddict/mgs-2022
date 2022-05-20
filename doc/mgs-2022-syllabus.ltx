@@ -52,14 +52,20 @@
 There are several objectives of this course:
 \begin{description}
 \item[Mathematics:] Ameliorate your love for Mathematics.
-\item[Computer Science:] Develop competence in functional
+\item[Computer Science:] Develop a sense of functional
   programming.
-\item[Communication:] Explain and confidently defend your ideas.
+\item[Communication:] Confidently defend your ideas.
 \end{description}
+
+Why math?  We assume that you as a student already loves math, and we
+will use examples in abstract math as source of ideas to write
+computer programs.
+
 
 The mathematical and computer science topics have been chosen for this
 course complement each other.  You will enforce what you've learned by
-explaining it to your peers.
+writing computer programs using the ideas and also by explaining to
+your peers what it is that you have done.
 
 
 It is important that the leaders of tomorrow, especially the leaders
@@ -73,7 +79,7 @@ humans.  In this course, we will maintain a respectful, inclusive, and
 safe environment.  Remember that different people have different
 strengths and weaknesses.  Scientific discussions can sometimes become
 heated and experts might disagree about the best course of action.
-We'll learn to keep disagreements objective and use science to test
+We will keep disagreements objective and use science to test
 ideas, rather than relying on emotions.
 
 Good ideas that are never explained die and are forgotten.  It is my
@@ -185,7 +191,7 @@ However, these rivalries have resulted in both programs becoming
 better and better products.
 
 We will use an IDE (interactive
-development environment) rather than an text editor for this project.
+development environment) rather than a text editor for this project.
 
 \section{VS Code}
 
@@ -199,26 +205,26 @@ development environment) rather than an text editor for this project.
 \end{figure}
 
 
-The most popular IDE for working with Scala is probably IntelliJ.
-However, setting up Scala on IntelliJ is often time consuming.
-Instead we will use VS~Code which comes pre-installed in the cloud
-environment which we will use.
-
-The IDE we will use is called
-\emph{VS~Code}\footnote{\url{https://code.visualstudio.com} and
-  \url{https://en.wikipedia.org/wiki/Visual_Studio_Code}}. VS~Code is
-a free and open source product made my Microsoft for Windows, Linux,
-and macOS.
-
 An IDE allows you to edit code as a text file. It also allows testing
 and debugging.  Learning a new programming language (Scala in our
 code) is much easier with an IDE as the environment provides many
 development hints such has highlighting, error detection, coding
 suggestions, and completion.
 
-And IDE often has a \emph{plug-in} for the programming language you
+An IDE often has a \emph{plug-in} for the programming language you
 are using, because syntax, naming, and usemodel may be very different
 from language to language.
+
+
+The most popular IDE today for working with Scala is probably
+IntelliJ.  However, setting up Scala on IntelliJ is often time
+consuming.  Instead we will use
+\emph{VS~Code}\footnote{\url{https://code.visualstudio.com} and
+\url{https://en.wikipedia.org/wiki/Visual_Studio_Code}} which comes
+pre-installed in the cloud environment which we will use.  VS~Code is
+a free and open source product made my Microsoft for Windows, Linux,
+and macOS.
+
 
 
 
@@ -272,12 +278,12 @@ when you want to make your code available to the world, and when you want to
 incorporate your classmate's code into your development area.
 
 To achieve this goal we have a central repository of code, hosted by
-GitHub on the cloud.  You will download a copy of this repository,
-edit existing code, and create new code, and then upload your
+GitHub on the cloud.  You will download (clone) a copy of this repository,
+edit existing code, and create new code, and then occasionally upload your
 contributions back to the central repository, making your
 contributions available to everyone else.
 
-GitHub is a web based service which hosts projects, small and large, in a cloud.
+GitHub is a web based service which hosts thousands of projects, small and large, in the cloud.
 Typically, users have a development environment on their local computer
 (laptop or desktop) and periodically upload and download changes to
 the cloud.
@@ -334,13 +340,34 @@ The following steps should help, but often things go wrong with
 set-up, so we'll troubleshoot as we go.
 
 \begin{enumerate}
-\item Create a GitHub account.  This URL,
+\item Create a GitHub account using an abstract user name.  Don't use
+  your real name.  This URL,
   \url{https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration}
   explains how to create a GitHub account.  There are many similar
   web-sites, e.g.,
   \url{https://www.wikihow.com/Create-an-Account-on-GitHub}.
   Primarily this is self explanatory at the URL
   \url{https://github.com/join}.
+\item (Optional) Configure your GitHub account with an profile image.  Don't use
+  a picture of yourself, rather use an abstract avatar
+  such as \url{https://www.flaticon.com/search?word=animal+avatar}.
+\item Configure GitHub to keep your email address private.
+  \begin{enumerate}
+  \item In the upper-right corner of any page, click your profile photo, then click \textbf{Settings}.
+  \item In the "Access" section of the sidebar, click  \textbf{Emails}.
+
+  \includegraphics[height=5cm]{github-settings.png}
+
+  \item To keep your email address private when performing web-based
+    Git operations, click \textbf{Keep my email addresses private}.
+  \item To keep your email address private in commits you push from
+    the command line, select \textbf{Block command line pushes that
+      expose my email}.
+
+
+  \end{enumerate}
+  \includegraphics[width=0.95\textwidth]{email_privacy_block_command_line_pushes.png}
+
 \item Open \url{https://github.com/jimka2001/mgs-2022} with your web browser.
 \item Fork the repository.
 
@@ -441,7 +468,7 @@ well-determined, element of~$Y$.
 %%  \texttt{Function\_color\_example\_3.gif}: Wvbailey.
 %%  The original uploader was Wvbailey at English Wikipedia.derivative work: Zerodamage ---
 %%  This file was derived from: Function color example \texttt{3.gif}:, CC BY-SA 3.0.}
-  \caption{A function is a well-defined with all the elements of one set
+  \caption{A function is a well-defined correspondence of all the elements of one set
     (the domain) with some of the elements of another set (the range).}
 \end{figure}
 
@@ -937,62 +964,6 @@ with the following multiplication table.
     \end{tabular}
   \end{center}
 
-\item Equivalence classes: if $(G,\circ)$ and $(H,\circ)$ are groups and $h$ is a
-  function, ${h:G\to H}$, with the property that
-  $h(a\circ b) = h(a)\circ h(b)$, then $h$ divides $G$ into equivalence classes.
-
-  The set of such equivalence classes, $G/h$, is also a group.
-
-  For example, take the additive 12-clock group whose addition table is as follows.
-
-    Let $H = \{1,2,3,4\}$ and let $h:G\to H$ by $h(a)=3\times a$,
-    where $\times$ is understood to be 12-clock multiplication.
-    I.e.,
-    ${h(1) = 3}$,
-    ${h(2) = 6}$,
-    ${h(3) = 9}$,
-    ${h(4) = 12}$,
-    ${h(5) = 3}$,
-    ${h(6) = 6}$,
-    ${h(7) = 9}$,
-    ${h(8) = 12}$,
-    ${h(9) = 3}$,
-    ${h(10) = 6}$,
-    ${h(11) = 9}$,
-    ${h(12) = 12}$
-    
-    The function, $h$, partitions $G$ into 4 equivalence classes
-    \[G/h = \big\{\{1,5,9\},\{2,6,10\},\{3,7,11\},\{4,8,12\}\big\}\,.\]
-    Each equivalence contains the elements for which $h$ has the same
-    value. I.e., \\
-    ${h(1) = h(5) = h(9) = 3}$,\\
-    ${h(2) = h(6) = h(10) = 6}$,\\
-    ${h(3) = h(7) = h(11) = 9}$, and \\
-    ${h(4) = h(8) = h(12) = 12}$.
-    
-    The addition table for $G/h$ is the following.
-    
-\begin{center}
-    \begin{tabular}{c||c|c|c|c|}
-      + & \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\}\\
-      \hline
-      \hline \{1,5,9\} & \{2,6,10\} & \{3,7,11\} & \{4,8,12\} & \{1,5,9\}\\
-      \hline \{2,6,10\} & \{3,7,11\}& \{4,8,12\} & \{1,5,9\} & \{2,6,10\} \\
-      \hline \{3,7,11\} & \{4,8,12\}& \{1,5,9\}& \{2,6,10\}& \{3,7,11\} \\
-      \hline \{4,8,12\} & \{1,5,9\} & \{2,6,10\}& \{3,7,11\} & \{4,8,12\} \\
-      \hline
-    \end{tabular}
-  \end{center}
-
-
-We can notice that the identity element is ${\{4,8,12\}}$ and that every element has an inverse:
-\begin{itemize}
-  \item $\{1,5,9\}^{-1} = \{3,7,11\}$
-  \item $\{2,6,10\}^{-1} = \{2,6,10\}$
-  \item $\{3,7,11\}^{-1} = \{1,5,9\}$
-  \item $\{4,8,12\}^{-1} = \{4,8,12\}$
-\end{itemize}
-
 
 \end{enumerate}
 
@@ -1225,7 +1196,7 @@ ${x_{right} - x_{left} < \varepsilon}$.
 
 \begin{itemize}
 \item  \code{Seq[Seq[Int]]},  \code{Seq[Seq[Double]]}
-\item Implement matrix using.  We implement \code{matrixIdentity}, \code{matrixAdd},
+\item Implement matrix using \code{Vector[Vector[Double]]}.  We implement \code{matrixIdentity}, \code{matrixAdd},
   \code{matrixScale}, \code{matrixMultiply} using concentric loops.
 \item Then refactor to move the concentric loops into single function, \code{matrixTabulate}.
 \item Ring of matrixes (matrix add, subtract, multiply)
@@ -1234,7 +1205,6 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \subsection{The \code{Map[]} type}
 \begin{itemize}
 \item \code{Map[Int,Int]}, creating, manipulating
-\item Equivalence classes using \code{groupBy}.
 \item Implement polynomial using \code{Map[Int,Double]}
 \item Ring of polynomials (polynomial add, scale, subtract, multiply)
 \item \code{almostEqual} comparing floating point
@@ -1258,17 +1228,6 @@ ${x_{right} - x_{left} < \varepsilon}$.
 
 \clearpage
 \section{Coding}\label{sec.coding.2}
-
-\subsection{Equivalence classes}
-
-By using the \code{Map[]} type you will partition a sequence into equivalence classes in several ways.
-
-\begin{itemize}
-\item Group strings by length of string (size).
-\item Group sets of integers by minimum element.
-\item Partition a set of natural numbers between to boundaries
-  \code{lower} and \code{upper} into equivalence classes modulo \code{n}.
-\end{itemize}
 
 \subsection{Square matrices of Double}
 

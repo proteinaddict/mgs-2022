@@ -9,8 +9,8 @@ object PolynomialRing {
 
   type POLY = Map[Int, Double]
 
-  val polyOne: POLY = Map(0 -> 1.0) // ???
-  val polyZero: POLY = Map() // ???
+  val polyOne: POLY = Map(0 -> 1.0).withDefaultValue(0.0) // ???
+  val polyZero: POLY = Map().withDefaultValue(0.0) // ???
 
   def polyAlmostEqual(p1: POLY, p2: POLY, epsilon: Double = .0001): Boolean = {
     val exponents = p1.keys.toSet.union(p2.keys.toSet)
@@ -22,12 +22,13 @@ object PolynomialRing {
 
   def polyAdd(p1: POLY, p2: POLY): POLY = {
     val exponents = p1.keys.toSet.union(p2.keys.toSet)
-    (for { k <- exponents } yield k -> (p1
-      .getOrElse(k, 0.0) + p2.getOrElse(k, 0.0))).toMap
+    (for { k <- exponents } yield k -> (p1(k) + p2(k)))
+      .toMap
+      .withDefaultValue(0.0)
   }
 
   def polyScale(s: Double, p: POLY): POLY = {
-    for { (k, v) <- p } yield k -> s * v
+    (for { (k, v) <- p } yield k -> s * v).withDefaultValue(0.0)
   }
 
   def polySubtract(p1: POLY, p2: POLY): POLY = {
@@ -35,9 +36,14 @@ object PolynomialRing {
   }
 
   def polyMultiply(p1: POLY, p2: POLY): POLY = {
-    val polys = for { (k1, v1) <- p1 } yield (for {
-      (k2, v2) <- p2
-    } yield (k1 + k2) -> (v1 * v2))
+    // first multiply a polynomial by a monomial
+    def multMonomial(k1:Int, v1:Double, p:POLY):POLY = {
+      (for{ (k2,v2) <- p } yield (k1 + k2) -> (v1 * v2))
+        .withDefaultValue(0.0)
+    }
+    // build a sequence of POLY each is a monomial * p2
+    //   one monomial for each term in p1
+    val polys = for {(k1, v1) <- p1} yield multMonomial(k1, v1, p2)
     polys.fold(polyZero)(polyAdd)
   }
 
@@ -85,6 +91,6 @@ object PolynomialRing {
       if rand.nextBoolean()
       coef = rand.between(-10.0, 10.0)
     } yield k -> coef
-    p.toMap
+    p.toMap.withDefaultValue(0.0)
   }
 }
