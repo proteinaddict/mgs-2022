@@ -133,6 +133,7 @@ languages such as Python, Java Script, Lisp, C++, etc.
 \begin{tabular}{ll|l|l}
 Week & Day & Unit & Activities\\
 \hline
+~&&&\\
 1 & Mon & 0, 1 & Environment Set-up, Hello World\\
 1 & Tue & 2 & Sets and Functions, Theory, First Program\\
 1 & Wed & 2 & Coding Exercises, Presentation\\
@@ -772,6 +773,7 @@ manipulate these structures.
 
 
 \subsection{Monoid}
+\label{sec.monoid}
 \begin{definition}[Monoid]
 $(S,\circ)$ is called a \emph{monoid} if
 \begin{enumerate}
@@ -788,9 +790,16 @@ identity element: $e_1$ and $e_2$?  The answer is no, but why?
 Examples of monoids.
 
 \begin{enumerate}
-\item The natural numbers $\mathbb{N}$ under addition.
+\item $(\mathbb{N},+)$, the set of natural numbers under addition is a monoid.
 
-\item The positive real numbers under multiplication, ${(\mathbb{R},\times)}$.
+\item $(\mathbb{Z},-)$, the set of integers under subtraction is not a monoid.  Why?
+
+
+\item ${(\mathbb{R},\times)}$, the set of positive real numbers under multiplication is a monoid.
+
+\item The set of $2\times 3$ matrices under addition is a monoid.
+
+\item The set of $2\times 3$ matrices under multiplication is not a monoid.  Why?
 
 \begin{figure}
 \centering
@@ -856,9 +865,12 @@ Examples of monoids.
 
   
 
+\item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
+\item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
+
 \item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
-  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all finite sequences
-  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$.
+  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
   I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
   of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
 
@@ -866,7 +878,7 @@ Examples of monoids.
   \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
   ${\mathcal{L}(\Sigma)}$ is a monoid.
 
-  What is its identity element.
+  What is its identity element?
 
   Is it a commutative monoid?
   
@@ -915,6 +927,8 @@ integer addition.   Why?
 \item If $a \in \mathbb{Z}$ there exists $b\in\mathbb{Z}$ such that $a+b=0$.  E.g.   ${12 + (-12) = 0}$
 \end{itemize}
 
+\item The integers under multiplication is not a group.  Why?
+
 \item Imagine a clock going from 1 to 11, rather than 1 to 12.
   Similar to the clock monoid seen above, here is the multiplication
   table of the strange 11-clock.
@@ -939,7 +953,10 @@ integer addition.   Why?
   \end{center}
 
 In this example, we see that the set is NOT a multiplicative group,
-because the element 11 has no inverse.  However, every non-11 element
+because the element 11 has no inverse.  
+
+
+\item Every non-11 element in the table above 
 has an inverse.  We can tediously verify the existence of a unique
 inverse for every non-11 element.
 
@@ -965,11 +982,37 @@ with the following multiplication table.
   \end{center}
 
 
+
+\item The set of $3\times 3$ matrices of real numbers is not a group.  Why?
+
+\item In Section~\ref{sec.monoid}, we defined the set
+  ${\mathcal{L}(\Sigma)}$ of finite-length sequences using list
+  concatenation as the monoid operation.  This set is not a group.
+  Why?
+
+\item The set of subsets of a given set using the operation of union is not a group.  Why?
+\item The set of subsets of a given set using the operation of intersection is not a group.  Why?
+\item The set subsets of a given set, $G$, using
+  \[A\circ B = A{\cap  \overline{B} \cup \overline{A}\cap B}\]
+  as the operation, is a group.
+
+\item The set of rotations of the $n\times n$ Rubik's cube is a group.   Every rotation has an inverse rotation, and the null-rotation is the identity.
+
+  %% This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  %% From https://en.wikipedia.org/wiki/Rubik%27s_Cube_group
+  %% Converted to png
+  \includegraphics[width=5cm]{Rubiks_cube.png}
 \end{enumerate}
 
 
 \clearpage
 \subsection{Ring}
+
+A monoid and a group are both sets with a single operation for which
+the elements of the set interact to obey a set of axioms (the monoid
+axioms or the group axioms).  Now we will look at sets with two
+operations, which you can na\"ively think of as addition and
+multiplication. 
 
 \begin{definition}[Ring]
 $(S,+,\times)$ is called a \emph{ring} if
@@ -983,13 +1026,26 @@ $(S,+,\times)$ is called a \emph{ring} if
 $(S,+,\times)$ is called an Abelian ring.
 \end{definition}
 
+
+In the set of whole numbers we can think of multiplication as repeated
+addition.  However, in many cases this does not hold.  For example,
+matrix multiplication cannot be expressed simply as repeated matrix
+addition.  In fact, in a ring, the only thing that connects the
+addition and the multiplication is the distributive axiom.
+Multiplication or addition may be defined in strange ways, but if the
+ring axioms are satisfied, the ring is valid.
+
 \noindent Examples of rings.
 \begin{enumerate}
-\item The integers $(\mathbb{Z},+,\times)$
-\item The set of $n\times n$ matrices.
-\item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$.
+\item The integers $(\mathbb{Z},+,\times)$ is a ring.
+\item The integers $(\mathbb{N},+,\times)$ is not a ring.  Why?
+\item The set of $n\times n$ matrices, for a fixed value of $n>0$ is a ring.
+\item The set of $2\times 3$ matrices is not a ring.  Why?
+\item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$ is a ring.
+\item The set of polynomials with complex coefficients such as ${3x^4+2x^2-5x+1}$ is a ring.
+\item The set of subsets of a given set using intersection as multiplication and exclusive or as addition forms a ring.
 \item The set of 8-bit sequences (bytes) consisting of 0 and 1, such as 00101101,
-  with the two operations AND and XOR, defined bitwise using the following tables.
+  with the two operations AND and XOR, defined bitwise using the following tables is a ring.
 \begin{center}
     \begin{tabular}{c||c|c|}
       XOR & 0 & 1 \\
@@ -1018,6 +1074,11 @@ For example
 \clearpage
 \subsection{Field}
 
+The most complicated structure we will examine is the field.  You can
+think of a field as set which is a ring but more than that.  In a ring
+you can add, subtract, and multiply.  But in a field you can also
+divide with the exception that you cannot divide by zero. 
+
 \begin{definition}[Field]
 $(F,+,\times)$ is called a \emph{field} if
 \begin{enumerate}
@@ -1030,7 +1091,9 @@ $(F,+,\times)$ is called a \emph{field} if
 \noindent Some notable examples of fields:
 \begin{enumerate}
 \item The rational numbers, $\mathbb{Q}$.
+\item The set of $n\times n$ matrices is not a field.  Why?
 \item The set of $2\times 2$ matrices of the form $\begin{bmatrix}a&-b\\b&a\end{bmatrix}$ where $a,b\in\mathbb{Q}$.
+\item The integers modulo $12$.
 \item The integers modulo any prime such as $7$.
 
 \begin{center}
