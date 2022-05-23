@@ -128,7 +128,7 @@ mathematical concepts.  You will be able to take the things you've
 learned and apply them back to other (more popular) programming
 languages such as Python, Java Script, Lisp, C++, etc.
 
-\section{Sylabus}
+\section{Syllabus}
 
 \begin{tabular}{ll|l|l}
 Week & Day & Unit & Activities\\
@@ -142,16 +142,11 @@ Week & Day & Unit & Activities\\
 ~&&&\\
 \hline
 ~&&&\\
-2 & Mon & 4 & Review, Coding Exercises\\
-2 & Tue & 4 & Analysis, Convergence\\
-2 & Wed & 5 & Coding Exercises, Presentation\\
-2 & Thu & 5 & Analysis, Infinite sums\\
-2 & Fri & 6 & Coding Exercises, Presentation\\
-~&&&\\
-\hline
-~&&&\\
-& & 6 & Analysis, Derivative\\
-& & 7 & Analysis, Integral\\
+2 & Mon & 3 & Review, Coding Exercises\\
+2 & Tue & 4,5 & Analysis: Convergence, and Sums\\
+2 & Wed & 4,5 & Coding Exercises, Presentation\\
+2 & Thu & 6,7 & Analysis: Derivative, Integral\\
+2 & Fri & 6,7 & Coding Exercises, Presentation\\
 ~&&&\\
 \hline
 \end{tabular}
@@ -163,7 +158,6 @@ Week & Day & Unit & Activities\\
   \includegraphics[width=0.9\textwidth]{developers.png}
 %% https://woz-u.com/wp-content/uploads/2020/02/What-Do-Software-Engineers-Do-WOZ-1-min.png
 \end{figure}
-
 
 \clearpage
 
@@ -603,7 +597,7 @@ range is a set of sets of sets.
 \begin{enumerate}
 \item Programming languages, functional, imperative
 
-\item Defining a function
+\item Defining a function in Scala
   
 \item Atomic types: (\code{Double}, \code{Int}, \code{Boolean},
   \code{String}), and operations on objects of these types.
@@ -612,12 +606,9 @@ range is a set of sets of sets.
 
 \item Recursive functions
 
-\item \code{Tuple}: create and destructure.
-  
-\item Container types: \code{List[]}, \code{Vector[]}, \code{Seq},
-  \code{Set[]}, \code{Map[]}, \code{Option[]}
+\item Container type: \code{List[]}, \code{Tuple}
 
-\item \code{for}, \code{forall}, \code{exists}, \code{contains}, \code{find}  methods.
+\item Destructuring
   
 \item We
   implement the \code{fixedSizedSubsets} in live-coding.  We write
@@ -707,6 +698,7 @@ then
 
 \clearpage
 \subsection{Recursive Functions}
+\label{sec.recursive.functions}
 \begin{itemize}
 \item Implement \code{power} for \code{Int} and \code{Double}.  In
   the case of \code{Double} you should also handle the case of a
@@ -994,7 +986,7 @@ with the following multiplication table.
 \item The set of subsets of a given set using the operation of intersection is not a group.  Why?
 \item The set subsets of a given set, $G$, using
   \[A\circ B = A{\cap  \overline{B} \cup \overline{A}\cap B}\]
-  as the operation, is a group.
+  as the operation, is a group.  Every element is its own inverse.  The identity element is the empty set, $\emptyset$.
 
 \item The set of rotations of the $n\times n$ Rubik's cube is a group.   Every rotation has an inverse rotation, and the null-rotation is the identity.
 
@@ -1137,10 +1129,17 @@ that
   is a field.   Moreover, each of the following can be expressed in the same form ${a+b\sqrt{2}}$.
   \begin{itemize}
   \item $(a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2})$
-  \item $(a_1 + b_1\sqrt{2}) - (a_2 + b_2\sqrt{2})$
+  \item $-(a + b\sqrt{2})$
   \item $(a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2})$
-  \item {\Large $\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}}$}, provided $a_2,b_2$ are not both 0.
+  \item {\Large $\frac{1}{a + b\sqrt{2}}$}, provided $a,b$ are not both 0.
   \end{itemize}
+  In particular
+  \begin{align*}
+  (a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2}) &= (a_1+a_2)+(b_1+b_2)\sqrt{2}\\
+  -(a + b\sqrt{2}) &= -a + -b\sqrt{2}\\
+  (a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2}) &= (a_1a_2+2b_1b_2) + (a_1b_2+a_2b_1)\sqrt{2}\\
+  \frac{1}{a + b\sqrt{2}} &= \frac{a}{a^2-2b^2} + \frac{-b}{a^2-2b^2}\sqrt{2}
+  \end{align*}
 
 \end{enumerate}
 
@@ -1247,12 +1246,34 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \subsection{Monoid}
 \begin{itemize}
 \item \code{String} concatenation
-\item \code{List[Int]} concatenation
-\item \code{Set[Int]} union
-\item \code{Seq[Int]}
+\item \code{List[Int]}, \code{Vector[Int]}, \code{Seq[Int]} concatenation
 \item Implement \code{fastPower} for \code{Double}.
-\item Generalize \code{fastPower} to work on any monoid.
-\item Refactor \code{power} from unit 1 to use \code{fastPower}.
+\item Refactor (or re-implement) \code{power} (for \code{String} and
+  \code{List}) from Section~\ref{sec.recursive.functions} to work like
+  \code{fastPower}.
+\end{itemize}
+
+\subsection{Higher order functions}
+You will need functions like this to implement the Team Project in Section~\ref{sec.team.project.structures}.
+
+What is a \emph{predicate}?  It is a pure function which returns a
+\code{Boolean}.  It is used to determine which a property holds for a
+given input value.
+
+\begin{itemize}
+\item \code{find} --- find an element of a collection (if such exists)
+  which satisfies a given predicate.
+\item \code{forall} --- does every element of a collection satisfy a
+  given predicate.  Remember the collection might be empty.
+\item \code{exists} --- does at least one element of a sequence
+  satisfy a given predicate.
+\item \code{filter} --- collect all the elements of a collection which
+  satisfy a given predicate.
+\item \code{sortBy}/\code{sortWith} --- reorder (sort) the elements of
+  a sequence according to a given function.
+\item \code{map} --- create a new sequence by applying a given
+  function iteratively to each element of a collection.
+  
 \end{itemize}
 
 \subsection{Multiple dimensional types}
@@ -1292,6 +1313,22 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \clearpage
 \section{Coding}\label{sec.coding.2}
 
+
+\subsection{Team Project: Structure Recognition}
+\label{sec.team.project.structures}
+\begin{itemize}
+\item Implement functions to detect monoid, group,
+  ring, and field given a finite set, and the $+$ and $\cdot$
+  operations.
+\item When finished with your function, commit, push, and send a
+  pull request.
+\item To test your code, you will need to pull the changes in the
+  repository.
+\item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
+  monoid? Is it a group (Abelian)? etc. \ldots
+\item For which values of $n$ is $\mathbb{Z}/n$ a field?
+\end{itemize}
+  
 \subsection{Square matrices of Double}
 
 \begin{itemize}
@@ -1328,21 +1365,6 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \end{itemize}
 
 
-  
-\subsection{Team Project}
-\begin{itemize}
-\item Implement functions to detect monoid, group,
-  ring, and field given a finite set, and the $+$ and $\cdot$
-  operations.
-\item When finished with your function, commit, push, and send a
-  pull request.
-\item To test your code, you will need to pull the changes in the
-  repository.
-\item Define $\mathbb{Z}/n$, the integers modulo $n$. Is it a
-  monoid? Is it a group (Abelian)? etc. \ldots
-\item For which values of $n$ is $\mathbb{Z}/n$ a field?
-\end{itemize}
-  
 \subsection{Group Interactive Project}
 \begin{itemize}
 \item Implement the polynomial ring, with addition,
@@ -1974,4 +1996,4 @@ the previous implementation of limit.
 % LocalWords:  isMonoid IDEs GitPod gitpodenv functionalvsimperative
 % LocalWords:  monoidic Mann Wvbailey Evariste youtube Arturo bolzano
 % LocalWords:  creativecommons matrixPower polynomialPower perim
-% LocalWords:  infsum
+% LocalWords:  infsum Destructuring
