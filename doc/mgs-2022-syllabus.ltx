@@ -532,7 +532,7 @@ functions using cases, like in Equation~\eqref{eq.simple.4}
 
 \pagebreak
 \subsection{Specifying functions by recurrence}
-
+\label{sec.recurrence}
 
 Functions can be defined in terms of themselves.  We might use an intuitive definition
 such as Equation~\eqref{eq.simple.5}.
@@ -594,40 +594,10 @@ range is a set of sets of sets.
 
 \section{Programming perspective}
 
-\begin{enumerate}
-\item Programming languages, functional, imperative
-
-\item Defining a function in Scala
-  
-\item Atomic types: (\code{Double}, \code{Int}, \code{Boolean},
-  \code{String}), and operations on objects of these types.
-
-\item Conditionals, pattern matching
-
-\item Recursive functions
-
-\item Container type: \code{List[]}, \code{Tuple}
-
-\item Destructuring
-  
-\item We
-  implement the \code{fixedSizedSubsets} in live-coding.  We write
-  some tests.  Some of which pass, and some of which fail.  To compute
-  the number of subsets of size $k$ of a set of size $n$ we need to
-  compute~$n \choose k$ using the \code{factorial} function, which you
-  will develop.
-
-\item Testing
-  
-
-\end{enumerate}
-
-
-\clearpage
 \subsection{Functional Programming Languages}
 
 We will not spend much time talking about programming languages which
-are not \emph{functional} but very briefly.  Imperative programming
+are not \emph{functional} but very briefly:  imperative programming
 languages tend to model the machine, allowing you to phrase your
 programs in a way which the machine can interpret.  Functional
 languages, tend to make the machine understand mathematical notations,
@@ -650,6 +620,95 @@ terms of what the solution looks like.
 The web site and lots of documentation about the Scala language can be
 found here: \url{https://www.scala-lang.org}.  The newest Scala
 version is 3.1.x; however, we will use 2.13.8 (or higher).
+
+\subsection{Elements of a Scala program}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{quadratic.png}
+\caption{Some Elements of a Scala Program, definition of an object containing a function.}
+\label{fig.scala.program}
+\end{figure}
+
+Figure~\ref{fig.scala.program} shows some of the elements of a Scala program.
+
+\begin{enumerate}
+
+\item Lines~7 through~15 define a function named
+  \code{quadraticFormula}.  This function has 3 arguments, \code{a},
+  \code{b}, and \code{c}, each of type \code{Int}---meaning that
+  whenever the function is called, the call-site must provide 3
+  integer arguments.
+
+\item Lines~12 and~13 are two mathematical computations computing the
+  roots of a specified polynomial. These values are each
+  double-precision floating-point values (each a \code{Double}).
+
+\item Since the two values computed on Lines~12 and~13 might in some
+  cases be the same (a root of order two), we specify that duplicate
+  elements are removed from the list by \code{List(...).distinct} on
+  lines~11 and~14.
+
+\item The function, \code{quadraticFormula}, returns a value which has
+  type \code{List[Double]}, which is a list of double-precision
+  (64-bit) floating point numbers.  The valued within the function
+  computed in the tail position is the return value from the function.
+  Usually this is the final value (bottom-most) in the function.  But
+  in the case of an \code{if/else} the tail-position value will be
+  which ever branch of the conditional is taken at run-time.
+
+\item Many other types are also available as variables, and function
+  return values.  Some types which we will encounter are
+  \code{Boolean}, \code{String}, \code{Tuple[]}, \code{Unit}, as well as
+  many more.
+
+\item The function named \code{main} which must be defined as shown in
+  line~17, is regarded as the starting point of the program.  In this
+  case, \code{main}, makes two calls to \code{quadraticFormula} on
+  lines~19 and~20.
+
+\item Function parameters are grouped with parentheses, and separated by commas.
+
+\item Function calls are grouped with curly-braces.
+
+\item The functions are defined with an \code{object}, starting on
+  line~5 and ending on line~22.  This object has the name
+  \code{QuadraticFormula} which is the same as the function but with
+  different case, i.e., different capitalization.  In the Scala
+  language, names are considered \emph{the same} if they have the same
+  spelling and the same capitalization.
+
+\item Line~1 defines a \code{package} named \code{functions}, which
+  normally is the same as the directory name the file resides in.
+  This correspondence of directory name and package name is
+  conventional and not absolutely required.
+
+\end{enumerate}
+
+\subsection{Live coding}
+We implement the \code{fixedSizedSubsets} in live-coding.  The program
+will be modeled after equation~\eqref{eq.cases.1} in
+Section~\ref{sec.recurrence}.
+
+We write some tests.  Some of which pass, and some of which fail.  To compute
+the number of subsets of size $k$ of a set of size $n$ we need to
+compute~$n \choose k$ using the \code{factorial} function, which you
+will develop.
+
+\subsection{Other programming constructs}
+
+\begin{enumerate}
+
+\item Conditionals, pattern matching
+
+\item Recursive functions
+
+\item Collection types: \code{List[]}, \code{Tuple[]}, \code{Vector[]}, \code{Set[]}.
+
+\item Pattern matching and destructuring
+  
+\end{enumerate}
+
 
 
 
@@ -1135,11 +1194,12 @@ that
   \end{itemize}
   In particular
   \begin{align*}
-  (a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2}) &= (a_1+a_2)+(b_1+b_2)\sqrt{2}\\
-  -(a + b\sqrt{2}) &= -a + -b\sqrt{2}\\
-  (a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2}) &= (a_1a_2+2b_1b_2) + (a_1b_2+a_2b_1)\sqrt{2}\\
-  \frac{1}{a + b\sqrt{2}} &= \frac{a}{a^2-2b^2} + \frac{-b}{a^2-2b^2}\sqrt{2}
+  (a_1 + b_1\sqrt{2}) + (a_2 + b_2\sqrt{2}) &= \underbrace{(a_1+a_2)}_{\in \mathbb{Q}}+\underbrace{(b_1+b_2)}_{\in \mathbb{Q}}\sqrt{2}\\
+  -(a + b\sqrt{2}) &= \underbrace{-a}_{\in \mathbb{Q}} + \underbrace{-b}_{\in \mathbb{Q}}\sqrt{2}\\
+  (a_1 + b_1\sqrt{2}) \times (a_2 + b_2\sqrt{2}) &= \underbrace{(a_1a_2+2b_1b_2)}_{\in \mathbb{Q}} + \underbrace{(a_1b_2+a_2b_1)}_{\in \mathbb{Q}}\sqrt{2}\\
+  \frac{1}{a + b\sqrt{2}} &= \underbrace{\frac{a}{a^2-2b^2}}_{\in \mathbb{Q}} + \underbrace{\frac{-b}{a^2-2b^2}}_{\in \mathbb{Q}}\sqrt{2}
   \end{align*}
+  Why do we know $a^2 -2b^2 \ne 0$ and $a+b\sqrt{2} \ne 0$?
 
 \end{enumerate}
 

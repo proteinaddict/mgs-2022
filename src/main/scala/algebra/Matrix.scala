@@ -9,7 +9,7 @@ object Matrix {
 
   // generate a matrix of the specified dimension, with each
   //  element within the matrix a number between the given upper and lower bounds.
-  def matrixRandom(dim: Int, lower:Double= -10.0, upper:Double = 10): MATRIX = {
+  def matrixRandom(dim: Int, lower:Double= -10.0, upper:Double = 10.0): MATRIX = {
     import scala.util.Random
     val rand = new Random()
     assert(dim >= 0)
