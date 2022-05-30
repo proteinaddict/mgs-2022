@@ -644,18 +644,27 @@ Figure~\ref{fig.scala.program} shows some of the elements of a Scala program.
   roots of a specified polynomial. These values are each
   double-precision floating-point values (each a \code{Double}).
 
-\item Since the two values computed on Lines~12 and~13 might in some
-  cases be the same (a root of order two), we specify that duplicate
-  elements are removed from the list by \code{List(...).distinct} on
-  lines~11 and~14.
+
+\item Computing the values on lines~12 and~13 involves computing a
+  square root, $\sqrt{b^2 - 4ac}$.  The \code{sqrt} function in not
+  normally visible to the programmer; it must be \emph{imported}.  The
+  statement on line~3 imports the \code{sqrt} function name into the
+  visible name space.
+
+\item If $b^2=4ac$, then $\sqrt{b^2-4ac}=0$.  In this case the two
+  values computed on Lines~12 and~13 will be the same (a root of order
+  two), we specify that duplicate elements are removed from the list
+  by \code{List(...).distinct} on lines~11 and~14.
 
 \item The function, \code{quadraticFormula}, returns a value which has
   type \code{List[Double]}, which is a list of double-precision
   (64-bit) floating point numbers.  The valued within the function
   computed in the tail position is the return value from the function.
-  Usually this is the final value (bottom-most) in the function.  But
-  in the case of an \code{if/else} the tail-position value will be
-  which ever branch of the conditional is taken at run-time.
+  In this case, the expression in tail position is the one comprising
+  lines~11 through~14: \code{List(...).distinct}.  Usually the tail
+  position is the final value (bottom-most) in the function.  But in
+  the case of an \code{if/else} the tail-position value will be which
+  ever branch of the conditional is taken at run-time.
 
 \item Many other types are also available as variables, and function
   return values.  Some types which we will encounter are
@@ -716,7 +725,7 @@ will develop.
 \clearpage
 \section{Coding}\label{sec.coding.1}
 
-\subsection{Implement the Quadratic Formula}
+\subsection{Implement the Quadratic Formula}\label{sec.quadratic.formula}
 
 As a first program in Scala you will implement the quadratic formula.
 recall that if
@@ -798,13 +807,39 @@ then
 
 \clearpage
 
-\begin{figure}[t]
+\begin{figure}
 \centering
 \includegraphics[width=\textwidth]{galois.png}
 \caption{Evariste Galois died at 20 years old as a result of a duel.}
 \end{figure}
 
-The story of Evariste Galois, a 20 year old French mathematician who
+In Section~\ref{sec.quadratic.formula}, you worked with a function
+which computes the (real) roots of a second-degree (quadratic)
+polynomial given only its coefficients.  There is an analogous formula
+to compute the roots of a cubic (degree-3) polynomial, and still
+another to compute the roots of a degree-4 polynomial.  Is there
+such formula for a polynomial of degree 5 (quintic) or higher?
+
+
+The question of whether such a formula exists for the quintic had been
+an open question for 250 years until Niels Henrik Abel proved its
+non-existence in 1823 at the age of 21.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{revolution.jpg}
+\caption{Galois, as a staunch republican, would have wanted to participate in the July Revolution of 1830 but was prevented by the director of the École Normale.}
+\end{figure}
+
+%%By https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/combat-devant-l-hotel-de-ville-le-28-juillet-1830, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1280931
+
+Around the same time a young 20 year old, political activist of post
+revolutionary France, Evariste Galois, attempted to explain why some
+higher-order polynomials are \emph{solvable in terms of radicals} and
+others are not.
+
+The story of Evariste Galois who
 quickly wrote down the principles of abstract algebra before his death
 as a result of a duel, is depicted in several YouTube videos: notably
 \emph{Evariste Galois a documentary}
@@ -814,10 +849,29 @@ as a result of a duel, is depicted in several YouTube videos: notably
 Math Visualized.
 
 
-In this unit we will study sets with mathematical structure.
-There are several mathematical structures defined by axioms.
-We will thereafter write programs as individuals and as teams to
-manipulate these structures.
+It is not surprising that mathematicians did not understand the work
+of Galois during his sort lifetime.  Figure~\ref{fig.galois.hand}
+shows an example of his handwriting.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{galois-handwriting.jpg}
+\caption{Galois's confusing handwriting}
+\label{fig.galois.hand}
+\end{figure}
+
+
+
+In this unit we will study sets with mathematical structure.  This
+approach to \emph{abstract algebra} is of course much cleaner than
+that introduced by Galois.  Galois somewhat flippantly introduced the
+\emph{group} and the \emph{field} just as a tool to talk about the
+solvability of a polynomial, probably without realizing that they
+deserve in-depth study themselves.
+
+There are several mathematical structures defined by axioms.  We will
+thereafter write programs as individuals and as teams to manipulate
+these structures.
 
 \clearpage
 \section{Mathematical perspective}
@@ -845,12 +899,20 @@ Examples of monoids.
 
 \item $(\mathbb{Z},-)$, the set of integers under subtraction is not a monoid.  Why?
 
+\item The set of even integers under addition is a monoid.
 
+\item The set of even integers under multiplication is a not monoid.  Why?
+  
 \item ${(\mathbb{R},\times)}$, the set of positive real numbers under multiplication is a monoid.
 
-\item The set of $2\times 3$ matrices under addition is a monoid.
+\item The set of $2\times 3$ matrices under addition is a monoid.  (See Section~\ref{sec.matrix.multiply} for a reminder of matrix addition.)
 
-\item The set of $2\times 3$ matrices under multiplication is not a monoid.  Why?
+\item The set of $2\times 3$ matrices under multiplication is not a monoid.  However the set of $3\times 3$  matrices under multiplication is a monoid. Why? (See Section~\ref{sec.matrix.multiply} for a reminder of matrix multiplication.)
+
+\item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
+\item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
+
+
 
 \begin{figure}
 \centering
@@ -915,9 +977,6 @@ Examples of monoids.
   ${1 \times a = a\times 1 = a}$ for every ${a\in\{1,2,\ldots,12\}}$.
 
   
-
-\item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
-\item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
 
 \item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
   Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
@@ -1093,7 +1152,11 @@ ring axioms are satisfied, the ring is valid.
 \item The set of $n\times n$ matrices, for a fixed value of $n>0$ is a ring.
 \item The set of $2\times 3$ matrices is not a ring.  Why?
 \item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$ is a ring.
-\item The set of polynomials with complex coefficients such as ${3x^4+2x^2-5x+1}$ is a ring.
+\item The set of polynomials with real coefficients such as ${3x^4+\pi{}x^2-ex+\sqrt{5}}$ is a ring.
+\item The set of polynomials with rational coefficients with leading
+  coefficient equal to 1 is not a ring under \code{normal} addition
+  and multiplication.  ($x^3 + \frac{1}{2}x^2+ 5x - \frac{2}{3}$)  Why?  Can you define an alternative addition
+  and multiplication which makes this set a ring?
 \item The set of subsets of a given set using intersection as multiplication and exclusive or as addition forms a ring.
 \item The set of 8-bit sequences (bytes) consisting of 0 and 1, such as 00101101,
   with the two operations AND and XOR, defined bitwise using the following tables is a ring.
@@ -1233,6 +1296,94 @@ If a set has both a $1$ and a $0$ then dividing by $0$ does not make
 sense.  For example, in a field, we require all non-zero elements to
 have and multiplicative inverse even though all elements have an
 additive inverse.
+
+
+\subsection{Matrix Arithmetic}\label{sec.matrix.multiply}
+
+Two matrices of the same dimensions can be added.
+%% https://www.physicsread.com/latex-matrix-multiplication/
+To compute the sum of two matrices, $A,B$, simply add the corresponding
+elements as shown in Equation~\eqref{eq.add.matrix}
+
+  $$
+     \begin{bmatrix}
+         a_{11} & a_{12} & \cdots & a_{1n}\\
+         a_{21} & a_{22} & \cdots & a_{2n}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         a_{m1} & a_{m2} & \cdots & a_{mn} 
+     \end{bmatrix}
+     +
+     \begin{bmatrix}
+         b_{11} & b_{12} & \cdots & b_{1n}\\
+         b_{21} & b_{22} & \cdots & b_{2n}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         b_{m1} & b_{m2} & \cdots & b_{mn} 
+     \end{bmatrix}
+      =
+     \begin{bmatrix}
+         c_{11} & c_{12} & \cdots & c_{1n}\\
+         c_{21} & c_{22} & \cdots & c_{2n}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         c_{m1} & c_{m2} & \cdots & c_{mn} 
+     \end{bmatrix}
+  $$
+
+     \begin{align}
+       c_{ij} &= a_{ij} + b_{ij} \label{eq.add.matrix}
+     \end{align}
+
+
+Two matrices, $A,B$, can be multiplied under the condition that the
+number of number of columns of $A$ is the same as the number of rows
+of $B$.  I.e., if $A$ has dimension $m\times n$ ($m$ rows and $n$
+columns), and $B$ has dimension $n\times p$ ($n$ rows and $p$
+columns), then $A\times B$ has dimension $m\times p$ ($m$ rows and $p$
+columns).  The formula for the $i,j$ element of the product is given
+in equation~\eqref{eq.matrix.multiply}
+
+     $$
+     \begin{bmatrix}
+         a_{11} & a_{12} & \cdots & a_{1n}\\
+         a_{21} & a_{22} & \cdots & a_{2n}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         a_{m1} & a_{m2} & \cdots & a_{mn} 
+     \end{bmatrix}
+     \times
+     \begin{bmatrix}
+         b_{11} & b_{12} & \cdots & b_{1p}\\
+         b_{21} & b_{22} & \cdots & b_{2p}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         b_{n1} & b_{n2} & \cdots & b_{np} 
+     \end{bmatrix}
+      =
+     \begin{bmatrix}
+         c_{11} & c_{12} & \cdots & c_{1p}\\
+         c_{21} & c_{22} & \cdots & c_{2p}\\ 
+         \vdots & \vdots & \ddots & \vdots\\ 
+         c_{m1} & c_{m2} & \cdots & c_{mp} 
+     \end{bmatrix}
+  $$
+
+\begin{align}
+  c_{ij}= a_{i1} b_{1j} + a_{i2} b_{2j} +\cdots+ a_{in} + b_{nj} = \sum_{k=1}^n a_{ik}b_{kj}\label{eq.matrix.multiply}
+\end{align}
+
+Each entry in the product, $C = A\times B$, can be thought of as a row of $A$ times a column of $B$.
+
+$$
+     \begin{bmatrix}
+         a_1 & a_2 & \cdots & a_n
+     \end{bmatrix}
+     \times
+     \begin{bmatrix}
+         b_1\\
+         b_2\\
+         \vdots\\
+         b_3
+     \end{bmatrix}
+      =[a_1 \cdot b_1 + a_2 \cdot b_2 +\cdots+ a_n \cdot b_n]
+  $$ 
+
 
 
 \subsection{Fast Exponentiation in a Monoid and Group}
