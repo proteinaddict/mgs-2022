@@ -2087,17 +2087,29 @@ In this chapter we'll look at ways to compute sums like these
   function to elegantly terminiate the iteration with the target value
   is close enough.
 \item Improve convergence using shifting and scaling.
+  \begin{align}
+    sin(x) &= sin(x - 2\pi k)\\
+    cos(x) &= cos(x - 2\pi k)
+  \end{align}
+  Choose $k$ such that $-\pi \leq x - 2\pi k \leq \pi$.
+  \begin{align}
+    e^x &= (e^{x/k})^k
+  \end{align}
+  Choose $k$ such that $x/k < 2$. Compute $e^{x/k}$. Then use
+  the fast-power algorithm to raise that value to the power of $k$.
 \end{enumerate}
 
 \subsection{Taylor series with matrices}
 \begin{enumerate}
 \item Compute $\sin$ and $\cos$ of square matrices.
 \item Determine experimentally the value of $\cos^2(M) + \sin^2(M)$ for a square matrix $M$.
-\item Can you anecdotally verify or disprove the identity $e^x \times e^y = e^{x+y}$?
+\item For square matrices, $x$ and $y$, can you anecdotally verify or disprove the identity $e^x \times e^y = e^{x+y}$?
 \item Can you find other trigonometric identities which have an analog
   in the world of trigonometry on matrices?  Can you find identities
   on the real numbers which don't correspond to matrices?
-\item Compute $\sin$ and $\cos$ of complex numbers using $2\times 2$ matrix
+\item Compute $\sin$ and $\cos$ of complex numbers using $2\times 2$ matrix.
+\item Can you anecdotally verify or disprove the identity $e^x \times e^y = e^{x+y}$?
+\item For complex numbers, $x$ and $y$, can you anecdotally verify or disprove the identity $e^x \times e^y = e^{x+y}$?
 \end{enumerate}
 
 
