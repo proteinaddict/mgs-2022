@@ -467,6 +467,10 @@ In this unit we will look at functions both from a mathematical
 perspective and also from a programming perspective.  There are some
 important similarities and some important differences.
 \section{Mathematical perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
 
 We would like to talk about functions.  But where should we start the conversation?
 
@@ -622,7 +626,14 @@ sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
 range is a set of sets of sets.
 
 
-\section{Programming perspective}
+\clearpage\section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
+
+
+
 
 \subsection{Functional Programming Languages}
 
@@ -754,6 +765,10 @@ will develop.
 
 \clearpage
 \section{Coding}\label{sec.coding.1}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{coding.jpg}
+\end{figure}
 
 \subsection{Implement the Quadratic Formula}\label{sec.quadratic.formula}
 
@@ -912,6 +927,11 @@ these structures.
 
 \clearpage
 \section{Mathematical perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
+
 
 \begin{figure}
   \centering
@@ -1485,36 +1505,14 @@ the power of $|n|$.
 \end{equation}\label{eq.fast.exponent.group}
 
 
-\clearpage
-
-\subsection{Binary Search}
-
-A binary search algorithm is a divide an conquer algorithm.  Suppose
-we know that some \emph{event} occurs at a number between $x_{left}$
-and $x_{right}$.  For example, suppose $f(x) = 0$ for some
-$x_{left} < x < x_{right}$.  Then if we take $x_{mid} = \frac{x_{left} + x_{right}}{2}$, then
-at least one of the following is true.
-
-\begin{align}
-  f(x) & = 0 & \text{ for some } x_{left} < x \leq x_{mid}\\
-  f(x) & = 0 & \text{ for some }  x_{mid} < x < x_{right}
-\end{align}
-
-This means if we split the interval $(x_{left},x_{right})$ in half,
-the \emph{event} occurs either in the left half or the right half.
-In such a case, we can write a (recursive) function which divides the
-interval in half, and \emph{recurs} either on the right half or left half.
-We end the recursion when we have found the event.
-
-If we don't find the exact value we are searching for, then we must have a
-termination condition to avoid looping forever.  Typically the way this is
-done is to recur until the interval is sufficiently small:  i.e., until
-${x_{right} - x_{left} < \varepsilon}$.
-
 
 
 \clearpage
 \section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
 
 \subsection{Monoid}
 \begin{itemize}
@@ -1567,6 +1565,34 @@ given input value.
 \item \code{almostEqual} comparing floating point
 \end{itemize}
 
+\clearpage
+
+\subsection{Binary Search}
+
+A binary search algorithm is a divide an conquer algorithm.  Suppose
+we know that some \emph{event} occurs at a number between $x_{left}$
+and $x_{right}$.  For example, suppose $f(x) = 0$ for some
+$x_{left} < x < x_{right}$.  Then if we take $x_{mid} = \frac{x_{left} + x_{right}}{2}$, then
+at least one of the following is true.
+
+\begin{align}
+  f(x) & = 0 & \text{ for some } x_{left} < x \leq x_{mid}\\
+  f(x) & = 0 & \text{ for some }  x_{mid} < x < x_{right}
+\end{align}
+
+This means if we split the interval $(x_{left},x_{right})$ in half,
+the \emph{event} occurs either in the left half or the right half.
+In such a case, we can write a (recursive) function which divides the
+interval in half, and \emph{recurs} either on the right half or left half.
+We end the recursion when we have found the event.
+
+If we don't find the exact value we are searching for, then we must have a
+termination condition to avoid looping forever.  Typically the way this is
+done is to recur until the interval is sufficiently small:  i.e., until
+${x_{right} - x_{left} < \varepsilon}$.
+
+
+
 \subsection{Testing}
 \begin{itemize}
 \item Testing with \code{main}
@@ -1588,9 +1614,7 @@ given input value.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth]{NevadaClassClose.jpg}
-%% Source: \url{https://techservices.illinois.edu} I Technology Services
-\label{fig.lab}
+\includegraphics[width=0.85\textwidth]{coding.jpg}
 \end{figure}
 
 
@@ -1806,6 +1830,10 @@ of Newton and Leibniz.
 
 \clearpage
 \section{Mathematical perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
 
 In the previous sections we talked
 about the natural numbers, $\mathbb{N}$, the integers, $\mathbb{Z}$,
@@ -1915,7 +1943,12 @@ that the sequence is afterwards inside the epsilon tube
 $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
   
-\section{Programming perspective}
+\clearpage\section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
+
   \begin{enumerate}
   \item tail recursion,
   \item fixed point
@@ -1926,7 +1959,13 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
   \item \code{for} comprehension
   \end{enumerate}
 
+
+\clearpage
 \section{Coding}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{coding.jpg}
+\end{figure}
 
 \subsection{Sequences}
 \begin{itemize}
@@ -1974,6 +2013,13 @@ $(a-\varepsilon_{1},a+\varepsilon_{1})$.
 
 \clearpage
 
+
+\section{Mathematical perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
+
 In this chapter we'll look at ways to compute sums like these
 \begin{align}
   \exp(x) &= \sum_{k=0}^{\infty} \frac{x^k}{k!}\\
@@ -1983,7 +2029,7 @@ In this chapter we'll look at ways to compute sums like these
 \end{align}
 
 
-\section{Mathematical perspective}
+
   \begin{enumerate}
   \item Review functions $\sin$, $\cos$, $\exp$, and $\ln$.
     \includegraphics[width=9cm]{sin-cos.png}
@@ -2010,7 +2056,13 @@ In this chapter we'll look at ways to compute sums like these
 
   \end{enumerate}
   
+\clearpage
 \section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
+
   \begin{enumerate}
   \item \code{Option[]}
   \item folding:  \code{foldLeft},  \code{reduce}, \code{reduceOption}
@@ -2018,7 +2070,12 @@ In this chapter we'll look at ways to compute sums like these
   \item Introduce \code{foldM}
   \end{enumerate}
 
+\clearpage
 \section{Coding}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{coding.jpg}
+\end{figure}
 
 \subsection{Taylor series with numbers}
 
@@ -2054,14 +2111,22 @@ In this chapter we'll look at ways to compute sums like these
 
 \clearpage
 
-\section{Mathematical perspective} --- We start our discussion of the derivative by talking about the limit.
-  We saw the limit already in terms of sequences.  Now we look at a
-  slightly different concept, and extension, of the limit in terms of
-  a function of a single variable.  We will thereafter, define the
-  derivative in terms of the limit.  Additionally, we will follow the
-  same model programmatically, by defining a function to estimate the
-  limit, then to implement a function to estimate the derivative using
-  the limit function.
+\section{Mathematical perspective} 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
+
+
+We start our discussion of the derivative by talking about the limit.
+We saw the limit already in terms of sequences.  Now we look at a
+slightly different concept, and extension, of the limit in terms of a
+function of a single variable.  We will thereafter, define the
+derivative in terms of the limit.  Additionally, we will follow the
+same model programmatically, by defining a function to estimate the
+limit, then to implement a function to estimate the derivative using
+the limit function.
   
   \begin{enumerate}
   \item Intuition of limit.  Consider the function:
@@ -2150,14 +2215,24 @@ the tangent line.  The secant lines approach the tangent line in Figure~\ref{lab
 
   \end{enumerate}
   
-\section{Programming perspective}
+\clearpage\section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
   \begin{enumerate}
   \item Definition of derivative in terms of limit,
   \item Derivative of polynomial
   \end{enumerate}
 
 
+\clearpage
 \section{Coding}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{coding.jpg}
+\end{figure}
+
 \begin{enumerate}
 \item Implement the \code{limit} function as a function which
   manipulates functions.
@@ -2183,6 +2258,11 @@ the previous implementation of limit.
 \clearpage
 
 \section{Mathematical perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{math.jpg}
+\end{figure}
+
   \begin{enumerate}
   \item The notation and intuition of the integral.
     
@@ -2215,7 +2295,11 @@ the previous implementation of limit.
 
   \end{enumerate}
   
-\section{Programming perspective}
+\clearpage\section{Programming perspective}
+\begin{figure}
+\centering
+\includegraphics[width=0.65\textwidth]{cs.jpg}
+\end{figure}
   \begin{enumerate}
   \item Expressing limit of sum of rectangles
 
@@ -2232,7 +2316,13 @@ the previous implementation of limit.
 
 
 
+\clearpage
 \section{Coding}
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth]{coding.jpg}
+\end{figure}
+
 \begin{enumerate}
 \item  Implement integral (function of function) using
   limit, sum of rectangles, and sum of trapezoids.
