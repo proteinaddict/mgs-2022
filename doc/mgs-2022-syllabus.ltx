@@ -906,6 +906,12 @@ these structures.
 \clearpage
 \section{Mathematical perspective}
 
+\begin{figure}
+  \centering
+\includegraphics[width=0.75\textwidth]{Algebraic-structures-magma-to-group.png}
+%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\caption{There are many algebraic structures which are linked by subset relations.}
+\end{figure}
 
 \subsection{Monoid}
 \label{sec.monoid}
@@ -922,7 +928,8 @@ $(S,\circ)$ is called a \emph{monoid} if
 don't assume that it is unique.  Can a monoid have more than one
 identity element: $e_1$ and $e_2$?  The answer is no, but why?  
 
-Examples of monoids.
+\subsection{Examples of monoids}
+
 
 \begin{enumerate}
 \item $(\mathbb{N},+)$, the set of natural numbers under addition is a monoid.
@@ -942,13 +949,27 @@ Examples of monoids.
 \item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
 \item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
 
+\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
+  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
+  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
+  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
 
+  Let $+$ denote sequence concatenation.  E.g.,
+  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
+  ${\mathcal{L}(\Sigma)}$ is a monoid.
 
+  What is its identity element?
+
+  Is it a commutative monoid?
+  
 \begin{figure}
 \centering
-\includegraphics[width=8cm]{512px-Big_Ben_Closeup.jpg}
+\includegraphics[width=10cm]{512px-Big_Ben_Closeup.jpg}
 %% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+\caption{The movement of the hands of the clock is an example of a monoid arithmetic.}
 \end{figure}
+
 
 \item  The integers on the face of the clock form a
   monoid under addition with the following
@@ -1008,20 +1029,7 @@ Examples of monoids.
 
   
 
-\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
-  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
-  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
-  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
-  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
 
-  Let $+$ denote sequence concatenation.  E.g.,
-  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
-  ${\mathcal{L}(\Sigma)}$ is a monoid.
-
-  What is its identity element?
-
-  Is it a commutative monoid?
-  
 \end{enumerate}
 
 \clearpage
@@ -1058,7 +1066,7 @@ which we already know to be unique.  But we can ask a similar
 uniqueness question about the inverse.  Can an element $a\in S$ have
 two different inverses?  No, but why?
 
-\noindent Examples of groups.
+\subsection{Examples of groups}
 \begin{enumerate}
 \item The set of integers, ${\mathbb{Z} = \{0, \pm 1, \pm 2, \ldots\}}$, is a group under
 integer addition.   Why?
@@ -1175,7 +1183,7 @@ addition and the multiplication is the distributive axiom.
 Multiplication or addition may be defined in strange ways, but if the
 ring axioms are satisfied, the ring is valid.
 
-\noindent Examples of rings.
+\subsection{Examples of rings}
 \begin{enumerate}
 \item The integers $(\mathbb{Z},+,\times)$ is a ring.
 \item The integers $(\mathbb{N},+,\times)$ is not a ring.  Why?
@@ -1232,7 +1240,7 @@ $(F,+,\times)$ is called a \emph{field} if
 \end{definition}
 
 
-\noindent Some notable examples of fields:
+\subsection{Examples of fields}
 \begin{enumerate}
 \item The rational numbers, $\mathbb{Q}$.
 \item The set of $n\times n$ matrices is not a field.  Why?
@@ -1299,12 +1307,6 @@ that
 \clearpage
 \subsection{Summary of Algebraic Structures}
 
-\begin{figure}
-  \centering
-\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
-%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
-\caption{There are many algebraic structures which are linked by subset relations.}
-\end{figure}
 
 \begin{enumerate}
 \item A \emph{monoid} is a set where we can add.
@@ -1328,6 +1330,7 @@ have and multiplicative inverse even though all elements have an
 additive inverse.
 
 
+\clearpage
 \subsection{Matrix Arithmetic}\label{sec.matrix.multiply}
 
 Two matrices of the same dimensions can be added.
@@ -1416,6 +1419,7 @@ $$
 
 
 
+\clearpage
 \subsection{Fast Exponentiation in a Monoid and Group}
 
 Recall the definition of exponentiation in
