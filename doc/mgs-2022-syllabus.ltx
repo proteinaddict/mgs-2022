@@ -90,6 +90,7 @@ shortcomings, and being subjected to peer review (important in the
 scientific process).  This exercise is intended not only to learn to
 accept constructive criticism but also to build confidence.
 
+
 \pagebreak
 \section{Overview}
 
@@ -127,6 +128,35 @@ this approach, because the approach we will take will parallel many
 mathematical concepts.  You will be able to take the things you've
 learned and apply them back to other (more popular) programming
 languages such as Python, Java Script, Lisp, C++, etc.
+
+\pagebreak
+\section{Note from your Instructor}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{jimka-porto}
+\end{figure}
+I'm Dr. Jim Newton and I will be your instructor and coach for two
+weeks as explore mathematical applications in functional programming.
+
+I am a Mississippi native, and a graduate of Mississippi State
+University where in 1988 I received a BS in Electrical Engineering and
+in 1992 an MA in Mathematics.  Years later, in 2015, I received my PhD in
+Computer Science from Sorbonne University in Paris, France.  I
+currently live in Issy les Moulineaux, France, and work as an
+assistant professor and researcher at EPITA (\url{www.epita.fr}), a
+French engineering school
+
+In 1981, I was a scholar at the first ever Mississippi Governor's
+School.  I've designed this course remembering my own experience at
+MGS, back in the day. I realize that different students coming from
+different high schools in Mississippi have been exposed to various
+levels of mathematics and computer science courses. I nevertheless
+hope that regardless of your background and previous experience, you
+will find this course interesting and challenging.  If confident that
+if you apply yourself and remain self-confident, you will succeed and
+learn a lot.
+
+
 
 \section{Syllabus}
 
@@ -826,25 +856,25 @@ an open question for 250 years until Niels Henrik Abel proved its
 non-existence in 1823 at the age of 21.
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.75\textwidth]{revolution.jpg}
-\caption{Galois, as a staunch republican, would have wanted to participate in the July Revolution of 1830 but was prevented by the director of the École Normale.}
-\end{figure}
 
 %%By https://www.parismuseescollections.paris.fr/fr/petit-palais/oeuvres/combat-devant-l-hotel-de-ville-le-28-juillet-1830, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1280931
 
-Around the same time a young 20 year old, political activist of post
-revolutionary France, Evariste Galois, attempted to explain why some
-higher-order polynomials are \emph{solvable in terms of radicals} and
-others are not.
+Around the same time a young, 20 year old, political activist of
+post-revolutionary France, Evariste Galois, attempted to explain why
+some higher-order polynomials are \emph{solvable in terms of radicals}
+and others are not.  I use the word \emph{attempted} not to imply that
+his explanation was wrong.  To the contrary, his ideas were correct
+but nobody understood his treatment of the subject.  An example of his
+writing is shown in Figure~\ref{fig.galois.hand}.  One well-respected
+mathematician of the time, Joseph Fourier, took home a sizable work of
+Galois to digest it but unfortunately died unexpectedly, and the work
+was nearly lost.
 
-The story of Evariste Galois who
-quickly wrote down the principles of abstract algebra before his death
-as a result of a duel, is depicted in several YouTube videos: notably
-\emph{Evariste Galois a documentary}
-\url{https://www.youtube.com/watch?v=J6dsanpnpt0} and \emph{Galois
-  Theory Explained Simply}
+The story of Evariste Galois who quickly wrote down the principles of
+abstract algebra before his death as a result of a duel, is depicted
+in several YouTube videos: notably \emph{Evariste Galois a
+documentary} \url{https://www.youtube.com/watch?v=J6dsanpnpt0} and
+\emph{Galois Theory Explained Simply}
 \url{https://www.youtube.com/watch?v=Ct2fyigNgPY}, both produced by
 Math Visualized.
 
@@ -873,9 +903,22 @@ There are several mathematical structures defined by axioms.  We will
 thereafter write programs as individuals and as teams to manipulate
 these structures.
 
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{revolution.jpg}
+\caption{Galois, as a staunch republican, would have wanted to participate in the July Revolution of 1830 but was prevented by the director of the École Normale.}
+\end{figure}
+
+
 \clearpage
 \section{Mathematical perspective}
 
+\begin{figure}
+  \centering
+\includegraphics[width=0.75\textwidth]{Algebraic-structures-magma-to-group.png}
+%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
+\caption{There are many algebraic structures which are linked by subset relations.}
+\end{figure}
 
 \subsection{Monoid}
 \label{sec.monoid}
@@ -892,7 +935,8 @@ $(S,\circ)$ is called a \emph{monoid} if
 don't assume that it is unique.  Can a monoid have more than one
 identity element: $e_1$ and $e_2$?  The answer is no, but why?  
 
-Examples of monoids.
+\subsection{Examples of monoids}
+
 
 \begin{enumerate}
 \item $(\mathbb{N},+)$, the set of natural numbers under addition is a monoid.
@@ -912,19 +956,34 @@ Examples of monoids.
 \item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
 \item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
 
+\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
+  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
+  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
+  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
 
+  Let $+$ denote sequence concatenation.  E.g.,
+  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
+  ${\mathcal{L}(\Sigma)}$ is a monoid.
 
+  What is its identity element?
+
+  Is it a commutative monoid?
+  
 \begin{figure}
 \centering
-\includegraphics[width=8cm]{512px-Big_Ben_Closeup.jpg}
+\includegraphics[width=10cm]{512px-Big_Ben_Closeup.jpg}
 %% \footnote{Arturo Mann, CC BY-SA 3.0 \url{http://creativecommons.org/licenses/by-sa/3.0/}, via Wikimedia Commons}
+\caption{The movement of the hands of the clock is an example of a monoid arithmetic.}
 \end{figure}
+
 
 \item  The integers on the face of the clock form a
   monoid under addition with the following
   addition table.
  
-    \begin{center}
+  \begin{center}
+    \small
     \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
       + & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 &12\\
       \hline
@@ -954,6 +1013,7 @@ Examples of monoids.
   multiplication table.
  
   \begin{center}
+    \small
     \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
       * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
       \hline
@@ -978,39 +1038,34 @@ Examples of monoids.
 
   
 
-\item Let $\Sigma$ be any set of distinguishable elements: ${\Sigma = \{a,b,c,d\}}$.
-  Now consider the set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
-  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
-  I.e., ${\mathcal{L}(\Sigma)}$ includes all sequences
-  of length 12, and all sequences of length 54, and all sequences of length 10,051, etc.
 
-  Let $+$ denote sequence concatenation.  E.g.,
-  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
-  ${\mathcal{L}(\Sigma)}$ is a monoid.
-
-  What is its identity element?
-
-  Is it a commutative monoid?
-  
 \end{enumerate}
 
 \clearpage
 \subsection{Group}
 
-An notable property missing from a monoid is the ability solve equations.  As an example,
-take the 12-clock above.  Which of these equations can be solved:
+A notable property missing from a monoid is the ability solve equations.  As an example,
+take the 12-clock above.  Which of these equations can be solved in the integers?
 \begin{enumerate}
 \item Solve for $a$ in $a\times 3 = 7$.
 \item Solve for $b$ in $4\times b = 8$.
 \item Solve for $c$ in $7\times c = 11$.
 \end{enumerate}
 
-To solve such an equation we need to be able to find an inverse with
-respect to the operation of the monoid.  Essential to the idea
-of inverse is that an inverse be unique.
+To systematically solve such an equation we need to be able to find an inverse with
+respect to the operation of the monoid.  
 
-A monoid for which every element has a unique inverse is called
-a group.
+\begin{align*}
+  a\times 3 &= 7\\
+  a\times 3 \times 3^{-1} &= 7 \times 3^{-1}\\
+\end{align*}
+
+But there is no integer, $3^{-1}\in\mathbb{Z}$, such that $1 = 3 \times 3^{-1}$.
+However, some sets do have the property that every element is
+invertible. A monoid for which every element has a unique inverse is
+called a group.  Essential to the idea of inverse is that an inverse
+be unique.
+
 
 
 \begin{definition}[Group]
@@ -1028,7 +1083,7 @@ which we already know to be unique.  But we can ask a similar
 uniqueness question about the inverse.  Can an element $a\in S$ have
 two different inverses?  No, but why?
 
-\noindent Examples of groups.
+\subsection{Examples of groups}
 \begin{enumerate}
 \item The set of integers, ${\mathbb{Z} = \{0, \pm 1, \pm 2, \ldots\}}$, is a group under
 integer addition.   Why?
@@ -1039,11 +1094,33 @@ integer addition.   Why?
 
 \item The integers under multiplication is not a group.  Why?
 
+  \begin{figure}
+    \centering
+  %% This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  %% From https://en.wikipedia.org/wiki/Rubik%27s_Cube_group
+  %% Converted to png
+  \includegraphics[width=6cm]{Rubiks_cube.png}
+  \caption{The set of rotations of the Rubik's cube is a group.}
+\end{figure}
+
+\item The set of rotations of the $n\times n$ Rubik's cube is a group.   Every rotation has an inverse rotation, and the null-rotation is the identity.
+
+\item The set of $3\times 3$ matrices of real numbers is not a group.  Why?
+
+\item The set of subsets of a given set using the operation of union is not a group.  Why?
+\item The set of subsets of a given set using the operation of intersection is not a group.  Why?
+\item The set subsets of a given set, $G$, using
+  \[A\circ B = (A\cap  \overline{B}) \cup (\overline{A}\cap B)\]
+  as the operation, is a group.  Every element is its own inverse.  The identity element is the empty set, $\emptyset$.
+
+
+
 \item Imagine a clock going from 1 to 11, rather than 1 to 12.
   Similar to the clock monoid seen above, here is the multiplication
   table of the strange 11-clock.
   
   \begin{center}
+    \small
     \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|}
       * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
       \hline
@@ -1074,6 +1151,7 @@ The set of non-11 elements of the 11-clock is a multiplicative group
 with the following multiplication table.
 
   \begin{center}
+    \small
     \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
       * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
       \hline
@@ -1093,25 +1171,13 @@ with the following multiplication table.
 
 
 
-\item The set of $3\times 3$ matrices of real numbers is not a group.  Why?
 
 \item In Section~\ref{sec.monoid}, we defined the set
   ${\mathcal{L}(\Sigma)}$ of finite-length sequences using list
   concatenation as the monoid operation.  This set is not a group.
   Why?
 
-\item The set of subsets of a given set using the operation of union is not a group.  Why?
-\item The set of subsets of a given set using the operation of intersection is not a group.  Why?
-\item The set subsets of a given set, $G$, using
-  \[A\circ B = A{\cap  \overline{B} \cup \overline{A}\cap B}\]
-  as the operation, is a group.  Every element is its own inverse.  The identity element is the empty set, $\emptyset$.
 
-\item The set of rotations of the $n\times n$ Rubik's cube is a group.   Every rotation has an inverse rotation, and the null-rotation is the identity.
-
-  %% This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
-  %% From https://en.wikipedia.org/wiki/Rubik%27s_Cube_group
-  %% Converted to png
-  \includegraphics[width=5cm]{Rubiks_cube.png}
 \end{enumerate}
 
 
@@ -1145,7 +1211,7 @@ addition and the multiplication is the distributive axiom.
 Multiplication or addition may be defined in strange ways, but if the
 ring axioms are satisfied, the ring is valid.
 
-\noindent Examples of rings.
+\subsection{Examples of rings}
 \begin{enumerate}
 \item The integers $(\mathbb{Z},+,\times)$ is a ring.
 \item The integers $(\mathbb{N},+,\times)$ is not a ring.  Why?
@@ -1202,7 +1268,7 @@ $(F,+,\times)$ is called a \emph{field} if
 \end{definition}
 
 
-\noindent Some notable examples of fields:
+\subsection{Examples of fields}
 \begin{enumerate}
 \item The rational numbers, $\mathbb{Q}$.
 \item The set of $n\times n$ matrices is not a field.  Why?
@@ -1269,12 +1335,6 @@ that
 \clearpage
 \subsection{Summary of Algebraic Structures}
 
-\begin{figure}
-  \centering
-\includegraphics[width=8cm]{Algebraic-structures-magma-to-group.png}
-%%\footnote{\url{https://en.wikipedia.org/wiki/Monoid#/media/File:Magma_to_group4.svg} by Ethaniel, Wikipedia.}
-\caption{There are many algebraic structures which are linked by subset relations.}
-\end{figure}
 
 \begin{enumerate}
 \item A \emph{monoid} is a set where we can add.
@@ -1298,6 +1358,7 @@ have and multiplicative inverse even though all elements have an
 additive inverse.
 
 
+\clearpage
 \subsection{Matrix Arithmetic}\label{sec.matrix.multiply}
 
 Two matrices of the same dimensions can be added.
@@ -1386,6 +1447,7 @@ $$
 
 
 
+\clearpage
 \subsection{Fast Exponentiation in a Monoid and Group}
 
 Recall the definition of exponentiation in
@@ -1523,6 +1585,14 @@ given input value.
 
 \clearpage
 \section{Coding}\label{sec.coding.2}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{NevadaClassClose.jpg}
+%% Source: \url{https://techservices.illinois.edu} I Technology Services
+\label{fig.lab}
+\end{figure}
+
 
 
 \subsection{Team Project: Structure Recognition}
