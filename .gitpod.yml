@@ -4,6 +4,7 @@ vscode:
     - scala-lang.scala
     - scalameta.metals
     - mhutchie.git-graph
+    - tomoki1207.pdf
 tasks:
   - init: source ./gitpod_init.sh
   - command: source ./gitpod_command.sh
