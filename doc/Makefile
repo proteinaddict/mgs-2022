@@ -11,3 +11,7 @@ pdf: mgs-2022-syllabus.pdf
 mgs-2022-syllabus.pdf : ${SRC_DIR}/mgs-2022-syllabus.ltx
 	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \
 	latexmk --pdf ${SRC_DIR}/mgs-2022-syllabus.ltx
+
+pvc:
+	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \
+	latexmk -pvc --pdf ${SRC_DIR}/mgs-2022-syllabus.ltx
