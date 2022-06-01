@@ -11,6 +11,7 @@ pdf: mgs-2022-syllabus.pdf
 mgs-2022-syllabus.pdf : ${SRC_DIR}/mgs-2022-syllabus.ltx
 	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \
 	latexmk --pdf ${SRC_DIR}/mgs-2022-syllabus.ltx
+	([ -d ~/Google\ Drive/MGS\ 2022/. ] && cp -fv $@ ~/Google\ Drive/MGS\ 2022/.) || true
 
 pvc:
 	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \

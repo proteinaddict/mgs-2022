@@ -2087,17 +2087,22 @@ In this chapter we'll look at ways to compute sums like these
   function to elegantly terminiate the iteration with the target value
   is close enough.
 \item Improve convergence using shifting and scaling.
+  
   \begin{align}
-    sin(x) &= sin(x - 2\pi k)\\
-    cos(x) &= cos(x - 2\pi k)
+    \sin(x) &= \sin(x - 2\pi k)\\
+    \cos(x) &= \cos(x - 2\pi k)
   \end{align}
-  Choose $k$ such that $-\pi \leq x - 2\pi k \leq \pi$.
+  To improve the convergence of $\sin$ and $\cos$, translate the argument some number of full periods
+  so that the argument lies between $-\pi$ and $\pi$.  Choose $k$ such that $-\pi \leq x - 2\pi k \leq \pi$, then
+  compute $\sin(x - 2\pi k)$ or $\cos(x - 2\pi k)$
   \begin{align}
     e^x &= (e^{x/k})^k
   \end{align}
-  Choose $k$ such that $x/k < 2$. Compute $e^{x/k}$. Then use
+  To improve the convergence of $e^x$, compute the exponential of a smaller power, then raise the
+  result to an integer power. Choose $k$ such that $x/k < 2$. Compute $e^{x/k}$. Then use
   the fast-power algorithm to raise that value to the power of $k$.
 \end{enumerate}
+
 
 \subsection{Taylor series with matrices}
 \begin{enumerate}
