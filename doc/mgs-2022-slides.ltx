@@ -26,7 +26,6 @@
   basicstyle={\small\ttfamily}
 }
 
-
 \usepackage{booktabs}
 \usepackage{pgfplots}
 \usepackage{tikz}
@@ -71,22 +70,25 @@
 \title{Advanced Math and Functional Programming}
 \author{Dr. Jim Newton}
 
+\addtobeamertemplate{title page}{\includegraphics[scale=.20]{Mathematics-and-Computing.jpg} \hfill \includegraphics[scale=.23]{lambda}}{}
+
 \usepackage{xspace}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 
-
 \begin{document}
 
-\begin{frame}
-  \includegraphics[width=\textwidth]{mgs-2022.jpg}
-\end{frame}
 
 \begin{frame}
 \titlepage
 \end{frame}
 
 \section{Introduction}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{mgs-2022.jpg}
+\end{frame}
+
 
 \begin{frame}
   \frametitle{Overview}
@@ -262,7 +264,7 @@ to the URL already in the web browser.
 
   \item A functions may have a name: $\sin$, $\cos$, and $\log$.
 
-  \item A function may lack A name:  $\frac{x^2-1}{x^2+2x+1}$.
+  \item A function may lack a name:  $\frac{x^2-1}{x^2+2x+1}$.
 
 \end{itemize}  
 \end{frame}
@@ -308,7 +310,7 @@ well-determined, element of~$Y$.
   \item  $\mathbb{Q}$ --- rational numbers
   \item $\mathbb{R}$ --- real numbers
   \item  $\mathbb{C}$ -- complex numbers
-  \item $\mathbb{R}^2$ --- ordered paris of real numbers
+  \item $\mathbb{R}^2$ --- ordered pairs of real numbers
   \end{itemize}
   
 \end{frame}
@@ -400,15 +402,45 @@ well-determined, element of~$Y$.
 \end{frame}
 
 \begin{frame}
+  Given the roots, we can \emph{easily} find the coefficients.
+
+  \medskip
+
+  Simply multiply
+  \[(x - r_1)(x - r_2)\ldots(x - r_n)\]
+  to arrive at
+  \[x^n + \ldots + a_{2}x^{2} + a_{1}x^{1} + a_{0}\]
+
+  \medskip
+
+  However, given the coefficients, it is extremely difficult to find the roots.
+
+\end{frame}
+
+\begin{frame}
   \frametitle{Story of Evariste Galois}
   \centering
   \includegraphics[width=\textwidth]{galois.png}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Story of Evariste Galois}
+  \centering
+  \includegraphics[width=0.75\textwidth]{revolution.jpg}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Story of Evariste Galois}
+  \centering
+  \includegraphics[width=0.5\textwidth]{galois-handwriting.jpg}
+\end{frame}
+
+
 
 \begin{frame}
   \frametitle{Monoid}
-  \begin{definition}[Monoid]
+>  \begin{definition}[Monoid]
     $(S,\circ)$ is called a \emph{monoid} if
     \begin{enumerate}
     \item Closure: $a,b \in S \implies a\circ b \in S$.
@@ -798,29 +830,30 @@ $(F,+,\times)$ is called a \emph{field} if
 
 \end{document}
 
-%%  LocalWords:  fixnum eql destructuring basicstyle typecase llist
-%%  LocalWords:  dfa defun subtypep SUBTYPEP Boadilla AnnArbor EPITA
-%%  LocalWords:  LRDE oddp evenp plist deftype typep Scala izing API
-%%  LocalWords:  subtype okT typedef greeny rgb blueye coltypes emph
-%%  LocalWords:  surblueye emphstyle keywordstyle commentstyle epita
-%%  LocalWords:  stringstyle showspaces showstringspaces emphstyle gc
-%%  LocalWords:  lrde currentsection compat asdf bignum BDD BDDs bool
-%%  LocalWords:  homoiconicity bdd ltxdat subtypes setf bdd etypecase
-%%  LocalWords:  funcall tagbody frametitle supertypes textcolor vee
-%%  LocalWords:  includegraphics textwidth texttt textit lstlisting
-%%  LocalWords:  overline pgfpicture documentclass beamer usepackage
-%%  LocalWords:  subpreambles fancyvrb definecolor booktabs pgfplots
-%%  LocalWords:  lstset showtabs ttfamily RecustomVerbatimEnvironment
-%%  LocalWords:  usetheme titlegraphic hfill tikz AtBeginSection frac
-%%  LocalWords:  tableofcontents pgfplotsset titlepage rightarrow sys
-%%  LocalWords:  footnotesize mathcal ROBDD cdot textbf ROBDDs OBDD
-%%  LocalWords:  disjointness ORBDDs ORBDD Subtype Subtypes cccc sep
-%%  LocalWords:  programmatically BddNode BddTerm myScalastyle scala
-%%  LocalWords:  DynamicVariable withNewBddHash newHash withNewHash ADT
-%%  LocalWords:  delayedCode BddFalse BddTrue aboveskip dkgreen tabsize
-%%  LocalWords:  belowskip numberstyle breaklines breakatwhitespace DSL
-%%  LocalWords:  footline tocdepth Vennandornot ShareAlike Eierlegende
-%%  LocalWords:  Wollmilchsau Georg Mittenecker AndNot validateChild
-%%  LocalWords:  identityHashCode hashCode maybeHash withValue Unary
-%%  LocalWords:  unary venn BinaryOperation bddOp reduceLeft HashMap
-%%  LocalWords:  png cyan sbcl pdf kolmogorov defvar consed RND
+%%  LocalWords: fixnum eql destructuring basicstyle typecase llist
+%%  LocalWords: dfa defun subtypep SUBTYPEP Boadilla AnnArbor EPITA
+%%  LocalWords: LRDE oddp evenp plist deftype typep Scala izing API
+%%  LocalWords: subtype okT typedef greeny rgb blueye coltypes emph
+%%  LocalWords: surblueye emphstyle keywordstyle commentstyle epita
+%%  LocalWords: stringstyle showspaces showstringspaces emphstyle gc
+%%  LocalWords: lrde currentsection compat asdf bignum BDD BDDs bool
+%%  LocalWords: homoiconicity bdd ltxdat subtypes setf bdd etypecase
+%%  LocalWords: funcall tagbody frametitle supertypes textcolor vee
+%%  LocalWords: includegraphics textwidth texttt textit lstlisting
+%%  LocalWords: overline pgfpicture documentclass beamer usepackage
+%%  LocalWords: subpreambles fancyvrb definecolor booktabs pgfplots
+%%  LocalWords: lstset showtabs ttfamily RecustomVerbatimEnvironment
+%%  LocalWords: usetheme titlegraphic hfill tikz AtBeginSection frac
+%%  LocalWords: tableofcontents pgfplotsset titlepage rightarrow sys
+%%  LocalWords: footnotesize mathcal ROBDD cdot textbf ROBDDs OBDD
+%%  LocalWords: disjointness ORBDDs ORBDD Subtype Subtypes cccc sep
+%%  LocalWords: programmatically BddNode BddTerm myScalastyle scala
+%%  LocalWords: DynamicVariable withNewBddHash newHash withNewHash ADT
+%%  LocalWords: delayedCode BddFalse BddTrue aboveskip dkgreen tabsize
+%%  LocalWords: belowskip numberstyle breaklines breakatwhitespace DSL
+%%  LocalWords: footline tocdepth Vennandornot ShareAlike Eierlegende
+%%  LocalWords: Wollmilchsau Georg Mittenecker AndNot validateChild
+%%  LocalWords: identityHashCode hashCode maybeHash withValue Unary
+%%  LocalWords: unary venn BinaryOperation bddOp reduceLeft HashMap
+%%  LocalWords: png cyan sbcl pdf kolmogorov defvar consed RND github
+%%  LocalWords: GitHub GitPod monoid galois jpg Abelian Rubiks Rubik
