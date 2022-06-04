@@ -15,5 +15,9 @@ project/project/metals.sbt
 doc/*.aux
 doc/*.toc
 doc/*.fls
+doc/*.nav
+doc/*.out
+doc/*.sta
+doc/*.snm
 doc/*.log
 doc/*.fdb_latexmk
