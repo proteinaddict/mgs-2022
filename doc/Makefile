@@ -18,6 +18,10 @@ mgs-2022-syllabus.pdf : ${SRC_DIR}/mgs-2022-syllabus.ltx
 	latexmk --pdf ${SRC_DIR}/mgs-2022-syllabus.ltx
 	([ -d ~/Google\ Drive/MGS\ 2022/. ] && cp -fv $@ ~/Google\ Drive/MGS\ 2022/.) || true
 
-pvc:
+pvc-syllabus:
 	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \
 	latexmk -pvc --pdf ${SRC_DIR}/mgs-2022-syllabus.ltx
+
+pvc-slides:
+	TEXINPUTS=$(TEXINPUTS):$(IMAGE_DIR) \
+	latexmk -pvc --pdf ${SRC_DIR}/mgs-2022-slides.ltx

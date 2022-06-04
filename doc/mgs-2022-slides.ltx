@@ -139,7 +139,7 @@ Week & Day & Unit & Activities\\
 
 \end{frame}
 
-\section{Environment Setup}
+\section{Environment}
 
 \begin{frame}
   \centering \LARGE
@@ -205,8 +205,6 @@ to the URL already in the web browser.
 \end{frame}
 
 
-\section{Development Flow}
-
 \begin{frame}
   \centering \LARGE
 
@@ -233,7 +231,7 @@ to the URL already in the web browser.
 
 \begin{frame}
   \frametitle{git and GitHub}
-  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+  \includegraphics[width=0.75\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
 \end{frame}
 
 \begin{frame}
@@ -258,51 +256,159 @@ to the URL already in the web browser.
 \end{frame}
 
 \begin{frame}
+  \frametitle{What is a function?}
+
+\begin{itemize}  
+  \item You may already have some intuition about functions.
+
+  \item A functions may have a name: $\sin$, $\cos$, and $\log$.
+
+  \item A function may lack A name:  $\frac{x^2-1}{x^2+2x+1}$.
+
+\end{itemize}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is a function?}
+
+  A function such as
+\[f : X \to Y\]
+is a correspondence between two sets. 
+
+\medskip
+
+If $x\in X$, then~$f(x)$ designates a unique,
+well-determined, element of~$Y$.
+
+\[x \in X \implies f(x) \in Y\,.\]
+
+\end{frame}
+
+
+
+\begin{frame}
   \frametitle{Correspondence between sets}
   \centering
     \includegraphics[width=8cm]{Function_color_example_3.png}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Examples of Functions}
+  
+\[  f(x) = 3x + 1 \]
+
+\[  f:\mathbb{N}\to\mathbb{N}~\text{by}~ f(x) = 3x + 1\]
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Notation}
+  \begin{itemize}
+  \item $\mathbb{Z}$ --- integers
+  \item $\mathbb{N}$ --- natural numbers
+  \item  $\mathbb{Q}$ --- rational numbers
+  \item $\mathbb{R}$ --- real numbers
+  \item  $\mathbb{C}$ -- complex numbers
+  \item $\mathbb{R}^2$ --- ordered paris of real numbers
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Domain and range may be different}
+
+  \[f:\mathbb{R}^2\to\mathbb{R}~\text{by}~ f(x,y) = 3x - 2y + 1\]
+
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Functions defined by cases}
+
+  \begin{equation*}
+  |x| = \begin{cases}
+    x &\,; \text{if $x>0$}\\
+    0 &\,; \text{if $x=0$}\\
+    -x &\,; \text{if $x<0$}
+  \end{cases}
+\end{equation*}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Functions defined by recurrence}
+\begin{align*}
+  m^n &= \underbrace{m \times m \times \ldots \times m}_{n~\text{times}}\\
+  m^n &= \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    m \times m^{n-1} &\,; \text{if $n > 0$}\\
+    \frac{1}{m^{n}} &\,; \text{if $n < 0$}
+  \end{cases}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Functions defined by recurrence}
+
+\begin{align*}
+  n! &= 1 \times 2 \times \ldots \times n\\
+  n! &= \begin{cases}
+    1 &\,; \text{if $n=0$}\\
+    n \times (n-1)! &\,; \text{if $n > 0$}
+  \end{cases}
+\end{align*}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Fibonacci numbers by recurrence}
+\begin{equation*}
+  F(n) = \begin{cases}
+    1 &\,; \text{if $n=1$}\\
+    1 &\,; \text{if $n=2$}\\
+    F(n-1) + F(n-2)  &\,; \text{if $n > 2$}
+  \end{cases}
+\end{equation*}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Subsets of size $n$}
+\begin{equation*}
+  \mathbb{P}_n(S) = \begin{cases}
+    \{\emptyset\} &\,; \text{if $n=0$}\\
+    \big\{\{x\} \cup y \mid x \in S, y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation*}
+\end{frame}
+
+
+\section{Abstract Algebra}
+
+\begin{frame}
+  \centering \LARGE
+
+  Abstract Algebra
+
+\end{frame}
+
+\section{Analysis}
+
+\begin{frame}
+  \centering \LARGE
+
+  Convergence
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \centering \LARGE
+
+  Infinite Sums
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\section{Environment}
-\section{}
-\section{}
-\section{}
-\section{}
 
 
 
