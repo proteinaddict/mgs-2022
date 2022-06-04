@@ -648,13 +648,13 @@ integer addition.   Why?
 \begin{frame}
   \frametitle{What is a ring?}
   \begin{definition}[Ring]
-$(S,+,\times)$ is called a \emph{ring} if
-\begin{enumerate}
-\item $(S,+)$ is an Abelian group.
-\item $(S,\times)$ is a monoid.
-\item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
-\end{enumerate}    
-
+    $(S,+,\times)$ is called a \emph{ring} if
+    \begin{enumerate}
+    \item $(S,+)$ is an Abelian group.
+    \item $(S,\times)$ is a monoid.
+    \item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
+    \end{enumerate}
+  \end{definition}
 \end{frame}
 
 \begin{frame}
@@ -670,14 +670,13 @@ $(S,+,\times)$ is called a \emph{ring} if
 \begin{frame}
   \frametitle{Examples of ring}
   \begin{itemize}
-  \item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$?
-  \item The set of polynomials with real coefficients such as ${3x^4+\pi{}x^2-ex+\sqrt{5}}$?
-  \item The set of polynomials with rational coefficients with leading
-    coefficient equal to 1?
-  \begin{itemize}
-    \itemn Under \code{normal} addition and multiplication?
-  \item Can you define an alternative addition and multiplication which makes this set a ring?
-  \end{itemize}
+  \item $\mathbb{Z}[x]$, polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$?
+  \item $\mathbb{R}[x]$, polynomials with real coefficients such as ${3x^4+\pi{}x^2-ex+\sqrt{5}}$?
+  \item The \emph{normalized} subset of $\mathbb{Q}[x]$ with leading coefficient equal to 1?
+    \begin{itemize}
+      \item Under \code{ordinary} addition and multiplication?
+      \item Can you define an alternative addition and multiplication which makes $S$ a ring?
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
