@@ -405,6 +405,7 @@ well-determined, element of~$Y$.
   \includegraphics[width=\textwidth]{galois.png}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Monoid}
   \begin{definition}[Monoid]
@@ -416,6 +417,288 @@ well-determined, element of~$Y$.
     \end{enumerate}
   \end{definition}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Examples of monoid}
+  
+  \begin{itemize}
+  \item  $(\mathbb{N},+)$, the set of natural numbers under addition is a monoid.
+    
+  \item $(\mathbb{Z},-)$, the set of integers under subtraction is NOT a monoid.  Why?
+    
+  \item The set of even integers under addition is a monoid.
+    
+  \item The set of even integers under multiplication is a NOT monoid.  Why?
+    
+  \item ${(\mathbb{R},\times)}$, the set of positive real numbers under multiplication is a monoid.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of monoid}
+  
+  \begin{itemize}
+  \item The set of $2\times 3$ matrices under addition is a monoid.
+    
+  \item The set of $2\times 3$ matrices under multiplication is not a monoid. Why?
+    
+  \item However the set of $3\times 3$  matrices under multiplication is a monoid.
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of monoid}
+  
+  \begin{itemize}
+  \item The set of subsets of a given set using the operation of union is a monoid.  What is the identity element?
+    
+  \item The set of subsets of a given set using the operation of intersection is a monoid.  What is the identity element?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The free monoid}
+  
+  Let ${\Sigma = \{a,b,c,d\}}$.
+  
+  The set, ${\mathcal{L}(\Sigma)}$, of all sequences of finite length
+  $(x_1, x_2, \ldots, x_n)$ for which $x_i \in \Sigma$ for $i=1, 2, \ldots, n$, $n\ge 0$.
+  
+  
+  Let $+$ denote sequence concatenation.  \Eg,
+  \[(a,c,a,a) + (d,a,c,a,b) = (a,c,a,a,d,a,c,a,b)\,.\]
+  ${\mathcal{L}(\Sigma)}$ is a monoid.
+  
+  What is its identity element?
+  
+  Is it a commutative monoid?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clock addition}
+  The integers, $\{1, 2, 3, ..., 12\}$ form a additive monoid.
+    \begin{center}
+    \small
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      + & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 &12\\
+      \hline
+      \hline 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1\\
+      \hline 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2\\
+      \hline 3& 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3\\
+      \hline 4& 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4\\
+      \hline 5& 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5\\
+      \hline 6& 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6\\
+      \hline 7& 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7\\
+      \hline 8& 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8\\
+      \hline 9& 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9\\
+      \hline 10& 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+      \hline 11& 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+      \hline 12& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11& 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clock multiplication}
+  The integers, $\{1, 2, 3, ..., 12\}$ form a multiplicative monoid.
+    \begin{center}
+    \small
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline
+      \hline 1 & 1  & 2  & 3  & 4  & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+      \hline 2 & 2  & 4  & 6  & 8  & 10 & 12 & 2  & 4  & 6  & 8  & 10 & 12\\
+      \hline 3 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12 & 3  & 6  & 9  & 12\\
+      \hline 4 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12 & 4  & 8  & 12\\
+      \hline 5 & 5  & 10 & 3  & 8  & 1  & 6  & 11 & 4  & 9  & 2  & 7  & 12\\
+      \hline 6 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12 & 6  & 12\\
+      \hline 7 & 7  & 2  & 9  & 4  & 11 & 6  & 1  & 8  & 3  & 10 & 5  & 12\\
+      \hline 8 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12 & 8  & 4  & 12\\
+      \hline 9 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12 & 9  & 6  & 3  & 12\\
+      \hline 10& 10 & 8  & 6  & 4  & 2  & 12 & 10 & 8  & 6  & 4  & 2  & 12\\
+      \hline 11& 11 & 10 & 9  & 8  & 7  & 6  & 5  & 4  & 3  & 2  & 1  & 12\\
+      \hline 12& 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 12\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is a group?}
+  
+\begin{definition}[Group]
+$(S,\circ)$ is called a \emph{group} if
+\begin{enumerate}
+\item $(S,\circ)$ is a monoid.
+\item Inverse: $\forall a\in S~\exists a^{-1}\in S$ such that $a\circ a^{-1} = a^{-1} \circ a = e$
+\end{enumerate}
+
+\medskip
+
+If $a\circ b = b\circ a$ for all $a,b\in S$, then we call S an \emph{Abelian} group.
+\end{definition}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of group}
+  \begin{itemize}
+\item The set of integers, ${\mathbb{Z} = \{0, \pm 1, \pm 2, \ldots\}}$, is a group under
+integer addition.   Why?
+\begin{itemize}
+\item $(\mathbb{Z},+)$ is a monoid with $0$ being the identity.
+\item If $a \in \mathbb{Z}$ there exists $b\in\mathbb{Z}$ such that $a+b=0$.  \Eg,   ${12 + (-12) = 0}$
+\end{itemize}
+\item The integers under multiplication is not a group.  Why?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of group}
+  Is the set of rotations of the Rubik's cube a group?
+
+  \medskip
+  
+  If so, what is the identity, and what are the inverses?
+  \centering
+  \includegraphics[width=5cm]{Rubiks_cube.png}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of group}
+
+  Is the set of $3\times 3$ matrices of real numbers is a group.
+
+  \medskip
+
+  Why? or Why not?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of group}
+  \begin{itemize}
+
+  \item Is the set of subsets of a given set, $G$, using the operation of union a group.  Why? Why not?
+  \item The set subsets of a given set, $G$, using
+  \[A\circ B = (A\cap  \overline{B}) \cup (\overline{A}\cap B)\]
+  as the operation, is a group.
+  \begin{itemize}
+  \item Every element is its own inverse.
+  \item The identity element is the empty set, $\emptyset$.
+  \end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Clock multiplication}
+  The 11-clock
+
+    \begin{center}
+    \small
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10& 11\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9& 11\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8& 11\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7& 11\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6& 11\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5& 11\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4& 11\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3& 11\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2& 11\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1& 11\\
+\hline 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11& 11\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of group}
+  The non-11 elements of the 11-clock
+
+    \begin{center}
+    \small
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|}
+      * & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+      \hline
+\hline 1& 1& 2& 3& 4& 5& 6& 7& 8& 9& 10\\
+\hline 2& 2& 4& 6& 8& 10& 1& 3& 5& 7& 9\\
+\hline 3& 3& 6& 9& 1& 4& 7& 10& 2& 5& 8\\
+\hline 4& 4& 8& 1& 5& 9& 2& 6& 10& 3& 7\\
+\hline 5& 5& 10& 4& 9& 3& 8& 2& 7& 1& 6\\
+\hline 6& 6& 1& 7& 2& 8& 3& 9& 4& 10& 5\\
+\hline 7& 7& 3& 10& 6& 2& 9& 5& 1& 8& 4\\
+\hline 8& 8& 5& 2& 10& 7& 4& 1& 9& 6& 3\\
+\hline 9& 9& 7& 5& 3& 1& 10& 8& 6& 4& 2\\
+\hline 10& 10& 9& 8& 7& 6& 5& 4& 3& 2& 1\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is a ring?}
+  \begin{definition}[Ring]
+$(S,+,\times)$ is called a \emph{ring} if
+\begin{enumerate}
+\item $(S,+)$ is an Abelian group.
+\item $(S,\times)$ is a monoid.
+\item Distributive: $a,b,c  \in S \implies a\times(b+c)=(a\times b)+(a\times c)$.
+\end{enumerate}    
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of ring}
+  \begin{itemize}
+  \item The integers $(\mathbb{Z},+,\times)$ is a ring.
+  \item The integers $(\mathbb{N},+,\times)$ is not a ring.  Why?
+  \item The set of $n\times n$ matrices, for a fixed value of $n>0$ is a ring.
+  \item The set of $2\times 3$ matrices is not a ring.  Why?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Examples of ring}
+  \begin{itemize}
+  \item The set of polynomials with integer coefficients such as ${3x^4+2x^2-5x+1}$?
+  \item The set of polynomials with real coefficients such as ${3x^4+\pi{}x^2-ex+\sqrt{5}}$?
+  \item The set of polynomials with rational coefficients with leading
+    coefficient equal to 1?
+  \begin{itemize}
+    \itemn Under \code{normal} addition and multiplication?
+  \item Can you define an alternative addition and multiplication which makes this set a ring?
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+
+
 \section{Analysis}
 
 \begin{frame}
