@@ -259,8 +259,12 @@ to the URL already in the web browser.
 \begin{frame}
   \frametitle{What is a function?}
 
+  You may already have some intuition about functions.
+
+  \medskip
+  
 \begin{itemize}  
-  \item You may already have some intuition about functions.
+
 
   \item A functions may have a name: $\sin$, $\cos$, and $\log$.
 
@@ -272,7 +276,8 @@ to the URL already in the web browser.
 \begin{frame}
   \frametitle{What is a function?}
 
-  A function such as
+  \begin{definition}[function]
+  A \emph{function}, $f$, with domain $X$ and range $Y$, denoted
 \[f : X \to Y\]
 is a correspondence between two sets. 
 
@@ -282,7 +287,7 @@ If $x\in X$, then~$f(x)$ designates a unique,
 well-determined, element of~$Y$.
 
 \[x \in X \implies f(x) \in Y\,.\]
-
+\end{definition}
 \end{frame}
 
 
@@ -374,12 +379,26 @@ well-determined, element of~$Y$.
 
 \begin{frame}
   \frametitle{Subsets of size $n$}
-\begin{equation*}
+\begin{equation}
   \mathbb{P}_n(S) = \begin{cases}
     \{\emptyset\} &\,; \text{if $n=0$}\\
     \big\{\{x\} \cup y \mid x \in S, y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
   \end{cases}
-\end{equation*}
+\end{equation}
+
+\medskip
+
+Equivalently
+
+\medskip
+
+\begin{equation}
+  \mathbb{P}_n(S) = \begin{cases}
+    \{\emptyset\} &\,; \text{if $n=0$}\\
+    \bigcup_{x\in S}\big\{\{x\} \cup y \mid y \in \mathbb{P}_{n-1}(S \setminus \{x\})\big\}  &\,; \text{if $n > 0$}
+  \end{cases}
+\end{equation}
+
 \end{frame}
 
 
