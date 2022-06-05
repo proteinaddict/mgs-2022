@@ -18,6 +18,14 @@
   \addstackgap{\usebox{\mybox}}}}
 \newtheorem{definition}{Definition}
 
+\newcommand\vs{\textit{vs.}\xspace}
+\newcommand\eg{\textit{e.g.}\xspace}
+\newcommand\Eg{\textit{E.g.}\xspace}
+\newcommand\ie{\textit{i.e.}\xspace}
+\newcommand\Ie{\textit{I.e.}\xspace}
+
+
+
 \title{Advanced Math and Functional Programming,\\
 2022 Mississippi Governor's School}
 
@@ -612,7 +620,8 @@ numbers.  Let $F(n)$ denote the n'th Fibonacci number.
 
 
 
-Likewise, we can define the set of subsets of size $n$
+Likewise, we can define the set of subsets of size $n$.  We use set
+comprehension notation, see Section~\ref{sec.set.comprehension}.
 
 \begin{equation}\label{eq.cases.1}
   \mathbb{P}_n(S) = \begin{cases}
@@ -625,6 +634,43 @@ Notice that Equation~\eqref{eq.cases.1} specifies a function, not of
 numbers, but of sets.  Its input is a set, and its output is a set of
 sets.  I.e., the domain of $\mathbb{P}_n$ is a set of sets, and its
 range is a set of sets of sets.
+
+\section{Set comprehension}
+\label{sec.set.comprehension}
+
+One useful way to define subsets is with a set comprehension. In its
+simplest form, it specifies the subset of elements which obey a given
+predicate. A predicate is a Boolean valued function, \ie a function
+whose value is either $true$ or $false$.  If $S$ is a set, and the
+$p$ is a predicate defined on $S$, then the subset of elements, $x$,
+for which $p(x)$ is $true$ is denoted:
+
+\[\{x \mid x\in S, p(x)\}\,.\]
+
+We may also compose conjoin multiple prediates such as
+
+
+\[\{x \mid x\in S , p(x) , q(x)\}\,.\]
+
+
+For example, the set of even integers between 0 and 100 inclusive may be denoted as such:
+
+\[\{x \mid x\in \mathbb{Z}, \mathit{even}(x), 0 \leq x \leq 100 \}\,.\]
+
+Finally, the value on the left hand side need not be a simple variable
+such as $x$; rather it may an expression.  For example the squares of
+the even integers between 0 and 100 can be expressed as follows:
+
+
+\[\{x^2 \mid x\in \mathbb{Z}, \mathit{even}(x), 0 \leq x \leq 100 \}\,.\]
+
+In Section~\ref{sec.recurrence}, we saw a set comprehension which
+defines the subsets of size $n$.  As a final example suppose
+$S=\{0,1,2,3\}$, and that $T$ is the set of all 2-element subsets of
+$S$ which do not contain $2$.
+
+The set of 3-element subsets of $S$ which contain $2$ can be written:
+\[\{\{2\}\cup y \mid y\in T\}\,.\]
 
 
 \clearpage\section{Programming perspective}
