@@ -23,24 +23,8 @@ import scala.util.Random
 
 class AbstractAlgebraTestSuite extends AnyFunSuite {
 
-  import AbstractAlgebra._
-
-  test("groupByStringSize") {
-    assert(groupByStringSize(Seq("a","aa","aaa","b","bbb")) == Map(1 -> Seq("a","b"),
-                                                                   2 -> Seq("aa"),
-                                                                   3 -> Seq("aaa","bbb")))
-  }
-
-  test("groupByMinElement") {
-   assert(groupByMinElement(Seq(Set(1),Set(2,3),Set(1,2,3))) == Map(1 -> Seq(Set(1),Set(1,2,3)),
-                                                                    2 -> Seq(Set(2,3))))
-  }
-
-  test("groupByModulus") {
-    assert(groupByModulus(0, 10, 3) == Map(0 -> Seq(0, 3, 6, 9),
-                                           1 -> Seq(1, 4, 7, 10),
-                                           2 -> Seq(2, 5, 8)))
-  }
+  import algebra.Matrix._
+  import algebra.Complex._
 
   test("matrixAdd") {
     assert(matrixAdd(Vector(Vector(1, 2, 3),
@@ -100,34 +84,34 @@ class AbstractAlgebraTestSuite extends AnyFunSuite {
   test("matrix addition commutative") {
     for {n <- 1 to 5
          _ <- 0 to 1000
-         a = randomMatrix(n)
-         b = randomMatrix(n)
+         a = matrixRandom(n)
+         b = matrixRandom(n)
          } assert(matrixAdd(a, b) == matrixAdd(b, a))
   }
 
   test("matrix addition associative") {
     for {n <- 1 to 5
          _ <- 0 to 1000
-         a = randomMatrix(n)
-         b = randomMatrix(n)
-         c = randomMatrix(n)
+         a = matrixRandom(n)
+         b = matrixRandom(n)
+         c = matrixRandom(n)
          } assert(matrixAdd(a, matrixAdd(b, c)) == matrixAdd(matrixAdd(a, b), c))
   }
 
   test("matrix multiplication associative") {
     for {n <- 1 to 5
          _ <- 0 to 1000
-         a = randomMatrix(n)
-         b = randomMatrix(n)
-         c = randomMatrix(n)
+         a = matrixRandom(n)
+         b = matrixRandom(n)
+         c = matrixRandom(n)
          } assert(matrixMultiply(a, matrixMultiply(b, c)) == matrixMultiply(matrixMultiply(a, b), c))
   }
 
   test("complex multiplication commutative") {
     val rand = new Random()
     for {_ <- 0 to 1000
-         a = (rand.between(-10, 10), rand.between(-10, 10))
-         b = (rand.between(-10, 10), rand.between(-10, 10))
+         a = (rand.between(-10, 10).toDouble, rand.between(-10, 10).toDouble)
+         b = (rand.between(-10, 10).toDouble, rand.between(-10, 10).toDouble)
          } assert(complexMultiply(a, b) == complexMultiply(b, a))
   }
 }

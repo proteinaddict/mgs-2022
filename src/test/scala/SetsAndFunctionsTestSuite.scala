@@ -71,13 +71,13 @@ class SetsAndFunctionsTestSuite extends AnyFunSuite {
   }
 
   test("power") {
-    assert(power(3, "x") == "xxx")
-    assert(power(3, List(1, 2)) == List(1, 2, 1, 2, 1, 2))
-    assert(power(3, 4.0) == 4.0 * 4.0 * 4.0)
+    assert(power("x", 3) == "xxx")
+    assert(power(List(1, 2), 3) == List(1, 2, 1, 2, 1, 2))
+    assert(power(4.0, 3) == 4.0 * 4.0 * 4.0)
 
-    assert(power(0, "x") == "")
-    assert(power(0, 13.0) == 1.0)
-    assert(power(0, List(1, 2)) == List())
+    assert(power("x", 0) == "")
+    assert(power(13.0, 0) == 1.0)
+    assert(power(List(1, 2), 0) == List())
   }
 
   test("factorial") {
