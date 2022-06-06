@@ -7,9 +7,10 @@ code which you will write.
 
 Enjoy!
 
-# Lecture notes
+# Material presented in class
 
-No lecture notes yet available.
+[Lecture slides](doc/mgs-2022-slides.pdf)
+[Lecture notes (long form)](doc/mgs-2022-syllabus.pdf)
 
 # The development environment
 
