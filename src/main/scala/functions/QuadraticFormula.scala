@@ -1,6 +1,8 @@
 package functions
 
 import scala.math.sqrt
+import cats.instances.int
+import scala.collection.View
 
 object QuadraticFormula {
   // TASK:
@@ -8,10 +10,23 @@ object QuadraticFormula {
 
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
     List(
-      (-b + sqrt(b * b - 4 * a * c)) / (2 * a),
+      (-b + sqrt(b * b - 4 * a * c )) / (2 * a),
       (-b - sqrt(b * b - 4 * a * c)) / (2 * a)
     ).distinct
+  } 
+  def discriminant(a: Int, b:Int, c: Int): Int = {
+    val d = discriminant(a, b, c)
+    if (d == 0) 
+    if {d > 0}
+  (b*b-4*a*c(-b-sqrt))/-(2*a) 
   }
+ def main(argv: Array[String]): Unit = {
+   println(quadraticformula(1, 2, -3))
+   println(quadraticformula(-1, 3, 7))
+  }
+
+
+
 
   // TASK:
   //    Update the formula to compute the discriminant,
