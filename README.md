@@ -9,8 +9,8 @@ Enjoy!
 
 # Material presented in class
 
-[Lecture slides](doc/mgs-2022-slides.pdf)
-[Lecture notes (long form)](doc/mgs-2022-syllabus.pdf)
+- [Lecture slides](doc/mgs-2022-slides.pdf)
+- [Lecture notes (long form)](doc/mgs-2022-syllabus.pdf)
 
 # The development environment
 
