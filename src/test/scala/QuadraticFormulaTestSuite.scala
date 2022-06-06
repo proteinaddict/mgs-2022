@@ -28,9 +28,11 @@ class QuadraticFormulaTestSuite extends AnyFunSuite {
   test("quadraticFormula") {
     assert(quadraticFormula(1, 0, 0) == List(0.0))
     assert(
-      quadraticFormula(1, 2, 3).size == 2
-    ) // assert that there are two roots
-    println(quadraticFormula(1, 1, 1))
+      quadraticFormula(1, 2, 3).size == 0
+    )
+    assert(quadraticFormula(-1,2,3).size==2)
+    assert(quadraticFormula(1,-2,-3).size==2)
+    assert(quadraticFormula(1,0,0).size == 1)
   }
 
   test("quadraticFormula check roots") {
@@ -38,9 +40,10 @@ class QuadraticFormulaTestSuite extends AnyFunSuite {
     // to check the quadraticFormula function
     val epsilon = 0.001
 
-    def check(r1: Double, r2: Double, a: Double, b: Double, c: Double): Unit = {
+    def check(r1: Double, r2: Double,
+              a: Int, b: Int, c: Int): Unit = {
       def p1(x: Double): Double = {
-        (x - r1) * (x - r2)
+        a * (x - r1) * (x - r2)
       }
 
       def p2(x: Double): Double = {
@@ -50,7 +53,7 @@ class QuadraticFormulaTestSuite extends AnyFunSuite {
       for {i <- -100 to 100
            x = i.toDouble / 13} {
         assert(abs(p1(x) - p2(x)) < epsilon,
-               s"wrong roots for a=$a b=$b c=$c, with x=$x  p1(x)=${p1(x)} p2(x)=${p2(x)}")
+               s"\n  wrong roots r1=$r1, r2=$r2\n  for a=$a b=$b c=$c,\n  with x=$x  p1(x)=${p1(x)} p2(x)=${p2(x)}")
       }
     }
 
