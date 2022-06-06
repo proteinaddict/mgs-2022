@@ -17,14 +17,19 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import org.scalatest.funsuite.AnyFunSuite
-import functions.Fibonacci._
-import functions.QuadraticFormula._
-import functions.FastPower._
-import functions.Factorial._
 import functions.CountSubsets._
-import scala.math.abs
+import functions.FastPower._
+import functions.Fibonacci._
+import org.scalatest.funsuite.AnyFunSuite
 
-class SetsAndFunctionsTestSuite extends AnyFunSuite {
+class FastPowerTestSuite extends AnyFunSuite {
+  test("power") {
+    assert(power("x", 3) == "xxx")
+    assert(power(List(1, 2), 3) == List(1, 2, 1, 2, 1, 2))
+    assert(power(4.0, 3) == 4.0 * 4.0 * 4.0)
 
+    assert(power("x", 0) == "")
+    assert(power(13.0, 0) == 1.0)
+    assert(power(List(1, 2), 0) == List())
+  }
 }

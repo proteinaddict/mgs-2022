@@ -17,14 +17,26 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import org.scalatest.funsuite.AnyFunSuite
 import functions.Fibonacci._
-import functions.QuadraticFormula._
-import functions.FastPower._
-import functions.Factorial._
-import functions.CountSubsets._
-import scala.math.abs
+import org.scalatest.funsuite.AnyFunSuite
 
-class SetsAndFunctionsTestSuite extends AnyFunSuite {
+class FibonacciTestSuite extends AnyFunSuite {
 
+  test("fibonacci base"){
+    assert(fibonacci(0) == 1)
+    assert(fibonacci(1) == 1)
+  }
+
+  test("fibonacci") {
+    assert(fibonacci(2) == 2)
+    assert(fibonacci(3) == 3)
+    assert(fibonacci(4) == 5)
+    assert(fibonacci(5) == 8)
+    assert(fibonacci(6) == 13)
+  }
+
+  test("fibonacci range"){
+    for { n <- 5 to 12
+          } assert(fibonacci(n) == (fibonacci(n-1) + fibonacci(n-2)))
+  }
 }

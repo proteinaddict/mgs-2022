@@ -17,14 +17,29 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import org.scalatest.funsuite.AnyFunSuite
+import functions.CountSubsets._
+import functions.Factorial._
+import functions.FastPower._
 import functions.Fibonacci._
 import functions.QuadraticFormula._
-import functions.FastPower._
-import functions.Factorial._
-import functions.CountSubsets._
+import org.scalatest.funsuite.AnyFunSuite
+
 import scala.math.abs
 
-class SetsAndFunctionsTestSuite extends AnyFunSuite {
+class FactorialTestSuite extends AnyFunSuite {
+  test("factorial") {
+    assert(factorial(1) == 1)
+    assert(factorial(3) == 6)
+    assert(factorial(7) == 7 * factorial(6))
+  }
 
+  test("factorial base"){
+    assert(factorial(0) == 1)
+  }
+
+  test("factorials 15"){
+    for{n <- 1 to 15
+        }
+      assert(factorial(n) == factorial(n-1) * n)
+  }
 }
