@@ -20,7 +20,7 @@
 import org.scalatest.funsuite.AnyFunSuite
 import functions.Fibonacci._
 import functions.QuadraticFormula._
-import functions.FastPower._
+import functions.Power._
 import functions.Factorial._
 import functions.CountSubsets._
 import scala.math.abs

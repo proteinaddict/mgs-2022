@@ -1,6 +1,6 @@
 package functions
 
-object FastPower {
+object Power {
 
   // TASK:
   //     Implement two functions named power, one which accepts

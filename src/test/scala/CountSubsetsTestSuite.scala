@@ -19,7 +19,7 @@
 
 import functions.CountSubsets._
 import functions.Factorial._
-import functions.FastPower._
+import functions.Power._
 import functions.Fibonacci._
 import functions.QuadraticFormula._
 import org.scalatest.funsuite.AnyFunSuite

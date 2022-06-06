@@ -17,12 +17,10 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import functions.CountSubsets._
-import functions.FastPower._
-import functions.Fibonacci._
+import functions.Power._
 import org.scalatest.funsuite.AnyFunSuite
 
-class FastPowerTestSuite extends AnyFunSuite {
+class PowerTestSuite extends AnyFunSuite {
   test("power") {
     assert(power("x", 3) == "xxx")
     assert(power(List(1, 2), 3) == List(1, 2, 1, 2, 1, 2))
