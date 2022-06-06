@@ -2,16 +2,39 @@ package functions
 
 import scala.math.sqrt
 
-object QuadraticFormula {
+object QuadraticFormula 
+{
   // TASK:
   //      Write a test to validate the following function.
 
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
-    List(
-      (-b + sqrt(b * b - 4 * a * c)) / (2 * a),
-      (-b - sqrt(b * b - 4 * a * c)) / (2 * a)
+    val d = discriminant(a,b,c)
+    //List(
+      //(-b + sqrt(b * b - 4 * a * c)) / (2 * a),
+      //(-b - sqrt(b * b - 4 * a * c)) / (2 * a)
+    //).distinct
+     List(
+      (b * b - 4 * a * c)
     ).distinct
   }
+  if (d == 0)
+    {
+      List( - b / (2 * a))
+    }
+  else if (d > 0)
+    {
+      List (
+      (- b + sqrt(d)) / (2 * a), 
+      ((- b - sqrt(d)) / (2 * a))
+      ).distinct
+    }
+  else (d < 0)
+    {
+      println()
+    }
+}
+
+   
 
   // TASK:
   //    Update the formula to compute the discriminant,
@@ -28,7 +51,7 @@ object QuadraticFormula {
 
   def main(argv: Array[String]): Unit = {
     println("Hello this is main of QuadraticFormula")
-    println(quadraticFormula(1, 2, -3))
-    println(quadraticFormula(-1, 3, 7))
+    println(quadraticFormula(1, 2, -3).sorted)
+    println(quadraticFormula(-1, 3, 7).sorted)
   }
 }
