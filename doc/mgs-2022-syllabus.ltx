@@ -782,32 +782,34 @@ Figure~\ref{fig.scala.program} shows some of the elements of a Scala program.
 
 \end{enumerate}
 
-\subsection{Live coding}
-We implement the \code{fixedSizedSubsets} in live-coding.  The program
-will be modeled after equation~\eqref{eq.cases.1} in
-Section~\ref{sec.recurrence}.
-
-We write some tests.  Some of which pass, and some of which fail.  To compute
-the number of subsets of size $k$ of a set of size $n$ we need to
-compute~$n \choose k$ using the \code{factorial} function, which you
-will develop.
-
-\subsection{Other programming constructs}
+\subsection{Some other programming constructs}
 
 \begin{enumerate}
 
-\item Conditionals, pattern matching
+\item Conditionals
 
 \item Recursive functions
 
 \item Collection types: \code{List[]}, \code{Tuple[]}, \code{Vector[]}, \code{Set[]}.
-
-\item Pattern matching and destructuring
   
 \end{enumerate}
 
 
+\subsection{Live coding}
+\label{sec.live.coding.fixed.sized.subsets}
+We implement the \code{fixedSizedSubsets} in live-coding.  The program
+will be modeled after equation~\eqref{eq.cases.1} in
+Section~\ref{sec.recurrence}.
 
+We write some tests.  Some of which pass, and some of which fail.  To
+compute the number of subsets of size $k$ of a set of size $n$ we need
+to compute~$n \choose k$ using the \code{factorial} function, which
+you will develop.
+
+
+You will also implement \code{countFixedSizedSubsets} as part of your
+programming exercises.  This function is also needed to pass the
+tests.
 
 
 \clearpage
@@ -856,7 +858,6 @@ then
 \end{itemize}
 
 
-\clearpage
 \subsection{Recursive Functions}
 \label{sec.recursive.functions}
 \begin{itemize}
@@ -865,12 +866,11 @@ then
   negative exponent.
 \item Implement \code{String} concatenation using the power model.
 \item Implement \code{List} concatenation using the power model.
-\item Implement \code{factorial}.
-\item Use \code{factorial} to test n-sized subsets.  We develop the
-  n-sized subsets function in class.
+\item Implement \code{factorial}.  You will use \code{factorial} in
+  Secion~\ref{sec.ex.counting.subsets}.
 \end{itemize}
   
-\textbf{Discussion:} Do we
+\textbf{Discussion:} In the \code{factorial} function, do we
   need a case for $n=0$ and also $n=1$?  How does this relate to the
   principle of induction?  Look up \emph{Principle of Induction} if
   you need to review it.
@@ -887,6 +887,22 @@ then
 \end{itemize}
 
 
+\subsection{Counting subsets}
+\label{sec.ex.counting.subsets}
+\begin{itemize}
+\item Find the file \code{CountSubsets.scala}.
+\item In Section~\ref{sec.live.coding.fixed.sized.subsets} we
+  implemented (will implement) \code{fixedSizedSubsets} as live
+  coding.  You should \code{git pull} to update your workspace to
+  reflect the work done in class.
+
+\item Implement \code{countFixedSizedSubsets} in the file
+  \code{CountSubsets.scala}.  There is a comment on the function stub.
+  You may need to access the internet to find the correct formulas
+  needed.
+
+\item Make sure all the tests pass in \code{SetsAndFunctionsTestSuite.scala}.
+\end{itemize}
 
 \chapter{Abstract Algebra}
 
