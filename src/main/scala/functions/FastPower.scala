@@ -10,11 +10,19 @@ object FastPower {
   //      Why can it not?
   //
   def power(b: Int, n: Int): Int = {
-    ???
+    if (n == 0)
+      1
+    else
+      b * power(b, n - 1)
   }
 
   def power(b: Double, n: Int): Double = {
-    ???
+    if (n == 0)
+      1
+    else (n > 0)
+      b * power(b, n - 1)
+    else (n < 0)
+      1 / (b * power(b, n-1))
   }
 
   // TASK:
@@ -33,6 +41,6 @@ object FastPower {
   }
 
   def main(argv: Array[String]): Unit = {
-
+    println(power(3, 5))
   }
 }

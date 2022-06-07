@@ -2,9 +2,15 @@ package functions
 
 import scala.math.sqrt
 
-object QuadraticFormula 
   // TASK: 
   //      Write a test to validate the following function.
+
+  object QuadraticFormula {
+
+ def discriminant(a: Int, b: Int, c: Int): Int={
+
+  b*b -(4 * a * c)
+ }
 
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
     val d = discriminant(a, b, c) 
@@ -16,13 +22,9 @@ object QuadraticFormula
         List ()
          List(
          (-b + sqrt(d) / (2 * a)),
-         (-b - sqrt(d) / (2 * a))
+         (-b - sqrt(d) / (2 * a)))
   }
 
-def discriminant(a: Int, b: Int, c: Int): Int{
-
-  b * b -(4 * a * c)
-}
   // TASK:
   //    Update the formula to compute the discriminant,
   //    and detect whether there are zero, one, or two real roots.
@@ -41,4 +43,4 @@ def discriminant(a: Int, b: Int, c: Int): Int{
     println(quadraticFormula(1, 2, -3))
     println(quadraticFormula(-1, 3, 7))
   }
-}
+  }
