@@ -21,13 +21,30 @@ import functions.Power._
 import org.scalatest.funsuite.AnyFunSuite
 
 class PowerTestSuite extends AnyFunSuite {
-  test("power") {
-    assert(power("x", 3) == "xxx")
-    assert(power(List(1, 2), 3) == List(1, 2, 1, 2, 1, 2))
-    assert(power(4.0, 3) == 4.0 * 4.0 * 4.0)
-
-    assert(power("x", 0) == "")
+  test("power Int") {
+    assert(power(1, 12) == 1)
+    assert(power(12, 0) == 1)
+    assert(power(12, 2) == 144)
+    assert(power(2, 8) == 256)
+    assert(power(2,10) == 1024)
+  }
+  
+  test("power Double") {
+    assert(power(3.4, 0) == 1.0)
+    assert(power(3.4, 1) == 3.4)
+    assert(power(3.4, 2) == 3.4 * 3.4)
     assert(power(13.0, 0) == 1.0)
+    assert(power(4.0, 3) == 4.0 * 4.0 * 4.0)
+  }
+
+  test("power String") {
+    assert(power("x", 0) == "")
+    assert(power("x", 1) == "x")
+    assert(power("x", 3) == "xxx")
+  }
+
+  test("power List") {
     assert(power(List(1, 2), 0) == List())
+    assert(power(List(1, 2), 3) == List(1, 2, 1, 2, 1, 2))
   }
 }
