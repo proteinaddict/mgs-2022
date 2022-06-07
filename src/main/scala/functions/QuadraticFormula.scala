@@ -4,31 +4,18 @@ import scala.math.sqrt
 import cats.instances.int
 import scala.collection.View
 
-object QuadraticFormula {
+object QuadraticFormula {//
   // TASK:
   //      Write a test to validate the following function.
+  //      List(...).sorta
+  //      Array: odered list --> accessed by index
 
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
-    List(
-      (-b + sqrt(b * b - 4 * a * c )) / (2 * a),
-      (-b - sqrt(b * b - 4 * a * c)) / (2 * a)
-    ).distinct
-  } 
-  def discriminant(a: Int, b:Int, c: Int): Int = {
-    val d = discriminant(a, b, c)
-    if (d == 0)
-
-    ... 
-
-    else if {d > 0}
-  (b*b-4*a*c(-b-sqrt))/-(2*a) 
-  }
- def main(argv: Array[String]): Unit = {
-   println(quadraticformula(1, 2, -3))
-   println(quadraticformula(-1, 3, 7))
-  }
-
-
+    ???
+      
+  }  
+       
+  
 
 
   // TASK:
