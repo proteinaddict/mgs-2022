@@ -19,7 +19,7 @@ object FastPower {
   def power(b: Double, n: Int): Double = {
     if (n == 0)
       1
-    else (n > 0)
+    else if  (n > 0)
       b * power(b, n - 1)
     else (n < 0)
       1 / (b * power(b, n-1))
