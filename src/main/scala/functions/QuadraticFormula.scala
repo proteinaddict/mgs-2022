@@ -16,8 +16,8 @@ def discriminant(a: Int, b: Int, c: Int) = {
       List(-b /(2 * a))
     else if (d > 0)
       List(
-      (-b + sqrt(d))/(2 * a),
-      (-b - sqrt(d))/(2 * a)
+      (-b - sqrt(d))/(2 * a),
+      (-b + sqrt(d))/(2 * a)
       )
     else
       List()
@@ -40,7 +40,7 @@ def discriminant(a: Int, b: Int, c: Int) = {
 
   def main(argv: Array[String]): Unit = {
     println("Hello this is main of QuadraticFormula")
-    println(quadraticFormula(1, 2, -3).sorted)
-    println(quadraticFormula(-1, 3, 7).sorted)
+    println(quadraticFormula(0, 2, -3).sorted)
+    println(quadraticFormula(0, 3, 7).sorted)
   }
 }
