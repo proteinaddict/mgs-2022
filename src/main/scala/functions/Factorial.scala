@@ -9,12 +9,13 @@ object Factorial {
   //      largest Int for which you can correctly compute the factorial?
   def factorial(n: Int): Int = {
     if (n == 0)
-      1 
-    else 
-      n * factorial(n-1)
+      1
+    else
+      n * factorial(n - 1)
   }
 
   def main(argv: Array[String]): Unit = {
-    println(factorial(4))
+    for { n <- 1 to 20 
+    } println(s"$n --> ${factorial(n)}")
   }
 }

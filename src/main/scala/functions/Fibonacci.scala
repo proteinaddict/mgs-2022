@@ -10,10 +10,11 @@ object Fibonacci {
     else if (n == 2)
       1
     else
-      fibonacci((n - 1)) + fibonacci((n - 2))
+      fibonacci(n - 1) + fibonacci(n - 2)
   }
 
   def main(argv: Array[String]): Unit = {
-    println(fibonacci(3))
+    for{n <- 1 to 20
+    } println(s"$n --> ${fibonacci(n)}")
   }
 }
