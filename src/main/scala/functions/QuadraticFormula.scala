@@ -4,7 +4,9 @@ import scala.math.sqrt
 
 object QuadraticFormula {
 
-
+  def discriminant(a:Int, b:Int, c:Int):Int = {
+    b*b - 4 * a * c
+  }
 
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
     val d = discriminant(a,b,c)
