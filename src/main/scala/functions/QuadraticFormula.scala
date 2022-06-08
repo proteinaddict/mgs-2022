@@ -3,8 +3,6 @@ package functions
 import scala.math.sqrt
 
 object QuadraticFormula {
-  // TASK:
-  //      Write a test to validate the following function.
 
 def discriminant(a: Int, b: Int, c: Int) = {
   (b * b - 4 * a * c) 
