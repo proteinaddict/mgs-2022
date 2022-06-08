@@ -22,7 +22,7 @@ object QuadraticFormula {
 
   }
 
-  def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
+   def main(argv: Array[String]): Unit = {
     val d = discriminant(a,b,c)
     // if there is 1 root, return it as a singleton list
     if ( d == 0)
