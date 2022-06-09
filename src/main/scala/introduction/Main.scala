@@ -1,5 +1,6 @@
 package introduction
 
+
 import cats.instances.string
 
 object Main {

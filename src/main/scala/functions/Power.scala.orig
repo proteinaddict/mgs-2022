@@ -24,6 +24,7 @@ object Power {
       1 / power(b, -n)
     else
      b * power(b, n - 1)
+
   }
 
   // TASK:
@@ -42,6 +43,6 @@ object Power {
   }
 
   def main(argv: Array[String]): Unit = {
-    println(power(3.0, -3))
+
   }
 }
