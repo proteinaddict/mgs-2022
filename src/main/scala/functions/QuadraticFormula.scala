@@ -1,14 +1,14 @@
 package functions
 
 import scala.math.sqrt
-
+import cats.instances.int
+import scala.collection.View
 object QuadraticFormula {
 
 // the sign of the discriminant determines how many real roots the polynomial has
   def discriminant(a: Int, b: Int, c: Int): Int = {
     b * b - 4 * a * c
   }
-
   def quadraticFormula(a: Int, b: Int, c: Int): List[Double] = {
     val d = discriminant(a, b, c)
     // if there is 1 root, return it as a singleton list
