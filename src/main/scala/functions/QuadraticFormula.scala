@@ -41,7 +41,6 @@ object QuadraticFormula {
 
   def main(argv: Array[String]): Unit = {
     println("Hello this is main of QuadraticFormula")
-    println(quadraticFormula(0, 2, -3).sorted)
-    println(quadraticFormula(0, 3, 7).sorted)
+
   }
 }
