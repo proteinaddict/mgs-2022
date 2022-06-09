@@ -10,8 +10,6 @@ object ChallngingExercises2 {
                } 
                yield List(a, b, c)
               }
-
-
   def main(argv: Array[String]): Unit = {
     println(pythagoreamtriple(1, 613))
 
