@@ -8,6 +8,7 @@
 \usepackage{svg}
 \usepackage{xspace}
 \usepackage{amssymb}
+\usepackage{cancel}
 \usepackage{color,colortbl}
 \definecolor{code}{rgb}{ 0,0,0}
 \newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
@@ -975,8 +976,6 @@ shows an example of his handwriting.
 \label{fig.galois.hand}
 \end{figure}
 
-
-
 In this unit we will study sets with mathematical structure.  This
 approach to \emph{abstract algebra} is of course much cleaner than
 that introduced by Galois.  Galois somewhat flippantly introduced the
@@ -1683,7 +1682,41 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \includegraphics[width=0.85\textwidth]{coding.jpg}
 \end{figure}
 
+\subsection{Compute number of combinations}
+Recall the definition
+\[{n\choose k} = \frac{n!}{k!(n-k)!}\,.\]
+Write function to compute this quanity two different ways.
+\begin{enumerate}
+\item Compute it directly by computing the three factorials and performing
+  the integer division.
+\item Rather than computing $n!$ directly, express it as a list of
+  prime factors.  \Ie,
+  \begin{itemize}
+  \item implement a function which, given $n$, uses
+    recursion to implement a function returns the prime factors of $n$.
+  \item Use that function to implement a function which, given $n$, returns
+    the prime factors of $n!$.
+  \item Effectively perform the division by
+    removing all the prime factors in the denominator, $k!(n-k)!$, from
+    those of the denominator, $n!$.
+  \item Finally, multiply the remaining
+    factors to compute~$n\choose k$.
+  \end{itemize}
+\end{enumerate}
 
+\Eg,
+\begin{align*}
+  {7\choose 3} &= \frac{7}{3!(7-3)!}\\
+  &= \frac{7}{3!~\cdot~4!}\\
+  &= \frac{7\cdot 6\cdot 5\cdot 4\cdot 3\cdot 2}{(3\cdot 2)(4\cdot 3\cdot 2)}\\  &= \frac{7\cdot \cancel{3}\cdot \cancel{2}
+    \cdot 5\cdot \cancel{2\cdot 2\cdot 3\cdot 2}}{(\cancel{3}\cdot \cancel{2})(\cancel{2\cdot 2\cdot 3\cdot 2})}\\
+  &= 7 \cdot 5\\
+  &= 35
+\end{align*}
+
+Compare the two functions both in terms of computation time, and also
+find values of $n\choose k$ which are computable by one function but
+not the other because of integer overflow.
 
 \subsection{Team Project: Structure Recognition}
 \label{sec.team.project.structures}
@@ -1756,10 +1789,27 @@ ${x_{right} - x_{left} < \varepsilon}$.
   \code{polyAlmostEqual}?  Can we detect whether two polynomials are
   exactly equal?
 \item Every odd degree polynomial has a real root.  Can you justify
-  this claim?  Write a function to find (estimate) at least one real root of a
-  given odd-degree polynomial.
+  this claim?  Write a function which uses a binary search to find
+  (estimate) at least one real root of a given odd-degree polynomial.
 \item Can you implement \code{polynomialPower} using
   \code{fastPower}.  Is it faster than an iterative implementation?
+\item Given a list of roots (perhaps with repeated roots), generate
+  the polynomial.  Do this in two ways:
+  \begin{enumerate}
+  \item Use the polynomial multiply function written above to expand
+    \[(x - r_1)(x - r_2)\ldots(x - r_{n-1})(x - r_n)\,.\]
+  \item Generate the expansion directly by sums of products of subsets.
+    If \[\Pi_{i=1}^n (x - r_i) = \Sigma_{i=0}^n a_{i}x^{n-i}\,\]
+    and if \[S = \{T\in \{r_1\ldots r_n\} \mid~ |T| = n\}\,,\]
+    then
+    \begin{equation}
+      a_k = \begin{cases}
+        1 & \,; \text{if $k=0$}\\
+        \Sigma_{T\in S}\Pi_{k\in T} k & \,; \text{if $1 \leq k \leq n$}
+      \end{cases}
+    \end{equation}
+    
+  \end{enumerate}
 \item Implement a function to generate a randomly selected polynomial
   of a given degree: \code{randomPoly}.
 \end{itemize}
