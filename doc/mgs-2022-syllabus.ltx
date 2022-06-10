@@ -8,6 +8,7 @@
 \usepackage{svg}
 \usepackage{xspace}
 \usepackage{amssymb}
+\usepackage{cancel}
 \usepackage{color,colortbl}
 \definecolor{code}{rgb}{ 0,0,0}
 \newcommand\code[1]{\textcolor{code}{\texttt{#1}}\xspace}
@@ -975,8 +976,6 @@ shows an example of his handwriting.
 \label{fig.galois.hand}
 \end{figure}
 
-
-
 In this unit we will study sets with mathematical structure.  This
 approach to \emph{abstract algebra} is of course much cleaner than
 that introduced by Galois.  Galois somewhat flippantly introduced the
@@ -1790,10 +1789,27 @@ not the other because of integer overflow.
   \code{polyAlmostEqual}?  Can we detect whether two polynomials are
   exactly equal?
 \item Every odd degree polynomial has a real root.  Can you justify
-  this claim?  Write a function to find (estimate) at least one real root of a
-  given odd-degree polynomial.
+  this claim?  Write a function which uses a binary search to find
+  (estimate) at least one real root of a given odd-degree polynomial.
 \item Can you implement \code{polynomialPower} using
   \code{fastPower}.  Is it faster than an iterative implementation?
+\item Given a list of roots (perhaps with repeated roots), generate
+  the polynomial.  Do this in two ways:
+  \begin{enumerate}
+  \item Use the polynomial multiply function written above to expand
+    \[(x - r_1)(x - r_2)\ldots(x - r_{n-1})(x - r_n)\,.\]
+  \item Generate the expansion directly by sums of products of subsets.
+    If \[\Pi_{i=1}^n (x - r_i) = \Sigma_{i=0}^n a_{i}x^{n-i}\,\]
+    and if \[S = \{T\in \{r_1\ldots r_n\} \mid~ |T| = n\}\,,\]
+    then
+    \begin{equation}
+      a_k = \begin{cases}
+        1 & \,; \text{if $k=0$}\\
+        \Sigma_{T\in S}\Pi_{k\in T} k & \,; \text{if $1 \leq k \leq n$}
+      \end{cases}
+    \end{equation}
+    
+  \end{enumerate}
 \item Implement a function to generate a randomly selected polynomial
   of a given degree: \code{randomPoly}.
 \end{itemize}
