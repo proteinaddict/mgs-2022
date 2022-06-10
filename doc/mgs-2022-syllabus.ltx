@@ -1683,7 +1683,41 @@ ${x_{right} - x_{left} < \varepsilon}$.
 \includegraphics[width=0.85\textwidth]{coding.jpg}
 \end{figure}
 
+\subsection{Compute number of combinations}
+Recall the definition
+\[{n\choose k} = \frac{n!}{k!(n-k)!}\,.\]
+Write function to compute this quanity two different ways.
+\begin{enumerate}
+\item Compute it directly by computing the three factorials and performing
+  the integer division.
+\item Rather than computing $n!$ directly, express it as a list of
+  prime factors.  \Ie,
+  \begin{itemize}
+  \item implement a function which, given $n$, uses
+    recursion to implement a function returns the prime factors of $n$.
+  \item Use that function to implement a function which, given $n$, returns
+    the prime factors of $n!$.
+  \item Effectively perform the division by
+    removing all the prime factors in the denominator, $k!(n-k)!$, from
+    those of the denominator, $n!$.
+  \item Finally, multiply the remaining
+    factors to compute~$n\choose k$.
+  \end{itemize}
+\end{enumerate}
 
+\Eg,
+\begin{align*}
+  {7\choose 3} &= \frac{7}{3!(7-3)!}\\
+  &= \frac{7}{3!~\cdot~4!}\\
+  &= \frac{7\cdot 6\cdot 5\cdot 4\cdot 3\cdot 2}{(3\cdot 2)(4\cdot 3\cdot 2)}\\  &= \frac{7\cdot \cancel{3}\cdot \cancel{2}
+    \cdot 5\cdot \cancel{2\cdot 2\cdot 3\cdot 2}}{(\cancel{3}\cdot \cancel{2})(\cancel{2\cdot 2\cdot 3\cdot 2})}\\
+  &= 7 \cdot 5\\
+  &= 35
+\end{align*}
+
+Compare the two functions both in terms of computation time, and also
+find values of $n\choose k$ which are computable by one function but
+not the other because of integer overflow.
 
 \subsection{Team Project: Structure Recognition}
 \label{sec.team.project.structures}
