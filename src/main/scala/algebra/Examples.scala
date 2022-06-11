@@ -1,6 +1,6 @@
 package algebra
 
-object ExampleGroups {
+object Examples {
   
   import algebra.AbstractAlgebraFinite._
 

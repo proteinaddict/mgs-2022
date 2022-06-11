@@ -18,7 +18,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import org.scalatest.funsuite.AnyFunSuite
-import algebra.ExampleGroups._
+import algebra.Examples._
 import algebra.AbstractAlgebraFinite._
 
 class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
