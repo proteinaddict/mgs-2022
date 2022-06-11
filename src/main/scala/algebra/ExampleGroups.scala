@@ -66,14 +66,6 @@ object ExampleGroups {
         case ("MX", "MXR90") => "R90"
         case ("MX", "MYR90") => "R270"
 
-        case ("MY", "R90")   => "MYR90"
-        case ("MY", "R180")  => "MX"
-        case ("MY", "R270")  => "MXR90"
-        case ("MY", "MX")    => "R180"
-        case ("MY", "MY")    => "R0"
-        case ("MY", "MXR90") => "R270"
-        case ("MY", "MYR90") => "R90"
-
         case ("MXR90", "R90")   => "MY"
         case ("MXR90", "R180")  => "MYR90"
         case ("MXR90", "R270")  => "MX"
