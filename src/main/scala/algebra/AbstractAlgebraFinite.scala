@@ -1,9 +1,17 @@
 package algebra
 
 object AbstractAlgebraFinite {
+  // TASK: determine whether the given element, e, is actually
+  //   the identity element for the set under the operation.
+  def isIdentity[T](e: T, s: Set[T], op: (T, T) => T): Boolean = {
+    ???
+  }
+
   // TASK: search the set s for an identity element,
   //    return None if no such element exists
-  //    otherwise return that element wrapped in Some(...)
+  //    otherwise, find e such that e is the identity,
+  //    then return Some(e).  This function should make use of
+  //    the isIdentity function.
   def findIdentity[T](s: Set[T], op: (T, T) => T): Option[T] = {
     // The identity is guaranteed to be unique if it exists.
     // Because if there are two identifies e1 and e2, then
@@ -12,14 +20,32 @@ object AbstractAlgebraFinite {
     ???
   }
 
-  // TASK: Given a set and binary operation, detect exhaustively
+  def hasIdentity[T](s: Set[T], op: (T, T) => T): Boolean = {
+    // Boolean to indicate whether or not the set has an identity
+    // element.
+    findIdentity(s, op) != None
+  }
+
+  // TASK:  Is the given set closed under the given operation?
+  //   I.e., is it true that for ever x and y in s, that
+  //   op(x,y) is also in s?
+  def isClosed[T](s: Set[T], op: (T, T) => T): Boolean = {
+    ???
+  }
+
+  // TASK: is it true that for all a, b, and c in s, that
+  //   op(op(a, b), c) == op(a, op(b, c))?
+  def isAssociative[T](s: Set[T], op: (T, T) => T): Boolean = {
+    ???
+  }
+
+  // Given a set and binary operation, detect exhaustively
   //   whether it is a monoid.  I.e., check all possible cases
   //   of the monoid axioms.
   def isMonoid[T](s: Set[T], op: (T, T) => T): Boolean = {
-    // has identity ?
-    // is closed ?
-    // is associative ?
-    ???
+    isClosed(s, op) &&
+    isAssociative(s, op) &&
+    hasIdentity(s, op)
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
@@ -39,25 +65,25 @@ object AbstractAlgebraFinite {
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a ring.  I.e., check all possible cases
-  //   of the ring axioms.  make use of the isGroup, isAbelian, and isMonoid
-  //   functions.
+  //   of the ring axioms.  Make use of the isGroup, isAbelian, 
+  //   and isMonoid functions.
   def isRing[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
     // does addition make an Abelian group
     // does times make a monoid
-    // does distributive law work for ALL elements
+    // do (right and left) distributive laws work for ALL elements
     ???
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a field.  I.e., check all possible cases
-  //   of the field axioms.  make use of the isRing, isAbelian, and isGroup
+  //   of the field axioms.  Make use of the isRing, isAbelian, and isGroup
   //   functions.   Be careful, the set is not necessarily a group,
   //   you must test group-ness on the set minus the zero element, which
   //   you must find using the findIdentity function.
   def isField[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
-    // is times commutative
-    // is it a ring
-    // is times a ring if we remove the additive zero?
+    // Is times commutative?
+    // Is s ring using add and times?
+    // Is (s, add, times) a group if we exclude the zero (additive identity)?
     ???
   }
 }
