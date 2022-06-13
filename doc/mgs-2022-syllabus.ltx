@@ -913,6 +913,10 @@ then
 \item Make sure all the tests pass in \code{SetsAndFunctionsTestSuite.scala}.
 \end{itemize}
 
+%% TODO
+%% add chapter about exists/foreach, exercises already in slides
+
+
 \chapter{Abstract Algebra}
 
 \begin{figure}[h]
@@ -1034,7 +1038,6 @@ identity element: $e_1$ and $e_2$?  The answer is no, but why?
   then $e_1e_2 = e_1$. Thus
   \[e_1 = e_1e_2 = e_2\]
 \end{proof}
-
 
 \subsection{Examples of monoids}
 
@@ -1692,6 +1695,13 @@ the power of $|n|$.
   \code{fastPower}.
 \end{itemize}
 
+\subsection{Some new types}
+\begin{itemize}
+\item \code{Option[T]}, \code{Some(x)}, \code{None}
+\item \code{Map[S,T]}
+\item Tuples \code{(S,T)}
+\end{itemize}
+
 \subsection{Higher order functions}
 You will need functions like this to implement the Team Project in Section~\ref{sec.team.project.structures}.
 
@@ -1701,7 +1711,7 @@ given input value.
 
 \begin{itemize}
 \item \code{find} --- find an element of a collection (if such exists)
-  which satisfies a given predicate.
+  which satisfies a given predicate.  \code{Option[T]}
 \item \code{forall} --- does every element of a collection satisfy a
   given predicate.  Remember the collection might be empty.
 \item \code{exists} --- does at least one element of a sequence
