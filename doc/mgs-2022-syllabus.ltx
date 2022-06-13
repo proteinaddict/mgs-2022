@@ -885,7 +885,7 @@ then
 
 
 \subsection{Fibonacci numbers}
-
+\label{sec.fibonacci.numbers}
 \begin{itemize}
 \item Find the file \code{Fibonacci.scala}
 \item Implement a recursive function such that given $n$, the function
@@ -1866,21 +1866,26 @@ not the other because of integer overflow.
   the \emph{slow} way, you compute by $m-1$ consecutive
   multiplications, e.g., using a recursive function.
 
-\item Test your code using \code{scalatest}. In the test case,
-  multiply the slow way and assert that the result is the same as
-  \code{matrixPower}.  Can you experimentally determine the time
-  needed to raise a large $m\times m$ matrix to the $n$th power
-  using the two algorithms?  To find out how to compute the time spent
-  in a scala function, do an internet search.
+%% \item Test your code using \code{scalatest}. In the test case,
+%%   multiply the slow way and assert that the result is the same as
+%%   \code{matrixPower}.  Can you experimentally determine the time
+%%   needed to raise a large $m\times m$ matrix to the $n$th power
+%%   using the two algorithms?  To find out how to compute the time spent
+%%   in a scala function, do an internet search.
   
 \item Use the \code{matrixPower} function to compute any three
   consecutive Fibonacci numbers: $F_{n-1}$, $F_{n}$, and $F_{n+1}$,
   \[\begin{bmatrix}1&1\\1&0\end{bmatrix}^n = \begin{bmatrix}F_{n+1}&F_n\\F_n&F_{n-1}\end{bmatrix}\]
   Do these results agree with those you computed in unit 1?
   
-\item You now have three ways to compute Fibonacci numbers.  
+\item In Section~\ref{sec.fibonacci.numbers}, you computing
+  Fibonacci number using an exponentially complex algorithm.
+  Now you have a way which you suspect is more efficient (faster).
   Devise an experiment to determine which of the approaches is
-  faster in terms of execution time?
+  faster in terms of execution time?  Hint, you may need to contstruct
+  a loop to do the same computation 100 times or 1000 times, and the
+  divide the total time by 100 or 1000 to compute the average time
+  per computation.
 \end{itemize}
 
 
