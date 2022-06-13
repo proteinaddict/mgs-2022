@@ -101,22 +101,46 @@ object Matrix {
     matrixTabulate(dimension(m), (row, col) => m(col)(row))
   }
 
-  def matrixPower(m: MATRIX, p: Int): MATRIX = {
+  def matrixSlowPower(m: MATRIX, p: Int): MATRIX = {
     if (p == 0)
       matrixIdentity(dimension(m))
     else if (p == 1)
       m
-    else if (p % 2 == 0) { // even
-      val tmp = matrixPower(m, p / 2)
-      matrixMultiply(tmp, tmp)
-    } else
-      matrixMultiply(m, matrixPower(m, p - 1))
+    else
+      matrixMultiply(m, matrixSlowPower(m, p - 1))
+  }
+
+  // TASK -- use the fast power algorithm from the lecture
+  //   to implement matrixPower.  You want to raise MATRIX m,
+  //   to the p'th power using log(m) many multiplications.
+  def matrixPower(m: MATRIX, p: Int): MATRIX = {
+    if (p == 0)
+      ???
+    else if (p == 1)
+      ???
+    else if (p % 2 == 0) { // p is even
+      ???
+    } else // p is odd
+      ???
   }
 
   def matrixAlmostEqual(a: MATRIX, b: MATRIX, epsilon: Double): Boolean = {
-    ???
+    val dim = dimension(a)
+    import scala.math.abs
+    (0 until dim).forall { row =>
+      (0 until dim).forall { col =>
+        abs(a(row)(col) - b(row)(col)) <= epsilon
+      }
+    }
   }
 
+  // TASK -- Compute the n-1, n, n+1 Fibonacci numbers by
+  //   computing some matrix raised to the nth power.
+  //   The matrix is
+  //       [1.0 1.0
+  //        1.0 0.0]
+  //   When you use matrixPower you'll get a matrix of Double,
+  //   so you'll need to round these back to integers.
   def threeConsecutiveFibonacci(n: Int): (Int, Int, Int) = {
     ???
   }

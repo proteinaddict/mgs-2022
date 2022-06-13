@@ -52,6 +52,17 @@ class MatrixTestSuite extends munit.FunSuite {
       ) == Vector(Vector(-4, -1, 3), Vector(-8, 2, 1), Vector(1, 0, 3))
     )
   }
+  
+  test("matrix slow power"){
+     for {
+      p <- 1 to 6
+      dim <- 3 to 5
+      _ <- 0 to 1000
+      m = matrixRandom(dim)
+      p1 = matrixPower(m,p)
+      p2 = matrixSlowPower(m,p)
+     } assert(matrixAlmostEqual(p1,p2,0.01))
+  }
 
   test("matrixPower") {
     for {
@@ -66,11 +77,6 @@ class MatrixTestSuite extends munit.FunSuite {
         matrixPower(m, k)
       )
     } assert(matrixAlmostEqual(p1, p2, 0.01))
-  }
-
-  test("i*i = -1") {
-
-    // ??? // how can you test that i*i == -1
   }
 
   test("matrix addition commutative") {
