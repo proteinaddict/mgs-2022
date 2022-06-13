@@ -21,7 +21,7 @@ import org.scalatest.funsuite.AnyFunSuite
 import algebra.Examples._
 import algebra.AbstractAlgebraFinite._
 
-class AbstractAlgebraFiniteTestSuite extends AnyFunSuite {
+class AbstractAlgebraFiniteTestSuite extends munit.FunSuite {
   test("monoid") {
     assert(isMonoid(kleinGroup._1, kleinGroup._2))
     assert(isMonoid(rotationGroup._1, rotationGroup._2))
