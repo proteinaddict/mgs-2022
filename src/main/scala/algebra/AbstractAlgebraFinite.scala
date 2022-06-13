@@ -27,7 +27,7 @@ object AbstractAlgebraFinite {
   //   of the group axioms.   Make use of the isMonoid function.
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
     // is monoid?
-    // every element has identity
+    // every element has inverse?
     ???
   }
 

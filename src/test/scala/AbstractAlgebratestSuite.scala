@@ -95,7 +95,9 @@ class AbstractAlgebraTestSuite extends AnyFunSuite {
          a = matrixRandom(n)
          b = matrixRandom(n)
          c = matrixRandom(n)
-         } assert(matrixAdd(a, matrixAdd(b, c)) == matrixAdd(matrixAdd(a, b), c))
+         } assert(matrixAlmostEqual(matrixAdd(a, matrixAdd(b, c)),
+                                    matrixAdd(matrixAdd(a, b), c),
+                                    0.001))
   }
 
   test("matrix multiplication associative") {
@@ -104,7 +106,9 @@ class AbstractAlgebraTestSuite extends AnyFunSuite {
          a = matrixRandom(n)
          b = matrixRandom(n)
          c = matrixRandom(n)
-         } assert(matrixMultiply(a, matrixMultiply(b, c)) == matrixMultiply(matrixMultiply(a, b), c))
+         } assert(matrixAlmostEqual(matrixMultiply(a, matrixMultiply(b, c)),
+                                    matrixMultiply(matrixMultiply(a, b), c),
+                                    0.0001))
   }
 
   test("complex multiplication commutative") {
