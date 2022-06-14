@@ -20,7 +20,8 @@ object AbstractAlgebraFinite {
     // Because if there are two identifies e1 and e2, then
     // op(e1,e2)=e1 and op(e1,e2)=e2, by definition of identity.
     // so e1=e2.
-    ???
+    s.find{x => isIdentity(x, s, op)}
+
   }
 
   def hasIdentity[T](s: Set[T], op: (T, T) => T): Boolean = {
@@ -74,8 +75,21 @@ object AbstractAlgebraFinite {
     // does addition make an Abelian group
     // does times make a monoid
     // do (right and left) distributive laws work for ALL elements
-    ???
-  }
+    if (isAbelian(s, add) == false)
+     false
+    else if (isMonoid(s, times) == false)
+     false
+    else
+       (s.forall {
+          x => s.forall{
+            y => s.forall{
+              z => times(x, add(y,z)) == add(times(x, y), times(x, z)) &&
+                   times(add(y,z), x) == add(times(y, x), times(z, x))
+            }
+          }
+       }
+      ) 
+    }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a field.  I.e., check all possible cases
