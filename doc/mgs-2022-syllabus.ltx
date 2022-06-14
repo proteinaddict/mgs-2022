@@ -1808,7 +1808,7 @@ Write function to compute this quanity two different ways.
   prime factors.  \Ie,
   \begin{itemize}
   \item implement a function which, given $n$, uses
-    recursion to implement a function returns the prime factors of $n$.
+    recursion to compute and return the list of prime factors of $n$.
   \item Use that function to implement a function which, given $n$, returns
     the prime factors of $n!$.
   \item Effectively perform the division by
@@ -1854,17 +1854,13 @@ not the other because of integer overflow.
 \item Implement matrix arithematic functions: add, scale, subtract,
   multiply, identity, etc..
   
-\item Implement fast monoid multiply for matrices:
+\item Implement power multiply for matrices:
   \code{matrixPower}.  Do this in two different ways: by repeated
   multiplication (compute $M^n$ as a result of $n-1$
-  multiplications), and again using \code{fastPower}.  How do you
-  specify the monoidic arguments (multiplication and unit) for
-  \code{matrixPower} using \code{fastPower}.
+  multiplications), and again using the fast power algorithm.
   
 \item Can you devise a way to test whether \code{fastPower} is really
-  faster than \code{slowPower}? To compute a power of matrix $m$
-  the \emph{slow} way, you compute by $m-1$ consecutive
-  multiplications, e.g., using a recursive function.
+  faster?
 
 %% \item Test your code using \code{scalatest}. In the test case,
 %%   multiply the slow way and assert that the result is the same as
