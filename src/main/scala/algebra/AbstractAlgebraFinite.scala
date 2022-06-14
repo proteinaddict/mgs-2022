@@ -4,9 +4,9 @@ object AbstractAlgebraFinite {
   // TASK: determine whether the given element, e, is actually
   //   the identity element for the set under the operation.
   def isIdentity[T](e: T, s: Set[T], op: (T, T) => T): Boolean = {
-    s.forall{x => //e + x == x + e == x
-      op(e,x) == x &&
-      op(x,e) == x
+    s.forall { x => // e + x == x + e == x
+      op(e, x) == x &&
+      op(x, e) == x
     }
   }
 
@@ -63,12 +63,16 @@ object AbstractAlgebraFinite {
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether the operation is commutative
   def isAbelian[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { x =>
+      s.forall { y =>
+        op(x, y) == op(y, x)
+      }
+    }
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a ring.  I.e., check all possible cases
-  //   of the ring axioms.  Make use of the isGroup, isAbelian, 
+  //   of the ring axioms.  Make use of the isGroup, isAbelian,
   //   and isMonoid functions.
   def isRing[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
     // does addition make an Abelian group
