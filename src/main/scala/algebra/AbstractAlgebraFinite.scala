@@ -4,7 +4,10 @@ object AbstractAlgebraFinite {
   // TASK: determine whether the given element, e, is actually
   //   the identity element for the set under the operation.
   def isIdentity[T](e: T, s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { x => // e + x == x + e == x
+      op(e, x) == x &&
+      op(x, e) == x
+    }
   }
 
   // TASK: search the set s for an identity element,
@@ -38,9 +41,14 @@ object AbstractAlgebraFinite {
   // TASK: is it true that for all a, b, and c in s, that
   //   op(op(a, b), c) == op(a, op(b, c))?
   def isAssociative[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { a =>
+      s.forall { b =>
+        s.forall { c =>
+          op(op(a, b), c) == op(a, op(b, c))
+        }
+      }
+    }
   }
-
   // Given a set and binary operation, detect exhaustively
   //   whether it is a monoid.  I.e., check all possible cases
   //   of the monoid axioms.
@@ -55,14 +63,22 @@ object AbstractAlgebraFinite {
   //   of the group axioms.   Make use of the isMonoid function.
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
     // is monoid?
-    // every element has inverse?
-    ???
+    // every element has identity
+
+    isMonoid(s, op) && {
+      val id = findIdentity(s, op).get
+      s.forall { x => s.exists { y => op(x, y) == id } }
+    }
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether the operation is commutative
   def isAbelian[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { x =>
+      s.forall { y =>
+        op(x, y) == op(y, x)
+      }
+    }
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
