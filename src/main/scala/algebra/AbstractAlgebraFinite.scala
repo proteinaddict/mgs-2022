@@ -4,7 +4,10 @@ object AbstractAlgebraFinite {
   // TASK: determine whether the given element, e, is actually
   //   the identity element for the set under the operation.
   def isIdentity[T](e: T, s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall{x => //e + x == x + e == x
+      op(e,x) == x &&
+      op(x,e) == x
+    }
   }
 
   // TASK: search the set s for an identity element,
@@ -83,7 +86,7 @@ object AbstractAlgebraFinite {
   def isField[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
     // Is times commutative?
     // Is s ring using add and times?
-    // Is (s, add, times) a group if we exclude the zero (additive identity)?
+    // Is (s, times) a group if we exclude the zero (additive identity)?
     ???
   }
 }
