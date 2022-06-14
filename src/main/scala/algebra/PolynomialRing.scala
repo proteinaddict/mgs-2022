@@ -13,7 +13,7 @@ object PolynomialRing {
   val polyZero: POLY = Map().withDefaultValue(0.0) // ???
 
   def polyToString(p: POLY): String = {
-    if (p.keys.forall { k => p(k) == 0 })
+    if (p.keys.forall { k => p(k) == 0.0 })
       "0"
     else {
       val terms = for {

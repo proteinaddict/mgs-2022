@@ -163,5 +163,18 @@ object Matrix {
     println(matrixToString(matrixSubtract(m, m)))
     println(matrixToString(matrixMultiply(m, p)))
     println(matrixToString(matrixMultiply(p, matrixIdentity(3))))
+    for {
+      dim <- 70 to 100 by 5
+      p <- 40 to 70 by 10
+    } {
+      val m = matrixRandom(dim, -1.0, 1.0)
+      val t0 = System.nanoTime()
+      val p1 = matrixPower(m, p)
+      val t1 = System.nanoTime()
+      val p2 = matrixSlowPower(m, p)
+      val t2 = System.nanoTime()
+      println(s"dim=$dim p=$p  fast time: " + (t1 - t0) / 1000 + "us")
+      println(s"dim=$dim p=$p  slow time: " + (t2 - t1) / 1000 + "us")
+    }
   }
 }
