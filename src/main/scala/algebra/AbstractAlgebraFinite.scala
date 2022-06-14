@@ -28,8 +28,13 @@ object AbstractAlgebraFinite {
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
     // is monoid?
     // every element has identity
-    ???
+    
+  isMonoid(s, op) &&
+  s.forall{x => s.exists{y => op(x, y) == }
+
+  
   }
+  
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether the operation is commutative
