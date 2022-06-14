@@ -30,7 +30,9 @@ object AbstractAlgebraFinite {
   //   I.e., is it true that for ever x and y in s, that
   //   op(x,y) is also in s?
   def isClosed[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall(a => 
+     s.forall(b =>
+       s.contains(op(a, b))))
   }
 
   // TASK: is it true that for all a, b, and c in s, that
@@ -84,6 +86,15 @@ object AbstractAlgebraFinite {
     // Is times commutative?
     // Is s ring using add and times?
     // Is (s, add, times) a group if we exclude the zero (additive identity)?
-    ???
+    if (!(hasIdentity(s, add)))
+      false
+    else {
+      val id = findIdentity(s, add).get
+      val neogroup = s - id
+      isRing(s, add, times) &&
+      isAbelian(s, times) &&
+      isGroup(neogroup, times) &&
+      isAbelian(neogroup, times)
+    }
   }
 }
