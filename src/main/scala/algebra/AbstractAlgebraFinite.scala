@@ -65,7 +65,7 @@ object AbstractAlgebraFinite {
 
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether it is a ring.  I.e., check all possible cases
-  //   of the ring axioms.  Make use of the isGroup, isAbelian, 
+  //   of the ring axioms.  Make use of the isGroup, isAbelian,
   //   and isMonoid functions.
   def isRing[T](s: Set[T], add: (T, T) => T, times: (T, T) => T): Boolean = {
     // does addition make an Abelian group
