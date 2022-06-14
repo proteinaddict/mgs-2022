@@ -44,6 +44,6 @@ object Power {
   }
 
   def main(argv: Array[String]): Unit = {
-      println(power(3.0,-3))
+
   }
 }

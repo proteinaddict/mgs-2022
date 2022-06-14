@@ -61,8 +61,12 @@ object AbstractAlgebraFinite {
   //   of the group axioms.   Make use of the isMonoid function.
   def isGroup[T](s: Set[T], op: (T, T) => T): Boolean = {
     // is monoid?
-    // every element has inverse?
-    ???
+    // every element has identity
+
+    isMonoid(s, op) && {
+      val id = findIdentity(s, op).get
+      s.forall { x => s.exists { y => op(x, y) == id } }
+    }
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
