@@ -10,24 +10,6 @@ object Matrix {
     m.size
   }
 
-  // generate a matrix of the specified dimension, with each
-  //  element within the matrix a number between the given upper
-  //  and lower bounds.
-  def matrixRandom(
-      dim: Int,
-      lower: Double = -10.0,
-      upper: Double = 10.0
-  ): MATRIX = {
-    import scala.util.Random
-    val rand = new Random()
-    assert(dim >= 0)
-    Vector.tabulate(dim) { row =>
-      Vector.tabulate(dim) { col =>
-        rand.between(lower, upper)
-      }
-    }
-  }
-
   // To print a MATRIX we must convert it to a string, and print that string.
   // This function converts the MATRIX to a string which will be printed in
   // a format such as:
@@ -48,6 +30,20 @@ object Matrix {
         tabulate(row, col)
       }
     }
+  }
+
+  // generate a matrix of the specified dimension, with each
+  //  element within the matrix a number between the given upper
+  //  and lower bounds.
+  def matrixRandom(
+      dim: Int,
+      lower: Double = -10.0,
+      upper: Double = 10.0
+  ): MATRIX = {
+    import scala.util.Random
+    val rand = new Random()
+    assert(dim >= 0)
+    matrixTabulate(dim, (row, col) => rand.between(lower, upper))
   }
 
   // create a new square MATRIX of dimension dim
