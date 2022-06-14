@@ -2,24 +2,20 @@ package functions
 
 object Factors {
 
-  def factor1(n: Int, k: Int, done: List[Int]): List[Int] = {
-    if (n == 1)
-      done
-    else if (n % k == 0)
-      factor1(n / k, k, k :: done)
-    else
-      factor1(n, k + 1, done)
+  def factorSearch(n: Int, k: Int, done: List[Int]): List[Int] = {
+    // recursively find factors of n, each time a factor is
+    // found, prepend k onto done, if factor not found, 
+    // increment k
+    ???
   }
 
   def factors(n: Int): List[Int] = {
-    factor1(n, 2, List())
+    ???
   }
 
   def factorsOfFactorial(n: Int): List[Int] = {
-    for {
-      k <- (2 to n).toList
-      f <- factors(k)
-    } yield f
+    // return a list of the factors of n!
+    ???
   }
 
   def cancel(
@@ -27,23 +23,14 @@ object Factors {
       dFactors: List[Int],
       qFactors: List[Int]
   ): List[Int] = {
-    if (dFactors == List())
-      qFactors ++ nFactors
-    else if (nFactors.head == dFactors.head)
-      cancel(nFactors.tail, dFactors.tail, qFactors)
-    else
-      cancel(nFactors.tail, dFactors, nFactors.head :: qFactors)
+    ???
   }
 
   def choose(n: Int, k: Int): Int = {
-    val nFactors = factorsOfFactorial(n).sorted
-    val dFactors = (factorsOfFactorial(k) ++ factorsOfFactorial(n - k)).sorted
-
-    //println(s"n=$nFactors")
-    //println(s"d=$dFactors")
-    val numCombinations = cancel(nFactors, dFactors, List())
-    //println(numCombinations)
-    numCombinations.product
+    // compute number of combinations of n things taken k at a time.
+    // we do this by expanding all the factors and canceling,
+    // finally multiplying the reduced numerator
+    ???
   }
 
   def main(argv: Array[String]): Unit = {
