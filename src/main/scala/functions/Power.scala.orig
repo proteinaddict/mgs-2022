@@ -11,6 +11,7 @@ object Power {
   //
   def power(b: Int, n: Int): Int = {
     if (n == 0)
+
       1
     else
       b * power(b, n - 1)

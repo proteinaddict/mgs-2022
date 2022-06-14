@@ -13,6 +13,7 @@ object CountSubsets {
   }
 
   // We implement this function in the lecture.
+
   def fixedSizedSubsets[T](n: Int, objects: Set[T]): Set[Set[T]] = {
     if (n == 0)
       Set(Set())
