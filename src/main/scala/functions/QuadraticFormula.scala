@@ -43,6 +43,5 @@ object QuadraticFormula {
 
   def main(argv: Array[String]): Unit = {
     println("Hello this is main of QuadraticFormula")
-
   }
 }

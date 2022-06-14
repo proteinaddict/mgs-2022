@@ -39,9 +39,14 @@ object AbstractAlgebraFinite {
   // TASK: is it true that for all a, b, and c in s, that
   //   op(op(a, b), c) == op(a, op(b, c))?
   def isAssociative[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { a =>
+      s.forall { b =>
+        s.forall { c =>
+          op(op(a, b), c) == op(a, op(b, c))
+        }
+      }
+    }
   }
-
   // Given a set and binary operation, detect exhaustively
   //   whether it is a monoid.  I.e., check all possible cases
   //   of the monoid axioms.
@@ -67,7 +72,11 @@ object AbstractAlgebraFinite {
   // TASK: Given a set and binary operation, detect exhaustively
   //   whether the operation is commutative
   def isAbelian[T](s: Set[T], op: (T, T) => T): Boolean = {
-    ???
+    s.forall { x =>
+      s.forall { y =>
+        op(x, y) == op(y, x)
+      }
+    }
   }
 
   // TASK: Given a set and binary operation, detect exhaustively
