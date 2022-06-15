@@ -20,5 +20,31 @@ object Recursion {
     ???
   }
 
-  def main(argv: Array[String]): Unit = {}
+  def removeFromList[T](items: List[T], deleteMe: T): List[T] = {
+    ???
+  }
+
+  def removeOnce[T](items: List[T], deleteMe: T): List[T] = {
+    ???
+  }
+
+  val students = List(
+    "Drew",
+    "Thomas",
+    "Jasmine",
+    "Gertrude",
+    "Akhila",
+    "Jaeho",
+    "Gertrude",
+    "Cole",
+    "Gracyn",
+    "Gertrude",
+    "Rachele",
+    "Sydney"
+  )
+
+  def main(argv: Array[String]): Unit = {
+    println(removeOnce(students, "Gertrude"))
+
+  }
 }
