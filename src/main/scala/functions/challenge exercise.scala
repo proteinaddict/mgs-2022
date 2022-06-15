@@ -1,9 +1,10 @@
 package functions
-object challengeexercise{
+object challengeexercise {
 
-    def pythagoreantriples(a: Int, b: Int, c: Int): Int={
+  def pythagoreantriples(a: Int, b: Int, c: Int): Int = {
+    ???
+  }
 
- def main(argv: Array[String]): Unit = {
- }
-}
+  def main(argv: Array[String]): Unit = {
+  }
 }

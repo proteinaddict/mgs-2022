@@ -1,10 +1,10 @@
-package functions
+package convergence
 
 object Factors {
 
   def factorSearch(n: Int, k: Int, done: List[Int]): List[Int] = {
-    // recursively find factors of n, each time a factor is
-    // found, prepend k onto done, if factor not found, 
+    // recursively find factors of n, each time k is found to 
+    // be a factor is, prepend k onto done, if k not a factor,
     // increment k
     ???
   }
@@ -20,9 +20,9 @@ object Factors {
 
   def cancel(
       nFactors: List[Int],
-      dFactors: List[Int],
-      qFactors: List[Int]
+      dFactors: List[Int]
   ): List[Int] = {
+    import Recursion.removeOnce
     ???
   }
 
