@@ -16,7 +16,7 @@ object pythagoreanTriples {
   }
 
   def main(argv: Array[String]): Unit = {
-    println(triples(100))
+    println(triples(102))
     println(DefinedValues(2, 3, 4))
 
   }
